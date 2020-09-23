@@ -2,9 +2,10 @@ package ru.progwards.java1.SeaBattle.tvist;
 
 import ru.progwards.java1.SeaBattle.SeaBattle;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SeaBattleAlg {
+public class SeaBattleAlg<field> {
     // Тестовое поле создаётся конструктором
     //     SeaBattle seaBattle = new SeaBattle(true);
     //
@@ -31,12 +32,27 @@ public class SeaBattleAlg {
     //         8|X|.|.|.|.|.|.|X|.|.|
     //         9|X|.|.|.|X|.|.|.|.|.|
 
-    char field[][];
+    enum FieldArea {
+        MISS,
+        EMPTY,
+        BOAT,
+        LOCK
 
+    }
+    private static final int MINUS = 0b01;
+    private static final int PLUS = 0b10;
+
+    private static  boolean printFild = false;
+    char FieldArea [][];
+    SeaBattle seaBattle;
+    int direction;
+    private ArrayList<Ship> ships;
+    private static boolean shipDetectionMode = false;
+    private ArrayList<Coordinate> detectedShip;
     void init(SeaBattle seaBattle) {
-        field = new char[seaBattle.getSizeY()][seaBattle.getSizeX()];
+        FieldArea = new char[seaBattle.getSizeY()][seaBattle.getSizeX()];
         for (int i = 0; i < seaBattle.getSizeY(); i++) {
-            Arrays.fill(field[i], ' ');
+            Arrays.fill(FieldArea[i], ' ');
         }
     }
 
