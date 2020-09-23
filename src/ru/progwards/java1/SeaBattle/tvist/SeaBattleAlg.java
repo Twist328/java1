@@ -5,7 +5,8 @@ import ru.progwards.java1.SeaBattle.SeaBattle;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SeaBattleAlg<field> {
+public class SeaBattleAlg<field, Coordinate, Ship> {
+    private ArrayList<Object> ships;
     // Тестовое поле создаётся конструктором
     //     SeaBattle seaBattle = new SeaBattle(true);
     //
@@ -49,10 +50,14 @@ public class SeaBattleAlg<field> {
     private ArrayList<Ship> ships;
     private static boolean shipDetectionMode = false;
     private ArrayList<Coordinate> detectedShip;
+
     void init(SeaBattle seaBattle) {
+        this.seaBattle =seaBattle;
         FieldArea = new char[seaBattle.getSizeY()][seaBattle.getSizeX()];
         for (int i = 0; i < seaBattle.getSizeY(); i++) {
             Arrays.fill(FieldArea[i], ' ');
+            ships = new ArrayList<>();
+            detectedShip = new ArrayList<>();
         }
     }
 
