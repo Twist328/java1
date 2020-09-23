@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 public class SeaBattleAlg<field, Coordinate, Ship> {
     private ArrayList<Object> ships;
+    private Object field;
     // Тестовое поле создаётся конструктором
     //     SeaBattle seaBattle = new SeaBattle(true);
     //
@@ -47,19 +48,18 @@ public class SeaBattleAlg<field, Coordinate, Ship> {
     char FieldArea [][];
     SeaBattle seaBattle;
     int direction;
-    private ArrayList<Ship> ships;
+    //private ArrayList<Ship> ships;
     private static boolean shipDetectionMode = false;
     private ArrayList<Coordinate> detectedShip;
 
     void init(SeaBattle seaBattle) {
         this.seaBattle =seaBattle;
         FieldArea = new char[seaBattle.getSizeY()][seaBattle.getSizeX()];
-        for (int i = 0; i < seaBattle.getSizeY(); i++) {
-            Arrays.fill(FieldArea[i], ' ');
+        for (int i = 0; i < seaBattle.getSizeX(); i++)
+            Arrays.fill(new char[][]{FieldArea[i]}, "   ");
             ships = new ArrayList<>();
             detectedShip = new ArrayList<>();
         }
-    }
 
     public void battleAlgorithm(SeaBattle seaBattle) {
         // пример алгоритма:
