@@ -6,7 +6,7 @@ public class ArraySort {
 
     public static void main(String[] args) {
 
-        CompareWeight[] a = {new Duck(55.0), new Animal(49.0), new Cow(300.0),
+        CompareWeight[] a = {new Duck(5555.0), new Animal(49.0), new Cow(300.0),
                 new Hamster(3.3)};
 
         ArraySort.sort(a);
