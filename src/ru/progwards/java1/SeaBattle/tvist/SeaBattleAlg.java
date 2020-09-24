@@ -17,7 +17,7 @@ public class SeaBattleAlg<field, Coordinate, Ship> {
     //
     // Посомтреть результаты стрельбы можно в любой момент,
     // выведя объект класса SeaBattle на консоль. Например так:
-    //     System.out.println(seaBattle);1
+    //     System.out.println(seaBattle);
     //
     //
     // Вид тестового поля:
