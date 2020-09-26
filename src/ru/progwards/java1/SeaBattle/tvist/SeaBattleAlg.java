@@ -37,7 +37,7 @@ public class SeaBattleAlg {
     private static final int PLUS = 0b10; // стреляем в увеличение координаты
 
     SeaBattle seaBattle;
-    // ' ', '.', '*', X
+
     char field[][];
     int hits;
     boolean doPrint = true;
