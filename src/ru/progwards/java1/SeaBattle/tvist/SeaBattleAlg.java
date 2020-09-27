@@ -50,8 +50,8 @@ public class SeaBattleAlg {
     }
 
     void print() {
-       // if (!doPrint)
-            //return;
+        if (!doPrint)
+            return;
 
         for (int y = 0; y < seaBattle.getSizeX(); y++) {
             String str = "|";
@@ -168,7 +168,7 @@ public class SeaBattleAlg {
         return false;
     }
 
-    void lineKills(int temp) {
+    void deathСell(int temp) {
         for (int x = 0; x < seaBattle.getSizeY(); x++) {
             for (int y = x + temp; y < seaBattle.getSizeX(); y += 3)
                 fireAndKill(x, y);
@@ -179,12 +179,9 @@ public class SeaBattleAlg {
     }
 
     void variant2() {
-
-        lineKills(2);
-        lineKills(1);
-        lineKills(0);
-
-
+        deathСell(1);
+        deathСell(0);
+        deathСell(2);
     }
 
     void variant1() {
