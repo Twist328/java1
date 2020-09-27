@@ -131,6 +131,19 @@ public class SeaBattleAlg {
     }
 
     int direction;
+    private boolean killVertikal(int x, int y) {
+        boolean destroyed = false;
+        direction = PLUS | MINUS;
+        int i = 1;
+        do {
+            if((direction&PLUS) != 0)
+                destroyed = checkHit(fire(x, y+i), PLUS);
+            if((direction&MINUS) != 0)
+                destroyed = checkHit(fire(x, y-i), MINUS);
+            i++;
+        } while (direction != 0 || destroyed);
+        return destroyed;
+    }
     private boolean killkHorizontal(int x, int y) {
         boolean destroyed = false;
         direction = PLUS | MINUS;
@@ -145,19 +158,7 @@ public class SeaBattleAlg {
         return destroyed;
     }
 
-    private boolean killVertikal(int x, int y) {
-        boolean destroyed = false;
-        direction = PLUS | MINUS;
-        int i = 1;
-        do {
-            if((direction&PLUS) != 0)
-                destroyed = checkHit(fire(x, y+i), PLUS);
-            if((direction&MINUS) != 0)
-                destroyed = checkHit(fire(x, y-i), MINUS);
-            i++;
-        } while (direction != 0 || destroyed);
-        return destroyed;
-    }
+
 
     private boolean checkHit(FireResult result, int fireDirection) {
         switch (result) {
