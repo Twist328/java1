@@ -6,7 +6,7 @@ import ru.progwards.java1.SeaBattle.SeaBattle.FireResult;
 import java.util.Arrays;
 
 public class SeaBattleAlg {
-
+    int direction;
 
     // Тестовое поле создаётся конструктором
     //     SeaBattle seaBattle = new SeaBattle(true);
@@ -37,7 +37,6 @@ public class SeaBattleAlg {
     private static final int PLUS = 0b10; // стреляем в увеличение координаты
 
     SeaBattle seaBattle;
-    int direction;
     char field[][];
     int hits;
     boolean doPrint = true;
@@ -51,8 +50,8 @@ public class SeaBattleAlg {
     }
 
     void print() {
-        //if (!doPrint)
-          //  return;
+        if (!doPrint)
+            return;
 
         for (int y = 0; y < seaBattle.getSizeX(); y++) {
             String str = "|";
@@ -129,23 +128,6 @@ public class SeaBattleAlg {
         if (!killkHorizontal(x, y))
             killVertikal(x, y);
     }
-
-
-
-    private boolean killVertikal(int x, int y) {
-        boolean destroyed = false;
-        direction = PLUS | MINUS;
-        int i = 1;
-        do {
-            if ((direction & PLUS) != 0)
-                destroyed = checkHit(fire(x, y + i), PLUS);
-            if ((direction & MINUS) != 0)
-                destroyed = checkHit(fire(x, y - i), MINUS);
-            i++;
-        } while (direction != 0 || destroyed);
-        return destroyed;
-    }
-
     private boolean killkHorizontal(int x, int y) {
         boolean destroyed = false;
         direction = PLUS | MINUS;
@@ -159,7 +141,19 @@ public class SeaBattleAlg {
         } while (direction != 0 || destroyed);
         return destroyed;
     }
-
+    private boolean killVertikal(int x, int y) {
+        boolean destroyed = false;
+        direction = PLUS | MINUS;
+        int i = 1;
+        do {
+            if ((direction & PLUS) != 0)
+                destroyed = checkHit(fire(x, y + i), PLUS);
+            if ((direction & MINUS) != 0)
+                destroyed = checkHit(fire(x, y - i), MINUS);
+            i++;
+        } while (direction != 0 || destroyed);
+        return destroyed;
+    }
 
     private boolean checkHit(FireResult result, int fireDirection) {
         switch (result) {
@@ -186,9 +180,9 @@ public class SeaBattleAlg {
 
     void algorithm3() {
 
-        stepFire(2);
         stepFire(1);
         stepFire(0);
+        stepFire(2);
 
     }
 
@@ -205,15 +199,16 @@ public class SeaBattleAlg {
     public void battleAlgorithm(SeaBattle seaBattle) {
         init(seaBattle);
         doPrint = false;
-        algorithm3();
+        algorithm1();
+
     }
 
     // функция для отладки
     public static void main(String[] args) {
         System.out.println("Sea battle");
-        SeaBattle seaBattle = new SeaBattle(true);
-        new SeaBattleAlg().battleAlgorithm(seaBattle);
-        System.out.println(seaBattle.getResult());
+       // SeaBattle seaBattle = new SeaBattle(true);
+       // new SeaBattleAlg().battleAlgorithm(seaBattle);
+       // System.out.println(seaBattle.getResult());
         test();
     }
 
