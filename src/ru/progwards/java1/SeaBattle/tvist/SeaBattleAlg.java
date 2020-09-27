@@ -7,7 +7,8 @@ import java.util.Arrays;
 
 public class SeaBattleAlg {
     int direction;
-
+    private static final int RITE = 0b01; //-
+    private static final int LEFT = 0b10; //+
     // Тестовое поле создаётся конструктором
     //     SeaBattle seaBattle = new SeaBattle(true);
     //
@@ -33,8 +34,7 @@ public class SeaBattleAlg {
     //         7|X|.|X|.|.|.|.|Х|.|X|
     //         8|X|.|.|.|.|.|.|X|.|.|
     //         9|X|.|.|.|X|.|.|.|.|.|
-    private static final int MINUS = 0b01; // стреляем в уменьшение координаьы
-    private static final int PLUS = 0b10; // стреляем в увеличение координаты
+
 
     SeaBattle seaBattle;
     char field[][];
@@ -50,8 +50,8 @@ public class SeaBattleAlg {
     }
 
     void print() {
-        if (!doPrint)
-            return;
+       // if (!doPrint)
+            //return;
 
         for (int y = 0; y < seaBattle.getSizeX(); y++) {
             String str = "|";
@@ -130,26 +130,26 @@ public class SeaBattleAlg {
     }
     private boolean killkHorizontal(int x, int y) {
         boolean destroyed = false;
-        direction = PLUS | MINUS;
+        direction = RITE | LEFT;
         int i = 1;
         do {
-            if ((direction & PLUS) != 0)
-                destroyed = checkHit(fire(x + i, y), PLUS);
-            if ((direction & MINUS) != 0)
-                destroyed = checkHit(fire(x - i, y), MINUS);
+            if ((direction & LEFT) != 0)
+                destroyed = checkHit(fire(x + i, y), LEFT);
+            if ((direction & RITE) != 0)
+                destroyed = checkHit(fire(x - i, y), RITE);
             i++;
         } while (direction != 0 || destroyed);
         return destroyed;
     }
     private boolean killVertikal(int x, int y) {
         boolean destroyed = false;
-        direction = PLUS | MINUS;
+        direction = RITE | LEFT;
         int i = 1;
         do {
-            if ((direction & PLUS) != 0)
-                destroyed = checkHit(fire(x, y + i), PLUS);
-            if ((direction & MINUS) != 0)
-                destroyed = checkHit(fire(x, y - i), MINUS);
+            if ((direction & LEFT) != 0)
+                destroyed = checkHit(fire(x, y + i), LEFT);
+            if ((direction & RITE) != 0)
+                destroyed = checkHit(fire(x, y - i), RITE);
             i++;
         } while (direction != 0 || destroyed);
         return destroyed;
@@ -168,25 +168,26 @@ public class SeaBattleAlg {
         return false;
     }
 
-    void stepFire(int offset) {
-        for (int y = 0; y < seaBattle.getSizeY(); y++) {
-            for (int x = y + offset; x < seaBattle.getSizeX(); x += 3)
+    void lineKills(int temp) {
+        for (int x = 0; x < seaBattle.getSizeY(); x++) {
+            for (int y = x + temp; y < seaBattle.getSizeX(); y += 3)
                 fireAndKill(x, y);
 
-            for (int x = y - offset; x >= 0; x -= 3)
+            for (int y = x - temp; y >= 0; y -= 3)
                 fireAndKill(x, y);
         }
     }
 
-    void algorithm3() {
+    void variant3() {
 
-        stepFire(1);
-        stepFire(0);
-        stepFire(2);
+        lineKills(2);
+        lineKills(1);
+        lineKills(0);
+
 
     }
 
-    void algorithm1() {
+    void variant1() {
         // пример алгоритма:
         // стрельба по всем квадратам поля полным перебором
         for (int y = 0; y < seaBattle.getSizeX(); y++) {
@@ -199,7 +200,7 @@ public class SeaBattleAlg {
     public void battleAlgorithm(SeaBattle seaBattle) {
         init(seaBattle);
         doPrint = false;
-        algorithm1();
+        variant3();
 
     }
 
