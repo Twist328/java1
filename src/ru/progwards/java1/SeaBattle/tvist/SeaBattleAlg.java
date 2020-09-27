@@ -178,7 +178,7 @@ public class SeaBattleAlg {
         }
     }
 
-    void variant3() {
+    void variant2() {
 
         lineKills(2);
         lineKills(1);
@@ -200,7 +200,7 @@ public class SeaBattleAlg {
     public void battleAlgorithm(SeaBattle seaBattle) {
         init(seaBattle);
         doPrint = false;
-        variant3();
+        variant2();
 
     }
 
