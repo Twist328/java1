@@ -1,12 +1,9 @@
 package ru.progwards.java1.lessons.bigints;
 
-import Tvist328.Calculator;
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class BigAlgebra {
-    int fibonaccinext;
 
     public BigAlgebra() {
     }
