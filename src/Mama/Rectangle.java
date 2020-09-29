@@ -1,7 +1,8 @@
 package Mama;
 
 import java.math.BigDecimal;
- static class Rectangle {
+
+class Rectangle {
     Rectangle(BigDecimal a, BigDecimal b) {
         this.a = a;
         this.b = b;
@@ -9,14 +10,22 @@ import java.math.BigDecimal;
     public  BigDecimal a;
     public  BigDecimal b;
 
+    public Rectangle(int a, int b) {
+
+    }
+
+    public Rectangle() {
+
+    }
+
     @Override
     public String toString() {
         return "Rectangle{" + "a=" + a + ", b=" + b + '}';
     }
-    boolean rectCompare(Rectangle r1, Rectangle r2) {
+     boolean rectCompare(Rectangle r1, Rectangle r2) {
         BigDecimal s1 = r1.a.multiply(r1.b);
         BigDecimal s2 = r2.a.multiply(r2.b);
-        return s1.compareTo(s2) == 0;
+        return s1.compareTo(s2) ==0;
     }
 
     public static void main(String[] args) {
@@ -24,8 +33,10 @@ import java.math.BigDecimal;
         Rectangle r2 = new Rectangle(BigDecimal.valueOf(1.0), BigDecimal.TEN);
         System.out.println(r1);
         System.out.println (r2);
-
+        System.out.println ((new Rectangle(BigDecimal.ONE, BigDecimal.TEN).equals(new Rectangle(BigDecimal.valueOf(1.0), BigDecimal.TEN))));
     }
+
+
 }
 
 
