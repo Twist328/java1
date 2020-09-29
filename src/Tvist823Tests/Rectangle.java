@@ -1,8 +1,12 @@
 package Tvist823Tests;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
-class Rectangle { //СРАВНЕНИЕ ПРЯМОУГОЛЬНИКОВ ПО ПЛОЩАДИ ЧЕРЕЗ ФУНКЦИЮ ПЕРЕОПРЕДЕЛЕНИЯ equals и hashCode()
+class Rectangle {
+    public static Rectangle r1; //СРАВНЕНИЕ ПРЯМОУГОЛЬНИКОВ ПО ПЛОЩАДИ ЧЕРЕЗ ФУНКЦИЮ ПЕРЕОПРЕДЕЛЕНИЯ equals и hashCode()
+
+
 
     private double a;
     private double b;
@@ -10,6 +14,9 @@ class Rectangle { //СРАВНЕНИЕ ПРЯМОУГОЛЬНИКОВ ПО ПЛ�
     public Rectangle(double a, double b) {
         this.a = a;
         this.b = b;
+    }
+
+    public Rectangle(BigDecimal one, BigDecimal ten) {
     }
 
     public double area() {
@@ -23,7 +30,7 @@ class Rectangle { //СРАВНЕНИЕ ПРЯМОУГОЛЬНИКОВ ПО ПЛ�
         if (o == null || getClass() != o.getClass()) return false;
         Rectangle rectangle = (Rectangle) o;
 
-        return Double.compare(rectangle.a, a) >= 0 &&
+        return Double.compare(rectangle.a, b) >= 0 &&
                 Double.compare(rectangle.b, b) <= 0 ;
 
     }
@@ -50,6 +57,9 @@ class Rectangle { //СРАВНЕНИЕ ПРЯМОУГОЛЬНИКОВ ПО ПЛ�
         System.out.println(Objects.hash(0, 0));
     }
 
+    public int getArea() {
+        return 0;
+    }
 }
 
 
