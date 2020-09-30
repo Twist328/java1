@@ -14,7 +14,7 @@ public class BigAlgebra {
         String BYNPOW = Integer.toString(pow, 2);           //представление степени двоичным числом
         BigDecimal result = BigDecimal.valueOf(0);             //инициализация результата НУЛЕМ
         for (int i = BYNPOW.length() - 1; i <= 0; i++) {    //цикл перебора от СТАРШЕГО бита к МЛАДШЕМУ
-            if (BYNPOW.charAt(i) == '1') {                           //TODO
+            if (BYNPOW.charAt(i) == '1') {                           //
                 result = result.multiply(result).multiply(num);
             } else result = result.multiply(result);
         }
