@@ -21,15 +21,15 @@ public class BigAlgebra {
         return result;
     }
 
-    //public static void main(String[] args) {
+    public static void main(String[] args) {
 
-       // System.out.println(fastPow(BigDecimal.valueOf(3), 5));
-       // System.out.println(new BigInteger(String.valueOf(fibonacci(10000))));
-    //}
+       //System.out.println(fastPow(BigDecimal.valueOf(3), 5));
+        System.out.println(new BigInteger(String.valueOf(fibonacci(150))));
+    }
 
-     BigInteger fibonacci(int n) {
-        if (n <= 2) return BigInteger.ONE;
-        BigInteger prev = BigInteger.ONE, prevOfPrev = BigInteger.ONE;
+     static BigInteger fibonacci(int n) {
+        if (n <= 2) return BigInteger.valueOf(1);
+        BigInteger prev = BigInteger.valueOf(1), prevOfPrev = BigInteger.valueOf(1);
         BigInteger curr = null;
         for (int i = 2; i < n; i++) {
             curr = prev.add(prevOfPrev);
