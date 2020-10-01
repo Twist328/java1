@@ -5,7 +5,7 @@ package ru.progwards.java1.lessons.bigints;
      }
 
      static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-         AbsInteger absInteger =num1.add(num2);
+         AbsInteger absInteger = num1.add(num2);
 
          return absInteger;
      }
@@ -23,31 +23,31 @@ package ru.progwards.java1.lessons.bigints;
 
     class ByteInteger extends AbsInteger {
 
-        public ByteInteger() {
+        public ByteInteger(byte b) {
         }
 
         @Override
         public String toString() {
-            return "ByteInteger{}";
+            return "ByteInteger{byte}";
         }
     }
 
       class   ShortInteger extends AbsInteger {
 
-          public ShortInteger() {
+          public ShortInteger(short a) {
           }
 
           @Override
           public String toString() {
-              return "ShortInteger{}";
+              return "ShortInteger{short}";
           }
       }
     class IntInteger extends AbsInteger {
-        public IntInteger() {
+        public IntInteger( int i) {
         }
 
         @Override
         public String toString() {
-            return "IntInteger{}";
+            return "IntInteger{int}";
         }
     }
