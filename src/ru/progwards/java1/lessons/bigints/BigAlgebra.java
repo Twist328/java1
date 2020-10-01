@@ -8,12 +8,12 @@ public class BigAlgebra {
     public BigAlgebra() {
     }
 
-     BigDecimal fastPow(BigDecimal num, int pow) {
+       static BigDecimal fastPow(BigDecimal num, int pow) {
 
-        if (pow == 0) return BigDecimal.valueOf(1.);        //проверка нулевой степени
+        if (pow == 0) return BigDecimal.valueOf(1.0);        //проверка нулевой степени
         String BYNPOW = Integer.toString(pow, 2);           //представление степени двоичным числом
         BigDecimal result = BigDecimal.valueOf(0);             //инициализация результата НУЛЕМ
-        for (int i = BYNPOW.length() - 1; i <= 0; i++) {    //цикл перебора от СТАРШЕГО бита к МЛАДШЕМУ
+        for (int i = BYNPOW.length() - 1; i >= 0; i--)  {    //цикл перебора от СТАРШЕГО бита к МЛАДШЕМУ
             if (BYNPOW.charAt(i) == '1') {                           //
                 result = result.multiply(result).multiply(num);
             } else result = result.multiply(result);
@@ -22,9 +22,11 @@ public class BigAlgebra {
     }
 
     public static void main(String[] args) {
+        BigAlgebra cadabra = new BigAlgebra();
+        System.out.println(cadabra.fastPow(BigDecimal.valueOf(3), 5));
 
-       //System.out.println(fastPow(BigDecimal.valueOf(3), 5));
-        System.out.println(new BigInteger(String.valueOf(fibonacci(150))));
+
+        System.out.println(new BigInteger(String.valueOf(fibonacci(15))));
     }
 
      static BigInteger fibonacci(int n) {
