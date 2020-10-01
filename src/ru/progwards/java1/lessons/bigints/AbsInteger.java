@@ -1,22 +1,21 @@
 package ru.progwards.java1.lessons.bigints;
 
- class AbsInteger {
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
+class AbsInteger extends BigDecimal {
 
-     public AbsInteger() {
+    public AbsInteger() {
+        super(BigInteger.ONE);
+
+    }
+
+    static AbsInteger add(AbsInteger num1, AbsInteger num2) {
+         BigDecimal result = BigDecimal.valueOf(0);
+          result =num1.add(num2);
+
+         return (AbsInteger) result;
      }
-
-     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-
-         AbsInteger result = num1.add(num2);
-
-         return result;
-     }
-
-     private AbsInteger add(AbsInteger num2) {
-         return null;
-     }
-
 
      @Override
      public String toString() {
@@ -27,6 +26,7 @@ package ru.progwards.java1.lessons.bigints;
     class ByteInteger extends AbsInteger {
 
         public ByteInteger(byte b) {
+            super();
 
         }
 
@@ -39,6 +39,7 @@ package ru.progwards.java1.lessons.bigints;
       class   ShortInteger extends AbsInteger {
 
           public ShortInteger(short a) {
+              super();
           }
 
           @Override
@@ -48,6 +49,7 @@ package ru.progwards.java1.lessons.bigints;
       }
     class IntInteger extends AbsInteger {
         public IntInteger(int i) {
+            super();
         }
 
         @Override
