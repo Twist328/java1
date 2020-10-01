@@ -15,8 +15,6 @@ public class BigAlgebra {
     public static void main(String[] args) {
         BigAlgebra dec = new BigAlgebra();
         System.out.println(dec.fastPow(BigDecimal.valueOf(256.33), 5));
-
-
         System.out.println(new BigInteger(String.valueOf(fibonacci(66999))));
     }
 
