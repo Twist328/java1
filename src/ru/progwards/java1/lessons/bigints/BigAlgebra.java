@@ -26,12 +26,12 @@ public class BigAlgebra {
 
 
 
-        System.out.println(new BigInteger(String.valueOf(fibonacci(47000))));
+        System.out.println(new BigInteger(String.valueOf(fibonacci(46))));
     }
 
     static BigInteger fibonacci(int n) {
-        if (n <= 2) return BigInteger.valueOf(1);
-        BigInteger prev = BigInteger.valueOf(1), sum = BigInteger.valueOf(1);
+        if (n <= 2) return BigInteger.ONE;
+        BigInteger prev = BigInteger.ONE, sum = BigInteger.ONE;
         BigInteger next = null;
         for (int i = 2; i < n; i++) {
             next = prev.add(sum);

@@ -1,6 +1,6 @@
 package ru.progwards.java1.lessons.bigints;
 
- class AbsInteger<ONE> {
+ class AbsInteger {
 
 
      public AbsInteger() {
@@ -27,6 +27,7 @@ package ru.progwards.java1.lessons.bigints;
     class ByteInteger extends AbsInteger {
 
         public ByteInteger(byte b) {
+
         }
 
         @Override
@@ -46,7 +47,7 @@ package ru.progwards.java1.lessons.bigints;
           }
       }
     class IntInteger extends AbsInteger {
-        public IntInteger() {
+        public IntInteger(int i) {
         }
 
         @Override
