@@ -11,8 +11,8 @@ class AbsInteger extends BigDecimal {
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-         BigDecimal result = BigDecimal.valueOf(0);
-          result =num1.add(num2);
+        AbsInteger result = (AbsInteger) AbsInteger.valueOf(0);
+          result = (AbsInteger) num1.add(num2);
 
          return (AbsInteger) result;
      }
