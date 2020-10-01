@@ -8,28 +8,21 @@ public class BigAlgebra {
     public BigAlgebra() {
     }
 
-     BigDecimal fastPow(BigDecimal num, int pow) {
+       static BigDecimal fastPow(BigDecimal num, int pow) {
 
-        if (pow == 0) return BigDecimal.valueOf(1.);        //проверка нулевой степени
-        String BYNPOW = Integer.toString(pow, 2);           //представление степени двоичным числом
-        BigDecimal result = BigDecimal.valueOf(0);             //инициализация результата НУЛЕМ
-        for (int i = BYNPOW.length() - 1; i <= 0; i++) {    //цикл перебора от СТАРШЕГО бита к МЛАДШЕМУ
-            if (BYNPOW.charAt(i) == '1') {                           //
-                result = result.multiply(result).multiply(num);
-            } else result = result.multiply(result);
-        }
-        return result;
+         return num.pow(pow);
+    }
+    public static void main(String[] args) {
+        BigAlgebra cadabra = new BigAlgebra();
+        System.out.println(cadabra.fastPow(BigDecimal.valueOf(8), 5));
+
+
+        System.out.println(new BigInteger(String.valueOf(fibonacci(15))));
     }
 
-    //public static void main(String[] args) {
-
-       // System.out.println(fastPow(BigDecimal.valueOf(3), 5));
-       // System.out.println(new BigInteger(String.valueOf(fibonacci(10000))));
-    //}
-
-     BigInteger fibonacci(int n) {
-        if (n <= 2) return BigInteger.ONE;
-        BigInteger prev = BigInteger.ONE, prevOfPrev = BigInteger.ONE;
+     static BigInteger fibonacci(int n) {
+        if (n <= 2) return BigInteger.valueOf(1);
+        BigInteger prev = BigInteger.valueOf(1), prevOfPrev = BigInteger.valueOf(1);
         BigInteger curr = null;
         for (int i = 2; i < n; i++) {
             curr = prev.add(prevOfPrev);
