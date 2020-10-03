@@ -1,8 +1,9 @@
 package ru.progwards.java1.lessons.bigints;
 
-public  class AbsInteger {
+public class AbsInteger {
     private static AbsInteger num1;
     private static AbsInteger num2;
+
     public AbsInteger(byte value) {
     }
 
@@ -22,53 +23,59 @@ public  class AbsInteger {
         System.out.println(num);
     }
 
-    static AbsInteger add(AbsInteger num1,AbsInteger num2) {
-        AbsInteger sum;
-        AbsInteger a = new AbsInteger(num1);
-        AbsInteger b = new AbsInteger(num2);
-        sum = a.add(b);
+    static byte add(AbsInteger num1, AbsInteger num2) {
+        byte sum, a = 0, b = 0;
+        num1 = new AbsInteger(Byte.parseByte(String.valueOf(num1)));
+        num2 = new AbsInteger(Byte.parseByte(String.valueOf(num2)));
+
+        sum = (byte) (a + b);
 
         return sum;
     }
 
-    private AbsInteger add(AbsInteger b) {
-        return this;
+    //private AbsInteger add(AbsInteger b) {
+    // return this;
+}
+
+class ByteInteger extends AbsInteger {
+    byte value = 0;
+
+    public ByteInteger(byte value) {
+        super(value);
+
+    }
+
+    @Override
+    public String toString() {
+        return "" + value;
     }
 }
-    class ByteInteger extends AbsInteger {
-        byte value=0;
-        public ByteInteger(byte value) {
-            super(value);
 
-        }
+class ShortInteger extends AbsInteger {
+    short value = 0;
 
-        @Override
-        public String toString() {
-            return ""+ value;
-        }
+    public ShortInteger(short value) {
+        super(value);
     }
-        class ShortInteger extends AbsInteger {
-            short value=0;
-            public ShortInteger(short value) {
-                super(value);
-            }
 
-            @Override
-            public String toString() {
-                return "" + value;
+    @Override
+    public String toString() {
+        return "" + value;
 
-            }
-        }
-            class IntInteger extends AbsInteger {
-                int value=0;
-                public IntInteger(int value) {
-                    super(value);
-                }
+    }
+}
 
-                @Override
-                public String toString() {
-                    return ""+ value;
-                }
-            }
+class IntInteger extends AbsInteger {
+    int value = 0;
+
+    public IntInteger(int value) {
+        super(value);
+    }
+
+    @Override
+    public String toString() {
+        return "" + value;
+    }
+}
 
 
