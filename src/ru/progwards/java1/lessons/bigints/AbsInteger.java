@@ -23,59 +23,60 @@ public class AbsInteger {
         System.out.println(num);
     }
 
-    static byte add(AbsInteger num1, AbsInteger num2) {
-        byte sum, a = 0, b = 0;
-        num1 = new AbsInteger(Byte.parseByte(String.valueOf(num1)));
-        num2 = new AbsInteger(Byte.parseByte(String.valueOf(num2)));
-
-        sum = (byte) (a + b);
+    static AbsInteger add(AbsInteger num1, AbsInteger num2) {
+        AbsInteger sum;
+        AbsInteger a = null;
+        AbsInteger b = null;
+        a = new AbsInteger(num1);
+        b = new AbsInteger(num2);
+        sum = a.add(b);
 
         return sum;
     }
 
-    //private AbsInteger add(AbsInteger b) {
-    // return this;
+    private AbsInteger add(AbsInteger b) {
+        return this;
+    }
+
+    class ByteInteger extends AbsInteger {
+        byte value;
+
+        public ByteInteger(byte value) {
+            super(value);
+
+        }
+
+        @Override
+        public String toString() {
+            return "" + value;
+        }
+    }
+
+    class ShortInteger extends AbsInteger {
+        short value ;
+
+        public ShortInteger(short value) {
+            super(value);
+        }
+
+        @Override
+        public String toString() {
+            return "" + value;
+
+        }
+    }
+
+    class IntInteger extends AbsInteger {
+        int value ;
+
+        public IntInteger(int value) {
+            super(value);
+        }
+
+        @Override
+        public String toString() {
+            return "" + value;
+        }
+    }
 }
-
-class ByteInteger extends AbsInteger {
-    byte value = 0;
-
-    public ByteInteger(byte value) {
-        super(value);
-
-    }
-
-    @Override
-    public String toString() {
-        return "" + value;
-    }
-}
-
-class ShortInteger extends AbsInteger {
-    short value = 0;
-
-    public ShortInteger(short value) {
-        super(value);
-    }
-
-    @Override
-    public String toString() {
-        return "" + value;
-
-    }
-}
-
-class IntInteger extends AbsInteger {
-    int value = 0;
-
-    public IntInteger(int value) {
-        super(value);
-    }
-
-    @Override
-    public String toString() {
-        return "" + value;
-    }
-}
-
 
