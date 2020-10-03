@@ -52,10 +52,9 @@ public class ArrayInteger {
         return true;
     }
 
-   @Override
+    @Override
     public String toString() {
-       return digits == null ? null : Arrays.toString(digits);
+        return digits == null ? null : Arrays.toString(digits);
     }
 
 }
-
