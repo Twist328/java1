@@ -8,10 +8,11 @@ public  class AbsInteger {
     }
 
     public AbsInteger(int i, int i1) {
+
     }
 
     public static void main(String[] args) {
-        AbsInteger num=new AbsInteger(2,3);
+        AbsInteger num = new AbsInteger(2, 3);
         System.out.println(num);
     }
 
@@ -26,8 +27,8 @@ public  class AbsInteger {
         return 0;
     }
 
-
-    public class ByteInteger extends AbsInteger {
+}
+    class ByteInteger extends AbsInteger {
 
         public ByteInteger(byte value) {
             super();
@@ -38,8 +39,8 @@ public  class AbsInteger {
         public String toString() {
             return "ByteInteger{}";
         }
-
-        public class ShortInteger extends AbsInteger {
+    }
+        class ShortInteger extends AbsInteger {
 
             public ShortInteger(short value) {
                 super();
@@ -50,8 +51,8 @@ public  class AbsInteger {
                 return "ShortInteger{}";
 
             }
-
-            public class IntInteger extends AbsInteger {
+        }
+            class IntInteger extends AbsInteger {
                 public IntInteger(int value) {
                     super();
                 }
@@ -61,6 +62,5 @@ public  class AbsInteger {
                     return "IntInteger{}";
                 }
             }
-        }
-    }
-}
+
+
