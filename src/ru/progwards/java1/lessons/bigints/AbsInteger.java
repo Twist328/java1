@@ -1,31 +1,35 @@
 package ru.progwards.java1.lessons.bigints;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
+public  class AbsInteger {
 
-class AbsInteger extends BigDecimal {
 
     public AbsInteger() {
-        super(BigInteger.ONE);
 
     }
 
+    public AbsInteger(int i, int i1) {
+    }
+
+    public static void main(String[] args) {
+        AbsInteger num=new AbsInteger(2,3);
+        System.out.println(num);
+    }
+
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        AbsInteger result = (AbsInteger) AbsInteger.valueOf(0);
-          result = (AbsInteger) num1.add(num2);
+        int result = 0;
+        result = (int) num1.add(num2);
 
-         return (AbsInteger) result;
-     }
+        return null;
+    }
 
-     @Override
-     public String toString() {
-         return "AbsInteger{}";
-     }
- }
+    private Object add(AbsInteger num2) {
+        return 0;
+    }
 
-    class ByteInteger extends AbsInteger {
 
-        public ByteInteger(byte b) {
+    public class ByteInteger extends AbsInteger {
+
+        public ByteInteger(byte value) {
             super();
 
         }
@@ -34,26 +38,29 @@ class AbsInteger extends BigDecimal {
         public String toString() {
             return "ByteInteger{}";
         }
-    }
 
-      class   ShortInteger extends AbsInteger {
+        public class ShortInteger extends AbsInteger {
 
-          public ShortInteger(short a) {
-              super();
-          }
+            public ShortInteger(short value) {
+                super();
+            }
 
-          @Override
-          public String toString() {
-              return "ShortInteger{}";
-          }
-      }
-    class IntInteger extends AbsInteger {
-        public IntInteger(int i) {
-            super();
+            @Override
+            public String toString() {
+                return "ShortInteger{}";
+
+            }
+
+            public class IntInteger extends AbsInteger {
+                public IntInteger(int value) {
+                    super();
+                }
+
+                @Override
+                public String toString() {
+                    return "IntInteger{}";
+                }
+            }
         }
-
-        @Override
-        public String toString() {
-            return "IntInteger{}";
-        }
     }
+}
