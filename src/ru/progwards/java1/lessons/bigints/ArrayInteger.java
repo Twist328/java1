@@ -1,16 +1,13 @@
 package ru.progwards.java1.lessons.bigints;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class ArrayInteger {
 
     private final static BigInteger BI_TEN = BigInteger.valueOf(10);
-    private final static BigDecimal BD_TEN = BigDecimal.valueOf(10);
     private Byte[] digits;
 
     public static void main(String[] args) {
