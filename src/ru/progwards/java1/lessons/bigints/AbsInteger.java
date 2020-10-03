@@ -2,10 +2,6 @@ package ru.progwards.java1.lessons.bigints;
 
 public  class AbsInteger {
 
-    public AbsInteger() {
-
-    }
-
     public AbsInteger(byte value) {
     }
 
@@ -15,21 +11,22 @@ public  class AbsInteger {
     public AbsInteger(int value) {
     }
 
+    public AbsInteger(AbsInteger value) {
+
+    }
+
     public static void main(String[] args) {
-        AbsInteger num = new AbsInteger();
+
+        AbsInteger num = new AbsInteger(2);
         System.out.println(num);
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        int result = 0;
-        result = (int) num1.add(num2);
+        AbsInteger number = AbsInteger.add(num1, num2);
 
-        return (AbsInteger) num1.add(num2);
+        return number;
     }
 
-    private Object add(AbsInteger num2) {
-        return 0;
-    }
 
 }
     class ByteInteger extends AbsInteger {
