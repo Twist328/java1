@@ -3,16 +3,14 @@ package ru.progwards.java1.lessons.bigints;
 public  class AbsInteger {
 
 
+
+
     public AbsInteger() {
 
     }
 
-    public AbsInteger(int i, int i1) {
-
-    }
-
     public static void main(String[] args) {
-        AbsInteger num = new AbsInteger(2, 3);
+        AbsInteger num = new AbsInteger();
         System.out.println(num);
     }
 

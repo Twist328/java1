@@ -27,11 +27,11 @@ public class ArrayInteger {
         digits = list.toArray(new Byte[list.size()]);
     }
 
-    public BigDecimal toInt() {
-        BigDecimal result = BigDecimal.valueOf(0);
+    public BigInteger toInt() {
+        BigInteger result = BigInteger.ZERO;
         for (Byte b : digits) {
-            result = result.multiply(BD_TEN);
-            result = result.add(BigDecimal.valueOf(b));
+            result = result.multiply(BI_TEN);
+            result = result.add(BigInteger.valueOf(b));
         }
         return result;
     }
