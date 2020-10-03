@@ -20,7 +20,7 @@ public  class AbsInteger {
         int result = 0;
         result = (int) num1.add(num2);
 
-        return null;
+        return (AbsInteger) num1.add(num2);
     }
 
     private Object add(AbsInteger num2) {
@@ -29,7 +29,7 @@ public  class AbsInteger {
 
 }
     class ByteInteger extends AbsInteger {
-        byte value;
+        byte value=0;
         public ByteInteger(byte value) {
             super();
 
@@ -41,7 +41,7 @@ public  class AbsInteger {
         }
     }
         class ShortInteger extends AbsInteger {
-            short value;
+            short value=0;
             public ShortInteger(short value) {
                 super();
             }
@@ -53,7 +53,7 @@ public  class AbsInteger {
             }
         }
             class IntInteger extends AbsInteger {
-                int value;
+                int value=0;
                 public IntInteger(int value) {
                     super();
                 }
