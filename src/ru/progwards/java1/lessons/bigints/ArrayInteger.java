@@ -3,6 +3,7 @@ package ru.progwards.java1.lessons.bigints;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ArrayInteger {
@@ -25,7 +26,7 @@ public class ArrayInteger {
             list.add(value.mod(BI_TEN).byteValueExact());
             value = value.divide(BI_TEN);
         }
-        //Collections.reverse(list);
+        Collections.reverse(list);
         digits = list.toArray(new Byte[list.size()]);
     }
 
