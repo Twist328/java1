@@ -29,7 +29,7 @@ public  class AbsInteger {
 
 }
     class ByteInteger extends AbsInteger {
-
+        byte value;
         public ByteInteger(byte value) {
             super();
 
@@ -37,29 +37,30 @@ public  class AbsInteger {
 
         @Override
         public String toString() {
-            return "ByteInteger{}";
+            return ""+ value;
         }
     }
         class ShortInteger extends AbsInteger {
-
+            short value;
             public ShortInteger(short value) {
                 super();
             }
 
             @Override
             public String toString() {
-                return "ShortInteger{}";
+                return "" + value;
 
             }
         }
             class IntInteger extends AbsInteger {
+                int value;
                 public IntInteger(int value) {
                     super();
                 }
 
                 @Override
                 public String toString() {
-                    return "IntInteger{}";
+                    return ""+ value;
                 }
             }
 
