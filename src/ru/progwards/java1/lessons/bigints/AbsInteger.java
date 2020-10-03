@@ -2,11 +2,17 @@ package ru.progwards.java1.lessons.bigints;
 
 public  class AbsInteger {
 
-
-
-
     public AbsInteger() {
 
+    }
+
+    public AbsInteger(byte value) {
+    }
+
+    public AbsInteger(short value) {
+    }
+
+    public AbsInteger(int value) {
     }
 
     public static void main(String[] args) {
@@ -29,7 +35,7 @@ public  class AbsInteger {
     class ByteInteger extends AbsInteger {
         byte value=0;
         public ByteInteger(byte value) {
-            super();
+            super(value);
 
         }
 
@@ -41,7 +47,7 @@ public  class AbsInteger {
         class ShortInteger extends AbsInteger {
             short value=0;
             public ShortInteger(short value) {
-                super();
+                super(value);
             }
 
             @Override
@@ -53,7 +59,7 @@ public  class AbsInteger {
             class IntInteger extends AbsInteger {
                 int value=0;
                 public IntInteger(int value) {
-                    super();
+                    super(value);
                 }
 
                 @Override
