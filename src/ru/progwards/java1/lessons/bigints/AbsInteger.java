@@ -12,9 +12,9 @@ public  class AbsInteger {
     public AbsInteger(int value) {
     }
 
-    public AbsInteger(AbsInteger  value) {
-
+    public AbsInteger(AbsInteger num1) {
     }
+
 
     public static void main(String[] args) {
 
@@ -23,18 +23,17 @@ public  class AbsInteger {
     }
 
     static AbsInteger add(AbsInteger num1,AbsInteger num2) {
+        AbsInteger sum;
+        AbsInteger a = new AbsInteger(num1);
+        AbsInteger b = new AbsInteger(num2);
+        sum = a.add(b);
 
-        AbsInteger result = null;
-        result = num1.add(num2);
-
-        return result;
+        return sum;
     }
 
-    private AbsInteger add(AbsInteger num2) {
+    private AbsInteger add(AbsInteger b) {
         return this;
     }
-
-
 }
     class ByteInteger extends AbsInteger {
         byte value=0;
