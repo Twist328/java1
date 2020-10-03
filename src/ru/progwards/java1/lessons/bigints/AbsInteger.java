@@ -37,7 +37,7 @@ public class AbsInteger {
     private AbsInteger add(AbsInteger b) {
         return this;
     }
-
+}
     class ByteInteger extends AbsInteger {
         byte value;
 
@@ -78,5 +78,5 @@ public class AbsInteger {
             return "" + value;
         }
     }
-}
+
 
