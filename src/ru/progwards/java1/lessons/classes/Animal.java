@@ -45,10 +45,9 @@ enum FoodKind {
     }
 
     public  double calculateFoodWeight() {
-        return getWeight() * getFoodCoeff(); // Также не знаю правильно ли это...
+        return getWeight() * getFoodCoeff();
     }
-
-    public String toStringFull() { // Сомневаюсь в правильности метода, нужна помощь (совет), в мейн нет отражения
+    public String toStringFull() {
 
         return "I am" + " " + getKind() + "," + " " + "eat" + " " + getFoodKind() + " " + calculateFoodWeight();
     }
