@@ -1,10 +1,13 @@
 package ru.progwards.java1.lessons.bigints;
 
+import java.lang.reflect.Array;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import static java.util.Arrays.*;
 
 public class ArrayInteger {
 
