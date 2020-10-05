@@ -15,4 +15,19 @@ package ru.progwards.java1.lessons.abstractnum;
     public String toString() {
         return null;
     }
-}
+
+     private int number;
+
+     Number(int number) {
+         this.number = number;
+     }
+
+     public int get() {
+         return number;
+     }
+
+     public Number add(Number number) {
+         return new Number(this.number + number.get());
+     }
+
+ }
