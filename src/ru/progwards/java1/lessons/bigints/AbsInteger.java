@@ -1,47 +1,42 @@
 package ru.progwards.java1.lessons.bigints;
 
 public class AbsInteger {
-    private static AbsInteger num1;
-    private static AbsInteger num2;
+   int num;
+   static int sum;
 
-    public AbsInteger(byte value) {
+    public AbsInteger(String num) {
+
+        //this.num=num;
     }
 
-    public AbsInteger(short value) {
+    public AbsInteger(int i, int i1) {
     }
-
-    public AbsInteger(int value) {
-    }
-
-    public AbsInteger(AbsInteger num1) {
-    }
-
 
     public static void main(String[] args) {
 
-        AbsInteger num = new AbsInteger(2);
+        AbsInteger num = new AbsInteger(2,5);
         System.out.println(num);
     }
 
-    static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        AbsInteger sum;
-        AbsInteger a = null;
-        AbsInteger b = null;
-        a = new AbsInteger(num1);
-        b = new AbsInteger(num2);
-        sum = a.add(b);
+    static  AbsInteger add(AbsInteger num1, AbsInteger num2) {
+        String a = Integer.valueOf(num1.num).toString();
+        String b = Integer.valueOf(num2.num).toString();
+       // int res = Integer.sum(a,b);
 
-        return sum;
+        return new AbsInteger(a+b);
     }
 
-    private AbsInteger add(AbsInteger b) {
-        return this;
+    private int sum(AbsInteger num1, AbsInteger num2) {
+        return 0;
     }
+
+
 }
+
     class ByteInteger extends AbsInteger {
         byte value;
 
-        public ByteInteger(byte value) {
+        public ByteInteger(String value) {
             super(value);
 
         }
@@ -55,7 +50,7 @@ public class AbsInteger {
     class ShortInteger extends AbsInteger {
         short value ;
 
-        public ShortInteger(short value) {
+        public ShortInteger(String value) {
             super(value);
         }
 
@@ -69,7 +64,7 @@ public class AbsInteger {
     class IntInteger extends AbsInteger {
         int value ;
 
-        public IntInteger(int value) {
+        public IntInteger(String value) {
             super(value);
         }
 
