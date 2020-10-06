@@ -1,7 +1,8 @@
 package ru.progwards.java1.lessons.bigints;
 
 public class AbsInteger {
-   int num;
+    private static boolean num;
+
    static int sum;
 
     public AbsInteger(String num) {
@@ -9,20 +10,22 @@ public class AbsInteger {
         //this.num=num;
     }
 
-    public AbsInteger(int i, int i1) {
-    }
+
+
+
 
     public static void main(String[] args) {
 
-        AbsInteger num = new AbsInteger(2,5);
+
         System.out.println(num);
     }
 
-    static  AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        String a = Integer.valueOf(num1.num).toString();
-        String b = Integer.valueOf(num2.num).toString();
+    static AbsInteger add(AbsInteger num1, AbsInteger num2) {
+        String a = String.valueOf(0);
+        String b = String.valueOf(0);
        // int res = Integer.sum(a,b);
-
+        a=Integer.valueOf(String.valueOf(num1)).toString();
+        b=Integer.valueOf(String.valueOf(num2)).toString();
         return new AbsInteger(a+b);
     }
 
@@ -34,43 +37,43 @@ public class AbsInteger {
 }
 
     class ByteInteger extends AbsInteger {
-        byte value;
+        byte num;
 
-        public ByteInteger(String value) {
-            super(value);
+        public ByteInteger(String num) {
+            super(num);
 
         }
 
         @Override
         public String toString() {
-            return "" + value;
+            return "" + num;
         }
     }
 
     class ShortInteger extends AbsInteger {
-        short value ;
+        short num ;
 
-        public ShortInteger(String value) {
-            super(value);
+        public ShortInteger(String num) {
+            super(num);
         }
 
         @Override
         public String toString() {
-            return "" + value;
+            return "" + num;
 
         }
     }
 
     class IntInteger extends AbsInteger {
-        int value ;
+        int num ;
 
-        public IntInteger(String value) {
-            super(value);
+        public IntInteger(String num) {
+            super(num);
         }
 
         @Override
         public String toString() {
-            return "" + value;
+            return "" + num;
         }
     }
 
