@@ -28,12 +28,12 @@ public class AbsInteger {
         return  new AbsInteger(Integer.sum(a,b));
     }
 
-    private int sum(AbsInteger num1, AbsInteger num2) {
-        return 0;
+    //private int sum(AbsInteger num1, AbsInteger num2) {
+       // return 0;
     }
 
 
-}
+
 
     class ByteInteger extends AbsInteger {
         byte num;
