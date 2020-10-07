@@ -5,7 +5,7 @@ public class AbsInteger {
 
    static int sum;
 
-    public AbsInteger(int sum) {
+    public AbsInteger(int num) {
 
         //this.num=num;
     }
@@ -18,6 +18,7 @@ public class AbsInteger {
     }
 
     private static byte add(int i, int i1) {
+        return 0;
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
@@ -31,18 +32,13 @@ public class AbsInteger {
         return  new AbsInteger(Integer.sum(a,b));
     }
 
-    //private int sum(AbsInteger num1, AbsInteger num2) {
-       // return 0;
     }
-
-
-
 
     class ByteInteger extends AbsInteger {
         byte num;
 
         public ByteInteger(int num) {
-            super(Integer.sum(a, b));
+            super(num);
 
         }
 
@@ -56,7 +52,7 @@ public class AbsInteger {
         short num ;
 
         public ShortInteger(int num) {
-            super(Integer.sum(a, b));
+            super(num);
         }
 
         @Override
@@ -70,7 +66,7 @@ public class AbsInteger {
         int num ;
 
         public IntInteger(int num) {
-            super(Integer.sum(a, b));
+            super(num);
         }
 
         @Override
