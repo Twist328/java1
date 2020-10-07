@@ -11,22 +11,21 @@ public class AbsInteger {
     }
 
 
-
-
-
     public static void main(String[] args) {
 
 
         System.out.println(num);
     }
 
-    static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        String a = String.valueOf(0);
-        String b = String.valueOf(0);
-       // int res = Integer.sum(a,b);
-        a=Integer.valueOf(String.valueOf(num1)).toString();
-        b=Integer.valueOf(String.valueOf(num2)).toString();
-        return new AbsInteger(a+b);
+    AbsInteger add(AbsInteger num1, AbsInteger num2) {
+        int a = Integer.parseInt(String.valueOf(0));
+        int b = Integer.parseInt(String.valueOf(0));
+
+        a= Integer.parseInt(Integer.valueOf(String.valueOf(num1)).toString());
+        b= Integer.parseInt(Integer.valueOf(String.valueOf(num2)).toString());
+        //int res = Integer.sum(a,b);
+        Object res;
+        return  (int) res = Integer.sum(a,b);
     }
 
     private int sum(AbsInteger num1, AbsInteger num2) {
