@@ -4,17 +4,15 @@ import static java.lang.Integer.*;
 
 public class AbsInteger {
 
+
+
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        int num = 0;
-        num = valueOf(num2.toString());
-        int num3 = 0;
-        num3 = valueOf(num1.toString());
-        int res = (num3 + num);
+        int sum;
+        AbsInteger a = new AbsInteger();
+        AbsInteger b = new AbsInteger();
+        AbsInteger result = b.sum(a);
+        return result;
 
-        return new AbsInteger ();
-    }
-
-    private static void toString(int res) {
     }
 }
 
