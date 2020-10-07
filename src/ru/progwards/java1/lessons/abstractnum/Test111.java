@@ -6,8 +6,8 @@ public class Test111 {
 
         System.out.println(num);
 
-       //Figure3D fig = new Cube(num);
-       // printVolume(fig);
+        Figure3D fig = new Cube(num);
+        printVolume(fig);
 
 
     }

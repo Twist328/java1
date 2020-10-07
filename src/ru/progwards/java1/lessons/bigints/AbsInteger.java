@@ -1,78 +1,73 @@
 package ru.progwards.java1.lessons.bigints;
 
+import static java.lang.Integer.*;
+
 public class AbsInteger {
-    private static boolean num;
-
-   static int sum;
-
-    public AbsInteger(int num) {
-
-        //this.num=num;
-    }
-
-
-    public static void main(String[] args) {
-
-        AbsInteger num = new AbsInteger(3);
-        System.out.println(AbsInteger.add(9,5));
-    }
-
-    private static byte add(int i, int i1) {
-        return 0;
-    }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        int a = Integer.parseInt(String.valueOf(0));
-        int b = Integer.parseInt(String.valueOf(0));
+        int num = 0;
+        num = valueOf(num2.toString());
+        int num3 = 0;
+        num3 = valueOf(num1.toString());
+        int res = (num3 + num);
 
-        a= Integer.parseInt(Integer.valueOf(String.valueOf(num1)).toString());
-        b= Integer.parseInt(Integer.valueOf(String.valueOf(num2)).toString());
-        //int res = Integer.sum(a,b);
-
-        return  new AbsInteger(Integer.sum(a,b));
+        return new AbsInteger ();
     }
 
+    private static void toString(int res) {
+    }
+}
+
+class ByteInteger extends AbsInteger {
+    byte num;
+
+    public ByteInteger(byte num) {
+
+        this.num = num;
     }
 
-    class ByteInteger extends AbsInteger {
-        byte num;
+    @Override
+    public String toString() {
+        return "" + num;
+    }
+}
 
-        public ByteInteger(int num) {
-            super(num);
+class ShortInteger extends AbsInteger {
+    short num;
 
-        }
+    public ShortInteger(short num) {
 
-        @Override
-        public String toString() {
-            return "" + num;
-        }
+        this.num = num;
     }
 
-    class ShortInteger extends AbsInteger {
-        short num ;
+    @Override
+    public String toString() {
+        return "" + num;
 
-        public ShortInteger(int num) {
-            super(num);
-        }
+    }
+}
 
-        @Override
-        public String toString() {
-            return "" + num;
+class IntInteger extends AbsInteger {
+    int num;
 
-        }
+    public IntInteger(int num) {
+
+        this.num = num;
     }
 
-    class IntInteger extends AbsInteger {
-        int num ;
-
-        public IntInteger(int num) {
-            super(num);
-        }
-
-        @Override
-        public String toString() {
-            return "" + num;
-        }
+    @Override
+    public String toString() {
+        return "" + num;
     }
 
-
+    public static void main(String[] args) {
+        AbsInteger res = new AbsInteger();
+        IntInteger num = new IntInteger(9);
+        ShortInteger num3 = new ShortInteger((short) 8);
+        ByteInteger num4 = new ByteInteger((byte) 6);
+        System.out.println(num3);
+        System.out.println(num);
+        System.out.println(num4);
+        System.out.println(res);
+    }
+}
