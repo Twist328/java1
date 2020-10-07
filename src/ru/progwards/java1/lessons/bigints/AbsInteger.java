@@ -5,7 +5,7 @@ public class AbsInteger {
 
    static int sum;
 
-    public AbsInteger(int num) {
+    public AbsInteger(int sum) {
 
         //this.num=num;
     }
@@ -13,8 +13,11 @@ public class AbsInteger {
 
     public static void main(String[] args) {
 
+        AbsInteger num = new AbsInteger(3);
+        System.out.println(AbsInteger.add(9,5));
+    }
 
-        System.out.println(num);
+    private static byte add(int i, int i1) {
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
@@ -39,7 +42,7 @@ public class AbsInteger {
         byte num;
 
         public ByteInteger(int num) {
-            super(num);
+            super(Integer.sum(a, b));
 
         }
 
@@ -53,7 +56,7 @@ public class AbsInteger {
         short num ;
 
         public ShortInteger(int num) {
-            super(num);
+            super(Integer.sum(a, b));
         }
 
         @Override
@@ -67,7 +70,7 @@ public class AbsInteger {
         int num ;
 
         public IntInteger(int num) {
-            super(num);
+            super(Integer.sum(a, b));
         }
 
         @Override
