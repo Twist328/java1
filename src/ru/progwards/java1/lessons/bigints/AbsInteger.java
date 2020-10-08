@@ -4,15 +4,21 @@ import static java.lang.Integer.*;
 
 public class AbsInteger {
 
-
+    public int intValue(){
+        return 0;
+    }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
         int sum;
         AbsInteger a = new AbsInteger();
         AbsInteger b = new AbsInteger();
-        AbsInteger result = b.sum(a);
+        AbsInteger result = a.add(b);
         return result;
 
+    }
+
+    private AbsInteger add(AbsInteger b) {
+        return null;
     }
 }
 
@@ -22,6 +28,11 @@ class ByteInteger extends AbsInteger {
     public ByteInteger(byte num) {
 
         this.num = num;
+    }
+
+    @Override
+    public int intValue() {
+        return super.intValue();
     }
 
     @Override
@@ -39,6 +50,11 @@ class ShortInteger extends AbsInteger {
     }
 
     @Override
+    public int intValue() {
+        return super.intValue();
+    }
+
+    @Override
     public String toString() {
         return "" + num;
 
@@ -51,6 +67,11 @@ class IntInteger extends AbsInteger {
     public IntInteger(int num) {
 
         this.num = num;
+    }
+
+    @Override
+    public int intValue() {
+        return super.intValue();
     }
 
     @Override
