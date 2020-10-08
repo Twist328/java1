@@ -29,7 +29,7 @@ public class ArrayInteger {
             list.add(value.mod(BI_TEN).byteValueExact());
             value = value.divide(BI_TEN);
         }
-        Collections.reverse(list);
+        //Collections.reverse(list);
         digits = list.toArray(new Byte[list.size()]);
     }
 
@@ -51,7 +51,7 @@ public class ArrayInteger {
             ten = result > 9 ? 1 : 0;
             list.add((byte) (result % 10));
         }
-        Collections.reverse(list);
+        //Collections.reverse(list);
         digits = list.toArray(new Byte[list.size()]);
         return false;
     }
