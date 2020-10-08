@@ -2,12 +2,14 @@ package ru.progwards.java1.lessons.bigints;
 
 public class AbsInteger {
 
-    public AbsInteger(byte num,byte num3) {
+    private int num;
 
-    }
+    //public AbsInteger(byte num, byte num3) {
+
+   // }
 
     public int intValue() {
-        return 0;
+        return num;
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
@@ -24,7 +26,7 @@ class ByteInteger extends AbsInteger {
     byte num;
 
     public ByteInteger(byte num) {
-        super(num,num);
+
 
         this.num = num;
     }
@@ -46,7 +48,7 @@ class ShortInteger extends AbsInteger {
     short num;
 
     public ShortInteger(short num) {
-        super((byte)num,(byte) num);
+
 
         this.num = num;
     }
@@ -66,7 +68,7 @@ class IntInteger extends AbsInteger {
     int num;
 
     public IntInteger(int num) {
-        super((byte)num,(byte)num);
+
         this.num = num;
     }
 
