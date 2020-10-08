@@ -31,9 +31,10 @@ class ByteInteger extends AbsInteger {
         this.num = num;
     }
 
+
     @Override
     public int intValue() {
-        return super.intValue();
+        return num;
     }
 
 
@@ -54,9 +55,8 @@ class ShortInteger extends AbsInteger {
 
     @Override
     public int intValue() {
-        return super.intValue();
+        return num;
     }
-
     @Override
     public String toString() {
         return "" + num;
@@ -75,7 +75,7 @@ class IntInteger extends AbsInteger {
 
     @Override
     public int intValue() {
-        return super.intValue();
+        return num;
     }
 
     @Override
@@ -86,7 +86,7 @@ class IntInteger extends AbsInteger {
 
     public static void main(String[] args) {
 
-        AbsInteger absInteger = new ByteInteger((byte) 9);
+        AbsInteger absInteger = new ByteInteger((byte) 127);
         IntInteger num5 = new IntInteger(9);
         ShortInteger num3 = new ShortInteger((short) 8);
         ByteInteger num4 = new ByteInteger((byte) 6);
