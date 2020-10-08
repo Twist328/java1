@@ -8,16 +8,16 @@ public class AbsInteger {
 
    // }
 
-    public int intValue() {
+    public  int intValue() {
         return num;
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
         int a = num1.intValue();
         int b = num2.intValue();
-        byte num = (byte) (a + b);
-
+        int num =  (a + b);
         return new ByteInteger((byte) num);
+
 
     }
 }
