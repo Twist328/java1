@@ -53,7 +53,7 @@ public class ArrayInteger {
         }
         Collections.reverse(list);
         digits = list.toArray(new Byte[list.size()]);
-        return true;
+        return false;
     }
 
     @Override
