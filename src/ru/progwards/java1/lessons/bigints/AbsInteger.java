@@ -15,7 +15,7 @@ public class AbsInteger {
         int a = num1.intValue();
         int b = num2.intValue();
         int sum = (a + b);
-        return new ByteInteger((byte) sum);
+        return new ShortInteger((short) sum);
 
     }
 }
@@ -79,10 +79,11 @@ class IntInteger extends AbsInteger {
     public static void main(String[] args) {
 
         AbsInteger absInteger = new ByteInteger((byte) 127);
+        AbsInteger absInteger1= new ShortInteger((short) 889);
         IntInteger num5 = new IntInteger(9);
         ShortInteger num3 = new ShortInteger((short) 8);
         ByteInteger num4 = new ByteInteger((byte) 6);
-
+        System.out.println(absInteger1);
         System.out.println(absInteger);
         System.out.println(num3);
         System.out.println(num4);
