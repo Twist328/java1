@@ -14,11 +14,6 @@ public class ArrayInteger {
     private final static BigInteger BI_TEN = BigInteger.valueOf(10);
     private Byte[] digits;
 
-    public static void main(String[] args) {
-        ArrayInteger num = new ArrayInteger(3);
-        System.out.println(num);
-    }
-
     public ArrayInteger( int n) {
         digits = new Byte[n];
     }
