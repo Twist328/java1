@@ -8,20 +8,21 @@ public class AbsInteger {
 
     }
 
-    public  int intValue(){
+    public int intValue() {
         return 0;
     }
 
-    static AbsInteger add(AbsInteger num1,AbsInteger num2) {
+    static AbsInteger add(AbsInteger num1, AbsInteger num2) {
         int a = num1.intValue();
         int b = num2.intValue();
-        byte num= (byte) (a+b);
+        byte num = (byte) (a + b);
 
         return new ByteInteger((byte) num);
 
     }
+}
 
-static class ByteInteger extends AbsInteger {
+class ByteInteger extends AbsInteger {
     byte num;
 
     public ByteInteger(byte num) {
@@ -35,14 +36,14 @@ static class ByteInteger extends AbsInteger {
         return super.intValue();
     }
 
+
     @Override
     public String toString() {
         return "" + num;
     }
-
 }
 
-static class ShortInteger extends AbsInteger {
+class ShortInteger extends AbsInteger {
     short num;
 
     public ShortInteger(short num) {
@@ -63,14 +64,14 @@ static class ShortInteger extends AbsInteger {
     }
 }
 
-static class IntInteger extends AbsInteger {
+class IntInteger extends AbsInteger {
     int num;
 
     public IntInteger(int num) {
         super((byte) num);
         this.num = num;
-
     }
+
 
     @Override
     public int intValue() {
@@ -81,10 +82,11 @@ static class IntInteger extends AbsInteger {
     public String toString() {
         return "" + num;
     }
-}
+
+
     public static void main(String[] args) {
 
-        AbsInteger absInteger = new  ByteInteger((byte) 9);
+        AbsInteger absInteger = new ByteInteger((byte) 9);
         IntInteger num5 = new IntInteger(9);
         ShortInteger num3 = new ShortInteger((short) 8);
         ByteInteger num4 = new ByteInteger((byte) 6);
