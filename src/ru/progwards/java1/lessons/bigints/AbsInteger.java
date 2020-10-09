@@ -4,7 +4,7 @@ public class AbsInteger {
 
     private int num;
 
-    public AbsInteger(byte num) {
+    public AbsInteger(int num) {
         this.num=num;
 
     }
