@@ -4,18 +4,14 @@ public class AbsInteger {
 
     private int num;
 
-    public AbsInteger(int num) {
-        this.num = num;
+    public AbsInteger() {
+
     }
 
     public static void main(String[] args) {
 
-        AbsInteger num1 = new IntInteger(258);
-        AbsInteger num2 = new IntInteger(258);
         AbsInteger num3 = new ByteInteger((byte) 456);
         AbsInteger num4 = new ByteInteger((byte) 564);
-        AbsInteger num5 = new ShortInteger((short) 345);
-        AbsInteger num6 = new ShortInteger((short) 543);
 
         int b = num3.byteValue();
         int b1 = num4.byteValue();
@@ -33,7 +29,6 @@ public class AbsInteger {
         num1 = num1;
         num2 = num2;
 
-        int res = 0;
         int a = num1.byteValue();
         int b = num2.byteValue();
         int sum = (a + b);
@@ -52,7 +47,7 @@ public class AbsInteger {
         }
 
         public ByteInteger(byte num) {
-            super(num);
+            super();
 
             this.num = num;
         }
@@ -64,7 +59,7 @@ public class AbsInteger {
     }
 
     class ShortInteger extends AbsInteger {
-        short num;
+            short num;
 
         @Override
         public byte byteValue() {
@@ -72,7 +67,7 @@ public class AbsInteger {
         }
 
         public ShortInteger(short num) {
-            super(num);
+            super();
             this.num = num;
         }
 
@@ -91,7 +86,7 @@ public class AbsInteger {
         }
 
         public IntInteger(int num) {
-            super(num);
+            super();
             this.num = num;
         }
 
