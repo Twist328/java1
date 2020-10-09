@@ -19,9 +19,8 @@ public class AbsInteger {
         System.out.println(sum);
     }
 
-
     public int intValue() {
-        return num;
+        return 0;
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
@@ -32,64 +31,64 @@ public class AbsInteger {
         int res = (a + b);
         return new ShortInteger((short) res);
 
-    }
-}
-
-class ByteInteger extends AbsInteger {
-    byte num;
-
-    public ByteInteger(byte num) {
-        super(num);
-
-        this.num = num;
+        }
     }
 
-    @Override
-    public int intValue() {
+    class ByteInteger extends AbsInteger {
+        byte num;
 
-        return num;
+        public ByteInteger(byte num) {
+            super(num);
+
+            num = num;
+        }
+
+        @Override
+        public int intValue() {
+
+            return num;
+        }
+
+        @Override
+        public String toString() {
+            return "" + num;
+        }
     }
 
-    @Override
-    public String toString() {
-        return "" + num;
-    }
-}
+    class ShortInteger extends AbsInteger {
+        short num;
 
-class ShortInteger extends AbsInteger {
-    short num;
+        public ShortInteger(short num) {
+            super(num);
+            num = num;
+        }
 
-    public ShortInteger(short num) {
-        super(num);
-        this.num = num;
-    }
+        @Override
+        public int intValue() {
+            return num;
+        }
 
-    @Override
-    public int intValue() {
-        return num;
-    }
-
-    @Override
-    public String toString() {
-        return "" + num;
-    }
-}
-
-class IntInteger extends AbsInteger {
-    int num;
-
-    public IntInteger(int num) {
-        super(num);
-        this.num = num;
+        @Override
+        public String toString() {
+            return "" + num;
+        }
     }
 
-    @Override
-    public int intValue() {
-        return num;
-    }
+    class IntInteger extends AbsInteger {
+        int num;
 
-    @Override
-    public String toString() {
-        return "" + num;
+        public IntInteger(int num) {
+            super(num);
+            num = num;
+        }
+
+        @Override
+        public int intValue() {
+            return num;
+        }
+
+        @Override
+        public String toString() {
+            return "" + num;
+        }
     }
-}
