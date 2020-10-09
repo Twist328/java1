@@ -4,7 +4,8 @@ public class AbsInteger {
 
     private int num;
 
-    public AbsInteger() {
+    public AbsInteger(byte num) {
+        this.num=num;
 
     }
 
@@ -47,7 +48,7 @@ public class AbsInteger {
         }
 
         public ByteInteger(byte num) {
-            super();
+            super(num);
 
             this.num = num;
         }
@@ -59,16 +60,17 @@ public class AbsInteger {
     }
 
     class ShortInteger extends AbsInteger {
-            short num;
+            byte num;
 
         @Override
         public byte byteValue() {
             return super.byteValue();
         }
 
-        public ShortInteger(short num) {
-            super();
-            this.num = num;
+        public ShortInteger(byte num) {
+            super((byte) num);
+
+            this.num = (byte) num;
         }
 
         @Override
@@ -78,15 +80,16 @@ public class AbsInteger {
     }
 
     class IntInteger extends AbsInteger {
-        int num;
+        byte num;
 
         @Override
         public byte byteValue() {
             return super.byteValue();
         }
 
-        public IntInteger(int num) {
-            super();
+        public IntInteger(byte num) {
+            super((byte) num);
+
             this.num = num;
         }
 
