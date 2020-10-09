@@ -5,7 +5,7 @@ public class AbsInteger {
     private int num;
 
     public AbsInteger(int num) {
-        this.intValue();
+        this.num = num;
     }
 
     public static void main(String[] args) {
@@ -29,24 +29,25 @@ public class AbsInteger {
         int a = num1.intValue();
         int b = num2.intValue();
         int res = (a + b);
-        return new ShortInteger((short) res);
+         new ShortInteger((short) res).intValue();
 
+        return new ShortInteger((short) res);
     }
 }
 
 class ByteInteger extends AbsInteger {
     byte num;
 
-    public ByteInteger(byte num) {
-        super(num);
-
-        this.num=num;
-    }
-
     @Override
     public int intValue() {
 
         return num;
+    }
+
+    public ByteInteger(byte num) {
+        super(num);
+
+        this.num = num;
     }
 
     @Override
@@ -58,14 +59,14 @@ class ByteInteger extends AbsInteger {
 class ShortInteger extends AbsInteger {
     short num;
 
-    public ShortInteger(short num) {
-        super(num);
-        this.num=num;
-    }
-
     @Override
     public int intValue() {
         return num;
+    }
+
+    public ShortInteger(short num) {
+        super(num);
+        this.num = num;
     }
 
     @Override
@@ -77,14 +78,15 @@ class ShortInteger extends AbsInteger {
 class IntInteger extends AbsInteger {
     int num;
 
-    public IntInteger(int num) {
-        super(num);
-        this.num=num;
-    }
-
     @Override
     public int intValue() {
         return num;
+    }
+
+
+    public IntInteger(int num) {
+        super(num);
+        this.num = num;
     }
 
     @Override
