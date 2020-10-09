@@ -34,10 +34,26 @@ public class AbsInteger {
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
         num1 = num1;
         num2 = num2;
+
+        int res = 0;
+
         int a = num1.intValue();
-        int b = num2.intValue();
-        int sum = (a + b);
-        return new AbsInteger(sum);
+        int a1 = num2.intValue();
+        int sum = (a + a1);
+
+        int b = num1.byteValue();
+        int b1 = num2.byteValue();
+        int sum1 = (b + b1);
+
+        int c = num1.shortValue();
+        int c1 = num2.shortValue();
+        int sum2 = (c + c1);
+
+        if (res == sum) return new IntInteger(sum);
+        if (res == sum1) return new ByteInteger((byte) sum1);
+         else
+            return new ShortInteger((short) sum2);
+
 
     }
 }
