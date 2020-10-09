@@ -2,7 +2,9 @@ package ru.progwards.java1.lessons.bigints;
 
 public class AbsInteger {
 
-    private int num;
+    private static Object num;
+
+
 
     public static void main(String[] args) {
 
@@ -19,12 +21,12 @@ public class AbsInteger {
     }
 
     public int intValue() {
-        return num + num;
+        return 0;
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        num1 = new ByteInteger();
-        num2 = new ByteInteger();
+        num1 = new ByteInteger((byte) num);
+        num2 = new ByteInteger((byte) num);
         int a = num1.intValue();
         int b = num2.intValue();
         int sum = (a + b)/2;
