@@ -3,16 +3,17 @@ package ru.progwards.java1.lessons.bigints;
 public class AbsInteger {
 
     private int num;
+
     public static void main(String[] args) {
 
         //AbsInteger absInteger = new ByteInteger((byte) 127);
-       // AbsInteger absInteger2 = new IntInteger((int) 127);
+        // AbsInteger absInteger2 = new IntInteger((int) 127);
         //AbsInteger absInteger1= new ShortInteger((short) 889);
-       // IntInteger num5 = new IntInteger(9);
+        // IntInteger num5 = new IntInteger(9);
         // ShortInteger num3 = new ShortInteger((short) 8);
-       // ByteInteger num4 = new ByteInteger((byte) 6);
-        AbsInteger num6 = new ByteInteger((byte)9);
-        AbsInteger num7 = new ByteInteger((byte)10);
+        // ByteInteger num4 = new ByteInteger((byte) 6);
+        AbsInteger num6 = new ByteInteger((byte) 9);
+        AbsInteger num7 = new ByteInteger((byte) 10);
         //System.out.println(absInteger1);
         //System.out.println(absInteger2);
         //System.out.println(absInteger);
@@ -22,7 +23,7 @@ public class AbsInteger {
 
         int a = num6.intValue();
         int b = num7.intValue();
-        int sum = (a+b)/2;
+        int sum = (a + b) / 2;
         System.out.println(sum);
     }
 
@@ -30,14 +31,15 @@ public class AbsInteger {
     }
 
     public int intValue() {
-        return num+num;
+        return num + num;
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-
+        num1 = new ByteInteger((byte) 9);
+        num2 = new ByteInteger((byte) 10);
         int a = num1.intValue();
         int b = num2.intValue();
-        int sum = (a + b)/2;
+        int sum = (a + b);
         return new ByteInteger((byte) sum);
 
     }
@@ -55,7 +57,7 @@ class ByteInteger extends AbsInteger {
     @Override
     public int intValue() {
 
-        return num+num;
+        return num + num;
     }
 
     @Override
@@ -66,6 +68,7 @@ class ByteInteger extends AbsInteger {
 
 class ShortInteger extends AbsInteger {
     short num;
+
     public ShortInteger(short num) {
         super(num);
         this.num = num;
@@ -73,7 +76,7 @@ class ShortInteger extends AbsInteger {
 
     @Override
     public int intValue() {
-        return num+num;
+        return num + num;
     }
 
     @Override
@@ -92,7 +95,7 @@ class IntInteger extends AbsInteger {
 
     @Override
     public int intValue() {
-        return num+num;
+        return num + num;
     }
 
     @Override
