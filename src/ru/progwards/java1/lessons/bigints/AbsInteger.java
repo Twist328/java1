@@ -49,9 +49,7 @@ public class AbsInteger {
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
         num1 = num1;
         num2 = num2;
-
         int res = 0;
-
         int a = num1.intValue();
         int a1 = num2.intValue();
         int sum = (a + a1);
@@ -64,25 +62,33 @@ public class AbsInteger {
         int c1 = num2.shortValue();
         int sum2 = (c + c1);
 
-        if (res == sum) {
-            return new IntInteger (sum) ;
-        } else {
-            if (res == sum1) {
+        int d = num1.intValue();
+        int d1 = num2.byteValue();
+        int sum3 = (d + d1);
+
+        int g = num1.byteValue();
+        int g1 = num2.shortValue();
+        int sum4 = (g + g1);
+
+        switch (res) {
+            case 1:
+                return new IntInteger(sum);
+            case 2:
                 return new ByteInteger((byte) sum1);
+            case 3:
+                return new ShortInteger((short) sum2);
+            case 4:
+                return new IntInteger(sum3);
+            case 5:
+                return new ShortInteger((short) sum4);
 
-            } else {
-                if (res == sum2) {
-                    return new ShortInteger((short) sum2);
 
-                }
-
-                return num1;
-            }
         }
+        return null;
     }
+}
 
-
-    static class ByteInteger extends AbsInteger {
+    class ByteInteger extends AbsInteger {
         byte num;
 
         @Override
@@ -112,7 +118,7 @@ public class AbsInteger {
         }
     }
 
-    static class ShortInteger extends AbsInteger {
+    class ShortInteger extends AbsInteger {
         short num;
 
         @Override
@@ -141,7 +147,7 @@ public class AbsInteger {
         }
     }
 
-    static class IntInteger extends AbsInteger {
+    class IntInteger extends AbsInteger {
         int num;
 
         @Override
@@ -169,4 +175,3 @@ public class AbsInteger {
             return "" + num;
         }
     }
-}
