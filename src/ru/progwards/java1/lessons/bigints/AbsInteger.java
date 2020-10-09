@@ -2,7 +2,7 @@ package ru.progwards.java1.lessons.bigints;
 
 public class AbsInteger {
 
-    private static Object num;
+    private  int num;
 
 
     public static void main(String[] args) {
@@ -20,7 +20,7 @@ public class AbsInteger {
     }
 
     public int intValue() {
-        return 0;
+        return num;
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
@@ -28,8 +28,8 @@ public class AbsInteger {
         num2 = num2;
         int a = num1.intValue();
         int b = num2.intValue();
-        int sum = (a + b) ;
-        return new ByteInteger((byte) sum);
+        int res = (a + b) ;
+        return new ByteInteger((byte) res);
 
     }
 }
