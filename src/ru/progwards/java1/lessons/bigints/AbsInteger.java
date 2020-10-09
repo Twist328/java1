@@ -54,7 +54,7 @@ class ByteInteger extends AbsInteger {
     @Override
     public int intValue() {
 
-        return num + num;
+        return num ;
     }
 
     @Override
@@ -77,7 +77,7 @@ class ShortInteger extends AbsInteger {
 
     @Override
     public int intValue() {
-        return num + num;
+        return num ;
     }
 
     @Override
@@ -96,7 +96,7 @@ class IntInteger extends AbsInteger {
 
     @Override
     public int intValue() {
-        return num + num;
+        return num ;
     }
 
     @Override
