@@ -28,10 +28,11 @@ public class AbsInteger {
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        int a = num1.intValue();
-        int b = num2.intValue();
+
+        int a = num1.num;
+        int b = num2.num;
         int sum = (a + b);
-        return new ShortInteger((short) sum);
+        return new AbsInteger(sum);
 
     }
 }
