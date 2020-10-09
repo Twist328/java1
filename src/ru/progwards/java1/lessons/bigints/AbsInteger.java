@@ -5,7 +5,6 @@ public class AbsInteger {
     private static Object num;
 
 
-
     public static void main(String[] args) {
 
         AbsInteger num1 = new IntInteger((int) 9);
@@ -13,7 +12,7 @@ public class AbsInteger {
 
         int a = num1.intValue();
         int b = num2.intValue();
-        int sum = (a + b)/2 ;
+        int sum = (a + b) / 2;
         System.out.println(sum);
     }
 
@@ -25,10 +24,11 @@ public class AbsInteger {
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-
+        num1 = num1;
+        num2 = num2;
         int a = num1.intValue();
         int b = num2.intValue();
-        int sum = (a + b)/2;
+        int sum = (a + b) / 2;
         return new ByteInteger((byte) sum);
 
     }
