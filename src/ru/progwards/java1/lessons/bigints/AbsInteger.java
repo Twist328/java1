@@ -8,7 +8,7 @@ public class AbsInteger {
         this.num = num;
     }
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
 
         AbsInteger num1 = new IntInteger((int) 258);
         AbsInteger num2 = new ShortInteger((short) 10);
@@ -28,13 +28,12 @@ public class AbsInteger {
         num2 = num2;
         int a = num1.intValue();
         int b = num2.intValue();
-        int res = (a + b);
-         new ShortInteger((short) res).intValue();
+        int sum = (a + b);
+        return new IntInteger(sum);
 
-        return new ShortInteger((short) res);
+
     }
 }
-
 class ByteInteger extends AbsInteger {
     byte num;
 
@@ -75,7 +74,7 @@ class ShortInteger extends AbsInteger {
     }
 }
 
-class IntInteger extends AbsInteger {
+ class IntInteger extends AbsInteger {
     int num;
 
     @Override
