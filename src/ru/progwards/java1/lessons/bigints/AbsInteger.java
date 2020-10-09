@@ -15,7 +15,7 @@ public class AbsInteger {
         System.out.println(sum);
     }
 
-    public AbsInteger(int num) {
+    public AbsInteger() {
     }
 
     public int intValue() {
@@ -23,8 +23,8 @@ public class AbsInteger {
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        num1 = new ByteInteger((byte) 0);
-        num2 = new ByteInteger((byte) 0);
+        num1 = new ByteInteger();
+        num2 = new ShortInteger();
         int a = num1.intValue();
         int b = num2.intValue();
         int sum = (a + b)/2;
@@ -37,9 +37,13 @@ class ByteInteger extends AbsInteger {
     byte num;
 
     public ByteInteger(byte num) {
-        super(num);
+        super();
 
         this.num = num;
+    }
+
+    public ByteInteger() {
+
     }
 
     @Override
@@ -58,8 +62,12 @@ class ShortInteger extends AbsInteger {
     short num;
 
     public ShortInteger(short num) {
-        super(num);
+        super();
         this.num = num;
+    }
+
+    public ShortInteger() {
+
     }
 
     @Override
@@ -77,7 +85,7 @@ class IntInteger extends AbsInteger {
     int num;
 
     public IntInteger(int num) {
-        super(num);
+        super();
         this.num = num;
     }
 
