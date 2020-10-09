@@ -37,7 +37,7 @@ public class AbsInteger {
         int a = num1.intValue();
         int b = num2.intValue();
         int sum = (a + b);
-        return new IntInteger(sum);
+        return new AbsInteger(sum);
 
     }
 }
