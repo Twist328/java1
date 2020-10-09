@@ -24,7 +24,7 @@ public class AbsInteger {
     }
 
     public int intValue() {
-        return num;
+        return num+num;
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
@@ -47,7 +47,8 @@ class ByteInteger extends AbsInteger {
 
     @Override
     public int intValue() {
-        return num;
+
+        return num+num;
     }
 
     @Override
@@ -65,7 +66,7 @@ class ShortInteger extends AbsInteger {
 
     @Override
     public int intValue() {
-        return num;
+        return num+num;
     }
 
     @Override
@@ -84,7 +85,7 @@ class IntInteger extends AbsInteger {
 
     @Override
     public int intValue() {
-        return num;
+        return num+num;
     }
 
     @Override
