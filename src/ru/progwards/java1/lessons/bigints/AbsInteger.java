@@ -35,11 +35,11 @@ public class AbsInteger {
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        num1 = new ByteInteger((byte) 9);
-        num2 = new ByteInteger((byte) 10);
+        num1 = new ByteInteger((byte) 0);
+        num2 = new ByteInteger((byte) 0);
         int a = num1.intValue();
         int b = num2.intValue();
-        int sum = (a + b);
+        int sum = (a + b)/2;
         return new ByteInteger((byte) sum);
 
     }
