@@ -38,7 +38,7 @@ public class AbsInteger {
         int a = num1.intValue();
         int b = num2.intValue();
         int sum = (a + b)/2;
-        return new AbsInteger(sum);
+        return new ByteInteger((byte) sum);
 
     }
 }
