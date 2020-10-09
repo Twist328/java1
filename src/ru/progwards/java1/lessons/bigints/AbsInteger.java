@@ -65,98 +65,108 @@ public class AbsInteger {
         int sum2 = (c + c1);
 
         if (res == sum) {
-            return new IntInteger(sum);
-        } else if (res == sum1) {
-            return new ByteInteger((byte) sum1);
-        } else
-            return new ShortInteger((short) sum2);
-    }
-}
+            return new IntInteger (sum) ;
+        } else {
+            if (res == sum1) {
+                return new ByteInteger((byte) sum1);
 
-class ByteInteger extends AbsInteger {
-    byte num;
+            } else {
+                if (res == sum2) {
+                    return new ShortInteger((short) sum2);
 
-    @Override
-    public int intValue() {
-        return super.intValue();
-    }
+                }
 
-    @Override
-    public byte byteValue() {
-        return super.byteValue();
+                return num1;
+            }
+        }
     }
 
-    @Override
-    public short shortValue() {
-        return super.shortValue();
+
+    static class ByteInteger extends AbsInteger {
+        byte num;
+
+        @Override
+        public int intValue() {
+            return super.intValue();
+        }
+
+        @Override
+        public byte byteValue() {
+            return super.byteValue();
+        }
+
+        @Override
+        public short shortValue() {
+            return super.shortValue();
+        }
+
+        public ByteInteger(byte num) {
+            super(num);
+
+            this.num = num;
+        }
+
+        @Override
+        public String toString() {
+            return "" + num;
+        }
     }
 
-    public ByteInteger(byte num) {
-        super(num);
+    static class ShortInteger extends AbsInteger {
+        short num;
 
-        this.num = num;
+        @Override
+        public int intValue() {
+            return super.intValue();
+        }
+
+        @Override
+        public byte byteValue() {
+            return super.byteValue();
+        }
+
+        @Override
+        public short shortValue() {
+            return super.shortValue();
+        }
+
+        public ShortInteger(short num) {
+            super(num);
+            this.num = num;
+        }
+
+        @Override
+        public String toString() {
+            return "" + num;
+        }
     }
 
-    @Override
-    public String toString() {
-        return "" + num;
-    }
-}
+    static class IntInteger extends AbsInteger {
+        int num;
 
-class ShortInteger extends AbsInteger {
-    short num;
+        @Override
+        public int intValue() {
+            return super.intValue();
+        }
 
-    @Override
-    public int intValue() {
-        return super.intValue();
-    }
+        @Override
+        public byte byteValue() {
+            return super.byteValue();
+        }
 
-    @Override
-    public byte byteValue() {
-        return super.byteValue();
-    }
+        @Override
+        public short shortValue() {
+            return super.shortValue();
+        }
 
-    @Override
-    public short shortValue() {
-        return super.shortValue();
-    }
+        public IntInteger(int num) {
+            super(num);
+            this.num = num;
+        }
 
-    public ShortInteger(short num) {
-        super(num);
-        this.num = num;
-    }
-
-    @Override
-    public String toString() {
-        return "" + num;
-    }
-}
-
-class IntInteger extends AbsInteger {
-    int num;
-
-    @Override
-    public int intValue() {
-        return super.intValue();
-    }
-
-    @Override
-    public byte byteValue() {
-        return super.byteValue();
-    }
-
-    @Override
-    public short shortValue() {
-        return super.shortValue();
-    }
-
-    public IntInteger(int num) {
-        super(num);
-        this.num = num;
-    }
-
-    @Override
-    public String toString() {
-        return "" + num;
+        @Override
+        public String toString() {
+            return "" + num;
+        }
     }
 }
