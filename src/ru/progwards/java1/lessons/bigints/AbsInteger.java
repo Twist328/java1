@@ -50,8 +50,9 @@ public class AbsInteger {
         int sum2 = (c + c1);
 
         if (res == sum) return new IntInteger(sum);
+        else
         if (res == sum1) return new ByteInteger((byte) sum1);
-         else
+        else
             return new ShortInteger((short) sum2);
 
 
