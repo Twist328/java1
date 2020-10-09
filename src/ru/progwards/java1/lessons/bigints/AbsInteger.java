@@ -29,7 +29,7 @@ public class AbsInteger {
         int a = num1.intValue();
         int b = num2.intValue();
         int sum = (a + b) ;
-        return new ByteInteger((byte) sum);new ShortInteger((short) sum);new IntInteger((int)sum);
+        return new ByteInteger((byte) sum);
 
     }
 }
