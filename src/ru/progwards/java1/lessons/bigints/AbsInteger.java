@@ -20,7 +20,7 @@ public class AbsInteger {
     }
 
     public int intValue() {
-        return 0;
+        return num;
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
