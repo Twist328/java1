@@ -82,7 +82,7 @@ public class AbsInteger {
             case 5:
                 return new ShortInteger((short) sum4);
 
-
+            default:
         }
         return null;
     }
