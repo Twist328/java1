@@ -24,12 +24,14 @@ public class AbsInteger {
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        num1 = num1;
-        num2 = num2;
+        num1 = null;
+        num1=num1;
+        num2 = null;
+        num2=num2;
         int a = num1.intValue();
         int b = num2.intValue();
         int res = (a + b) ;
-        return new ByteInteger((byte) res);
+        return new IntInteger((int) res);
 
     }
 }
