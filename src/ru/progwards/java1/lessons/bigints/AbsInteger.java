@@ -80,15 +80,15 @@ public class AbsInteger {
             case 4:
                 return new IntInteger(sum3);
             case 5:
+            default:
                 return new ShortInteger((short) sum4);
 
-            default:
-        }
-        return null;
-    }
-}
 
-    class ByteInteger extends AbsInteger {
+        }
+
+    }
+
+    static class ByteInteger extends AbsInteger {
         byte num;
 
         @Override
@@ -118,7 +118,7 @@ public class AbsInteger {
         }
     }
 
-    class ShortInteger extends AbsInteger {
+    static class ShortInteger extends AbsInteger {
         short num;
 
         @Override
@@ -147,7 +147,7 @@ public class AbsInteger {
         }
     }
 
-    class IntInteger extends AbsInteger {
+    static class IntInteger extends AbsInteger {
         int num;
 
         @Override
@@ -175,3 +175,4 @@ public class AbsInteger {
             return "" + num;
         }
     }
+}

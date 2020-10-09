@@ -26,7 +26,7 @@ public class BigAlgebra {
 
 
 
-        System.out.println(new BigInteger(String.valueOf(fibonacci(48))));
+        System.out.println(new BigInteger(String.valueOf(fibonacci(259))));
     }
 
     static BigInteger fibonacci(int n) {
