@@ -23,6 +23,14 @@ public class AbsInteger {
         return num;
     }
 
+    public byte byteValue() {
+        return (byte) num;
+    }
+
+    public short shortValue() {
+        return (short) num;
+    }
+
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
         num1 = num1;
         num2 = num2;
@@ -31,16 +39,25 @@ public class AbsInteger {
         int sum = (a + b);
         return new IntInteger(sum);
 
-
     }
 }
+
 class ByteInteger extends AbsInteger {
     byte num;
 
     @Override
     public int intValue() {
+        return super.intValue();
+    }
 
-        return this.num;
+    @Override
+    public byte byteValue() {
+        return super.byteValue();
+    }
+
+    @Override
+    public short shortValue() {
+        return super.shortValue();
     }
 
     public ByteInteger(byte num) {
@@ -60,7 +77,17 @@ class ShortInteger extends AbsInteger {
 
     @Override
     public int intValue() {
-        return this.num;
+        return super.intValue();
+    }
+
+    @Override
+    public byte byteValue() {
+        return super.byteValue();
+    }
+
+    @Override
+    public short shortValue() {
+        return super.shortValue();
     }
 
     public ShortInteger(short num) {
@@ -74,14 +101,23 @@ class ShortInteger extends AbsInteger {
     }
 }
 
- class IntInteger extends AbsInteger {
+class IntInteger extends AbsInteger {
     int num;
 
     @Override
     public int intValue() {
-        return this.num;
+        return super.intValue();
     }
 
+    @Override
+    public byte byteValue() {
+        return super.byteValue();
+    }
+
+    @Override
+    public short shortValue() {
+        return super.shortValue();
+    }
 
     public IntInteger(int num) {
         super(num);
