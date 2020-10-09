@@ -10,13 +10,28 @@ public class AbsInteger {
 
     public static void main(String[] args) {
 
-        AbsInteger num1 = new IntInteger((int) 258);
-        AbsInteger num2 = new ShortInteger((short) 10);
+        AbsInteger num1 = new IntInteger(258);
+        AbsInteger num2 = new IntInteger(258);
+        AbsInteger num3 = new ByteInteger((byte) 456);
+        AbsInteger num4 = new ByteInteger((byte) 564);
+        AbsInteger num5 = new ShortInteger((short) 345);
+        AbsInteger num6 = new ShortInteger((short) 543);
 
         int a = num1.intValue();
-        int b = num2.intValue();
-        int sum = (a + b);
+        int a1 = num2.intValue();
+        int sum = (a + a1);
+
+        int b = num3.byteValue();
+        int b1 = num4.byteValue();
+        int sum1 = (b + b1);
+
+        int c = num5.shortValue();
+        int c1 = num6.shortValue();
+        int sum2 = (c + c1);
+
         System.out.println(sum);
+        System.out.println(sum1);
+        System.out.println(sum2);
     }
 
     public int intValue() {
@@ -49,11 +64,12 @@ public class AbsInteger {
         int c1 = num2.shortValue();
         int sum2 = (c + c1);
 
-        if (res == sum) return new IntInteger(sum);
-        else if (res == sum1) return new ByteInteger((byte) sum1);
-        else if (res == sum2) return new ShortInteger((short) sum2);
-        else return null;
-
+        if (res == sum) {
+            return new IntInteger(sum);
+        } else if (res == sum1) {
+            return new ByteInteger((byte) sum1);
+        } else
+            return new ShortInteger((short) sum2);
     }
 }
 
