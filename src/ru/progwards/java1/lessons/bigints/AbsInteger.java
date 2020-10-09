@@ -12,7 +12,7 @@ public class AbsInteger {
 
         int a = num1.intValue();
         int b = num2.intValue();
-        int sum = (a + b) / 2;
+        int sum = (a + b) ;
         System.out.println(sum);
     }
 
@@ -28,7 +28,7 @@ public class AbsInteger {
         num2 = num2;
         int a = num1.intValue();
         int b = num2.intValue();
-        int sum = (a + b) / 2;
+        int sum = (a + b) ;
         return new ByteInteger((byte) sum);
 
     }
