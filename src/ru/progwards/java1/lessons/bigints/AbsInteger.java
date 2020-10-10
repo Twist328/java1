@@ -30,7 +30,7 @@ public class AbsInteger {
         int a = num1.intValue();
         int b = num2.intValue();
         int res = (a + b) ;
-        return new IntInteger((int) res);
+        return new ByteInteger((byte) res);
 
     }
 }
