@@ -23,11 +23,9 @@ public abstract class AbsInteger {
         return num;
     }
 
-    static AbsInteger add(int num1, int num2) {
-        int a = num1;
-        int b = num2;
-
-
+    static AbsInteger add(AbsInteger num1, AbsInteger num2) {
+        int a = num1.intValue();
+        int b = num2.intValue();
         return new IntInteger((int)a+b);
     }
 
