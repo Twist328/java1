@@ -32,6 +32,7 @@ public class AbsInteger {
 
         if(res<= -128|res<=127) return new ByteInteger((byte) res);
         for (int i = res; i > 127 ; i++) {
+            if (res<= -128|res >=-32768|res >127|res <=32767)
             return new ShortInteger((short) res);
         }
         return new IntInteger(res);
