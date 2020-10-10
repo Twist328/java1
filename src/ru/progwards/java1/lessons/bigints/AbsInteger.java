@@ -2,11 +2,8 @@ package ru.progwards.java1.lessons.bigints;
 
 public class AbsInteger {
 
-    private int num;
+    private  int num;
 
-    public AbsInteger(int num) {
-
-    }
 
     public static void main(String[] args) {
 
@@ -15,10 +12,12 @@ public class AbsInteger {
 
         int a = num1.intValue();
         int b = num2.intValue();
-        int sum = (a + b);
+        int sum = (a + b) ;
         System.out.println(sum);
     }
 
+    public AbsInteger() {
+    }
 
     public int intValue() {
         return num;
@@ -26,11 +25,12 @@ public class AbsInteger {
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
         num1 = num1;
+        num1=num1;
         num2 = num2;
         int a = num1.intValue();
         int b = num2.intValue();
-        int res = (a + b);
-        return new ShortInteger((short) res);
+        int res = (a + b) ;
+        return new IntInteger((int) res);
 
     }
 }
@@ -39,15 +39,23 @@ class ByteInteger extends AbsInteger {
     byte num;
 
     public ByteInteger(byte num) {
-        super(num);
+        super();
 
         this.num = num;
+    }
+
+    public ByteInteger() {
+
+    }
+
+    public ByteInteger(short num) {
+
     }
 
     @Override
     public int intValue() {
 
-        return num;
+        return num ;
     }
 
     @Override
@@ -60,13 +68,17 @@ class ShortInteger extends AbsInteger {
     short num;
 
     public ShortInteger(short num) {
-        super(num);
+        super();
         this.num = num;
+    }
+
+    public ShortInteger() {
+
     }
 
     @Override
     public int intValue() {
-        return num;
+        return num ;
     }
 
     @Override
@@ -79,13 +91,15 @@ class IntInteger extends AbsInteger {
     int num;
 
     public IntInteger(int num) {
-        super(num);
+        super();
         this.num = num;
     }
+    public IntInteger(){
 
+    }
     @Override
     public int intValue() {
-        return num;
+        return num ;
     }
 
     @Override
@@ -93,3 +107,4 @@ class IntInteger extends AbsInteger {
         return "" + num;
     }
 }
+
