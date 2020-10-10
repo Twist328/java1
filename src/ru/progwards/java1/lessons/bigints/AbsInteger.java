@@ -25,27 +25,37 @@ public class AbsInteger {
         return (short) num;
     }
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        //num1 = num1;
-        //num2 = num2;
-        int result=0;
+        num1 = num1;
+        num2 = num2;
+        int result = 0;
         int a = num1.intValue();
         int a1 = num2.intValue();
         int sum = (a + a1);
 
         int b = num1.byteValue();
         int b1 = num2.byteValue();
-        int sum1 = (b + b1);
+        byte sum1 = (byte) (b + b1);
 
         int c = num1.shortValue();
         int c1 = num2.shortValue();
-        int sum2 = (c + c1);
+        short sum2 = (short) (c + c1);
 
-        if  (result == (sum | sum1 | sum2)) {
+        if (result == sum) {
+        } else
+            return new IntInteger(sum);
+        if (result == sum1) {
+        } else
+            return new ByteInteger(sum1);
+        if (result == sum2) {
+
+        } else {
+
+
         }
-       return new ByteInteger((byte) result);
+        return new ShortInteger(sum2);
+    }
 
-    }
-    }
+}
      class ByteInteger extends AbsInteger {
         byte num;
         @Override
