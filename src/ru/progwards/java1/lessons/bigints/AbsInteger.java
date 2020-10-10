@@ -28,7 +28,7 @@ public abstract class AbsInteger {
         int b = num2;
 
 
-        return add(a,b);
+        return new IntInteger((int)a+b);
     }
 
     }

@@ -22,7 +22,7 @@ public class BigAlgebra {
     public static void main(String[] args)  {
 
         BigAlgebra dec = new BigAlgebra();
-        System.out.println(dec.fastPow(BigDecimal.valueOf(256.33), 5));
+        System.out.println(dec.fastPow(BigDecimal.valueOf(10876256.33), 5));
 
 
 
