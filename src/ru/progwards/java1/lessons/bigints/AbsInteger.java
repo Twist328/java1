@@ -2,7 +2,7 @@ package ru.progwards.java1.lessons.bigints;
 
 public class AbsInteger {
 
-    private  int num;
+     int num;
 
 
     public static void main(String[] args) {
