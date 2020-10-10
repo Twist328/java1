@@ -1,8 +1,10 @@
 package ru.progwards.java1.lessons.bigints;
 
+import static java.lang.Byte.*;
+
 public class AbsInteger {
 
-     int num;
+    int num;
 
 
     public static void main(String[] args) {
@@ -12,7 +14,7 @@ public class AbsInteger {
 
         int a = num1.intValue();
         int b = num2.intValue();
-        int sum = (a + b) ;
+        int sum = (a + b);
         System.out.println(sum);
     }
 
@@ -30,87 +32,97 @@ public class AbsInteger {
         int b = num2.intValue();
         int res = (a + b);
 
-        if(res<= -128|res<=127) {
+        for (int i = res; i == -128 - (+127); i++)
             return new ByteInteger((byte) res);
-        }else                                                       //for (int i = res; i > 127 ; i++) {
-            if (res<= -128|res <=-32768|res >127|res <=32767){
+        for (int i = res; i == -128 - (-32768); --i)
             return new ShortInteger((short) res);
-        }else
-        return new IntInteger(res);
-
-    }
-}
-
-class ByteInteger extends AbsInteger {
-    byte num;
-
-    public ByteInteger(byte num) {
-        super();
-
-        this.num = num;
-    }
-
-    public ByteInteger() {
+            for (int i = res; i == 127 - (+32767); i++)
+                return new ShortInteger((short) res);
+            return new IntInteger(res);
+        }
 
     }
 
-    public ByteInteger(short num) {
+    class ByteInteger extends AbsInteger {
+        byte num;
 
+        public ByteInteger(byte num) {
+            super();
+
+            this.num = num;
+        }
+
+        public ByteInteger() {
+
+        }
+
+        public ByteInteger(short num) {
+
+        }
+
+        @Override
+        public int intValue() {
+
+            return num;
+        }
+
+        @Override
+        public String toString() {
+            return "" + num;
+        }
     }
 
-    @Override
-    public int intValue() {
+    class ShortInteger extends AbsInteger {
+        short num;
 
-        return num ;
+        public ShortInteger(short num) {
+            super();
+            this.num = num;
+        }
+
+        public ShortInteger() {
+
+        }
+
+        @Override
+        public int intValue() {
+            return num;
+        }
+
+        @Override
+        public String toString() {
+            return "" + num;
+        }
     }
 
-    @Override
-    public String toString() {
-        return "" + num;
-    }
-}
+    class IntInteger extends AbsInteger {
+        int num;
 
-class ShortInteger extends AbsInteger {
-    short num;
+        public IntInteger(int num) {
+            super();
+            this.num = num;
+        }
 
-    public ShortInteger(short num) {
-        super();
-        this.num = num;
-    }
+        public IntInteger() {
 
-    public ShortInteger() {
+        }
 
-    }
+        @Override
+        public int intValue() {
+            return num;
+        }
 
-    @Override
-    public int intValue() {
-        return num ;
-    }
-
-    @Override
-    public String toString() {
-        return "" + num;
-    }
-}
-
-class IntInteger extends AbsInteger {
-    int num;
-
-    public IntInteger(int num) {
-        super();
-        this.num = num;
-    }
-    public IntInteger(){
-
-    }
-    @Override
-    public int intValue() {
-        return num ;
+        @Override
+        public String toString() {
+            return "" + num;
+        }
     }
 
-    @Override
-    public String toString() {
-        return "" + num;
-    }
-}
-
+//length
+// if(res<= -128|res<=127) {
+//return new ByteInteger((byte) res);
+//}else                                                       //for (int i = res; i > 127 ; i++) {
+// if (res<= -128|res <=-32768|res >127|res <=32767){
+// return new ShortInteger((short) res);
+// }else
+//return new IntInteger(res);
