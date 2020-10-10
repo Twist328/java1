@@ -33,7 +33,7 @@ public class AbsInteger {
         int b = num2.intValue();
         int res = (a + b);
         final int res1 = res;
-        return new AbsInteger  (res1);
+        return new IntInteger((int)res);
 
         }
     }
