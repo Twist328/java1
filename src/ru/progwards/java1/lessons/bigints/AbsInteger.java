@@ -27,7 +27,7 @@ public class AbsInteger {
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
         num1 = num1;
         num2 = num2;
-        int result = 0;
+        int res = 0;
         int a = num1.intValue();
         int a1 = num2.intValue();
         int sum = (a + a1);
@@ -40,13 +40,13 @@ public class AbsInteger {
         int c1 = num2.shortValue();
         short sum2 = (short) (c + c1);
 
-        if (result == sum) {
+        if (res== sum) {
         } else
             return new IntInteger(sum);
-        if (result == sum1) {
+        if (res == sum1) {
         } else
             return new ByteInteger(sum1);
-        if (result == sum2) {
+        if (res == sum2) {
 
         } else {
 
