@@ -6,7 +6,7 @@ public abstract class AbsInteger {
     public AbsInteger() {
     }
     public  int intValue() {
-        return 0;
+        return num;
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
@@ -15,11 +15,11 @@ public abstract class AbsInteger {
         return new IntInteger((int)a+b);
     }
     public short shortValue(){
-        return (short) 0;
+        return (short) num;
     }
 
     public byte byteValue(){
-        return (byte) 0;
+        return (byte) num;
     }
 }
 
