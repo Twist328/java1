@@ -19,13 +19,16 @@ public abstract class AbsInteger {
     }
 
 
-    public int intValue() {
+    public  int intValue() {
         return num;
     }
 
-    static AbsInteger add(AbsInteger num1, AbsInteger num2) {
+    static AbsInteger add(int num1, int num2) {
+        int a = num1;
+        int b = num2;
 
-        return add(num1,num2);
+
+        return add(a,b);
     }
 
     }
