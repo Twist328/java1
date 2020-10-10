@@ -25,12 +25,16 @@ public class AbsInteger {
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
         num1 = num1;
-        num1=num1;
         num2 = num2;
         int a = num1.intValue();
         int b = num2.intValue();
-        int res = (a + b) ;
-        return new ByteInteger((byte) res);
+        int res = (a + b);
+
+        if(res<= -128|res<=127) return new ByteInteger((byte) res);
+        for (int i = res; i > 127 ; i++) {
+            return new ShortInteger((short) res);
+        }
+        return new IntInteger(res);
 
     }
 }
