@@ -14,11 +14,8 @@ public abstract class AbsInteger {
         int sum = (a + b);
         System.out.println(sum);
     }
-
     public AbsInteger() {
     }
-
-
     public  int intValue() {
         return num;
     }
@@ -45,24 +42,16 @@ public abstract class AbsInteger {
 
             this.num = num;
         }
-
-        //public ByteInteger() {
-
-        //}
-
         public ByteInteger(short num) {
-
         }
         @Override
         public byte byteValue() {
             return num;
         }
-
         @Override
         public int intValue() {
             return num;
         }
-
         @Override
         public String toString() {
             return "" + num;
@@ -84,10 +73,6 @@ public abstract class AbsInteger {
             super();
             this.num = num;
         }
-
-        //public ShortInteger() {
-
-        //}
         @Override
         public short shortValue() {
             return num;
@@ -96,12 +81,10 @@ public abstract class AbsInteger {
         public int intValue() {
             return num;
         }
-
         @Override
         public String toString() {
             return "" + num;
         }
-
         static AbsInteger add(AbsInteger num1, AbsInteger num2) {
             num1 = num1;
             num2 = num2;
@@ -119,11 +102,6 @@ public abstract class AbsInteger {
             super();
             this.num = num;
         }
-
-        //public IntInteger() {
-
-       // }
-
         @Override
         public int intValue() {
             return num;
