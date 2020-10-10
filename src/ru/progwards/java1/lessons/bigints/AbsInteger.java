@@ -31,7 +31,7 @@ public class AbsInteger {
         int a = num1.intValue();
         int b = num2.intValue();
         int res = (a + b);
-                return new IntInteger(res);
+                return null;
 
         }
     }
@@ -128,8 +128,17 @@ public class AbsInteger {
         public String toString() {
             return "" + num;
         }
-    }
 
+        static AbsInteger add(AbsInteger num1, AbsInteger num2) {
+            num1 = num1;
+            num2 = num2;
+            int a = num1.intValue();
+            int b = num2.intValue();
+            int res = (a + b);
+            return new IntInteger(res);
+
+        }
+    }
 //length
 // if(res<= -128|res<=127) {
 //return new ByteInteger((byte) res);
