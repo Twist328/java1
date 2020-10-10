@@ -53,10 +53,13 @@ public abstract class AbsInteger {
         public ByteInteger(short num) {
 
         }
+        @Override
+        public byte byteValue() {
+            return num;
+        }
 
         @Override
         public int intValue() {
-
             return num;
         }
 
@@ -70,9 +73,8 @@ public abstract class AbsInteger {
             num2 = num2;
             int a = num1.byteValue();
             int b = num2.byteValue();
-            int res = (a + b);
 
-            return new ByteInteger((byte) res);
+            return new ByteInteger((byte)(a + b));
         }
     }
     class ShortInteger extends AbsInteger {
@@ -86,7 +88,10 @@ public abstract class AbsInteger {
         //public ShortInteger() {
 
         //}
-
+        @Override
+        public short shortValue() {
+            return num;
+        }
         @Override
         public int intValue() {
             return num;
@@ -102,9 +107,8 @@ public abstract class AbsInteger {
             num2 = num2;
             int a = num1.shortValue();
             int b = num2.shortValue();
-            int res = (a + b);
 
-            return new ShortInteger((short) res);
+            return new ShortInteger((short)(a + b));
         }
     }
 
@@ -135,8 +139,8 @@ public abstract class AbsInteger {
             num2 = num2;
             int a = num1.intValue();
             int b = num2.intValue();
-            int res = (a + b);
-            return new IntInteger(res);
+
+            return new IntInteger(a + b);
 
         }
     }
