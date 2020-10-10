@@ -45,9 +45,9 @@ public class AbsInteger {
             this.num = num;
         }
 
-        public ByteInteger() {
+        //public ByteInteger() {
 
-        }
+        //}
 
         public ByteInteger(short num) {
 
@@ -82,9 +82,9 @@ public class AbsInteger {
             this.num = num;
         }
 
-        public ShortInteger() {
+        //public ShortInteger() {
 
-        }
+        //}
 
         @Override
         public int intValue() {
@@ -115,9 +115,9 @@ public class AbsInteger {
             this.num = num;
         }
 
-        public IntInteger() {
+        //public IntInteger() {
 
-        }
+       // }
 
         @Override
         public int intValue() {
