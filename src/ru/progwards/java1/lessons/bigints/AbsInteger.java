@@ -28,8 +28,14 @@ public abstract class AbsInteger {
         int b = num2.intValue();
         return new IntInteger((int)a+b);
     }
-
+    public short shortValue(){
+        return (short) num;
     }
+
+    public byte byteValue(){
+        return (byte) num;
+    }
+}
 
     class ByteInteger extends AbsInteger {
         byte num;
@@ -62,8 +68,8 @@ public abstract class AbsInteger {
         static AbsInteger add(AbsInteger num1, AbsInteger num2) {
             num1 = num1;
             num2 = num2;
-            int a = num1.intValue();
-            int b = num2.intValue();
+            int a = num1.byteValue();
+            int b = num2.byteValue();
             int res = (a + b);
 
             return new ByteInteger((byte) res);
@@ -94,8 +100,8 @@ public abstract class AbsInteger {
         static AbsInteger add(AbsInteger num1, AbsInteger num2) {
             num1 = num1;
             num2 = num2;
-            int a = num1.intValue();
-            int b = num2.intValue();
+            int a = num1.shortValue();
+            int b = num2.shortValue();
             int res = (a + b);
 
             return new ShortInteger((short) res);
