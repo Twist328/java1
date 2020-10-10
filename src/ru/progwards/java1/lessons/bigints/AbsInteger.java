@@ -2,7 +2,7 @@ package ru.progwards.java1.lessons.bigints;
 
 public class AbsInteger {
 
-    private int num;
+     int num;
 
     public AbsInteger(int num) {
         this.num=num;
@@ -60,15 +60,15 @@ public class AbsInteger {
         byte num;
         @Override
         public int intValue(){
-            return  super.intValue();
+            return num;
         }
         @Override
         public byte byteValue() {
-            return super.byteValue();
+            return num;
         }
         @Override
         public short shortValue(){
-                return super.shortValue();
+                return num;
             }
 
         public ByteInteger(byte num) {
@@ -84,15 +84,15 @@ public class AbsInteger {
             short num;
         @Override
         public int intValue(){
-            return  super.intValue();
+            return  num;
         }
         @Override
         public byte byteValue() {
-            return super.byteValue();
+            return (byte) num;
         }
         @Override
         public short shortValue(){
-            return super.shortValue();
+            return num;
         }
         public ShortInteger(short num) {
             super( num);
@@ -107,15 +107,15 @@ public class AbsInteger {
         int num;
         @Override
         public int intValue(){
-            return  super.intValue();
+            return  num;
         }
         @Override
         public byte byteValue() {
-            return super.byteValue();
+            return (byte) num;
         }
         @Override
         public short shortValue(){
-            return super.shortValue();
+            return (short) num;
         }
         public IntInteger(int num) {
             super(num);
