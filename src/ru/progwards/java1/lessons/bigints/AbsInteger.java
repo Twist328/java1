@@ -8,8 +8,8 @@ public class AbsInteger {
         this.num=num;
     }
     public static void main(String[] args) {
-        AbsInteger num3 = new ByteInteger((byte) 456);
-        AbsInteger num4 = new ByteInteger((byte) 564);
+        AbsInteger num3 = new ByteInteger((byte) 4);
+        AbsInteger num4 = new ByteInteger((byte) 7);
         int b = num3.byteValue();
         int b1 = num4.byteValue();
         int sum1 = (b + b1);
@@ -25,8 +25,8 @@ public class AbsInteger {
         return (short) num;
     }
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        num1 = num1;
-        num2 = num2;
+        //num1 = num1;
+        //num2 = num2;
         int result=0;
         int a = num1.intValue();
         int a1 = num2.intValue();
@@ -42,7 +42,7 @@ public class AbsInteger {
 
         if  (result == (sum | sum1 | sum2)) {
         }
-       return new ByteInteger((byte) sum);
+       return new ByteInteger((byte) result);
 
     }
     }
