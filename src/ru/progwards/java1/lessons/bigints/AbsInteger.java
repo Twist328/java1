@@ -24,7 +24,8 @@ public abstract class AbsInteger {
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        return null;
+
+        return num1;
     }
 
     }
