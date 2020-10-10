@@ -31,16 +31,9 @@ public class AbsInteger {
         int a = num1.intValue();
         int b = num2.intValue();
         int res = (a + b);
+                return new IntInteger(res);
 
-        for (int i = res; i == -128 - (+127); i++)
-            return new ByteInteger((byte) res);
-        for (int i = res; i == -128 - (-32768); --i)
-            return new ShortInteger((short) res);
-            for (int i = res; i == 127 - (+32767); i++)
-                return new ShortInteger((short) res);
-            return new IntInteger(res);
         }
-
     }
 
     class ByteInteger extends AbsInteger {
@@ -70,8 +63,17 @@ public class AbsInteger {
         public String toString() {
             return "" + num;
         }
-    }
 
+        static AbsInteger add(AbsInteger num1, AbsInteger num2) {
+            num1 = num1;
+            num2 = num2;
+            int a = num1.intValue();
+            int b = num2.intValue();
+            int res = (a + b);
+
+            return new ByteInteger((byte) res);
+        }
+    }
     class ShortInteger extends AbsInteger {
         short num;
 
@@ -92,6 +94,16 @@ public class AbsInteger {
         @Override
         public String toString() {
             return "" + num;
+        }
+
+        static AbsInteger add(AbsInteger num1, AbsInteger num2) {
+            num1 = num1;
+            num2 = num2;
+            int a = num1.intValue();
+            int b = num2.intValue();
+            int res = (a + b);
+
+            return new ShortInteger((short) res);
         }
     }
 
