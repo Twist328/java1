@@ -4,10 +4,6 @@ public class AbsInteger {
 
     int num;
 
-    public AbsInteger(int res1) {
-    }
-
-
     public static void main(String[] args) {
 
         AbsInteger num1 = new IntInteger((int) 258);
