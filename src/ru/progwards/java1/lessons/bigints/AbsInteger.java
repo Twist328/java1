@@ -1,6 +1,6 @@
 package ru.progwards.java1.lessons.bigints;
 
-public class AbsInteger {
+public abstract class AbsInteger {
 
     int num;
 
@@ -18,20 +18,15 @@ public class AbsInteger {
     public AbsInteger() {
     }
 
+
     public int intValue() {
         return num;
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        num1 = num1;
-        num2 = num2;
-        int a = num1.intValue();
-        int b = num2.intValue();
-        int res = (a + b);
-        final int res1 = res;
-        return new ByteInteger((byte) res);
+        return null;
+    }
 
-        }
     }
 
     class ByteInteger extends AbsInteger {
@@ -109,7 +104,7 @@ public class AbsInteger {
         int num;
 
         public IntInteger(int num) {
-            //super();
+            super();
             this.num = num;
         }
 
