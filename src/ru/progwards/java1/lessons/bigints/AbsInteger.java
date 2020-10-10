@@ -1,10 +1,11 @@
 package ru.progwards.java1.lessons.bigints;
 
-import static java.lang.Byte.*;
-
 public class AbsInteger {
 
     int num;
+
+    public AbsInteger(int res1) {
+    }
 
 
     public static void main(String[] args) {
@@ -31,7 +32,8 @@ public class AbsInteger {
         int a = num1.intValue();
         int b = num2.intValue();
         int res = (a + b);
-                return new IntInteger(res);
+        final int res1 = res;
+        return new AbsInteger  (res1);
 
         }
     }
