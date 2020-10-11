@@ -5,18 +5,24 @@ public abstract class AbsInteger {
 
     public AbsInteger() {
     }
-    public  int intValue() {
+
+    public int intValue() {
         return num;
     }
 
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
         int a = num1.intValue();
         int b = num2.intValue();
-        return new IntInteger((int)a+b);
+        int result = (a + b);
+        if (result <= -128 | result <= 127) {
+        }
+        return new ByteInteger((byte) result);
     }
-    public short shortValue(){
-        return (short) num;
-    }
+
+
+        public short shortValue () {
+            return (short) num;
+        }
 
     public byte byteValue(){
         return (byte) num;
