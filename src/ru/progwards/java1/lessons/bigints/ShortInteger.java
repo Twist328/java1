@@ -29,7 +29,7 @@ class ShortInteger extends AbsInteger {
         int a = num1.shortValue();
         int b = num2.shortValue();
         int result = (a + b);
-        if (result<= -128|result <=-32768|result >127|result <=32767) {
+        if (result>= -128|result >=-32768|result >127|result <=32767) {
         }
         return new ShortInteger((short) result);
     }
