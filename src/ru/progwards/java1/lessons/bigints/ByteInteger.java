@@ -4,9 +4,9 @@ class ByteInteger extends AbsInteger {
     byte num;
 
     public ByteInteger(byte num) {
-        //super();
+        super();
 
-        //this.num = num;
+        this.num = num;
     }
     public ByteInteger(short num) {
     }
@@ -29,8 +29,8 @@ class ByteInteger extends AbsInteger {
         int a = num1.byteValue();
         int b = num2.byteValue();
         int result = (a + b);
-        //if (result <= -128 | result <= 127) {
-        //}
+        if (result <= -128 | result <= 127) {
+        }
         return new ByteInteger((byte) result);
     }
 }
