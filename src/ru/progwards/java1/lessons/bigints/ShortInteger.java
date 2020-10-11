@@ -10,17 +10,17 @@ class ShortInteger extends AbsInteger {
 
     @Override
     public short shortValue() {
-        return super.shortValue();
+        return num;
     }
 
     @Override
     public byte byteValue() {
-        return super.byteValue();
+        return (byte) num;
     }
 
     @Override
     public int intValue() {
-        return super.intValue();
+        return (int) num;
     }
 
     @Override
