@@ -6,7 +6,7 @@ public class TestInteger {
     public static void main(String[] args) {
 
         AbsInteger num1 = new IntInteger( 33000);
-        AbsInteger num2 = new ShortInteger((short) 32700);
+        AbsInteger num2 = new ShortInteger((short) -32758);
         AbsInteger num3 = new ShortInteger((short) 20588);
         AbsInteger num4 = new ByteInteger((byte) -126);
         AbsInteger num5 = new ByteInteger((byte) -126);
