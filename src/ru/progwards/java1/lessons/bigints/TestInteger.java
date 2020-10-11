@@ -1,5 +1,7 @@
 package ru.progwards.java1.lessons.bigints;
 
+import static ru.progwards.java1.lessons.bigints.AbsInteger.add;
+
 public class TestInteger {
     public static void main(String[] args) {
 
@@ -10,13 +12,15 @@ public class TestInteger {
         AbsInteger num5 = new ByteInteger((byte) -126);
         AbsInteger num6 = new IntInteger( 100000);
 
+
         int a = num1.intValue();
         int b = num2.intValue();
         int a1 = num3.intValue();
         int b1 = num4.intValue();
         int a2 = num5.intValue();
         int b2 = num6.intValue();
-
+        AbsInteger result  =  add(num1,num2);
+        System.out.println(result);
         int sum = (a + b);
         int sum1 = (a1 + b1);
         int sum2 = (a2 + b2);

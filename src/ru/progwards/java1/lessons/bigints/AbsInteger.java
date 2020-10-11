@@ -24,13 +24,18 @@ public abstract class AbsInteger {
         int b = num2.intValue();
         int result = (a + b);
 
-        if (result>(-128)|result <=127){
+        if (result > (-128) | result <= 127) {
 
-        }
+        } else
             return new ByteInteger((byte) result);
+        if (result <= -128 | result <= -32768 | result > 127 | result <= 32767) {
+        } else
+            return new ShortInteger((short) result);
+        {
+            return new IntInteger(result);
+        }
     }
 }
-
 
 //length
 // if(res<= -128|res<=127) {
