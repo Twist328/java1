@@ -6,13 +6,15 @@ public abstract class AbsInteger {
 
     public AbsInteger() {
     }
-    public short shortValue () {
+
+    public short shortValue() {
         return (short) num;
     }
 
-    public byte byteValue () {
+    public byte byteValue() {
         return (byte) num;
     }
+
     public int intValue() {
         return num;
     }
@@ -26,10 +28,12 @@ public abstract class AbsInteger {
         }
         if (result <= 127 | result >= 0) {
 
+
+            return new ByteInteger((byte) result);
         }
         return new ByteInteger((byte) result);
     }
-    }
+}
 
 
 //length

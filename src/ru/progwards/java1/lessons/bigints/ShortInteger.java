@@ -38,8 +38,10 @@ class ShortInteger extends AbsInteger {
         if (result <= -128 | result >= -32768 | result < 0) {
         }
         if (result >= 127 | result <= 32767 | result > 0) {
-        }
 
+
+            return new ShortInteger((short) result);
+        }
         return new ShortInteger((short) result);
     }
 }
