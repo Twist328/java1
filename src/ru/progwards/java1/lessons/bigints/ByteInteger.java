@@ -28,16 +28,3 @@ class ByteInteger extends AbsInteger {
     }
 
 }
-    /*/static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        num1 = num1;
-        num2 = num2;
-        int a = num1.byteValue();
-        int b = num2.byteValue();
-        int result = (a + b);
-
-        if (result >= (-128) | result <= 127) {
-        }
-            return new ByteInteger((byte) result);
-
-    }
-}/*/

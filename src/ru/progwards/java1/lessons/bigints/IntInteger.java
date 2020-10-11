@@ -18,17 +18,3 @@ class IntInteger extends AbsInteger {
         return "" + num;
     }
 }
-    /*/static AbsInteger add(AbsInteger num5, AbsInteger num6) {
-        num5 = num5;
-        num6 = num6;
-        int a = num5.intValue();
-        int b = num6.intValue();
-        int result = (a+b);
-
-        if (result >= (-32768) | result >= 32767) {
-
-
-        }
-        return new IntInteger(result);
-    }
-}/*/
