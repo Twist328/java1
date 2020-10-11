@@ -27,8 +27,8 @@ class ShortInteger extends AbsInteger {
     public String toString() {
         return "" + num;
     }
-
-    static AbsInteger add(AbsInteger num3, AbsInteger num4) {
+}
+    /*/static AbsInteger add(AbsInteger num3, AbsInteger num4) {
         num3 = num3;
         num4 = num4;
         int a = num3.shortValue();
@@ -39,4 +39,4 @@ class ShortInteger extends AbsInteger {
         }
         return new ShortInteger((short) result);
     }
-}
+}/*/

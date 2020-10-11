@@ -7,6 +7,7 @@ class IntInteger extends AbsInteger {
         super();
         this.num = num;
     }
+
     @Override
     public int intValue() {
         return num;
@@ -16,8 +17,8 @@ class IntInteger extends AbsInteger {
     public String toString() {
         return "" + num;
     }
-
-    static AbsInteger add(AbsInteger num5, AbsInteger num6) {
+}
+    /*/static AbsInteger add(AbsInteger num5, AbsInteger num6) {
         num5 = num5;
         num6 = num6;
         int a = num5.intValue();
@@ -25,8 +26,9 @@ class IntInteger extends AbsInteger {
         int result = (a+b);
 
         if (result >= (-32768) | result >= 32767) {
-        }
-        return new IntInteger( result);
 
+
+        }
+        return new IntInteger(result);
     }
-}
+}/*/

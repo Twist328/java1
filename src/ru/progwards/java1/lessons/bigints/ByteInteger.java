@@ -8,22 +8,27 @@ class ByteInteger extends AbsInteger {
 
         this.num = num;
     }
+
     public ByteInteger(short num) {
     }
+
     @Override
     public byte byteValue() {
         return num;
     }
+
     @Override
     public int intValue() {
         return num;
     }
+
     @Override
     public String toString() {
         return "" + num;
     }
 
-    static AbsInteger add(AbsInteger num1, AbsInteger num2) {
+}
+    /*/static AbsInteger add(AbsInteger num1, AbsInteger num2) {
         num1 = num1;
         num2 = num2;
         int a = num1.byteValue();
@@ -35,4 +40,4 @@ class ByteInteger extends AbsInteger {
             return new ByteInteger((byte) result);
 
     }
-}
+}/*/
