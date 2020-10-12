@@ -28,7 +28,7 @@ public abstract class AbsInteger {
 
         if (result > -128 & result <= 127) {
             return new ByteInteger((byte) result);
-        } else if (result < -128 & result <= -32768) {
+        } else if (result < -128 & result >= -32768) {
             return new ShortInteger((short) result);
         } else if( result > 127 & result <= 32767) {
            return new ShortInteger((short) result);
