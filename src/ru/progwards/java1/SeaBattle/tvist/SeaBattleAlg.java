@@ -204,8 +204,8 @@ public class SeaBattleAlg {
     // функция для отладки
     public static void main(String[] args) {
         System.out.println("Sea battle");
-       // SeaBattle seaBattle = new SeaBattle(true);
-       // new SeaBattleAlg().battleAlgorithm(seaBattle);
+        //SeaBattle seaBattle = new SeaBattle(true);
+        //new SeaBattleAlg().battleAlgorithm(seaBattle);
        // System.out.println(seaBattle.getResult());
         test();
     }
