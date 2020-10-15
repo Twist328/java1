@@ -4,17 +4,16 @@ import static ru.progwards.java1.lessons.bigints.AbsInteger.add;
 
 public class TestInteger {
     public static void main(String[] args) {
-        AbsInteger num1 = new IntInteger( 32768);
-        AbsInteger num2 = new ShortInteger((short) -32678);
-
+        AbsInteger num1 = new ShortInteger((short) 32700);
+        AbsInteger num2 = new IntInteger( -32768);
 
         int a = num1.intValue();
         int b = num2.intValue();
 
-        AbsInteger result = add(num1, num2);
-        System.out.println(result);
-
         int res = (a + b);
+        
+        AbsInteger result = add(num1,num2);
+        System.out.println(result);
 
 
         if (res > -128 & res < 127) {

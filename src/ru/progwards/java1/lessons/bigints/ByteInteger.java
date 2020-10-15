@@ -13,11 +13,6 @@ class ByteInteger extends AbsInteger {
     }
 
     @Override
-    public byte byteValue() {
-        return num;
-    }
-
-    @Override
     public int intValue() {
         return num;
     }

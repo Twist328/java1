@@ -20,24 +20,32 @@ class Exception1 {
         return n;
     }
 
+
     //public static void main(String[] args) {
-    public String test(String filename) throws IOException {
-        try {
 
-        } catch (NullPointerException e) {
 
-        } finally {
+     public static String test(String filename) throws IOException {
+       // try {
+            //if (filename == null)
+               // return String.valueOf(0);
+       // } catch (NullPointerException e) {
+           // return String.valueOf(1);
 
             if (filename == null) {
-                return "File not found";
+                //System.out.println("IOException");
+
+                return  "java.io.IOException File not found\n";
 
             } else {
 
-                    return "File processing";
-                }
+                return  "File processing";
+            }
+    }
+            public static void main(String[] args) throws IOException {
+                System.out.println( test(null));
             }
         }
-    }
+
 
 
 

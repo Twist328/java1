@@ -7,14 +7,6 @@ public abstract class AbsInteger {
     public AbsInteger() {
     }
 
-    public short shortValue() {
-        return (short) num;
-    }
-
-    public byte byteValue() {
-        return (byte) num;
-    }
-
     public int intValue() {
         return num;
     }

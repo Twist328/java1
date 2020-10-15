@@ -9,16 +9,6 @@ class ShortInteger extends AbsInteger {
     }
 
     @Override
-    public short shortValue() {
-        return num;
-    }
-
-    @Override
-    public byte byteValue() {
-        return (byte) num;
-    }
-
-    @Override
     public int intValue() {
         return (int) num;
     }
