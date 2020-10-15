@@ -24,17 +24,12 @@ class Exception1 {
     //public static void main(String[] args) {
 
 
-     public static String test(String filename) throws IOException {
-       // try {
-            //if (filename == null)
-               // return String.valueOf(0);
-       // } catch (NullPointerException e) {
-           // return String.valueOf(1);
+     public static String test(String filename) throws IOException { //ПРОБРОС ИСКЛЮЧЕНИЯ НУЛ ПОИНТЕР БЕЗ tru - catsh
 
             if (filename == null) {
-                //System.out.println("IOException");
 
-                return  "java.io.IOException File not found\n";
+                return  "java.io.IOException File not found\n";//ЗДЕСЬ МОЖЕТ БЫТЬ ЛЮБОЕ ЗАДАННОЕ ЗНАЧЕНИЕ КОТОРОЕ НУЖНО ВЕРНУТЬ
+                // ПРИ возникновении ИСКЛЮЧЕНИЯ NullPointerException
 
             } else {
 
