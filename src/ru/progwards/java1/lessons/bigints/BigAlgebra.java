@@ -22,11 +22,11 @@ public class BigAlgebra {
     public static void main(String[] args)  {
 
         BigAlgebra dec = new BigAlgebra();
-        System.out.println(dec.fastPow(BigDecimal.valueOf(10876256.33), 5));
+        System.out.println(dec.fastPow(BigDecimal.valueOf(23456789.33), 9));
 
 
 
-        System.out.println(new BigInteger(String.valueOf(fibonacci(100))));
+        System.out.println(new BigInteger(String.valueOf(fibonacci(1000))));
     }
 
     static BigInteger fibonacci(int n) {

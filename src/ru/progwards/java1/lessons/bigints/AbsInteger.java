@@ -16,6 +16,7 @@ public abstract class AbsInteger {
         num2=num2;
         int a = num1.intValue();
         int b = num2.intValue();
+        
         int result = (a + b);
 
         if (result > -128 & result <= 127) {

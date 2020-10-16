@@ -5,7 +5,7 @@ import static ru.progwards.java1.lessons.bigints.AbsInteger.add;
 public class TestInteger {
     public static void main(String[] args) {
         AbsInteger num1 = new ShortInteger((short) 32700);
-        AbsInteger num2 = new IntInteger( -32768);
+        AbsInteger num2 = new ByteInteger((byte) 82);
 
         int a = num1.intValue();
         int b = num2.intValue();

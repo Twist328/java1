@@ -1,6 +1,5 @@
 package Tvist328;
 
-import java.io.FileWriter;
 import java.io.IOException;
 
 class Exception1 {
@@ -20,26 +19,23 @@ class Exception1 {
         return n;
     }
 
+    public static String test(String filename) throws IOException { //ПРОБРОС ИСКЛЮЧЕНИЯ НУЛ ПОИНТЕР БЕЗ tru - catsh
 
-    //public static void main(String[] args) {
+        if (filename == null) {
 
+            return "java.io.IOException File not found\n";//ЗДЕСЬ МОЖЕТ БЫТЬ ЛЮБОЕ ЗАДАННОЕ ЗНАЧЕНИЕ КОТОРОЕ НУЖНО ВЕРНУТЬ
+            // ПРИ возникновении ИСКЛЮЧЕНИЯ NullPointerException
 
-     public static String test(String filename) throws IOException { //ПРОБРОС ИСКЛЮЧЕНИЯ НУЛ ПОИНТЕР БЕЗ tru - catsh
+        } else {
 
-            if (filename == null) {
-
-                return  "java.io.IOException File not found\n";//ЗДЕСЬ МОЖЕТ БЫТЬ ЛЮБОЕ ЗАДАННОЕ ЗНАЧЕНИЕ КОТОРОЕ НУЖНО ВЕРНУТЬ
-                // ПРИ возникновении ИСКЛЮЧЕНИЯ NullPointerException
-
-            } else {
-
-                return  "File processing";
-            }
-    }
-            public static void main(String[] args) throws IOException {
-                System.out.println( test(null));
-            }
+            return "File processing";
         }
+    }
+
+    public static void main(String[] args) throws IOException {
+        System.out.println(test(null));
+    }
+}
 
 
 
