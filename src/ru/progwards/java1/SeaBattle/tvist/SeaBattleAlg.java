@@ -128,6 +128,7 @@ public class SeaBattleAlg {
         if (!killkHorizontal(x, y))
             killVertikal(x, y);
     }
+
     private boolean killkHorizontal(int x, int y) {
         boolean destroyed = false;
         direction = RITE | LEFT;
@@ -141,6 +142,7 @@ public class SeaBattleAlg {
         } while (direction != 0 || destroyed);
         return destroyed;
     }
+
     private boolean killVertikal(int x, int y) {
         boolean destroyed = false;
         direction = RITE | LEFT;
@@ -168,20 +170,37 @@ public class SeaBattleAlg {
         return false;
     }
 
-    void deathСell(int temp) {
-        for (int x = 0; x < seaBattle.getSizeY(); x++) {
-            for (int y = x + temp; y < seaBattle.getSizeX(); y += 3)
+    void deathСellx(int temp) {
+        for (int x = 0; x < seaBattle.getSizeX();x++) {
+            for (int y = x + temp; y < seaBattle.getSizeY(); y += 3)
                 fireAndKill(x, y);
 
             for (int y = x - temp; y >= 0; y -= 3)
                 fireAndKill(x, y);
         }
     }
+    void deathСelly(int temp) {
+        for (int y = 0; y < seaBattle.getSizeY(); y++) {
+            for (int x = y + temp; x < seaBattle.getSizeX(); x += 3)
+                fireAndKill(x,y);
 
+            for (int x = y - temp; x >= 0; x -= 3)
+                fireAndKill(x,y);
+        }
+    }
+    void variant3(){
+        deathСelly(0);
+        deathСelly(1);
+        deathСelly(2);
+    }
     void variant2() {
-        deathСell(1);
-        deathСell(0);
-        deathСell(2);
+        deathСellx(1);
+        deathСelly(2);
+        deathСellx(0);
+        deathСelly(1);
+        deathСellx(0);
+        deathСelly(0);
+
     }
 
     void variant1() {
@@ -206,7 +225,7 @@ public class SeaBattleAlg {
         System.out.println("Sea battle");
         //SeaBattle seaBattle = new SeaBattle(true);
         //new SeaBattleAlg().battleAlgorithm(seaBattle);
-       // System.out.println(seaBattle.getResult());
+        // System.out.println(seaBattle.getResult());
         test();
     }
 

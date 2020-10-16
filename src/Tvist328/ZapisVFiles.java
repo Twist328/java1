@@ -10,10 +10,10 @@ public class ZapisVFiles {
         while (reader.readLine() != null) {}
         reader.close();
         return reader.getLineNumber();
-    }
-    public static void main(String[] args) throws IOException {
+    }}
+   /*/ public static void main(String[] args) throws IOException {
         ZapisVFiles filename =new ZapisVFiles();
 
         System.out.println(lineCount(String.valueOf(1)));
     }
-}
+}/*/
