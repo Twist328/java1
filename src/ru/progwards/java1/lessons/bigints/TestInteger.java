@@ -12,8 +12,9 @@ public class TestInteger {
 
         int res = (a + b);
         
-        AbsInteger result = add(num1,num2);
-        System.out.println(result);
+        AbsInteger res1 = add(num1,num2);
+
+        System.out.println(res1);
 
 
         if (res > -128 & res < 127) {
