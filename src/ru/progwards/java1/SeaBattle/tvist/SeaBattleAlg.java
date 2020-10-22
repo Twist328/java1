@@ -171,7 +171,7 @@ public class SeaBattleAlg {
     }
 
     void deathСellx(int temp) {
-        for (int x = 0; x < seaBattle.getSizeX();x++) {
+        for (int x = 0; x < seaBattle.getSizeX(); x++) {
             for (int y = x + temp; y < seaBattle.getSizeY(); y += 3)
                 fireAndKill(x, y);
 
@@ -179,20 +179,23 @@ public class SeaBattleAlg {
                 fireAndKill(x, y);
         }
     }
+
     void deathСelly(int temp) {
         for (int y = 0; y < seaBattle.getSizeY(); y++) {
             for (int x = y + temp; x < seaBattle.getSizeX(); x += 3)
-                fireAndKill(x,y);
+                fireAndKill(x, y);
 
             for (int x = y - temp; x >= 0; x -= 3)
-                fireAndKill(x,y);
+                fireAndKill(x, y);
         }
     }
-    void variant3(){
+
+    void variant3() {
         deathСelly(0);
         deathСelly(1);
         deathСelly(2);
     }
+
     void variant2() {
         deathСellx(1);
         deathСelly(2);
@@ -216,7 +219,9 @@ public class SeaBattleAlg {
     public void battleAlgorithm(SeaBattle seaBattle) {
         init(seaBattle);
         doPrint = false;
+        //variant1();
         variant2();
+        //variant3();
 
     }
 
