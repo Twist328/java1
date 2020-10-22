@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 public class ZapisVFiles {
     private static int lineCount(String filename) throws NumberFormatException, IOException {
-        int lineCount = 0;
+        int lineCount = 0; //В ДАННОЙ ЗАДАЧЕ НУЖНО БЫЛО ВЫЧИСЛИТЬ КОЛИЧЕСТВО СТРОК filename И СДЕЛАТЬ ПРОБРОС ИСКЛЮЧЕНИЙ
         try {
 
             Scanner input = new Scanner(new File(filename));
@@ -18,15 +18,15 @@ public class ZapisVFiles {
             }
             return lineCount;
         } catch (FileNotFoundException e) {
-            System.out.println("файл не найден");
+            throw new FileNotFoundException("файл не найден"); //ВОТ ОН ПРОБРОС
         }
-        return Integer.parseInt(filename);
+
     }
 
     public static void main(String[] args) throws IOException {
         ZapisVFiles filename = new ZapisVFiles();
         //if (filename == null)
-            System.out.println("файл не найден");
+       // System.out.println("файл не найден");
             System.out.println(lineCount(String.valueOf((1))));
         }
     }
