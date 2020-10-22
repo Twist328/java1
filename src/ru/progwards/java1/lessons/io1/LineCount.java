@@ -16,7 +16,7 @@ public class LineCount {
                 }
                 }
 
-            } catch(IOException ioException){
+            } catch(NumberFormatException e){
                 throw new NumberFormatException(String.valueOf(-1));
             }
 
