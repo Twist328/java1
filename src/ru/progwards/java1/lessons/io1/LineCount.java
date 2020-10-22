@@ -8,7 +8,7 @@ import java.util.Scanner;
 import static java.lang.System.*;
 
 public class LineCount {
-    public static int calcEmpty(String fileName) throws FileNotFoundException {
+    public static int calcEmpty(String fileName) throws IOException {
         int calcEmpty = 0;
         try {
             Scanner input = new Scanner(new File(fileName));
@@ -17,13 +17,13 @@ public class LineCount {
                 calcEmpty++;
             }
             return calcEmpty;
-        } catch (FileNotFoundException e) {
-            throw new FileNotFoundException(String.valueOf(-1));
+        } catch (IOException e) {
+            throw new IOException(String.valueOf(-1));
         }
     }
 
     public static void main(String[] args) throws IOException {
         LineCount fileName = new LineCount();
-        throw new NullPointerException(String.valueOf(-1));
+        throw new IOException(String.valueOf(-1));
     }
 }
