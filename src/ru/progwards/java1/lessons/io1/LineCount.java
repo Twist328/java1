@@ -20,7 +20,8 @@ public class LineCount {
             System.out.println(empty);
             throw new NumberFormatException(String.valueOf("-1"));
         } finally {
-
+            if (fileName == String.valueOf(0))
+                return -1;
         }
     }
 
