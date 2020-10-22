@@ -25,6 +25,5 @@ public class LineCount {
     public static void main(String[] args) throws IOException {
         LineCount fileName = new LineCount();
         throw new NullPointerException(String.valueOf(-1));
-
     }
 }
