@@ -18,7 +18,7 @@ public class ZapisVFiles {
             }
             return lineCount;
         } catch (FileNotFoundException e) {
-            throw new FileNotFoundException("файл не найден"); //ВОТ ОН ПРОБРОС
+            throw new FileNotFoundException("файл не найден"); //ВОТ ОН ПРОБРОС (ПОМОГАЕЕТ ИЗБЕГАТЬ ВОЗВРАЩАТЬ НУЛЕВОЕ ЗНАЧЕНИЕ
         }
 
     }
