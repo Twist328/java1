@@ -3,11 +3,9 @@ package ru.progwards.java1.lessons.io1;
 import java.io.*;
 import java.util.Scanner;
 
-import static java.lang.System.*;
-
 public class LineCount {
-    public static int calcEmpty(String fileName) throws IOException {
-        final BufferedReader br = new BufferedReader(new StringReader("hello\n\nworld\n"));
+    public static int calcEmpty(String fileName) throws IOException,ArithmeticException,FileNotFoundException {
+        final BufferedReader br = new BufferedReader(new StringReader("hello\n\nworld\n\ni\n\nam\n\npiter"));
         String line;
         int empty = 0;
         while ((line = br.readLine()) != null) {
@@ -31,7 +29,7 @@ public class LineCount {
         return empty;
     }
     public static void main(String[] args) throws IOException {
-        LineCount fileName = new LineCount();
-        throw new IOException(String.valueOf(-1));
+        LineCount calcEmpty = new LineCount();
+        System.out.println(calcEmpty(null));
     }
 }
