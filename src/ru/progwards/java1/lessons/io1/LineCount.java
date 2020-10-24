@@ -6,8 +6,11 @@ import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class LineCount {
+    private static String result;
+
     public static  int calcEmpty(String fileName) throws NumberFormatException, NullPointerException, RuntimeException {
         try {
+            String str1 =result;
             int empty = 0;
             String line = "";
             final BufferedReader buffeR = new BufferedReader(new StringReader(fileName));
@@ -21,6 +24,7 @@ public class LineCount {
                     empty++;
                 }
             }
+            empty = Integer.parseInt(fileName.substring(Integer.parseInt(str1)));
             return empty;
         } catch (NumberFormatException e) {
             throw new NullPointerException(String.valueOf(-1));
