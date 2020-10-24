@@ -18,7 +18,7 @@ public class LineCount {
             return empty;
         } catch (NumberFormatException e) {
 
-            throw new IOException(String.valueOf(-1));
+            throw new NullPointerException(String.valueOf(-1));
         }
     }
 
