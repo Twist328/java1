@@ -16,7 +16,7 @@ public class LineCount {
         if (fileName != null) {
             return empty;
         }
-        return -1;
+        throw new IOException(String.valueOf(-1));
     }
 
 
