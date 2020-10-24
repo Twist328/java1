@@ -12,8 +12,8 @@ public class LineCount {
         try {
            // String str1 =result;
             int empty = 0;
-            String line = "";
-             BufferedReader buffeR = new BufferedReader(new StringReader(""));
+            String line ="";
+             BufferedReader buffeR = new BufferedReader(new StringReader(""+ empty));
             while (true) {
                 try {
                     if (!((line = buffeR.readLine()) != null)) break;
