@@ -4,11 +4,11 @@ import java.io.*;
 import java.util.Scanner;
 
 public class LineCount {
-    public static <line> int calcEmpty(String fileName) throws NumberFormatException, IOException {
+    public static <line> int calcEmpty(String fileName) throws NumberFormatException, NullPointerException, IOException {
         int empty = 0;
         String line;
-        final BufferedReader br = new BufferedReader(new StringReader("hello\n\nworld\n\ni\n\nam\n\nevgeniy\n\nshevelev\n\n!"));
-        while ((line = br.readLine()) != null) {
+        final BufferedReader buffeR = new BufferedReader(new StringReader("hello\n\nworld\n\ni\n\nam\n\nevgeniy\n\nshevelev\n\n!"));
+        while ((line = buffeR.readLine()) != null) {
             if (line.trim().isEmpty()) {
                 empty++;
             }
