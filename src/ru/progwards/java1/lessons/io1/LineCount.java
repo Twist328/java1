@@ -13,12 +13,10 @@ public class LineCount {
                 empty++;
             }
         }
-        if(fileName!=null) {
+        if (fileName != null) {
             return empty;
-        }else {
-            throw new IOException(String.valueOf(-1));
         }
-
+        return -1;
     }
 
 
