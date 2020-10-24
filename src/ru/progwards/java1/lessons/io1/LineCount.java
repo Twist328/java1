@@ -10,7 +10,7 @@ public class LineCount {
 
     public static  int calcEmpty(String fileName) throws NumberFormatException, NullPointerException, RuntimeException {
         try {
-            String str1 =result;
+           // String str1 =result;
             int empty = 0;
             String line = "";
              BufferedReader buffeR = new BufferedReader(new StringReader(""));
