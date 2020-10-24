@@ -13,7 +13,7 @@ public class LineCount {
             String str1 =result;
             int empty = 0;
             String line = "";
-            final BufferedReader buffeR = new BufferedReader(new StringReader(fileName));
+             BufferedReader buffeR = new BufferedReader(new StringReader(""));
             while (true) {
                 try {
                     if (!((line = buffeR.readLine()) != null)) break;
@@ -24,7 +24,7 @@ public class LineCount {
                     empty++;
                 }
             }
-            empty = Integer.parseInt(fileName.substring(Integer.parseInt(str1)));
+            //empty = Integer.parseInt(fileName.substring(Integer.parseInt(str1)));
             return empty;
         } catch (NumberFormatException e) {
             throw new NullPointerException(String.valueOf(-1));
