@@ -24,8 +24,7 @@ public class LineCount {
 
     public static void main(String[] args) throws IOException, NumberFormatException {
         LineCount calcEmpty = new LineCount();
-        //calcEmpty(String.valueOf(8));
-        //throw new NumberFormatException(String.valueOf(-1));
+
         System.out.println(calcEmpty(String.valueOf(100)));
     }
 }
