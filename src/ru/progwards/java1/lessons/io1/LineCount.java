@@ -1,10 +1,12 @@
 package ru.progwards.java1.lessons.io1;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class LineCount {
-    public static <line> int calcEmpty(String fileName) throws NumberFormatException, NullPointerException, IOException {
+    public static  int calcEmpty(String fileName) throws NumberFormatException, NullPointerException, Exception {
         try {
             int empty = 0;
             String line;
@@ -22,7 +24,7 @@ public class LineCount {
         }
     }
 
-    public static void main(String[] args) throws IOException, NumberFormatException {
+    public static void main(String[] args) throws Exception {
         LineCount calcEmpty = new LineCount();
 
         System.out.println(calcEmpty(String.valueOf(100)));
