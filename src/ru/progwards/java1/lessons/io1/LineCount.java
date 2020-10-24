@@ -10,7 +10,7 @@ public class LineCount {
         try {
             int empty = 0;
             String line = "";
-            final BufferedReader buffeR = new BufferedReader(new StringReader("hello\n\nworld\n\ni\n\nam\n\nevgeniy\n\nshevelev\n\n!"));
+            final BufferedReader buffeR = new BufferedReader(new StringReader(fileName));
             while (true) {
                 try {
                     if (!((line = buffeR.readLine()) != null)) break;
