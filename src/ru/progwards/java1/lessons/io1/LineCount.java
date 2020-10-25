@@ -13,8 +13,8 @@ public class LineCount {
            // String str1 =result;
             int empty = 0;
             String line ="";
-            while(fileName!=null);
-             final BufferedReader buffeR = new BufferedReader(new StringReader(fileName));
+
+             final BufferedReader buffeR = new BufferedReader(new StringReader("\\"));
             while (true) {
                 try {
                     if (!((line = buffeR.readLine()) != null)) break;
@@ -25,7 +25,6 @@ public class LineCount {
                     empty++;
                 }
             }
-            //if(fileName!=null)
 
             return empty;
         } catch (NumberFormatException e) {
