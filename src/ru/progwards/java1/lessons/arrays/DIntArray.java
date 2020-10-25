@@ -2,74 +2,71 @@ package ru.progwards.java1.lessons.arrays;
 
 import java.util.Arrays;
 
-
 public class DIntArray {
-    DIntArray i;
-    private int[] values = {(100)};
-
-
+    private int[] arrayInt;
     public DIntArray() {
-
+        this.arrayInt = new int[0];
     }
-
-    private int j;
-
     public void add(int num) {
-        if (j == values.length)
-            values = Arrays.copyOf(values, j + 1);
-        values[j] = num;
-        j++;
+        int[] addArrayInt = arrayInt;
+        arrayInt = new int[arrayInt.length + 1];
+        for (int i = 0; i < arrayInt.length - 1; i++) {
+            arrayInt[i] = addArrayInt[i];
+        }
+        arrayInt[arrayInt.length - 1] = num;
     }
-
     public void atInsert(int pos, int num) {
-        int[] values2 = new int[values.length + 1];
-
-        System.arraycopy(values, 0, values2, 0, pos);
-
-        values2[pos] = num;
-
-        System.arraycopy(values, pos, values2, pos + 1, values.length - pos);
-        values = values2;
+        int[] atInsertArrayInt = arrayInt;
+        arrayInt = new int[arrayInt.length + 1];
+        for (int i = 0; i < pos; i++) {
+            arrayInt[i] = atInsertArrayInt[i];
+        }
+        for (int i = pos + 1; i < arrayInt.length; i++) {
+            arrayInt[i] = atInsertArrayInt[i - 1];
+        }
+        arrayInt[pos] = num;
     }
-
-
     public void atDelete(int pos) {
 
-        if (pos == 0) {
-            int[] values2 = new int[values.length - 1];
-            System.arraycopy(values, 1, values2, 0, values2.length);
-            values = values2;
-        } else if (pos == values.length - 1) {
-            int[] values2 = new int[values.length - 1];
-            for (int i = 0; i < values.length - 1; i++) {
-                values2[i] = values[i];
-            }
-            values = values2;
-        } else {
-            int[] values2 = new int[values.length - 1];
-            for (int i = 0; i < values.length; i++) {
-                if (i > pos) {
-                    values2[i - 1] = values[i];
-                }
-                if (i == pos) {
-                    continue;
-                }
-                if (i < pos) {
-                    values2[i] = values[i];
-                }
-            }
-            values = values2;
+        int[] atDeleteArrayInt = arrayInt;
+        arrayInt = new int[arrayInt.length - 1];
+        for (int i = 0; i < pos; i++) {
+            arrayInt[i] = atDeleteArrayInt[i];
+        }
+        for (int i = pos + 1; i < atDeleteArrayInt.length; i++) {
+            arrayInt[i - 1] = atDeleteArrayInt[i];
         }
     }
-
     public int at(int pos) {
-        final int values1 = values[pos];
-
-        return values[pos];
+        return arrayInt[pos];
     }
+    public static void main(String[] args) {
 
+        DIntArray dIntArray = new DIntArray();
+        System.out.println(Arrays.toString(dIntArray.arrayInt));
+        dIntArray.add(0);
+        System.out.println(Arrays.toString(dIntArray.arrayInt));
+        dIntArray.add(16);
+        System.out.println(Arrays.toString(dIntArray.arrayInt));
+        dIntArray.add(98);
+        System.out.println(Arrays.toString(dIntArray.arrayInt));
+        dIntArray.add(186);
+        System.out.println(Arrays.toString(dIntArray.arrayInt));
+        dIntArray.add(227);
+        System.out.println(Arrays.toString(dIntArray.arrayInt));
+        dIntArray.add(3);
+        System.out.println(Arrays.toString(dIntArray.arrayInt));
+        dIntArray.add(34);
+        System.out.println(Arrays.toString(dIntArray.arrayInt));
+        dIntArray.add(-13);
+        System.out.println(Arrays.toString(dIntArray.arrayInt));
+        dIntArray.atInsert(4,18);
+        System.out.println(Arrays.toString(dIntArray.arrayInt));
+        dIntArray.atDelete(6);
+        System.out.println(Arrays.toString(dIntArray.arrayInt));
+        System.out.println(dIntArray.at(6));
+    }
 }
-
 
 
 
