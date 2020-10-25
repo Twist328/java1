@@ -14,7 +14,7 @@ public class LineCount {
             int empty = 0;
             String line ="";
 
-             final BufferedReader buffeR = new BufferedReader(new StringReader("\\"));
+             final BufferedReader buffeR = new BufferedReader(new StringReader(String.format("%s", LineCount.class)));
             while (true) {
                 try {
                     if (!((line = buffeR.readLine()) != null)) break;
@@ -25,9 +25,9 @@ public class LineCount {
                     empty++;
                 }
             }
-            empty= buffeR.read();
+
             return empty;
-        } catch (NumberFormatException | IOException e) {
+        } catch (NumberFormatException  e) {
             throw new NullPointerException(String.valueOf(-1));
         }
     }
