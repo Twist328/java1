@@ -40,7 +40,7 @@ public class Coder {
     }
 
     public static void main(String[] args) {
-        Coder codeFile=new Coder();
-        //System.out.println(codeFile(String.valueOf(2),String.valueOf(4), 3,String.valueOf(33)));
+        Coder codeFile = new Coder();
+        //System.out.println(codeFile(String.valueOf(2),String.valueOf(4), (2),String.valueOf(33)));
     }
 }
