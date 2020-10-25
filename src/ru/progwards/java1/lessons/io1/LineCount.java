@@ -11,8 +11,8 @@ public class LineCount {
             try {
                 Scanner scanner = new Scanner(reader);
                 while (scanner.hasNextLine()) {
-                    String strFromFile = scanner.nextLine();
-                    if (strFromFile.equals("")) {
+                    String str1 = scanner.nextLine();
+                    if (str1.equals("")) {
                         empty++;
                     }
                 }
