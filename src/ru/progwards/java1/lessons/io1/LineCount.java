@@ -1,36 +1,33 @@
 package ru.progwards.java1.lessons.io1;
 
-import java.io.*;
-import java.nio.file.Files;
+import java.io.FileReader;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class LineCount {
-    private static String result;
-
-    public static  int calcEmpty(String fileName) throws NumberFormatException, NullPointerException, RuntimeException {
+    public static int calcEmpty(String fileName) {
+        int i = 0;
         try {
-           // String str1 =result;
-            int empty = 0;
-            String line ="";
-
-             final BufferedReader buffeR = new BufferedReader(new StringReader(String.format("%s", LineCount.class)));
-            while (true) {
-                try {
-                    if (!((line = buffeR.readLine()) != null)) break;
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
-                if (line.trim().isEmpty()) {
-                    empty++;
+            FileReader reader = new FileReader(fileName);
+            try {
+                Scanner scanner = new Scanner(reader);
+                while (scanner.hasNextLine()) {
+                    String strFromFile = scanner.nextLine();
+                    if (strFromFile.equals("")) {
+                        i++;
+                    }
                 }
             }
 
-            return empty;
-        } catch (NumberFormatException  e) {
-            throw new NullPointerException(String.valueOf(-1));
+            finally {
+                reader.close();
+            }
         }
+        catch (Exception e) {
+            return -1;
+        }
+        return i;
     }
+
     public static void main(String[] args) throws Exception {
         LineCount calcEmpty = new LineCount();
 
