@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class LineCount {
     public static int calcEmpty(String fileName) {
-        int ampty = 0;
+        int empty = 0;
         try {
             FileReader reader = new FileReader(fileName);
             try {
@@ -13,7 +13,7 @@ public class LineCount {
                 while (scanner.hasNextLine()) {
                     String strFromFile = scanner.nextLine();
                     if (strFromFile.equals("")) {
-                        ampty++;
+                        empty++;
                     }
                 }
             }
@@ -24,7 +24,7 @@ public class LineCount {
         catch (Exception e) {
             return -1;
         }
-        return ampty;
+        return empty;
     }
 
     public static void main(String[] args) throws Exception {
