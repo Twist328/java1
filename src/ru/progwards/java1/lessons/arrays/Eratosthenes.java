@@ -3,44 +3,29 @@ package ru.progwards.java1.lessons.arrays;
 import java.util.Arrays;
 
 public class Eratosthenes {
+
     private boolean[] sieve;
-    int n;
-
-    public boolean isSimple(int n) {
-
-        if (n % 2 == 0 && n != 2) return false;
-        int maxDiv = (int) Math.sqrt(n);
-        for (int i = 3; i <= maxDiv; i += 2) {
-            if (n % i == 0) return false;
-        }
-        return true;
-    }
-
-
     public Eratosthenes(int N) {
-
-        sieve = new boolean[N + 1];
-
+        this.sieve = new boolean[N + 1];
         Arrays.fill(sieve, true);
-
-        sift();
-
+        shift();
     }
-
-    private void sift() {
-
-        for (int i = 0; i < this.n; i++) sieve[i] = true;
-
-        for (int J = 2; J * J <= this.n; J++)
-
-            if (sieve[J] == true)
-
-                for (int i = J * J; i <= this.n; i += J)
-
-                    sieve[i] = false;
-
+    private void shift() {
+        for (int i = 2; i < sieve.length; i++) {
+            for (int j = i +1; j < sieve.length; j++) {
+                if (j % i == 0) {
+                    sieve[j] = false;
+                }
+            }
+        }
     }
-
+    public boolean isSimple(int n) {
+        return sieve[n];
+    }
+    public static void main(String[] args) {
+        Eratosthenes eratosthenes = new Eratosthenes(100);
+        System.out.println(eratosthenes.isSimple(13));
+    }
 }
 
 
