@@ -1,60 +1,83 @@
 package ru.progwards.java1.lessons.interfaces;
 
+
+
 public class CalculateFibonacci {
-    private static CacheInfo lastFibo;
+
+    static CacheInfo lastFibo = new CacheInfo();
+
+
+
+
 
     public static int fiboNumber(int n) {
 
-        int iter = 3;
-        int sum = 1;
-        int previous = 1;
-        int next = 0;
+        if (n == CalculateFibonacci.lastFibo.n) {
 
-        if (n == 2 | n == 1 | n == 0)
-
-            next = 1;
-
-        while (iter <= n) {
-
-            next = sum + previous;
-            sum = previous;
-            previous = next;
-            iter++;
-
-            if (lastFibo != null && lastFibo.n == n)
-                return lastFibo.fibo;
+            return CalculateFibonacci.lastFibo.fibo;
 
         }
-        lastFibo = new CacheInfo(n, next);
 
-        return next;
-    }
 
-    public static class CacheInfo {
 
-        public int n;
-        public int fibo;
+        if (n == 1 || n == 2) {
 
-        public CacheInfo(int n, int fibo) {
-            this.n = n;
-            this.fibo = fibo;
+            return 1;
 
         }
+
+
+
+        int a = 1;
+
+        int b = 1;
+
+        int f = 0;
+
+        for (int i = 2; i < n; i++) {
+
+            f = a + b;
+
+            a = b;
+
+            b = f;
+
+        }
+
+
+
+        CalculateFibonacci.lastFibo.n = n;
+
+        CalculateFibonacci.lastFibo.fibo = f;
+
+
+
+        return f;
+
     }
 
-    public static CacheInfo getLastFibo() {
 
-        return lastFibo;
+
+    static class CacheInfo {
+
+        int n;
+
+        int fibo;
+
     }
 
-    public static void clearLastFibo() {
-        lastFibo = null;
-    }
+
 
     public static void main(String[] args) {
-        System.out.println(fiboNumber(43));
-        System.out.println(lastFibo.fibo);
-        System.out.println(lastFibo.n);
+
+        CalculateFibonacci calculateFibonacci = new CalculateFibonacci();
+
+        System.out.println(CalculateFibonacci.lastFibo.n);
+
+        System.out.println(CalculateFibonacci.lastFibo.fibo);
+
+        System.out.println(CalculateFibonacci.fiboNumber(10));
 
     }
+
 }
