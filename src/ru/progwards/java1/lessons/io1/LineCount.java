@@ -25,9 +25,9 @@ public class LineCount {
                     empty++;
                 }
             }
-
+            empty= buffeR.read();
             return empty;
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException | IOException e) {
             throw new NullPointerException(String.valueOf(-1));
         }
     }
