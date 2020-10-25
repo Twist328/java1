@@ -13,21 +13,18 @@ public class ArrayInteger {
 
     private final static BigInteger BI_TEN = BigInteger.valueOf(10);
     private Byte[] digits;
-
     public ArrayInteger(int n) {
         digits = new Byte[n];
     }
-
-    public void fromInt(BigInteger value) {
-        final List<Byte> list = new ArrayList<>();
-        while (!value.equals(BigInteger.ZERO)) {
-            list.add(value.mod(BI_TEN).byteValueExact());
-            value = value.divide(BI_TEN);
+    void fromInt(BigInteger value) {
+        if (value.compareTo(BigInteger.TEN) == -1) {
+            digits[0] = value.byteValue();
         }
-        Collections.reverse(list);
-        digits = list.toArray(new Byte[list.size()]);
+        for (int i = 0; value.compareTo(new BigInteger("0")) != 0; i++) {
+            digits[i] = value.mod(BigInteger.TEN).byteValue();
+            value = value.divide(BigInteger.TEN);
+        }
     }
-
     BigInteger toInt() {
         BigInteger bigInteger = new BigInteger("0");
         if (digits.length == 0) {
