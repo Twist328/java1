@@ -9,15 +9,15 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Coder {
-    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) {
+    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) throws Exception {
         try {
             FileReader reader = new FileReader(inFileName);
             try {
                 FileWriter writer = new FileWriter(outFileName, true);
                 try {
-                    int symbol;
-                    while ((symbol = reader.read()) != -1) {
-                        writer.write(code[symbol]);
+                    int znak;
+                    while ((znak = reader.read()) != -1) {
+                        writer.write(code[znak]);
                     }
                 } finally {
                     writer.close();
@@ -39,7 +39,7 @@ public class Coder {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Coder codeFile = new Coder();
         //System.out.println(codeFile(String.valueOf(2),String.valueOf(4), (2),String.valueOf(33)));
     }
