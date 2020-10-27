@@ -20,7 +20,7 @@ import java.util.Arrays;
                 int  min = a[i];
                 int minId = i;
                 for (int j = i + 1; j < a.length; j++) {
-                    if (a[j]>(min))  {
+                    if (a[j]<(min))  {
                         min = a[j];
                         minId = j;
                     }
