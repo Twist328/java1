@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Coder {
-    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) throws Exception {
+    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) {
         try {
             FileReader reader = new FileReader(inFileName);
             try {
@@ -39,7 +39,7 @@ public class Coder {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Coder codeFile = new Coder();
         //System.out.println(codeFile(String.valueOf(2),String.valueOf(4), (2),String.valueOf(33)));
     }
