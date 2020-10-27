@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class LineCount {
-    public static int calcEmpty(String fileName)throws Exception {
+    public static int calcEmpty(String fileName) {
         int empty = 0;
         try {
             FileReader reader = new FileReader(fileName);
@@ -27,7 +27,7 @@ public class LineCount {
         return empty;
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args)  {
         LineCount calcEmpty = new LineCount();
         System.out.println(calcEmpty(String.valueOf(100)));
     }
