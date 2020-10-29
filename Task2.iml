@@ -26,19 +26,10 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/seabattle.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/OneDrive/Рабочий стол/seabattle.1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../User/SEA BATTLE/seabattle.1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
