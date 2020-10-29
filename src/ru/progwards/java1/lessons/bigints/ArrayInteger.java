@@ -1,4 +1,4 @@
-package ru.progwards.java1.lessons.bigints;
+/*/package ru.progwards.java1.lessons.bigints;
 
 import java.lang.reflect.Array;
 import java.math.BigInteger;
@@ -106,4 +106,4 @@ public class ArrayInteger {
         System.out.println(Arrays.toString(arrayInteger.digits));
 
     }
-}
+}*/
