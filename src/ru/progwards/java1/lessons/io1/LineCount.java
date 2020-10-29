@@ -12,7 +12,7 @@ public class LineCount {
                 Scanner scanner = new Scanner(reader);
                 while (scanner.hasNextLine()) {
                     String str1 = scanner.nextLine();
-                    if (str1.equals("")) {
+                    if (str1 ==("")) {   //if (str1.equals("")) {  ВРОДЕ КАК ОДНО И ТОЖЕ...
                         empty++;
                     }
                 }
