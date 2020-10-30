@@ -24,20 +24,29 @@ public class Test111 {//Тест 11.1
             }
         }
     }
-    public void doSomething(int n) throws IOException {
+    public static void doSomething(int n) throws IOException {
     }
-        public void test(int n){
-
+        public static void test(int n) throws IOException {
+            try{
+                doSomething(n);
+            } catch (IOException ioException) {
+                throw new IOException(ioException.getMessage());
+            }finally {
+                System.out.println("finally executed");
+            }
         }
 
     public static void main(String[] args) throws IOException {
         try {
+
             doExceptions(1);
         } catch (Throwable e) {
             System.out.println(e.getMessage());
             for (Throwable t : e.getSuppressed())
                 System.out.println(t.getMessage() + " (suppressed)");
+            Test111 test = new Test111();
+            System.out.println(test);
+            System.out.println(test);
         }
     }
-
 }
