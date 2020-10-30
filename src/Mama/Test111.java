@@ -24,6 +24,11 @@ public class Test111 {//Тест 11.1
             }
         }
     }
+    public void doSomething(int n) throws IOException {
+    }
+        public void test(int n){
+
+        }
 
     public static void main(String[] args) throws IOException {
         try {
