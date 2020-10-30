@@ -35,7 +35,33 @@ public class ArrayInteger {
         }
         return bigInteger;
     }
-}
+
+    public boolean add(ArrayInteger num) {
+        boolean result = false;
+        if (digits.length < num.digits.length) {
+            for (int i = 0; i < digits.length; i++) {
+                digits[i] = 0;
+
+            }
+            return false;
+        }
+        if (digits.length == num.digits.length) {
+            for (int i = 0; i < digits.length; i++) {
+                byte b = (byte) (digits[i] + num.digits[i]);
+                if (b >= 10 & i == digits.length - 1) {
+                    for (int j = 0; j < digits.length; j++) {
+                        digits[j] = 0;
+                    }
+                     return false;
+                    }
+                }
+                }
+
+
+
+
+
+
 
 
 
