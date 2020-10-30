@@ -16,10 +16,10 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/seabattle.1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/SEA/seabattle.1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

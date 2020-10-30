@@ -220,8 +220,8 @@ public class SeaBattleAlg {
         init(seaBattle);
         doPrint = false;
         //variant1();
-        //variant2();
         variant2();
+        //variant3();
 
     }
 

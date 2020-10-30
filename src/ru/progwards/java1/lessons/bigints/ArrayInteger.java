@@ -87,7 +87,7 @@ public class ArrayInteger {
                         digits[i] = 0;
                     }
                 } else if (digits[i] > 9) {
-                    digits[i + 1] = (byte) (digits[i + 1] + digits[i] / 10);
+                    digits[i + 1] = (byte) (digits[i + 1] + digits[i] / 10); //reverse numbers при выходе из массива в BigInteger
                     digits[i] = (byte) (digits[i] % 10);
                 }
             }
