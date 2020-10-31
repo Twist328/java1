@@ -23,7 +23,7 @@ public class Test112 {
 
         Test112 test = new Test112();
         doSomething(9);
-        doPrint=false;
+        //doPrint=false;
 
     }
 }
