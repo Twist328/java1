@@ -28,7 +28,7 @@ public class Test112 {
                 throw new IOException("file not exist");
             }
         } finally {
-            //System.out.println("finally executed");
+
         }
     }
 }
