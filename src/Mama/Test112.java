@@ -9,21 +9,27 @@ public class Test112 {
     public static void doSomething(int n) throws IOException {
     }
 
-    public static void test(int n) throws Throwable {
+    public void test(int n) throws IOException {
         try {
             doSomething(n);
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-            throw new IOException("finally executed");
 
+        } catch (IOException e) {
+
+        } finally {
+            if (n == 0) {
+                System.out.println("file not exist");
+                System.out.println("finally executed");
+            } else {
+                System.out.println("finally executed");
+            }
+        }
+        try {
+            if (n == 0) {
+                throw new IOException("file not exist");
+            }
+        } finally {
+            //System.out.println("finally executed");
         }
     }
-
-    public static void main(String[] args) throws Throwable {
-
-        Test112 test = new Test112();
-        doSomething(9);
-        //doPrint=false;
-
-    }
 }
+

@@ -62,7 +62,7 @@ public class DIntArray {
         System.out.println(Arrays.toString(dIntArray.arrayInt));
         dIntArray.atInsert(4,18);
         System.out.println(Arrays.toString(dIntArray.arrayInt));
-        dIntArray.atDelete(6);
+        dIntArray.atDelete(8);
         System.out.println(Arrays.toString(dIntArray.arrayInt));
         System.out.println(dIntArray.at(6));
     }
