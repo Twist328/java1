@@ -9,35 +9,46 @@ class Scannerblabla {
         String str = "Привет!";
         String str1 = "как дела?";
         String str2 = "/stop";
-        // String str2 = "Как погода?\nМой друг, Привет тебе, привет!\nКак настроение?\nУ тебя сейчас как дела?";
+        String str6 = "Как погода?\nМой друг, Привет тебе, привет!\nКак настроение?\nУ тебя сейчас как дела?";
         String str3 = "Здравствуйте!";
         String str4 = "Как погода?";
         String str5 = "Хорошо";
+        String str7 = "Как погода?\nЗдравствуйте!\nКак настроение?\nХорошо";
 
-        try (Scanner scanner = new Scanner(System.in)) {
 
-            str = scanner.nextLine();
-            System.out.println(str3);
-            str1 = scanner.nextLine();
-            System.out.println(str5);
-            str4=scanner.nextLine();
-            System.out.println(str4);
-            while (str2 == "/stop") {
-                scanner.close();
-            }
-                System.out.println(str4);
-                str1 = scanner.nextLine();
-                scanner.close();
+        try (Scanner sc = new Scanner(System.in)) {
+            while (true) {
+                str = sc.nextLine();
+                System.out.println(str3);
+                str1 = sc.nextLine();
+                System.out.println(str5);
+                if (str2 == String.valueOf(false)) ;
+                sc.close();
+                break;
             }
 
-        }
 
-    public static void main(String[] args) {
-        Scannerblabla scannerblabla=new Scannerblabla();
-        scanLines();
-        System.out.println(scannerblabla);
-    }
-}
+                    try (Scanner scan = new Scanner(System.in)) {
+                        str6 = scan.nextLine();
+                        System.out.println(str7);
+                        str2 = scan.nextLine();
+                        System.out.println();
+                        scan.close();
+
+
+
+                    }
+                }
+            }
+
+
+
+                            public static void main (String[]args){
+                            Scannerblabla scannerblabla = new Scannerblabla();
+                            scanLines();
+                            System.out.println(scannerblabla);
+                        }
+                    }
 
 // boolean contains(String str){
 
