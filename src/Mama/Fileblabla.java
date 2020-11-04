@@ -3,10 +3,11 @@ package Mama;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Scanner;
+import java.io.*;
 
 class Scannerblabla {
     public static void scanLines() {
-        String str = "Привет!\nкак дела?";
+        String str = "Привет!";
         String str1 = "как дела?";
         String str2 = "/stop";
         String str6 = "Как погода?\nМой друг, Привет тебе, привет!\nКак настроение?\nУ тебя сейчас как дела?";
@@ -15,48 +16,34 @@ class Scannerblabla {
         String str5 = "Хорошо";
         String str7 = "Как погода?\nЗдравствуйте!\nКак настроение?\nХорошо";
 
-        try (Scanner sc = new Scanner(System.in)) {
+        try (Scanner in = new Scanner(System.in)) {
+            while (true) {
+                str = in.nextLine();
+                System.out.println(str3);
+                if (!(str2 == in.nextLine())) {
 
-                while (sc.hasNextLine()) {
-                    str = sc.nextLine();
-                    System.out.println(str3);
-                    str2 = sc.nextLine();
-                    sc.close();
+                    break;
 
-                    try (Scanner scan = new Scanner(System.in)) {
-                        while (true) {
-                            while (scan.hasNext()) {
-                                str6 = scan.nextLine();
-                                System.out.println(str7);
-                                str2 = scan.nextLine();
-                                scan.close();
-                            }
-                   /*/ str = sc.nextLine();
-                    System.out.println(str3);
-                    str1 = sc.nextLine();
-                    System.out.println(str5);
-
+                }
+                try (Scanner scanner = new Scanner(System.in)) {
                     while (true) {
+                        str6 = scanner.nextLine();
+                        System.out.println(str7);
+                        if (!(str2 == scanner.nextLine())) {
 
-                        try (Scanner scan = new Scanner(System.in)) {
-                            while (scan.hasNext()) {
-                                str6 = scan.nextLine();
-                                System.out.println(str7);
-                                str2 = Boolean.parseBoolean(scan.nextLine());
-                                System.out.println();*/
+                            break;
+
                         }
                     }
                 }
-
             }
         }
-
-
+    }
 
     public static void main(String[] args) {
         Scannerblabla scannerblabla = new Scannerblabla();
         scanLines();
-        System.out.println(scannerblabla);
+        //System.out.println(scannerblabla);
     }
 }
 
