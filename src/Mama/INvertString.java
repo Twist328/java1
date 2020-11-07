@@ -22,9 +22,9 @@ public class INvertString {
         String[] words = origString.split("\\s");
         String reversedString = " ";
 
-        //Перевернем положение каждого слова
+        //Разворот  положение каждого слова
         for (int i = 0; i < words.length; i++) {
-            if (i == words.length - 1)
+            if (i == (words.length) - 1)
                 reversedString = words[i] + reversedString;
             else
                 reversedString = "." + words[i] + reversedString;
@@ -33,12 +33,12 @@ public class INvertString {
         // Отображение строки после реверса
         System.out.print("" + reversedString);
         return "";
-    }
 
+    }
     public static void main(String[] args) {
         INvertString iNvertString = new INvertString();
-        invertWords("Буря мглою небо кроет");
-        invertWords("Java это строго типизированный объектно-ориентированный язык программирования");
-        invertWords("Hello World!");
+        invertWords("Буря мглою небо кроет\n\n");
+        invertWords("Java это строго типизированный объектно-ориентированный язык программирования\n\n");
+        invertWords("Hello World!\n\n");
     }
 }
