@@ -11,8 +11,8 @@ public class LineCount {
             try {
                 Scanner scanner = new Scanner(reader);
                 while (scanner.hasNextLine()) {
-                    String str1 = scanner.nextLine();
-                    if (str1 ==("")) {   //if (str1.equals("")) {  ВРОДЕ КАК ОДНО И ТОЖЕ...
+                    String str = scanner.nextLine();
+                    if (str ==("")) {   //if (str1.equals("")) {  ВРОДЕ КАК ОДНО И ТОЖЕ...
                         empty++;
                     }
                 }
@@ -28,7 +28,7 @@ public class LineCount {
     }
 
     public static void main(String[] args)  {
-        LineCount calcEmpty = new LineCount();
-        System.out.println(calcEmpty(String.valueOf(100)));
+        LineCount  lineCount = new LineCount();
+        calcEmpty(("100"));
     }
 }
