@@ -16,11 +16,12 @@ public class SpaseString {
 
             for (int i = 0; i < words.length; i++) {
                 String word = words[i];
-                String reverseWord = " ";//МОЖНО УБРАТЬ ТОЧКИ МЕЖДУ СЛОВАМИ СТРОКИ УБРАВ ТОЧКУ))
+                String reverseWord = ".";//МОЖНО УБРАТЬ ТОЧКИ МЕЖДУ СЛОВАМИ СТРОКИ УБРАВ ТОЧКУ))
                 for (int j = word.length() - 1; j >= 0; j--) {
                     reverseWord = reverseWord + word.charAt(j);
                 }
-                reversedString = reversedString + reverseWord + " ";
+                reversedString = reverseWord + reversedString + " ";//МЕНЯЯ МЕСТАМИ СЛАГАЕМЫЕ МЕНЯЕШЬ И ЗЕРКАЛЬНОСТЬ
+               // СЛОВ В СТРОКЕ, Т,Е МОЖНО РАЗВЕРНУТЬ НЕ ТОЛЬКО СЛОВО НО И ВСЮ СТРОКУ
             }
 
             // ОТОБРАЖЕНИЕ СТРОКИ ПОСЛЕ РАЗВОРОТА
