@@ -13,19 +13,20 @@ public class StringStar {
 012345678*012345678*012345678*01
     и метод должен вернуть "9AB"*/
 
-    static String setStars(String filename) throws Throwable {
-        int star = (int) '*';
-        StringBuilder result = new StringBuilder(100);
-        try (RandomAccessFile raf = new RandomAccessFile(filename, "rw")) {
-            long totalBytes = raf.length();
-            for (long i = 9; i < totalBytes; i += 10) {
-                //raf.seek(i);
-                result.append((char) raf.readUnsignedByte());
-                //raf.seek(i);
-                raf.writeByte(star);
+    static String setStars(String filename) {
+
+        StringBuilder result = new StringBuilder(50);
+        try (RandomAccessFile randomAF = new RandomAccessFile(filename, "rw")) {
+            long allBytes = randomAF.length();
+            for (long i = 9; i < allBytes; i += 10) {
+                randomAF.seek(i);
+                result.append((char) randomAF.readUnsignedByte());
+                randomAF.seek(i);
+                char setSymbol = (char) '*';
+                randomAF.writeByte(setSymbol);
             }
         } catch (Throwable e) {
-            throw new Throwable(e.getClass().getName());
+            //throw new Throwable(e.getClass().getName());
         }
         return result.toString();
     }
