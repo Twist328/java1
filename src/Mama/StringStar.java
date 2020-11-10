@@ -31,6 +31,6 @@ public class StringStar {
         return result.toString();
     }
     public static void main(String[] args) throws Throwable {
-        System.out.println(new StringStar ().setStars("src/ru/progwards/test_10/test10.txt"));
+        System.out.println(new StringStar ().setStars("src/ru/progwards/java1/test10.txt"));
     }
 }
