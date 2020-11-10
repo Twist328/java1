@@ -6,8 +6,8 @@ public class PhoneNumber {
 public static String format(String phone) throws IOException {
         String numbers = phone.replaceAll("[^\\d]", "");
         int temp = numbers.length();
-        if(temp > 11 && temp < 10) {
-        throw new IOException("В номере телефон должно быть 10 или 11 цифр!");
+        if(temp > 11 || temp < 10) {
+        throw new RuntimeException("В номере телефон должно быть 10 или 11 цифр!");
         }
 
         return "+" + (numbers.charAt(0)=='8' ? "7" : numbers.substring(0,1))
