@@ -26,12 +26,11 @@ public class StringStar {
                 randomAF.writeByte(setSymbol);
             }
         } catch (Throwable e) {
-            //throw new Throwable(e.getClass().getName());
+            System.out.println(e.getClass().getName());
         }
         return result.toString();
     }
     public static void main(String[] args) throws Throwable {
-        StringStar stringstar = new StringStar();
-        setStars("0123456789012345678A012345678B01");
+        System.out.println(new StringStar ().setStars("src/ru/progwards/test_10/test10.txt"));
     }
 }
