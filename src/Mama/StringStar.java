@@ -32,5 +32,6 @@ public class StringStar {
     }
     public static void main(String[] args) throws Throwable {
         System.out.println(new StringStar ().setStars("src/ru/progwards/java1/test10.txt"));
+
     }
 }
