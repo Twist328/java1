@@ -17,7 +17,7 @@ public static String format(String phone) throws IOException {
 
 public static void main(String[] args) throws IOException {
         System.out.println(format("7(999)111-22-33"));
-        System.out.println(format("7 470 717 193"));
+        System.out.println(format("7 903 722 3788"));
         }
 
         }
