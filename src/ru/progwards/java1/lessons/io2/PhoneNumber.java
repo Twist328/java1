@@ -13,7 +13,7 @@ public class PhoneNumber {
         }
         return "+" + (numbers.charAt(0) == '8' ? "7" : numbers.substring(0,1))
                 + "(" + numbers.substring(1, 4) + ")"
-                + numbers.substring(4, 7) + "-" + numbers.substring(7);
+                + numbers.substring(4, 7) + "-" + numbers.substring(7);//
     }
 
     public static void main(String[] args) throws IOException {
