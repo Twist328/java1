@@ -16,8 +16,7 @@ public class Translator {
         String temp = "";
         for (int i = 0; i < arrSentence.length; i++) {
             String str = "";
-            for (char c :
-                    arrSentence[i].toCharArray()) {
+            for (char c : arrSentence[i].toCharArray()) {
                 if (Character.isAlphabetic(c)) {
                     str += c;
                 }
