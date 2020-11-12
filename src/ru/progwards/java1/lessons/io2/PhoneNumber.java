@@ -21,5 +21,6 @@ public class PhoneNumber {
         System.out.println(format("7 903 721 3788"));
         System.out.println(format("8 903 721 3788"));
         System.out.println(format("79991112233"));
+        System.out.println(format("89991112233"));
     }
 }
