@@ -179,13 +179,13 @@ public class Censor {
         }
     }
 
-    public static void main(String[] args) {
+    //public static void main(String[] args) {
 
         //censorFile("src/ru/progwards/java1/lessons/io2/Censor.txt", new String[]{"java", "Oracle", "Sun", "Microsystems"});
 
-        censorFile("src/ru/progwards/java1/lessons/io2/Censor1.txt", new String[]{"puck", "бять"});
+       // censorFile("src/ru/progwards/java1/lessons/io2/Censor1.txt", new String[]{"puck", "бять"});
 
-    }
+   // }
 }
 
 class Word {
