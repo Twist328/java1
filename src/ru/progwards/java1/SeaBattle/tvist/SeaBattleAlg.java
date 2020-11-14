@@ -190,13 +190,16 @@ public class SeaBattleAlg {
         }
     }
 
-    void variant3() {
+    void variant2() {
         deathСelly(0);
-        deathСelly(2);
+        deathСellx(2);
         deathСelly(1);
+        deathСellx(7);
+        deathСelly(3);
+        deathСellx(5);
     }
 
-    void variant2() {
+    void variant3() {
         deathСellx(1);
         deathСelly(2);
         deathСellx(0);
@@ -220,8 +223,8 @@ public class SeaBattleAlg {
         init(seaBattle);
         doPrint = false;
         //variant1();
+        //variant2();
         variant2();
-        //variant3();
 
     }
 
@@ -237,7 +240,7 @@ public class SeaBattleAlg {
     static void test() {
         SeaBattleAlg alg = new SeaBattleAlg();
         int result = 0;
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i <1000; i++) {
             SeaBattle seaBattle = new SeaBattle();
             alg.battleAlgorithm(seaBattle);
             result += seaBattle.getResult();
