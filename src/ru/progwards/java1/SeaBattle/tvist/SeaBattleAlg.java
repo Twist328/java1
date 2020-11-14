@@ -224,7 +224,7 @@ public class SeaBattleAlg {
         doPrint = false;
         //variant1();
         //variant2();
-        variant2();
+        variant3();
 
     }
 
