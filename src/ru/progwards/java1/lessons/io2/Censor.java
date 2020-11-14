@@ -42,10 +42,8 @@ public class Censor {
             return errName + ":" + fileName;
         }
     }
-    // заменяем с помощью переводчика с разбивкой на слова
 
-    public static void censorFile1(String inoutFileName, String[] obscene) { // почему-то тестер не принял вариант с переводчиком и это было бы правильно для utf-8. Минус - пересоздание файла
-
+    public static void censorFile1(String inoutFileName, String[] obscene) {
         int obLen = obscene.length;
         String[] stars = new String[obLen];
         for (int i = 0; i < obLen; i++) {
@@ -120,7 +118,7 @@ public class Censor {
                         if (obs.contains(word.word)) {
                             rafEraseWord(raf, word, '*');
                         }
-                        //System.out.println(word);
+
                     }
                 }
             } catch (Exception e) {
@@ -183,7 +181,7 @@ public class Censor {
 
         //censorFile("src/ru/progwards/java1/lessons/io2/Censor.txt", new String[]{"java", "Oracle", "Sun", "Microsystems"});
 
-       // censorFile("src/ru/progwards/java1/lessons/io2/Censor1.txt", new String[]{"puck", "бять"});
+       // censorFile("src/ru/progwards/java1/lessons/io2/Censor1.txt", new String[]{"puck"});
 
    // }
 }
