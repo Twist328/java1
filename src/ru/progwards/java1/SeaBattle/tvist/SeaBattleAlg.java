@@ -148,10 +148,10 @@ public class SeaBattleAlg {
         direction = RITE | LEFT;
         int i = 1;
         do {
-            if ((direction & LEFT) != 0)
-                destroyed = checkHit(fire(x, y + i), LEFT);
             if ((direction & RITE) != 0)
-                destroyed = checkHit(fire(x, y - i), RITE);
+                destroyed = checkHit(fire(x, y + i), RITE);
+            if ((direction & LEFT) != 0)
+                destroyed = checkHit(fire(x, y - i), LEFT);
             i++;
         } while (direction != 0 || destroyed);
         return destroyed;
@@ -171,8 +171,8 @@ public class SeaBattleAlg {
     }
 
     void deathСellx(int temp) {
-        for (int x = 0; x < seaBattle.getSizeX(); x++) {
-            for (int y = x + temp; y < seaBattle.getSizeY(); y += 3)
+        for (int x = 0; x < seaBattle.getSizeY(); x++) {
+            for (int y = x + temp; y < seaBattle.getSizeX(); y += 3)
                 fireAndKill(x, y);
 
             for (int y = x - temp; y >= 0; y -= 3)
@@ -181,8 +181,8 @@ public class SeaBattleAlg {
     }
 
     void deathСelly(int temp) {
-        for (int y = 0; y < seaBattle.getSizeY(); y++) {
-            for (int x = y + temp; x < seaBattle.getSizeX(); x += 3)
+        for (int y = 0; y < seaBattle.getSizeX(); y++) {
+            for (int x = y + temp; x < seaBattle.getSizeY(); x += 3)
                 fireAndKill(x, y);
 
             for (int x = y - temp; x >= 0; x -= 3)
@@ -221,7 +221,7 @@ public class SeaBattleAlg {
         doPrint = false;
         //variant1();
         variant2();
-       // variant3();
+        //variant3();
 
     }
 
