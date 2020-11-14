@@ -51,7 +51,7 @@ public class Translator {
         String[] inLang = {"fell", "is", "lost", "what", "locomotive", "scooter", "rushes", "grandma", "to", "saddled"};
         String[] outLang = {"упало", "то", "пропало", "что","локомотив" ,"самокат", "мчит","бабка","в", "оседлавши"};
         String sentence = "What fell - is lost!";
-        String sentence1 = "Saddled scooter Grandma rushes to the locomotive";
+        String sentence1 = "Saddled scooter, Grandma rushes to the locomotive";
         Translator translator = new Translator(inLang, outLang);
         System.out.println(translator.translate(sentence));
         System.out.println(translator.translate(sentence1));
