@@ -30,7 +30,7 @@ public class Censor {
         }
     }
 
-    public static void censorFile1(String inoutFileName, String[] obscene) {
+    /*public static void censorFile1(String inoutFileName, String[] obscene) {
         int obLen = obscene.length;
         String[] stars = new String[obLen];
         for (int i = 0; i < obLen; i++) {
@@ -55,9 +55,9 @@ public class Censor {
         File name = new File(tmpFileName);
         name.renameTo(file);
 
-    }
+    }*/
 
-    private static Word rafGetNextWord(RandomAccessFile raf, Word prevWord) throws IOException {
+    /*private static Word rafGetNextWord(RandomAccessFile raf, Word prevWord) throws IOException {
         long pos = prevWord.endPos + 1;
         raf.seek(pos);
         long len = raf.length();
@@ -94,7 +94,7 @@ public class Censor {
         }
     }
 
-    public static void censorFile2(String inoutFileName, String[] obscene) {
+    /*public static void censorFile2(String inoutFileName, String[] obscene) {
         Set<String> obs = new HashSet<String>(Arrays.asList(obscene));
         try {
             RandomAccessFile raf = new RandomAccessFile(inoutFileName, "rw");
@@ -115,7 +115,7 @@ public class Censor {
         } catch (Exception e) {
             throw new CensorException(e.getMessage(), inoutFileName);
         }
-    }
+    }*/
 
     public static void censorFile(String inoutFileName, String[] obscene) {
         if (inoutFileName == null || inoutFileName.compareTo("") == 0)
@@ -164,14 +164,15 @@ public class Censor {
             throw new CensorException(e.getMessage(), inoutFileName);
         }
     }
+
     public static void main(String[] args) {
-        Censor censor=new Censor();
-        censorFile("src/ru/progwards/java1/lessons/censor.txt"));
+        Censor censor = new Censor();
+        censorFile("src/ru/progwards/java1/lessons/censor.txt", new String[]{"Java", "Oracle", "Sun", "Microsystems"});
     }
 }
 
 
-class Word {
+/*class Word {
 
     long startPos;
     long endPos;
@@ -196,5 +197,5 @@ class Word {
                 '}';
     }
 
-}
+}*/
 
