@@ -2,9 +2,8 @@ package ru.progwards.java1.lessons.io2;
 
 import java.io.*;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
+
 
 public class Censor {
 
@@ -33,13 +32,13 @@ public class Censor {
     public static void censorFile(String inoutFileName, String[] obscene) {
         if (inoutFileName == null || inoutFileName.compareTo("") == 0)
             throw new CensorException("Проверить имя файла!", inoutFileName);
-        if (obscene == null) throw new CensorException("Проверить последовательность символов!", inoutFileName);
-        int obLen;
+        if (obscene == null) throw new CensorException("Проверить последовательность символов в файле!", inoutFileName);
+        int len;
         String[] stars;
         try {
-            obLen = obscene.length;
-            stars = new String[obLen];
-            for (int i = 0; i < obLen; i++) {
+            len = obscene.length;
+            stars = new String[len];
+            for (int i = 0; i < len; i++) {
 
                 stars[i] = repeatStr("*", obscene[i].length());
             }
@@ -49,8 +48,8 @@ public class Censor {
         String tmpFileName = inoutFileName + ".tmp";
         String lineSeparator = System.getProperty("line.separator");
         boolean firstLine = true;
-        try (FileReader r = new FileReader(inoutFileName);
-             Scanner scan = new Scanner(r);
+        try (FileReader fr = new FileReader(inoutFileName);
+             Scanner scan = new Scanner(fr);
              FileWriter fw = new FileWriter(tmpFileName)) {
 
             while (scan.hasNext()) {
@@ -60,7 +59,7 @@ public class Censor {
                     fw.write(lineSeparator);
                 }
                 String str = scan.nextLine();
-                for (int i = obLen - 1; i >= 0; i--) {
+                for (int i = len - 1; i >= 0; i--) {
                     str = str.replace(obscene[i], stars[i]);
                 }
                 fw.write(str);
@@ -80,8 +79,10 @@ public class Censor {
 
     public static void main(String[] args) {
         Censor censor = new Censor();
-        censorFile("src/ru/progwards/java1/lessons/censor.txt", new String[]{"Java", "Oracle", "Sun", "Microsystems"});
+        censorFile("src/ru/progwards/java1/lessons/censor.txt", new String[]{"Java", "Oracle", "Sun", "Microsystems"}); //Здесь можно вбить и другие слова из файла
+        System.out.println(censor.getClass());
     }
 }
-
-
+// ДЛЯ ОТЛАДКИ (ВСТАВКИ) В ФАЙЛ censor.txt ПЕРВОНАЧАЛЬНОЙ ОРИГИНАЛЬНОЙ СТРОКИ:
+// Java — строго типизированный объектно-ориентированный язык программирования, разработанный компанией Sun Microsystems (в последующем приобретённой компанией Oracle).
+// ПОЛУЧАЕТСЯ после мейн в файле : **** — строго типизированный объектно-ориентированный язык программирования, разработанный компанией *** ************ (в последующем приобретённой компанией ******).
