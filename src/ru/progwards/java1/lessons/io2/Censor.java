@@ -164,7 +164,12 @@ public class Censor {
             throw new CensorException(e.getMessage(), inoutFileName);
         }
     }
+    public static void main(String[] args) {
+        Censor censor=new Censor();
+        censorFile("src/ru/progwards/java1/lessons/censor.txt"));
+    }
 }
+
 
 class Word {
 
@@ -190,5 +195,6 @@ class Word {
                 ", word='" + word + '\'' +
                 '}';
     }
+
 }
 
