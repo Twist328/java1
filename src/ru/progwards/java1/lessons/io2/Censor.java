@@ -15,17 +15,17 @@ public class Censor {
 
     static class CensorException extends RuntimeException {
 
-        String errName;
+        String errorName;
         String fileName;
 
-        CensorException(String errName, String fileName) {
-            this.errName = errName;
+        CensorException(String errorName, String fileName) {
+            this.errorName = errorName;
             this.fileName = fileName;
         }
 
         @Override
         public String toString() {
-            return errName + ":" + fileName;
+            return errorName + ":" + fileName;
         }
     }
 
@@ -34,13 +34,13 @@ public class Censor {
             throw new CensorException("Проверить имя файла!", inoutFileName);
         if (obscene == null) throw new CensorException("Проверить последовательность символов в файле!", inoutFileName);
         int len;
-        String[] stars;
+        String[] bacs;
         try {
             len = obscene.length;
-            stars = new String[len];
+            bacs = new String[len];
             for (int i = 0; i < len; i++) {
 
-                stars[i] = repeatStr("*", obscene[i].length());
+                bacs[i] = repeatStr("$", obscene[i].length());
             }
         } catch (Exception e) {
             throw new CensorException(e.getMessage(), inoutFileName);
@@ -60,7 +60,7 @@ public class Censor {
                 }
                 String str = scan.nextLine();
                 for (int i = len - 1; i >= 0; i--) {
-                    str = str.replace(obscene[i], stars[i]);
+                    str = str.replace(obscene[i], bacs[i]);
                 }
                 fw.write(str);
             }
@@ -79,10 +79,11 @@ public class Censor {
 
     public static void main(String[] args) {
         Censor censor = new Censor();
-        censorFile("src/ru/progwards/java1/lessons/censor.txt", new String[]{"Java", "Oracle", "Sun", "Microsystems"}); //Здесь можно вбить и другие слова из файла
+        censorFile("src/ru/progwards/java1/lessons/censor.txt", new String[]{"Java","объектно","ориентированный","Oracle", "Sun", "Microsystems"}); //Здесь можно вбить и другие слова из файла
         System.out.println(censor.getClass());
     }
 }
 // ДЛЯ ОТЛАДКИ (ВСТАВКИ) В ФАЙЛ censor.txt ПЕРВОНАЧАЛЬНОЙ ОРИГИНАЛЬНОЙ СТРОКИ:
 // Java — строго типизированный объектно-ориентированный язык программирования, разработанный компанией Sun Microsystems (в последующем приобретённой компанией Oracle).
-// ПОЛУЧАЕТСЯ после мейн в файле : **** — строго типизированный объектно-ориентированный язык программирования, разработанный компанией *** ************ (в последующем приобретённой компанией ******).
+// ПОЛУЧАЕТСЯ после проверки в мейн, в файле : **** — строго типизированный объектно-ориентированный язык программирования, разработанный компанией *** ************ (в последующем приобретённой компанией ******).
+// "src/ru/progwards/java1/lessons/censor.txt"
