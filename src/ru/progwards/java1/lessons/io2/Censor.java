@@ -40,7 +40,7 @@ public class Censor {
             baks = new String[len];
             for (int i = 0; i < len; i++) {
 
-                baks[i] = repeatStr("~", obscene[i].length());
+                baks[i] = repeatStr("*", obscene[i].length());
             }
         } catch (Exception e) {
             throw new CensorException(e.getMessage(), inoutFileName);

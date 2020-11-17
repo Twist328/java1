@@ -131,7 +131,7 @@ public class SeaBattleAlg {
 
     private boolean killkHorizontal(int x, int y) {
         boolean destroyed = false;
-        direction = RITE | LEFT;
+        direction = LEFT | RITE;
         int i = 1;
         do {
             if ((direction & LEFT) != 0)
@@ -223,8 +223,8 @@ public class SeaBattleAlg {
         init(seaBattle);
         doPrint = false;
         //variant1();
-        //variant2();
-        variant3();
+       //variant2();
+       variant3();
 
     }
 
