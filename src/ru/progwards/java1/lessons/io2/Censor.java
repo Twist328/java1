@@ -69,7 +69,7 @@ public class Censor {
 
         @Override
         public String toString() {
-            return String.format("CensorException{errorName='%s%s, fileName='%sNull}", errorName, fileName);
+            return errorName + ":" + fileName;
         }
     }
 
