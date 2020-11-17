@@ -46,12 +46,12 @@ public class Censor {
         }*/
 
     public static String repeatStr(String value, int count) {
-        char[] val = value.toCharArray();
-        char[] res = new char[count * val.length];
-        int len = val.length;
+        char[] sample = value.toCharArray();
+        char[] res = new char[count * sample.length];
+        int len = sample.length;
         for (int i = 0; i < count; i++)
 
-            System.arraycopy(val, 0, res, i * len, len);
+            System.arraycopy(sample, 0, res, i * len, len);
 
         return new String(res);
 
@@ -62,15 +62,17 @@ public class Censor {
         String errorName;
         String fileName;
 
+        @Override
+        public String toString() {
+            return errorName + ":" + fileName;
+
+        }
+
         public CensorException(String errorName, String fileName) {
             this.errorName = errorName;
             this.fileName = fileName;
         }
 
-        @Override
-        public String toString() {
-            return errorName + ":" + fileName;
-        }
     }
 
     public static void censorFile(String inoutFileName, String[] obscene) {
