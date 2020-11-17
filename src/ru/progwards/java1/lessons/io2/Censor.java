@@ -34,13 +34,13 @@ public class Censor {
             throw new CensorException("Проверить имя файла!", inoutFileName);
         if (obscene == null) throw new CensorException("Проверить последовательность символов в файле!", inoutFileName);
         int len;
-        String[] bacs;
+        String[] baks;
         try {
             len = obscene.length;
-            bacs = new String[len];
+            baks = new String[len];
             for (int i = 0; i < len; i++) {
 
-                bacs[i] = repeatStr("$", obscene[i].length());
+                baks[i] = repeatStr("~", obscene[i].length());
             }
         } catch (Exception e) {
             throw new CensorException(e.getMessage(), inoutFileName);
@@ -60,7 +60,7 @@ public class Censor {
                 }
                 String str = scan.nextLine();
                 for (int i = len - 1; i >= 0; i--) {
-                    str = str.replace(obscene[i], bacs[i]);
+                    str = str.replace(obscene[i], baks[i]);
                 }
                 fw.write(str);
             }
