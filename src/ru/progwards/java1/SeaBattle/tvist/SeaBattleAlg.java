@@ -191,12 +191,12 @@ public class SeaBattleAlg {
     }
 
     void variant2() {
-        deathСelly(0);
-        deathСellx(2);
-        deathСelly(1);
+        deathСelly(2);
         deathСellx(7);
-        deathСelly(3);
-        deathСellx(5);
+        deathСelly(1);
+        deathСellx(0);
+        deathСelly(2);
+        deathСellx(0);
     }
 
     void variant3() {
@@ -223,8 +223,8 @@ public class SeaBattleAlg {
         init(seaBattle);
         doPrint = false;
         //variant1();
-       //variant2();
-       variant3();
+       variant2();
+       //variant3();
 
     }
 
