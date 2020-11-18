@@ -45,7 +45,7 @@ public class Censor {
             return sb.toString();
         }*/
 
-    public static String repeatStr(String value, int count) {
+    /*public static String repeatStr(String value, int count) {
         char[] sample = value.toCharArray();
         char[] res = new char[count * sample.length];
         int len = sample.length;
@@ -53,9 +53,20 @@ public class Censor {
 
             System.arraycopy(sample, 0, res, i * len, len);
 
-            return new String(res);
+            return new String(res);*/
+    public static String repeatStr(String value, int count) {
+        char[]sample=value.toCharArray();
+        char[]res= new char[count* sample.length];
+        int len= sample.length;
+        for (int i = 0; i < count; i++)
+            System.arraycopy(sample,0,res,i*len,len);
+        return new String(res);
 
         }
+
+
+
+
 
     static class CensorException extends RuntimeException {
 
