@@ -53,9 +53,9 @@ public class Censor {
 
             System.arraycopy(sample, 0, res, i * len, len);
 
-        return new String(res);
+            return new String(res);
 
-    }
+        }
 
     static class CensorException extends RuntimeException {
 
@@ -81,13 +81,13 @@ public class Censor {
         if (obscene == null)
             throw new CensorException("Проверить последовательность символов в файле!", inoutFileName);
         int len;
-        String[] baks;
+        String[] znak;
         try {
             len = obscene.length;
-            baks = new String[len];
+            znak = new String[len];
             for (int i = 0; i < len; i++) {
 
-                baks[i] = repeatStr("*", obscene[i].length()); //value может быть любой символ или знак или цифра(буква) в зависимости от услович задачи
+                znak[i] = repeatStr("*", obscene[i].length()); //value может быть любой символ или знак или цифра(буква) в зависимости от услович задачи
             }
         } catch (Exception e) {
             throw new CensorException(e.getMessage(), inoutFileName);
@@ -112,7 +112,7 @@ public class Censor {
                 }
                 String str = scan.nextLine();
                 for (int i = len - 1; i >= 0; i--) {
-                    str = str.replace(obscene[i], baks[i]);
+                    str = str.replace(obscene[i], znak[i]);
                 }
                 writer.write(str);
             }
@@ -133,7 +133,7 @@ public class Censor {
 
     public static void main(String[] args) {
         Censor censor = new Censor();
-        censorFile("src/ru/progwards/java1/lessons/censor.txt", new String[]{"Java", "объектно", "ориентированный", "Oracle", "Sun", "Microsystems"});
+        censorFile("src/ru/progwards/java1/lessons/censor.txt", new String[]{"Java", "объектно", "ориентированный", "приобретённой", "Oracle", "Sun", "Microsystems"});
 
         //Здесь можно вбить и другие слова из файла censor.txt, и варьировать результатом censorFile()
 
