@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
 public class Censor {
 
     /*public static String repeatStr(String value, int count) {
@@ -14,10 +13,8 @@ public class Censor {
         }
         return builder.toString();
     }
-
                                        ЕЩЕ РАБОТАЮЩИЕ  МЕТОДЫ repeat() В НАШЕМ КОНТЕКСТЕ:
             1)
-
     public static String repeatStr0(String value, int count) {
         return count == 1 ? value : (count % 2 == 0 ? repeatStr0(value + value, count / 2) : value + repeatStr0(value + value, (count - 1) / 2));//   - РЕКУРСИЯ;
     }
@@ -61,14 +58,8 @@ public class Censor {
         for (int i = 0; i < count; i++)
             System.arraycopy(sample,0,res,i*len,len);
         return new String(res);
-
         }
-
-
-
-
-
-    static class CensorException extends RuntimeException {
+            static class CensorException extends RuntimeException {
 
         String errorName;
         String fileName;
@@ -78,14 +69,11 @@ public class Censor {
             return errorName + ":" + fileName;
 
         }
-
         public CensorException(String errorName, String fileName) {
             this.errorName = errorName;
             this.fileName = fileName;
         }
-
     }
-
     public static void censorFile(String inoutFileName, String[] obscene) {
         if (inoutFileName == null || inoutFileName.compareTo("") == 0)
             throw new CensorException("Проверить имя файла!", inoutFileName);
@@ -130,7 +118,6 @@ public class Censor {
         } catch (IOException e) {
             throw new CensorException(e.getMessage(), inoutFileName);
         }
-
         try {
             File file = new File(inoutFileName);
             file.delete();
@@ -141,7 +128,6 @@ public class Censor {
             throw new CensorException(e.getMessage(), inoutFileName);
         }
     }
-
     public static void main(String[] args) {
         Censor censor = new Censor();
         censorFile("src/ru/progwards/java1/lessons/censor.txt", new String[]{"Java", "объектно", "ориентированный", "приобретённой", "Oracle", "Sun", "Microsystems"});
