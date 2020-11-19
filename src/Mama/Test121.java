@@ -38,7 +38,7 @@ public class Test121 {
         List<Integer> list1 = new ArrayList<>();
         for (Integer e : new Integer[]{40, 300, 0, 4, 3, 1, 2}) list1.add(e);
 
-        list1.remove(2);
+        list1.remove(1);
         System.out.println((list1));
 
         List<Integer> list2 = new ArrayList<>();
