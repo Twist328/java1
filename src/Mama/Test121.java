@@ -27,7 +27,7 @@ public class Test121 {
         Collection<Integer> numbers3 = new ArrayList();
         for(int i=0; i<5; i++)
             numbers3.add(i);
-        //numbers3.add(3, 5); компилятор выдаст ошибку*/
+        //numbers3.add(3, 5); компилятор выдаст ошибку из-за (3,5!)*/
 
         List<Integer> list = new ArrayList<>();
 
