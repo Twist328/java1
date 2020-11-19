@@ -2,7 +2,7 @@ package Mama;
 
 import java.util.*;
 
-public class Test11 {
+public class Test121 {
     public static void main(String[] args) {
 
         Collection<Integer> numbers = new ArrayList();
