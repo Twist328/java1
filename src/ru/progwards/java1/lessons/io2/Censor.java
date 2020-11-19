@@ -37,7 +37,8 @@ public class Censor {
             }
             return tmp;
         }
-        4)public static String repeatStr3 (String value,int count){
+           4)
+        public static String repeatStr3 (String value,int count){
             StringBuilder sb = new StringBuilder(count);
             for (int i = count; i > 0; i--) {
                 sb.append(value);
@@ -55,18 +56,14 @@ public class Censor {
 
             return new String(res);*/
     public static String repeatStr(String value, int count) {
-        char[]sample=value.toCharArray();
-        char[]res= new char[count* sample.length];
-        int len= sample.length;
+        char[] sample = value.toCharArray();
+        char[] res = new char[count * sample.length];
+        int len = sample.length;
         for (int i = 0; i < count; i++)
-            System.arraycopy(sample,0,res,i*len,len);
+            System.arraycopy(sample, 0, res, i * len, len);
         return new String(res);
 
-        }
-
-
-
-
+    }
 
     static class CensorException extends RuntimeException {
 
