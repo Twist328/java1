@@ -37,9 +37,7 @@ public class MinListaddList {
         System.out.println("res=" + res);
 
         return res;
-
     }
-
     public static void main(String[] args) {
 
         Collection<Integer> res4 = new ArrayList();
@@ -67,16 +65,11 @@ public class MinListaddList {
         System.out.println(res3);
 
         MinListaddList listAction = new MinListaddList(listAction(Collections.singletonList(0)));
-
-
     }
-
     private static Object listAction() {
         return 0;
     }
-
 }
-
     /*Напишите метод с сигнатурой public List<Integer> listAction(List<Integer> list), который выполняет следующие действия:
 
         удаляет минимальный элемент коллекции
