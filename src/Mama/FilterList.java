@@ -9,10 +9,10 @@ public class FilterList {
         List<Integer> res;
         if (list instanceof ArrayList) res = new ArrayList<>();
         else if (list instanceof LinkedList) res = new LinkedList<>();//это бонус
-        else if (list instanceof Vector) res = new Vector<>();//тоже
-        else if (list instanceof Stack) res = new Stack<>();//тоже
-        else if (list instanceof List) res = new ArrayList<>();//дублирование 10 строки
-        else throw new RuntimeException("Неизвестный 'list' тип!");
+        else if (list instanceof Vector) res = new Vector<>();       //тоже
+        else if (list instanceof Stack) res = new Stack<>();         //тоже
+        else if (list instanceof List) res = new ArrayList<>();      //дублирование 10 строки
+        else throw new RuntimeException("Неизвестный тип'list'!");
         int fraction = sum / 100;
         for (Integer e : list) if (e < fraction) res.add(e);
         return res;
