@@ -33,7 +33,7 @@ public class Lesson12 {
 
         Lesson12 lesson12 = new Lesson12();
 
-       /* for (ListIterator<Integer> listIterator = linkedList.listIterator(); listIterator.hasNext(); ) {   ЭТО ВАРИАНТ РАБОЧИЙ ИЗ ТЕСТА 12 LESSON
+        /*for (ListIterator<Integer> listIterator = linkedList.listIterator(); listIterator.hasNext(); ) {   ЭТО ВАРИАНТ РАБОЧИЙ ИЗ ТЕСТА 12 LESSON
             Integer n = listIterator.next();
             if (n % 2 != 0)
                 listIterator.remove();
