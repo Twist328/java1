@@ -37,25 +37,66 @@ public class Finder {
         }
         return result;
     }
+    public static boolean findSequence(Collection<Integer> numbers) {
+        ArrayList<Integer> arrayList = (ArrayList<Integer>) numbers;
+        for (int i = 1; i <= arrayList.size(); i++) {
+            int number = 0;
+            for (int j = 0; j < arrayList.size(); j++) {
+                if (arrayList.get(j) == i) {
+                    number++;
+                }
+            }
+            if (number == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static String findSimilar(Collection<String> names) {
+        ArrayList<String> list = (ArrayList<String>) names;
+
+        String name = "";
+        int number = 0;
+
+        for (int i = 0; i < list.size(); i++) {
+            String str = list.get(i);
+            int count = 0;
+
+            for (int j = i; j < list.size(); j++) {
+                if (list.get(i).equals(list.get(j))) {
+                    count++;
+                }
+                else {
+                    break;
+                }
+            }
+
+            if (str.equals(name) && number < count) {
+                number = count;
+            }
+
+            if (!str.equals(name) && number < count) {
+                name = str;
+                number = count;
+            }
+
+        }
+
+        return name + ":" + number;
+    }
+
 
     public static void main(String[] args) throws ClassCastException {
         Finder numbers = new Finder();
-        List<Integer> res = new ArrayList<>();
-        int index1 = 0;
-        int index2 = 1;
-        for (int i = 0; i < 2; i++)
-            res.add((index1 + index2));
-        res.set(0, index1);
-        res.set(1, index2);
-
-        System.out.println(res);
-
         List<Integer> list= new ArrayList();
-        List<Integer> result = new ArrayList();
-        for (Integer e : new Integer[]{90, 300, 12, 6, 3, 9, 21}) list.add(e);
-        new Finder().findLocalMax(list);
-        System.out.println(list);
+        for (Integer e : new Integer[]{500,2800,5150,56,83,11}) list.add(e);
+        System.out.println(findLocalMax(list));
+        System.out.println(findSequence(list));
+        System.out.println(findMinSumPair(list));
 
+        List<String> arrayList= new ArrayList();
+        for(String s : new String[] {"КОЛЯ","КОЛЯ","ВАСЯ","ПЕТЯ","ПЕТЯ", "КОЛЯ", "ВАСЯ","ВАСЯ", "ВАСЯ","ВАСЯ","ВАСЯ"})arrayList.add(s);
+        System.out.println(findSimilar(arrayList));
             }
         }
 
