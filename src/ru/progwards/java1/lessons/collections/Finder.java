@@ -6,6 +6,7 @@ public class Finder {
 
 
     public static Collection<Integer> findMinSumPair(Collection<Integer> numbers) {
+        //найти 2 соседних числа в коллекции сумма которых минимальна, вернуть коллекцию, содержащую индексы этих чисел
         ArrayList<Integer> list = (ArrayList<Integer>) numbers;
         List<Integer> res = new ArrayList<>();
         res.add(list.get(0));
@@ -28,21 +29,24 @@ public class Finder {
     }
 
     public static Collection<Integer> findLocalMax(Collection<Integer> numbers) {
+        //найти локальные максимумы - числа, которые больше соседа справа и слева. Первый и последний элемент коллекции не может являться локальным
+        // максимумом, вернуть коллекцию, содержащую значения этих максимумов
         ArrayList<Integer> list = (ArrayList<Integer>) numbers;
         List<Integer> result = new ArrayList();
         for (int i = 1; i < list.size() - 1; i++) {
-            if (list.get(i) > list.get(i - 1) && list.get(i) > list.get(i + 1)) {
+            if (list.get(i) > list.get(i - 1) & list.get(i) > list.get(i + 1)) {
                 result.add(list.get(i));
             }
         }
         return result;
     }
     public static boolean findSequence(Collection<Integer> numbers) {
-        ArrayList<Integer> arrayList = (ArrayList<Integer>) numbers;
-        for (int i = 1; i <= arrayList.size(); i++) {
+        //проверить, содержит ли коллекция все числа от 1 до size(), порядок может быть произвольный
+        ArrayList<Integer> list = (ArrayList<Integer>) numbers;
+        for (int i = 1; i <= list.size(); i++) {
             int number = 0;
-            for (int j = 0; j < arrayList.size(); j++) {
-                if (arrayList.get(j) == i) {
+            for (int j = 0; j < list.size(); j++) {
+                if (list.get(j) == i) {
                     number++;
                 }
             }
@@ -53,49 +57,55 @@ public class Finder {
         return true;
     }
     public static String findSimilar(Collection<String> names) {
+        //найдите максимальное количество повторяющихся подряд элементов. Результат вернуть в виде строки <элемент>:<количество>, например Василий:5.
+        // При равенстве максимального количества у разных повторяющихся элементов, вернуть результат для элемента, повторяющаяся последовательность
+        // которого началась с наименьшего индекса.
         ArrayList<String> list = (ArrayList<String>) names;
 
-        String name = "";
         int number = 0;
+        String forename = "";
 
         for (int i = 0; i < list.size(); i++) {
             String str = list.get(i);
-            int count = 0;
+            int tmp = 0;
 
             for (int j = i; j < list.size(); j++) {
                 if (list.get(i).equals(list.get(j))) {
-                    count++;
+                    tmp++;
                 }
                 else {
                     break;
                 }
             }
 
-            if (str.equals(name) && number < count) {
-                number = count;
+            if (str.equals(forename) & number < tmp) {
+                number = tmp;
             }
 
-            if (!str.equals(name) && number < count) {
-                name = str;
-                number = count;
+            if (!str.equals(forename) & number < tmp) {
+                forename = str;
+                number = tmp;
             }
 
         }
 
-        return name + ":" + number;
+        return forename + ":" + number;
     }
 
 
     public static void main(String[] args) throws ClassCastException {
         Finder numbers = new Finder();
         List<Integer> list= new ArrayList();
+
         for (Integer e : new Integer[]{500,2800,5150,56,83,11}) list.add(e);
+
+
+        System.out.println(findMinSumPair(list));
         System.out.println(findLocalMax(list));
         System.out.println(findSequence(list));
-        System.out.println(findMinSumPair(list));
 
         List<String> arrayList= new ArrayList();
-        for(String s : new String[] {"КОЛЯ","КОЛЯ","ВАСЯ","ПЕТЯ","ПЕТЯ", "КОЛЯ", "ВАСЯ","ВАСЯ", "ВАСЯ","ВАСЯ","ВАСЯ"})arrayList.add(s);
+        for(String s : new String[] {"КОЛЯ","ПЕТЯ","ПЕТЯ","ПЕТЯ","ПЕТЯ", "ПЕТЯ", "ВАСЯ","ВАСЯ", "ВАСЯ","ВАСЯ","ВАСЯ"})arrayList.add(s);
         System.out.println(findSimilar(arrayList));
             }
         }
