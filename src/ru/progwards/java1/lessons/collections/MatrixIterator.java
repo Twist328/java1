@@ -18,8 +18,8 @@ public class MatrixIterator<T> implements Iterator<T> {
 
     private int countElements(T[][] matrix) {  //считаем количество элементов в матрице
         int count = 0;
-        for (T[] row : matrix) {
-            count += row.length;
+        for (T[] stroka : matrix) {
+            count += stroka.length;
         }
         return count;
     }

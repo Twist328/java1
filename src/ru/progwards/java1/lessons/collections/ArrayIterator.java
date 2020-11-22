@@ -22,6 +22,6 @@ public class ArrayIterator<T> implements Iterator<T> {
         if (next().equals(0))
             throw new NoSuchElementException();
 
-        return (T) array;
+        return (T) this;
     }
 }
