@@ -37,11 +37,11 @@ public class ArrayInteger {
         signif = 0;
     }
     void fromString(String value) {
-        char[] s = value.toCharArray();
-        int sig = s.length;
+        char[] val = value.toCharArray();
+        int sig = val.length;
         // переведем массив к числовому
-        for (int i = sig - 1, k = 0; i >= 0; i--, k++) {
-            digits[k] = (byte) (s[i] - '0');
+        for (int i = sig - 1, j = 0; i >= 0; i--, j++) {
+            digits[j] = (byte) (val[i] - '0');
         }
         // обнулим ранее использовавшиеся
         for (int i = sig; i < signif; i++) {
@@ -54,8 +54,8 @@ public class ArrayInteger {
     }
     BigDecimal toInt() {
         char[] s = new char[signif];
-        for (int i = signif - 1, k = 0; i >= 0; i--, k++) {
-            s[i] = (char) ((digits[k] + '0') & 0xFF);
+        for (int i = signif - 1, j = 0; i >= 0; i--, j++) {
+            s[i] = (char) ((digits[j] + '0') & 0xFF);
         }
         return new BigDecimal(s);
     }
@@ -65,35 +65,35 @@ public class ArrayInteger {
         return false;
     }
     boolean add(ArrayInteger num) {
-        int sigMax = num.signif >= signif ? num.signif : signif; // max cщественный
+        int sigMax = num.signif >= signif ? num.signif : signif; // max cущественный
         int len = digits.length;
         int leng = num.digits.length;
-        int p = 0; // перенос
-        int r; // результат для цифр
+        int transfer = 0; // перенос
+        int rez; // результат для цифр
         int sig = 0; // ИНДЕКС последнего значащего
         for (int i = 0; i <= sigMax; i++) {
-            r = p;
-            if (i < len) r += digits[i];
-            if (i < leng) r += num.digits[i];
-            if (r > 0) {
+            rez = transfer;
+            if (i < len) rez += digits[i];
+            if (i < leng) rez += num.digits[i];
+            if (rez > 0) {
                 sig = i;
                 if (sig >= len) return raiseCalcError();
-                digits[sig] = (byte) (r % 10);
+                digits[sig] = (byte) (rez % 10);
             } else {
                 if (i < len) digits[i] = 0;
             }
-            p = r / 10;
+            transfer = rez / 10;
         }
         signif = sig + 1;
         return true;
     }
     @Override
     public String toString() {
-        byte[] r = new byte[signif];
-        for (int i = signif - 1, k = 0; i >= 0; i--, k++) {
-            r[k] = (byte) (digits[i] + '0');
+        byte[] res = new byte[signif];
+        for (int i = signif - 1, j = 0; i >= 0; i--, j++) {
+            res[j] = (byte) (digits[i] + '0');
         }
-        return new String(r);
+        return new String(res);
     }
     public static void main(String[] args) {
         ArrayInteger a = new ArrayInteger("2897");
