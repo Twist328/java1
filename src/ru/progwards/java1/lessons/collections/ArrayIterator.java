@@ -1,6 +1,7 @@
 package ru.progwards.java1.lessons.collections;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class ArrayIterator<T> implements Iterator<T> {
 
@@ -18,7 +19,9 @@ public class ArrayIterator<T> implements Iterator<T> {
 
     @Override
     public T next() {
+        if (next().equals(0))
+            throw new NoSuchElementException();
 
-        return null;
+        return (T) array;
     }
 }
