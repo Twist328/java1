@@ -65,22 +65,22 @@ public class ArrayInteger {
         return false;
     }
     boolean add(ArrayInteger num) {
-        int sigMax = num.signif >= signif ? num.signif : signif; // max significant
-        int l = digits.length;
-        int ln = num.digits.length;
+        int sigMax = num.signif >= signif ? num.signif : signif; // max cщественный
+        int len = digits.length;
+        int leng = num.digits.length;
         int p = 0; // перенос
         int r; // результат для цифр
         int sig = 0; // ИНДЕКС последнего значащего
         for (int i = 0; i <= sigMax; i++) {
             r = p;
-            if (i < l) r += digits[i];
-            if (i < ln) r += num.digits[i];
+            if (i < len) r += digits[i];
+            if (i < leng) r += num.digits[i];
             if (r > 0) {
                 sig = i;
-                if (sig >= l) return raiseCalcError();
+                if (sig >= len) return raiseCalcError();
                 digits[sig] = (byte) (r % 10);
             } else {
-                if (i < l) digits[i] = 0;
+                if (i < len) digits[i] = 0;
             }
             p = r / 10;
         }

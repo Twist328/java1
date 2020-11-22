@@ -7,10 +7,13 @@ import java.util.List;
 
 public class Creator {
     public static Collection<Integer> fillEven(int n) {
+
         List<Integer> list = new ArrayList<>(n);
         Integer number = 2;
+
         for (int i = 0; i < n; i++) {
             list.add(number);
+
             number += 2;
 
         }
@@ -18,10 +21,13 @@ public class Creator {
     }
 
     public static Collection<Integer> fillOdd(int n) {
+
         List<Integer> list = new ArrayList<>(n);
         Integer number = 1;
+
         for (int i = 0; i < n; i++) {
             if (number % 2 != 0)
+
                 list.add(number);
             number += 2;
         }
@@ -31,8 +37,8 @@ public class Creator {
     public static void main(String[] args) {
         Creator creator = new Creator();
 
-        System.out.println(fillEven(500));
-        System.out.println(fillOdd(555));
+        System.out.println(fillEven(5));
+        System.out.println(fillOdd(5));
 
     }
 }
