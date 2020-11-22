@@ -141,10 +141,10 @@ public class Censor {
 
     public static void main(String[] args) {
         Censor censor = new Censor();
-        censorFile("src/ru/progwards/java1/lessons/censor.txt", new String[]{"Java", "объектно", "ориентированный", "приобретённой", "Oracle", "Sun", "Microsystems"});
+        censorFile("src/ru/progwards/java1/lessons/censor.txt", new String[]{"Java", "Oracle", "Sun", "Microsystems"});
 
-        //Здесь можно вбить и другие слова из файла censor.txt, и варьировать результатом censorFile()
 
+//Здесь можно вбить и другие слова из файла censor.txt, и варьировать результатом censorFile()
         System.out.println(censor.getClass());
     }
 }
