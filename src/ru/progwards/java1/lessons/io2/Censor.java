@@ -45,16 +45,6 @@ public class Censor {
             }
             return sb.toString();
         }*/
-
-    /*public static String repeatStr(String value, int count) {
-        char[] sample = value.toCharArray();
-        char[] res = new char[count * sample.length];
-        int len = sample.length;
-        for (int i = 0; i < count; i++)
-
-            System.arraycopy(sample, 0, res, i * len, len);
-
-            return new String(res);*/
     public static String repeatStr(String value, int count) {
         char[] sample = value.toCharArray();
         char[] res = new char[count * sample.length];
@@ -95,7 +85,7 @@ public class Censor {
             znak = new String[len];
             for (int i = 0; i < len; i++) {
 
-                znak[i] = repeatStr("*", obscene[i].length()); //value может быть любой символ или знак или цифра(буква) в зависимости от услович задачи
+                znak[i] = repeatStr("*", obscene[i].length()); //value может быть любой символ или знак или цифра(буква) в зависимости от условий задачи
             }
         } catch (Exception e) {
             throw new CensorException(e.getMessage(), inoutFileName);
@@ -141,7 +131,7 @@ public class Censor {
 
     public static void main(String[] args) {
         Censor censor = new Censor();
-        censorFile("src/ru/progwards/java1/lessons/censor.txt", new String[]{"Java", "Oracle", "Sun", "Microsystems"});
+        censorFile("src/ru/progwards/java1/lessons/io2/censor.txt", new String[]{"Java", "Oracle", "Sun", "Microsystems"});
 
 
 //Здесь можно вбить и другие слова из файла censor.txt, и варьировать результатом censorFile()
