@@ -1,5 +1,6 @@
 package ru.progwards.java1.lessons.bigints;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Arrays;
 /*
 Реализовать класс ArrayInteger - целого числа произвольной длины на массиве byte[] digits;
@@ -49,20 +50,28 @@ public class ArrayInteger {
         }
         signif = sig;
     }
-    void fromInt(BigDecimal value) {
-        fromString(value.toString());
-    }
-    BigDecimal toInt() {
+        void fromInt(BigInteger value) {
+            if (value.compareTo(BigInteger.TEN) == -1) {
+                digits[0] = value.byteValue();
+            }
+            for (int i = 0; value.compareTo(new BigInteger("0")) != 0; i++) {
+                digits[i] = value.mod(BigInteger.TEN).byteValue();
+                value = value.divide(BigInteger.TEN);
+            }
+        }
+
+    BigInteger toInt() {
         char[] s = new char[signif];
         for (int i = signif - 1, j = 0; i >= 0; i--, j++) {
             s[i] = (char) ((digits[j] + '0') & 0xFF);
         }
-        return new BigDecimal(s);
+        return new BigInteger(String.valueOf(s));
     }
 
     boolean raiseCalcError() {
         clear(digits.length);
         return false;
+
     }
     boolean add(ArrayInteger num) {
         int sigMax = num.signif >= signif ? num.signif : signif; // max cущественный

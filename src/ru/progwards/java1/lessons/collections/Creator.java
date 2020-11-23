@@ -39,7 +39,7 @@ public class Creator {
     }
 
     public static void main(String[] args) {
-        //Creator creator = new Creator();
+        Creator creator = new Creator();
         System.out.println(fillEven(5));
         System.out.println(fillOdd(55));
         System.out.println(fill3(5));
