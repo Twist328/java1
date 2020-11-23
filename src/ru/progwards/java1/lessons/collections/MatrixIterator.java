@@ -47,7 +47,7 @@ public class MatrixIterator<T> implements Iterator<T> {
 
     public static void main(String[] args) {
 
-        Integer[][] matrix = {{1, 2, 3}, {}, {4, 5}, {6}};
+        Integer[][] matrix = {{1, 2, 3}, {4}, {5, 6}, {7}};
         Iterator<Integer> iterator = new MatrixIterator<>(matrix);
         while (iterator.hasNext()) {
             System.out.print(iterator.next());

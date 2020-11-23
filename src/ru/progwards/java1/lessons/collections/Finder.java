@@ -97,7 +97,7 @@ public class Finder {
         Finder numbers = new Finder();
         List<Integer> list= new ArrayList();
 
-        for (Integer e : new Integer[]{500,2800,5150,56,83,11}) list.add(e);
+        for (Integer e : new Integer[]{1,2,3,200,5,6,7,8,9,10,15,12,13,14}) list.add(e);
 
 
         System.out.println(findMinSumPair(list));
