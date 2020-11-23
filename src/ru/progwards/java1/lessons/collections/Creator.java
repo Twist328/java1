@@ -1,9 +1,6 @@
 package ru.progwards.java1.lessons.collections;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Creator {
     public static Collection<Integer> fillEven(int n) {
@@ -17,6 +14,7 @@ public class Creator {
     }
     public static Collection<Integer> fillOdd(int n) {
         List<Integer> list = new ArrayList<>(n);
+
         Integer number = 1;
         for (int i = 0; i < n; i++) {
             if (number % 2 != 0)
@@ -32,7 +30,7 @@ public class Creator {
         for (int i = 0; i < n; i++) {
             list.add(indexnum);
             list.add((int) Math.pow(indexnum, 2));
-            list.add((int) Math.pow(indexnum, 3));
+            list.add((int) (indexnum*indexnum*indexnum));
             indexnum += 3;
         }
         return list;
@@ -42,6 +40,6 @@ public class Creator {
         Creator creator = new Creator();
         System.out.println(fillEven(5));
         System.out.println(fillOdd(55));
-        System.out.println(fill3(5));
+        System.out.println(fill3(10));
     }
 }

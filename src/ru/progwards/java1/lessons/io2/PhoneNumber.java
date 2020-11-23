@@ -20,7 +20,8 @@ public class PhoneNumber {
 
     public static void main(String[] args) throws IOException {
         System.out.println(format("8(999)111-22-33"));
-        System.out.println(format("8 903 722 3788"));
+        System.out.println(format("8 903 722 5788"));
+        System.out.println(format("89037225788"));
     }
 
 }
