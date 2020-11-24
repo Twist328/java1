@@ -7,7 +7,7 @@ public class Less4 {
         String str = String.valueOf(n1);
         String str1 = String.valueOf(n2);
 
-        return Integer.parseInt(str+str1);
+        return Integer.parseInt(str + str1);
 
 
     }
@@ -23,10 +23,9 @@ public class Less4 {
         String c = "лыко ";
         System.out.println(a + c + b);
 
-        float d= (float) 1000000.0;
-        float f = (float)d;
+        float d = (float) 1000000.0;
+        float f = (float) d;
         System.out.println(f);
-
 
 
         BigDecimal bigDec1 = BigDecimal.valueOf(10);
@@ -51,18 +50,29 @@ class Rectangle {
 
     public double area() {
 
-        return a*b;
+        return a * b;
     }
 
-    public int compareTo(Rectangle anRectangle){
-        if(this.area()>((Rectangle) anRectangle).area()) {
+    public int compareTo(Rectangle anRectangle) {
+        if (this.area() > ((Rectangle) anRectangle).area()) {
             return 1;
-        }else if(this.area()<((Rectangle) anRectangle).area()) {
+        } else if (this.area() < ((Rectangle) anRectangle).area()) {
             return -1;
-        }else {
+        } else {
             return 0;
         }
     }
-}
 
+    public int arrayMax(int[] a) {
+        int max = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (max < a[i]) {
+                max = a[i];
+            }
+
+        }
+
+        return max;
+    }
+}
 

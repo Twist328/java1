@@ -34,6 +34,8 @@ public class Rectangle { //СРАВНЕНИЕ ПЕРИМЕТРОВ ПРЯМОУ�
         System.out.println(new Rectangle (20,15).compareTo(new Rectangle(18,13)));
         System.out.println(new Rectangle (20,15).compareTo(new Rectangle(19,23)));
         System.out.println(new Rectangle (20,15).compareTo(new Rectangle(15,20)));
+
+
     }
 
 }
