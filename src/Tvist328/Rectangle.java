@@ -17,7 +17,7 @@ public class Rectangle { //СРАВНЕНИЕ ПЕРИМЕТРОВ ПРЯМОУ�
         return a * b;
     }
 
-    public int compareTo(Rectangle anRectangle) {
+    public  int compareTo(Rectangle anRectangle) {
 
 
         if (this.area() > ((Rectangle) anRectangle).area()) {
@@ -29,7 +29,12 @@ public class Rectangle { //СРАВНЕНИЕ ПЕРИМЕТРОВ ПРЯМОУ�
         }
     }
 
+    public static void main(String[] args) {
 
+        System.out.println(new Rectangle (20,15).compareTo(new Rectangle(18,13)));
+        System.out.println(new Rectangle (20,15).compareTo(new Rectangle(19,23)));
+        System.out.println(new Rectangle (20,15).compareTo(new Rectangle(15,20)));
+    }
 
 }
 
