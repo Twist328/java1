@@ -1,6 +1,7 @@
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.Arrays;
 
 public class Less4 {
     static int addAsStrings(int n1, int n2) {
@@ -31,6 +32,13 @@ public class Less4 {
         BigDecimal bigDec1 = BigDecimal.valueOf(10);
         BigDecimal bigDec2 = BigDecimal.valueOf(3);
         BigDecimal result1 = bigDec1.divide(bigDec2, 5, RoundingMode.HALF_UP);
+
+        int[] a1 = {12, 5, 0, 58, 36};
+        int[] a2 = Arrays.copyOf(a1, a1.length);
+        Arrays.sort(a2);
+        System.out.println(Arrays.equals(a1, a2));
+
+
 
 
         System.out.println(result);

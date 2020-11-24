@@ -2,7 +2,7 @@ package Tvist328;
 
 public class ArrayMax {
 
-    public static int arrayMax(int[] a) { // ЗАДАЧА НА ВОЗВРАТ МАКСИМУМА ИЗ a[] = {}; пустого, нулевого МАССИВА
+    public static int arrayMax(int[] a) { // ЗАДАЧА НА ВОЗВРАТ МАКСИМУМА ИЗ a[] = {}; МАССИВА
 
         int max = 0;
         for (int i = 0; i < a.length; i++) {
