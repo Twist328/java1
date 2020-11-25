@@ -32,7 +32,7 @@ public class Posit3 {
             }
         }
     public static void main(String[] args) {
-        System.out.println(intToGrade(10));
+        System.out.println(intToGrade(4));
     }
 }
 
