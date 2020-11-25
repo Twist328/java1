@@ -10,6 +10,17 @@ public class ArrayInteger {
     public ArrayInteger(int n) {
         digits = new Byte[n];
     }
+    public ArrayInteger(String value) {
+        this();
+        fromString(value);
+    }
+
+    public ArrayInteger() {
+
+    }
+
+    private void fromString(String value) {
+    }
 
     public void fromInt(BigInteger value) {
         if (value.compareTo(BigInteger.TEN) == -1) {
@@ -93,9 +104,9 @@ public class ArrayInteger {
     }
 
 
-    public static void main(String[] args) {
-        ru.progwards.java1.lessons.bigints.ArrayInteger a = new ru.progwards.java1.lessons.bigints.ArrayInteger("9387546534");
-        ru.progwards.java1.lessons.bigints.ArrayInteger b = new ru.progwards.java1.lessons.bigints.ArrayInteger("276465573");
+    public static void main(String[] args) throws NullPointerException{
+        ArrayInteger a = new ArrayInteger("87643");
+        ArrayInteger b = new ArrayInteger("98743");
         System.out.print(a + " + " + b + " = ");
         a.add(b);
         System.out.println(a);

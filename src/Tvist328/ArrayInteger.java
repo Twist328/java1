@@ -10,24 +10,24 @@ import java.util.List;
 public class ArrayInteger {
 
     private final static BigInteger BI_TEN = BigInteger.valueOf(10);
-    private final static BigDecimal BD_TEN = BigDecimal.valueOf(10);
+
     private Byte[] digits;
 
-    public ArrayInteger(final int n){
+    public ArrayInteger( int n) {
         digits = new Byte[n];
     }
 
     public void fromInt(BigInteger value) {
-        if(value.compareTo(BigInteger.TEN)==-1) {
+        if (value.compareTo(BigInteger.TEN) == -1) {
             digits[0] = value.byteValue();
         }
-            for (int i = 0; value.compareTo(new BigInteger("0"))!=0; i++) {
-                value=value.divide(BigInteger.TEN);
+        for (int i = 0; value.compareTo(new BigInteger("0")) != 0; i++) {
+            value = value.divide(BigInteger.TEN);
 
-            }
         }
+    }
 
-    public BigInteger toInt(){
+    public BigInteger toInt() {
         BigInteger result = BigInteger.valueOf(0);
         for (Byte b : digits) {
             result = result.multiply(BI_TEN);
@@ -36,13 +36,13 @@ public class ArrayInteger {
         return result;
     }
 
-    public boolean add(ArrayInteger num){
+    public boolean add(ArrayInteger num) {
         int ten = 0;
         final List<Byte> list = new ArrayList<>();
-        for (int i = Math.max(num.digits.length, this.digits.length)-1; i >=0 ; i--) {
-            int result = ((num.digits.length<=i) ? 0 : num.digits[i]) + ((this.digits.length<=i) ? 0 : this.digits[i]) + ten;
-            ten = result>9 ? 1 : 0;
-            list.add((byte)(result%10));
+        for (int i = Math.max(num.digits.length, this.digits.length) - 1; i >= 0; i--) {
+            int result = ((num.digits.length <= i) ? 0 : num.digits[i]) + ((this.digits.length <= i) ? 0 : this.digits[i]) + ten;
+            ten = result > 9 ? 1 : 0;
+            list.add((byte) (result % 10));
         }
         Collections.reverse(list);
         digits = list.toArray(new Byte[list.size()]);
@@ -51,7 +51,15 @@ public class ArrayInteger {
 
     @Override
     public String toString() {
-        return digits==null ? null : Arrays.toString(digits);
+        return digits == null ? null : Arrays.toString(digits);
     }
 
+    public static void main(String[] args) {
+
+        ru.progwards.java1.lessons.bigints.ArrayInteger a = new ru.progwards.java1.lessons.bigints.ArrayInteger("9387546534");
+        ru.progwards.java1.lessons.bigints.ArrayInteger b = new ru.progwards.java1.lessons.bigints.ArrayInteger("276465573");
+        System.out.print(a + " + " + b + " = ");
+        a.add(b);
+        System.out.println(a);
+    }
 }
