@@ -73,7 +73,7 @@ public class ArrayInteger {
         return false;
 
     }
-    boolean add(ArrayInteger num) {
+    public boolean add(ArrayInteger num) {
         int sigMax = num.signif >= signif ? num.signif : signif; // max cущественный
         int len = digits.length;
         int leng = num.digits.length;
