@@ -31,6 +31,10 @@ class Rectangle {
         System.out.println(new Rectangle(20,15).compareTo(new Rectangle(19,23)));
         System.out.println(new Rectangle(20,15).compareTo(new Rectangle(15,20)));
 
+        Integer a = 1;
+        Integer b = 1;
+        System.out.println(a.compareTo(b));
+
 
     }
 
