@@ -35,85 +35,42 @@ public class ArrayInteger {
         return bigInteger;
     }
 
-    public boolean add(ArrayInteger num) {
-        boolean result = false;
-        if (digits.length < num.digits.length) {
-            for (int i = 0; i < digits.length; i++) {
-                digits[i] = 0;
+    boolean add(ru.progwards.java1.lessons.bigints.ArrayInteger num) {
+        int sigMax = num.signif >= signif ? num.signif : signif; // max cущественный
+        int len = digits.length;
+        int leng = num.digits.length;
+        int transfer = 0; // перенос
+        int rez; // результат для цифр
+        int sig = 0; // ИНДЕКС последнего значащего
+        for (int i = 0; i <= sigMax; i++) {
+            rez = transfer;
+            if (i < len) rez += digits[i];
+            if (i < leng) rez += num.digits[i];
+            if (rez > 0) {
+                sig = i;
+                if (sig >= len) return raiseCalcError();
+                digits[sig] = (byte) (rez % 10);
+            } else {
+                if (i < len) digits[i] = 0;
             }
-            return false;
+            transfer = rez / 10;
         }
-        if (digits.length == num.digits.length) {
-            for (int i = 0; i < digits.length; i++) {
-                byte b = (byte) (digits[i] + num.digits[i]);
-                if (b >= 10 & i == digits.length - 1) {
-                    for (int j = 0; j < digits.length; j++) {
-                        digits[j] = 0;
-                    }
-                    return false;
-                }
-
-                if (b >= 10) {
-                    digits[i] = (byte) (b % 10);
-                    digits[i + 1] = (byte) (digits[i + 1] + (b / 10));
-                } else {
-                    digits[i] = b;
-                }
-                return true;
-            }
-            if (digits.length > num.digits.length) {
-                for (int i = 0; i < num.digits.length; i++) {
-                    byte b = (byte) (digits[i] + num.digits[i]);
-                    if (b >= 10 & digits[num.digits.length] == 9 & digits.length == num.digits.length + 1) {
-                        for (int j = 0; j < digits.length; j++) {
-                            digits[j] = 0;
-                        }
-                        return false;
-                    }
-                    if (b >= 10) {
-                        digits[i] = (byte) (b % 10);
-                        digits[i + 1] = (byte) (digits[i + 1] + (b / 10));
-                    } else {
-                        digits[i] = b;
-                    }
-                }
-                for (int i = 0; i < digits.length; i++) {
-                    if (digits[i] > 9 & i == digits.length - 1) {
-                        for (int j = 0; j < digits.length; j++) {
-                            digits[i] = 0;
-                        }
-
-                    } else if (digits[i] > 9) {
-                        digits[i + 1] = (byte) (digits[i + 1] + digits[i] / 10);
-                        digits[i] = (byte) (digits[i] % 10);
-                    }
-
-                    result = true;
-                }
-                return result;
-            }
-        }
-        return result;
+        signif = sig + 1;
+        return true;
     }
-            public static void main (String[]args){
-                ArrayInteger arrayInteger = new ArrayInteger(9);
-                arrayInteger.fromInt(new BigInteger("89289799"));
-                ArrayInteger arrayInteger1 = new ArrayInteger(5);
-                //arrayInteger1.fromInt(new BigInteger("805097"));
-                //System.out.println(arrayInteger.toInt());
-                //System.out.println(arrayInteger.add(arrayInteger1));
-                System.out.println(Arrays.toString(arrayInteger.digits));
-
-            }
+    @Override
+    public String toString() {
+        byte[] res = new byte[signif];
+        for (int i = signif - 1, j = 0; i >= 0; i--, j++) {
+            res[j] = (byte) (digits[i] + '0');
         }
-
-
-
-
-
-
-
-
-
-
-
+        return new String(res);
+    }
+    public static void main(String[] args) {
+        ru.progwards.java1.lessons.bigints.ArrayInteger a = new ru.progwards.java1.lessons.bigints.ArrayInteger("2897");
+        ru.progwards.java1.lessons.bigints.ArrayInteger b = new ru.progwards.java1.lessons.bigints.ArrayInteger("8934");
+        System.out.print(a + " + " + b + " = ");
+        a.add(b);
+        System.out.println(a);
+    }
+}

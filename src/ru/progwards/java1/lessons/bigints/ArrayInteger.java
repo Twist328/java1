@@ -26,7 +26,7 @@ public class ArrayInteger {
         digits = new byte[n];
         clear(n);
     }
-    ArrayInteger(String value) {
+    public ArrayInteger(String value) {
         this();
         fromString(value);
     }
