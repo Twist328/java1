@@ -12,10 +12,12 @@ class TestsArray {
     }
 
     public static void main(String[] args) {
-        int[] a = {14, 25, 36, -48, 105, -76};
-        int sum = sumArrayItems(a);
+        int[] a99 = {14, 25, 36, -48, 105, -76};
+        int sum = sumArrayItems(a99);
         System.out.println(sum);
-        
+        String str1 = "12345";
+        String str2 = "12345";
+        System.out.println(str1 == str2);
     }
 
 }
