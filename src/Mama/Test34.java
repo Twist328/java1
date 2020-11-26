@@ -1,5 +1,7 @@
 package Mama;
 
+import java.util.Objects;
+
 public class Test34 {
     public static void main(String[] args) {
         PersonCompare personCompare = new PersonCompare() {
@@ -8,5 +10,7 @@ public class Test34 {
                 return p1.name.compareTo(p2.name);
             }
         } ;
+
+        //System.out.println(Objects.equals( null));
     }
 }

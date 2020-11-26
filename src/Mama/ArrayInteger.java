@@ -1,8 +1,8 @@
 package Mama;
 
 import java.math.BigInteger;
+import java.math.BigInteger;
 import java.util.Arrays;
-
 
 public class ArrayInteger {
     private static BigInteger BI_TEN = BigInteger.valueOf(10);
@@ -46,7 +46,7 @@ public class ArrayInteger {
         return bigInteger;
     }
 
-    public boolean add(ArrayInteger num) {
+    public  boolean add(ArrayInteger num)throws NullPointerException {
         boolean result = false;
         if (digits.length < num.digits.length) {
             for (int i = 0; i < digits.length; i++) {
@@ -105,6 +105,7 @@ public class ArrayInteger {
 
 
     public static void main(String[] args) throws NullPointerException{
+
         ArrayInteger a = new ArrayInteger("87643");
         ArrayInteger b = new ArrayInteger("98743");
         System.out.print(a + " + " + b + " = ");
