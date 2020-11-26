@@ -5,7 +5,7 @@ package Slone;
 public class Person {
     static class Child1 {
         String hello() {
-            return "привет!";
+            return "привет";
         }
     }
         class Child2 {
