@@ -13,7 +13,7 @@ class Rectangle {
 
     public double area() {
 
-        return a*b;
+        return a * b;
     }
 
     @Override
@@ -29,6 +29,12 @@ class Rectangle {
     public int hashCode() {
         return Objects.hash(a, b);
     }
+
+
+    public static void main(String[] args) {
+
+        System.out.println(new Rectangle(20, 15).equals(new Rectangle(20, 15)));
+        System.out.println(new Rectangle(20, 15).equals(new Rectangle(19, 23)));
+        System.out.println(new Rectangle(20, 15).equals(new Rectangle(15, 20)));
+    }
 }
-
-

@@ -14,7 +14,7 @@ public class ArrayMax {
     }
 
     public static void main(String[] args) {
-        int[]a={226,118,-335,0,160};
+        int[]a={226,118,-335,0,10333888,160};
         int max= arrayMax(a);
         System.out.println(max);
 
