@@ -36,5 +36,15 @@ class Rectangle {
         System.out.println(new Rectangle(20, 15).equals(new Rectangle(20, 15)));
         System.out.println(new Rectangle(20, 15).equals(new Rectangle(19, 23)));
         System.out.println(new Rectangle(20, 15).equals(new Rectangle(15, 20)));
+        //Integer number = 22;
+        //System.out.println(someFunction(number));
+        Integer[] number1 = {1, 2, 13, 66};
+       // System.out.println(someFunction(number1));
+
+
+    }
+
+    private static int someFunction(Integer number1) {
+        return number1;
     }
 }
