@@ -29,7 +29,7 @@ class User {//Создайте метод с сигнатурой public TreeSet
         TreeSet<User>treeSet = new TreeSet<User>(new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
-                return  Integer.compare(o2.id, o1.id);
+                return  Integer.compare(o2.id, o1.id);//упорядочены по убыванию id
             }
         });
         return treeSet;
