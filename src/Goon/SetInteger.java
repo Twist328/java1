@@ -6,11 +6,11 @@ import java.util.Set;
 public class SetInteger {
 
 
-    public static Set<Integer> unionOfSets(final Set set1, final Set set2) {
+    public static Set<Integer> unionOfSets(final Set set1, final Set set2) {//Укажите, что будет выведено на консоль в результате выполнения метода
         HashSet result = new HashSet(set1);
         result.addAll(set2);
         return result;
-    }//Укажите, что будет выведено на консоль в результате выполнения метода
+    }
 
     public static void main(String[] args) {
 
