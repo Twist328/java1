@@ -9,7 +9,13 @@ public class Figure {
         return "Неизвестная фигура";
     }
 }
-
+//Напишите метод с сигнатурой String figDetect(Figure fig), который
+//
+// - для квадрата возвращает "Сторона квадрата "+.side
+//
+//- для круга возвращает "Диаметр круга "+.diameter
+//
+//- для всех остальных классов "Неизвестная фигура"*/
     class Square extends Figure {
         private double side;
 
