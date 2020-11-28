@@ -22,7 +22,11 @@ class Rectangle {
     }
 
     public static void main(String[] args) {
-        System.out.println(((new Rectangle(BigDecimal.ONE, BigDecimal.TEN).equals(new Rectangle(BigDecimal.ONE, BigDecimal.TEN)))));
+        Rectangle r1 = new Rectangle(BigDecimal.ONE, BigDecimal.TEN);
+        Rectangle r2 = new Rectangle(BigDecimal.valueOf('1'), BigDecimal.TEN);
+        System.out.println(r1);
+        System.out.println (r2);
+        System.out.println ((new Rectangle(BigDecimal.ONE, BigDecimal.TEN).equals(new Rectangle(BigDecimal.valueOf(1.0), BigDecimal.TEN))));
 
         MathContext mathContext = new MathContext(3);
         BigDecimal result = new BigDecimal("3.3333", mathContext);
