@@ -29,7 +29,8 @@ public class Test8777 {
 
         System.out.println(s);
         //______________________________________________________//
-        TreeSet<Integer> treeSet1 = new TreeSet<>();// итерирование трисет по возрастающей
+        TreeSet<Integer> treeSet1 = new TreeSet<>();// итерация  трисет по возрастающей
+
         treeSet1.add(19);
         treeSet1.add(12);
         treeSet1.add(15);
@@ -39,6 +40,7 @@ public class Test8777 {
         Iterator<Integer> iterator1 = treeSet1.iterator();
         while (iterator1.hasNext())
             s1 += iterator1.next();
+
         System.out.println(s1);
     }
 }
