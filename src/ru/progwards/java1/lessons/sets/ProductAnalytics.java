@@ -41,17 +41,15 @@ public class ProductAnalytics {
 
     }
 
-    public  Set<Product> existInAll() {//товары  которые имеются во всех магазинах
-
-        HashSet<Product> products = new HashSet<Product>(bestproducts);
-        products.addAll(bestproducts);
+    public Set<Product> existInAll() {
+        if (bestproducts == null || bestproducts.size() == 0) return new HashSet<>();
+        if (shops == null || shops.size() == 0) return new HashSet<>();
+        Set<Product> products = new HashSet<Product>(bestproducts);
+        Iterator it = shops.iterator();
+        while (it.hasNext()) {
+            products.retainAll(new HashSet<Product>(((Shop) it.next()).getProducts()));
+        }
         return products;
-    }
-
-    public Set<Product> existAtLeastInOne() {//товары из products, которые имеются хотя бы в одном магазине
-
-        return existAtListInOne();
-
     }
 
     public Set<Product> existAtListInOne() {
@@ -79,19 +77,19 @@ public class ProductAnalytics {
 
         if (bestproducts == null || bestproducts.size() == 0) return new HashSet<>();
 
-        Set<Product> shops= new HashSet<Product>(bestproducts);//*
+        Set<Product> products= new HashSet<Product>(bestproducts);//*
 
-        if (shops == null || shops.size() == 0) return shops;
+        if (shops == null || shops.size() == 0) return products;
 
         Iterator it = shops.iterator();
 
         while (it.hasNext()) {
 
-            bestproducts.removeAll(new HashSet<Product>(((Shop) it.next()).getProducts()));
+            products.removeAll(new HashSet<Product>(((Shop) it.next()).getProducts()));
 
         }
 
-        return shops;
+        return products;
 
     }
 
