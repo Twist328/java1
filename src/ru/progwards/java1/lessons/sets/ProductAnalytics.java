@@ -162,8 +162,8 @@ public class ProductAnalytics {
         Set<Product> products = new HashSet<Product>();
 
 
-        System.out.println(existInAll());
-        System.out.println(notExistInShops());
+       // System.out.println(existInAll());
+       // System.out.println(notExistInShops());
 
     }
 }
