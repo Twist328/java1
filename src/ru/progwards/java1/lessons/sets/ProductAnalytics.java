@@ -94,53 +94,32 @@ public class ProductAnalytics {
     }
 
     public Set<Product> existOnlyInOne() {
-
         Set<Product> products = new HashSet<Product>();
-
-        if (products == null || products.size() == 0) return products;
-
+        if (bestproducts == null || bestproducts.size() == 0) return products;
         if (shops == null || shops.size() == 0) return products;
-
         for (int i = 0; i < shops.size(); i++) {
-
             Set<Product> productsBefore = new HashSet<Product>();
-
             Set<Product> products1 = new HashSet<Product>();
-
-            Set<Product> productsNow;
-
+            Set<Product> products2;
             Iterator it = shops.iterator();
-
-            for (int k = 0; k < shops.size(); k++) {
-
-                productsNow = new HashSet<Product>(((Shop) it.next()).getProducts());
-
-                productsNow.retainAll(products);
-
-                if (k < i) {
-
-                    productsBefore.addAll(productsNow);
-
-                } else if (k == i) {
-
-                    products1 = productsNow;
-
+            for (int j = 0; j < shops.size(); j++) {
+                products2 = new HashSet<Product>(((Shop) it.next()).getProducts());
+                products2.retainAll(bestproducts);
+                if (j < i) {
+                    productsBefore.addAll(products2);
+                } else if (j == i) {
+                    products1 = products2;
                     products1.removeAll(productsBefore);
-
                 } else {
-
-                    products1.removeAll(productsNow);
-
+                    products1.removeAll(products2);
                 }
-
             }
-
             products.addAll(products1);
-
         }
-        return products;
 
+        return products;
     }
+
 
     public static void main(String[] args) {
 
