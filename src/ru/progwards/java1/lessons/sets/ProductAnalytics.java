@@ -33,13 +33,13 @@ public class ProductAnalytics {
     private List<Shop> shops; //список магазинов
     private List<Product> bestproducts; //список всех товаров
 
-    public ProductAnalytics(List<Product> products, List<Shop> shops) {
+    public  ProductAnalytics(List<Product> products, List<Shop> shops) {
         this.shops = shops;
         this.bestproducts = products;
 
     }
 
-    public Set<Product> existInAll() {
+    public  Set<Product> existInAll() {
         if (bestproducts == null || bestproducts.size() == 0) return new HashSet<>();
         if (shops == null || shops.size() == 0) return new HashSet<>();
         Set<Product> res = new HashSet<Product>(bestproducts);
@@ -81,22 +81,30 @@ public class ProductAnalytics {
     }
 
     public Set<Product> existOnlyInOne() {
+
         Set<Product> products = new HashSet<Product>();
         if (bestproducts == null || bestproducts.size() == 0) return products;
         if (shops == null || shops.size() == 0) return products;
+
         for (int i = 0; i < shops.size(); i++) {
+
             Set<Product> res1 = new HashSet<Product>();
             Set<Product> res2;
             Set<Product> res3 = new HashSet<Product>();
-            Iterator it = shops.iterator();
+
+            Iterator iter = shops.iterator();
             for (int j = 0; j < shops.size(); j++) {
-                res2 = new HashSet<Product>(((Shop) it.next()).getProducts());
+
+                res2 = new HashSet<Product>(((Shop) iter.next()).getProducts());
                 res2.retainAll(bestproducts);
+
                 if (j < i) {
                     res3.addAll(res2);
+
                 } else if (j == i) {
                      res1 = res2;
                      res1.removeAll(res3);
+
                 } else {
                     res1.removeAll(res2);
                 }
@@ -109,11 +117,22 @@ public class ProductAnalytics {
 
     public static void main(String[] args) {
 
-        Set<Product> products = new HashSet<Product>();
+        int art= 0;
+        Set<Integer> products = Set.of(art-1,art-2,art-3,art-4,art-5,art-6,art-7,art-8,art-9,art-10);
+        Set<Integer> shops = Set.of(0,2,3,4,6,7,9,10);
+
+        Set<Integer> existInAll = existInAll(products , shops);
+
+    }
+
+    private static Set<Integer> existInAll(Set<Integer> products, Set<Integer> shops) {
+        HashSet<Integer> res = new HashSet(products);
+        res.addAll( shops);
+        System.out.println(products);
+        System.out.println(shops);
+        System.out.println(products.size());
 
 
-       // System.out.println(existInAll());
-       // System.out.println(notExistInShops());
-
+        return products;
     }
 }
