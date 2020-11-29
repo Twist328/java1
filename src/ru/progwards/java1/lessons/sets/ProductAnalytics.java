@@ -31,11 +31,9 @@ class Shop {
 public class ProductAnalytics {
 
     private List<Shop> shops; //список магазинов
-
     private List<Product> bestproducts; //список всех товаров
 
     public ProductAnalytics(List<Product> products, List<Shop> shops) {
-
         this.shops = shops;
         this.bestproducts = products;
 
@@ -44,52 +42,41 @@ public class ProductAnalytics {
     public Set<Product> existInAll() {
         if (bestproducts == null || bestproducts.size() == 0) return new HashSet<>();
         if (shops == null || shops.size() == 0) return new HashSet<>();
-        Set<Product> products = new HashSet<Product>(bestproducts);
+        Set<Product> res = new HashSet<Product>(bestproducts);
         Iterator it = shops.iterator();
         while (it.hasNext()) {
-            products.retainAll(new HashSet<Product>(((Shop) it.next()).getProducts()));
+            res.retainAll(new HashSet<Product>(((Shop) it.next()).getProducts()));
         }
-        return products;
+        return res;
     }
 
     public Set<Product> existAtListInOne() {
 
         if (shops == null || shops.size() == 0) return new HashSet<>();
-
         Iterator it = shops.iterator();
-
         Set<Product> products = new HashSet<Product>(((Shop) it.next()).getProducts());
-
         while (it.hasNext()) {
-
             products.addAll(new HashSet<Product>(((Shop) it.next()).getProducts()));
 
         }
 
         products.retainAll(products);
-
         return products;
 
     }
 
     public  Set<Product> notExistInShops() {//товары из products, которых нет ни в одном магазине
 
-
         if (bestproducts == null || bestproducts.size() == 0) return new HashSet<>();
-
-        Set<Product> products= new HashSet<Product>(bestproducts);//*
-
-        if (shops == null || shops.size() == 0) return products;
-
+        Set<Product> res = new HashSet<Product>(bestproducts);
+        if (shops == null || shops.size() == 0) return res;
         Iterator it = shops.iterator();
-
         while (it.hasNext()) {
-
-            products.removeAll(new HashSet<Product>(((Shop) it.next()).getProducts()));
+            res.removeAll(new HashSet<Product>(((Shop) it.next()).getProducts()));
 
         }
 
-        return products;
+        return res;
 
     }
 
@@ -98,28 +85,27 @@ public class ProductAnalytics {
         if (bestproducts == null || bestproducts.size() == 0) return products;
         if (shops == null || shops.size() == 0) return products;
         for (int i = 0; i < shops.size(); i++) {
-            Set<Product> productsBefore = new HashSet<Product>();
-            Set<Product> products1 = new HashSet<Product>();
-            Set<Product> products2;
+            Set<Product> res1 = new HashSet<Product>();
+            Set<Product> res2;
+            Set<Product> res3 = new HashSet<Product>();
             Iterator it = shops.iterator();
             for (int j = 0; j < shops.size(); j++) {
-                products2 = new HashSet<Product>(((Shop) it.next()).getProducts());
-                products2.retainAll(bestproducts);
+                res2 = new HashSet<Product>(((Shop) it.next()).getProducts());
+                res2.retainAll(bestproducts);
                 if (j < i) {
-                    productsBefore.addAll(products2);
+                    res3.addAll(res2);
                 } else if (j == i) {
-                    products1 = products2;
-                    products1.removeAll(productsBefore);
+                     res1 = res2;
+                     res1.removeAll(res3);
                 } else {
-                    products1.removeAll(products2);
+                    res1.removeAll(res2);
                 }
             }
-            products.addAll(products1);
+            products.addAll(res1);
         }
 
         return products;
     }
-
 
     public static void main(String[] args) {
 
