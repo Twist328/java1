@@ -47,7 +47,7 @@ public class ProductAnalytics {
 
         if (shops == null || shops.size() == 0) return new HashSet<>();
 
-        Set<Product> res = new HashSet<Product>(products);//*
+        Set<Product> shops = new HashSet<Product>(products);//*
 
         Iterator it = shops.iterator();
 
@@ -57,7 +57,7 @@ public class ProductAnalytics {
 
         }
 
-        return res;
+        return shops;
 
     }
 
@@ -92,9 +92,9 @@ public class ProductAnalytics {
 
         if (products == null || products.size() == 0) return new HashSet<>();
 
-        Set<Product> res= new HashSet<Product>(products);//*
+        Set<Product> shops= new HashSet<Product>(products);//*
 
-        if (shops == null || shops.size() == 0) return res;
+        if (shops == null || shops.size() == 0) return shops;
 
         Iterator it = shops.iterator();
 
@@ -104,7 +104,7 @@ public class ProductAnalytics {
 
         }
 
-        return res;
+        return shops;
 
     }
 
