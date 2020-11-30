@@ -8,7 +8,7 @@ public class LettersInFile {
 
     public static String process(String fileName) throws IOException {
 
-        Set<Character> result = new HashSet<Character>();
+        Set<Character> charSet = new HashSet<Character>();
         FileReader reader = new FileReader(fileName);
         Scanner scan = new Scanner(reader);
         while (scan.hasNextLine()) {
@@ -16,13 +16,13 @@ public class LettersInFile {
             str.toCharArray();
             char[] charArray = str.toCharArray();
             for (char aChar : charArray) {
-                if (Character.isLetter(aChar)) result.add(aChar);
+                if (Character.isLetter(aChar)) charSet.add(aChar);
             }
         }
         scan.close();
         reader.close();
 
-        List<Character> list = new ArrayList<>(result);
+        List<Character> list = new ArrayList<>(charSet);
         Collections.sort(list);
         StringBuilder sB = new StringBuilder(1000);
         for (Character aChar : list) {
