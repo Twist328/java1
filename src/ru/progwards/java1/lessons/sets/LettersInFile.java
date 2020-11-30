@@ -30,4 +30,8 @@ public class LettersInFile {
         }
         return sB.toString();
     }
+
+    public static void main(String[] args) throws IOException {
+        System.out.println(process("src/ru/progwards/java1/lessons/sets/process.txt"));
+    }
 }
