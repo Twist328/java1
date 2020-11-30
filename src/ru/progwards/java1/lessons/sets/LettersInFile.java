@@ -15,18 +15,18 @@ public class LettersInFile {
             String str = scan.nextLine();
             str.toCharArray();
             char[] charArray = str.toCharArray();
-            for (char aChar : charArray) {
-                if (Character.isLetter(aChar)) charSet.add(aChar);
+            for (char doChar : charArray) {
+                if (Character.isLetter(doChar)) charSet.add(doChar);
             }
         }
         scan.close();
         reader.close();
 
-        List<Character> list = new ArrayList<>(charSet);
-        Collections.sort(list);
-        StringBuilder sB = new StringBuilder(1000);
-        for (Character aChar : list) {
-            sB.append(aChar);
+        List<Character> charList = new ArrayList<>(charSet);
+        Collections.sort(charList);
+        StringBuilder sB = new StringBuilder(50);
+        for (Character doChar : charList) {
+            sB.append(doChar);
         }
         return sB.toString();
     }
