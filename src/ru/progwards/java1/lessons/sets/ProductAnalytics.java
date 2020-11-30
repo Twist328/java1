@@ -42,14 +42,14 @@ public class ProductAnalytics {
     }
 
     public  Set<Product> existInAll() {       //товары из products, которые имеются во всех магазинах
-        if (bestproducts == null || bestproducts.size() == 0) return new HashSet<>();
+        if (bestproducts == null || bestproducts.size() == 0) return new HashSet<Product>();
         if (shops == null || shops.size() == 0) return new HashSet<>();
-        Set<Product> res = new HashSet<Product>(bestproducts);
+        Set<Product> products = new HashSet<Product>(bestproducts);
         Iterator iter = shops.iterator();
         while (iter.hasNext()) {
-            res.retainAll(new HashSet<Product>(((Shop) iter.next()).getProducts()));
+            products.retainAll(new HashSet<Product>(((Shop) iter.next()).getProducts()));
         }
-        return res;
+        return products;
     }
 
     public Set<Product> existAtListInOne() {     //товары из products, которые имеются хотя бы в одном магазине
@@ -70,15 +70,15 @@ public class ProductAnalytics {
     public  Set<Product> notExistInShops() {     //товары из products, которых нет ни в одном магазине
 
         if (bestproducts == null || bestproducts.size() == 0) return new HashSet<>();
-        Set<Product> res = new HashSet<Product>(bestproducts);
-        if (shops == null || shops.size() == 0) return res;
+        Set<Product> products = new HashSet<Product>(bestproducts);
+        if (shops == null || shops.size() == 0) return products;
         Iterator iter = shops.iterator();
         while (iter.hasNext()) {
-            res.removeAll(new HashSet<Product>(((Shop) iter.next()).getProducts()));
+            products.removeAll(new HashSet<Product>(((Shop) iter.next()).getProducts()));
 
         }
 
-        return res;
+        return products;
 
     }
 
@@ -119,20 +119,42 @@ public class ProductAnalytics {
 
     public static void main(String[] args) {
 
-        List<Product> products = List.of(new Product("Продукт1"), new Product("Продукт2"), new Product("Продукт3"),
-                new Product("Продукт4"), new Product("Продукт5"), new Product("Продукт6"));
-        List<Shop> shops = List.of(new Shop(products));
 
+        /*List<Product> products1 = List.of(new Product("art-1,art-2,art-5,art-10")); //new Product("Продукт 0"), new Product("Продукт1"));
+        List<Product> products2 = List.of(new Product("art-1,art-2,art-7,art-9"));
+        List<Product> products3 = List.of(new Product("art-2,art-8,art-10"));*/
+        List<Product> products = List.of(new Product("art-2,art-8,art-10"),new Product("art-2,art-5,art-6,art-8,art-10"));
+        List<Product> products1 = List.of(new Product("art-2,art-7,art-8,art-10"));
+        List<Shop> shops= List.of(new Shop(products1),new Shop(products1),new Shop(products));//new Shop(products1),new Shop(products2),new Shop(products3));
         ProductAnalytics productAnalytics = new ProductAnalytics(products, shops);
+
+        productAnalytics.existInAll();
+        productAnalytics.existAtListInOne();
+        productAnalytics.notExistInShops();
+        productAnalytics.existOnlyInOne();
+
         System.out.println(productAnalytics.existInAll());
-        System.out.println(productAnalytics.existAtListInOne());
-        System.out.println(productAnalytics.notExistInShops());
         System.out.println(productAnalytics.existOnlyInOne());
 
-
-
-        /*List<Product> products = List.of(new Product("Продукт1"), new Product("Продукт2"), new Product("Продукт3"));
-        List<Shop> shops = List.of(new Shop(products));
-        ProductAnalytics productAnalytics = new ProductAnalytics(products, shops);*/
+        /*Комментарий:
+ERROR: Тест "Класс ProductAnalytics, метод existInAll()" не пройден. Метод возвращает неверное множество. Были созданы следующие магазины:
+Магазин 1, товары: art-2,art-7,art-8,art-10
+Магазин 2, товары: art-2,art-5,art-6,art-8,art-10
+. В метод передан список товаров: art-2,art-8,art-10
+.Возвращено множество, содержащее: art-8,art-9,art-2,art-4,art-7,art-1,art-6,art-3,art-10,art-5. Ожидалось множество, содержащее: art-8,art-2,art-10.
+OK: Тест "Класс ProductAnalytics, метод existAtListInOne()" пройден успешно.
+ERROR: Тест "Класс ProductAnalytics, метод notExistInShops()" не пройден. Метод возвращает неверное множество. Были созданы следующие магазины:
+Магазин 1, товары: art-1,art-2,art-3,art-4,art-7
+Магазин 2, товары: art-3,art-4,art-5,art-9,art-10
+. В метод передан список товаров: art-6,art-8
+.Возвращено множество, содержащее: art-3,art-10,art-1,art-7,art-2,art-4,art-5,art-6,art-8,art-9. Ожидалось множество, содержащее: art-6,art-8.
+ERROR: Тест "Класс ProductAnalytics, метод existOnlyInOne()" не пройден. Метод возвращает неверное множество. Были созданы следующие магазины:
+Магазин 1, товары: art-1,art-2,art-5,art-10
+Магазин 2, товары: art-1,art-2,art-7,art-9
+Магазин 3, товары: art-2,art-4,art-5,art-10
+. В метод передан список товаров: art-1,art-2,art-3,art-4,art-5,art-6,art-7,art-8,art-9,art-10
+.Возвращено пустое множество. Ожидалось множество, содержащее: art-7,art-9,art-4.
+По данной задаче в целом не зачет, решение возвращено на доработку. Задача выполнена на 25.00%%
+;*/
     }
 }
