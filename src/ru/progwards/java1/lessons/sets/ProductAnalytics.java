@@ -3,6 +3,8 @@ package ru.progwards.java1.lessons.sets;
 
 import java.util.*;
 
+import static java.util.List.*;
+
 class Product {
 
     private String code; //уникальный артикул товара
@@ -33,7 +35,7 @@ public class ProductAnalytics {
     private List<Shop> shops; //список магазинов
     private List<Product> bestproducts; //список всех товаров
 
-    public  ProductAnalytics(List<Product> products, List<Shop> shops) {
+    public  ProductAnalytics(List<Product> products, List<Shop> shops) { //конструктор
         this.shops = shops;
         this.bestproducts = products;
 
@@ -117,24 +119,20 @@ public class ProductAnalytics {
 
     public static void main(String[] args) {
 
+        List<Product> products = List.of(new Product("Продукт1"), new Product("Продукт2"), new Product("Продукт3"),
+                new Product("Продукт4"), new Product("Продукт5"), new Product("Продукт6"));
+        List<Shop> shops = List.of(new Shop(products));
 
-        Integer art= 0;
-        Set<Integer> products = Set.of(art-1,art-2,art-3,art-4,art-5,art-6,art-7,art-8,art-9,art-10);
-        Set<Integer> shops = Set.of(0,2,3,4,6,7,9,10);
-
-        Set<Integer> existInAll = existInAll(products , shops);
-
-    }
-
-    private static Set<Integer> existInAll(Set<Integer> products, Set<Integer> shops) {
-        HashSet<Integer> res = new HashSet(products);
-        res.addAll( shops);
-
-        System.out.println(products);
-        System.out.println(shops);
-        System.out.println(products.size());
+        ProductAnalytics productAnalytics = new ProductAnalytics(products, shops);
+        System.out.println(productAnalytics.existInAll());
+        System.out.println(productAnalytics.existAtListInOne());
+        System.out.println(productAnalytics.notExistInShops());
+        System.out.println(productAnalytics.existOnlyInOne());
 
 
-        return products;
+
+        /*List<Product> products = List.of(new Product("Продукт1"), new Product("Продукт2"), new Product("Продукт3"));
+        List<Shop> shops = List.of(new Shop(products));
+        ProductAnalytics productAnalytics = new ProductAnalytics(products, shops);*/
     }
 }
