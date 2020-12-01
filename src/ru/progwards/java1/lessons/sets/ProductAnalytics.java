@@ -5,7 +5,7 @@ import java.util.*;
 
 import static java.util.List.*;
 
-class Product {
+ class Product {
 
     private String code; //уникальный артикул товара
     public Product(String code) {
@@ -44,12 +44,12 @@ public class ProductAnalytics {
     public  Set<Product> existInAll() {       //товары из products, которые имеются во всех магазинах
         if (bestproducts == null || bestproducts.size() == 0) return new HashSet<Product>();
         if (shops == null || shops.size() == 0) return new HashSet<>();
-        Set<Product> products = new HashSet<Product>(bestproducts);
+        Set<Product> res = new HashSet<Product>(bestproducts);
         Iterator iter = shops.iterator();
         while (iter.hasNext()) {
-            products.retainAll(new HashSet<Product>(((Shop) iter.next()).getProducts()));
+            res.retainAll(new HashSet<Product>(((Shop) iter.next()).getProducts()));
         }
-        return products;
+        return res;
     }
 
     public Set<Product> existAtListInOne() {     //товары из products, которые имеются хотя бы в одном магазине
@@ -70,15 +70,15 @@ public class ProductAnalytics {
     public  Set<Product> notExistInShops() {     //товары из products, которых нет ни в одном магазине
 
         if (bestproducts == null || bestproducts.size() == 0) return new HashSet<>();
-        Set<Product> products = new HashSet<Product>(bestproducts);
-        if (shops == null || shops.size() == 0) return products;
+        Set<Product> res = new HashSet<Product>(bestproducts);
+        if (shops == null || shops.size() == 0) return res;
         Iterator iter = shops.iterator();
         while (iter.hasNext()) {
-            products.removeAll(new HashSet<Product>(((Shop) iter.next()).getProducts()));
+            res.removeAll(new HashSet<Product>(((Shop) iter.next()).getProducts()));
 
         }
 
-        return products;
+        return res;
 
     }
 
@@ -123,7 +123,8 @@ public class ProductAnalytics {
         /*List<Product> products1 = List.of(new Product("art-1,art-2,art-5,art-10")); //new Product("Продукт 0"), new Product("Продукт1"));
         List<Product> products2 = List.of(new Product("art-1,art-2,art-7,art-9"));
         List<Product> products3 = List.of(new Product("art-2,art-8,art-10"));*/
-        List<Product> products = List.of(new Product("art-2,art-8,art-10"),new Product("art-2,art-5,art-6,art-8,art-10"));
+        List<Product> products = List.of(new Product("art-2,art-8,art-10"), new Product("art-2,art-5,art-6,art-8,art-10")
+                ,new Product("art-2,art-7,art-8,art-10"));
         List<Product> products1 = List.of(new Product("art-2,art-7,art-8,art-10"));
         List<Shop> shops= List.of(new Shop(products1),new Shop(products1),new Shop(products));//new Shop(products1),new Shop(products2),new Shop(products3));
         ProductAnalytics productAnalytics = new ProductAnalytics(products, shops);
