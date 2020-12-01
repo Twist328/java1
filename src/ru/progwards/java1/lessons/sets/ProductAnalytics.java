@@ -58,11 +58,11 @@ public class ProductAnalytics {
         Iterator iter = shops.iterator();
         Set<Product> products = new HashSet<Product>(((Shop) iter.next()).getProducts());
         while (iter.hasNext()) {
-            products.addAll(new HashSet<Product>(((Shop) iter.next()).getProducts()));
+            products.addAll(new HashSet<Product>(((Shop) iter.next()).getProducts()));//добавление товаров в сущесвующий магазин с другими товарами
 
         }
 
-        products.retainAll(products);
+        products.retainAll(products);//используется для сохранения из этого набора всех его элементов, которые содержатся в указанной коллекции.
         return products;
 
     }
@@ -120,21 +120,18 @@ public class ProductAnalytics {
     public static void main(String[] args) {
 
 
-        /*List<Product> products1 = List.of(new Product("art-1,art-2,art-5,art-10")); //new Product("Продукт 0"), new Product("Продукт1"));
-        List<Product> products2 = List.of(new Product("art-1,art-2,art-7,art-9"));
-        List<Product> products3 = List.of(new Product("art-2,art-8,art-10"));*/
-        List<Product> products = List.of(new Product("art-2,art-8,art-10"), new Product("art-2,art-5,art-6,art-8,art-10")
-                ,new Product("art-2,art-7,art-8,art-10"));
-        List<Product> products1 = List.of(new Product("art-2,art-7,art-8,art-10"));
-        List<Shop> shops= List.of(new Shop(products1),new Shop(products1),new Shop(products));//new Shop(products1),new Shop(products2),new Shop(products3));
+
+        List<Product> products = List.of(new Product("art-1,art-2,art-5,art-10"), new Product("art-1,art-2,art-7,art-9")
+                ,new Product("art-2,art-4,art-5,art-10"),new Product("art-1,art-2,art-3,art-4,art-5,art-6,art-7,art-8,art-9,art-10"));
+        List<Shop> shops = List.of(new Shop(products));
+
         ProductAnalytics productAnalytics = new ProductAnalytics(products, shops);
 
-        productAnalytics.existInAll();
-        productAnalytics.existAtListInOne();
-        productAnalytics.notExistInShops();
-        productAnalytics.existOnlyInOne();
 
-        System.out.println(productAnalytics.existInAll());
+
+        //System.out.println(productAnalytics.existInAll());
+        //System.out.println(productAnalytics.existAtListInOne());
+        //System.out.println(productAnalytics.notExistInShops());
         System.out.println(productAnalytics.existOnlyInOne());
 
         /*Комментарий:
