@@ -119,8 +119,6 @@ public class ProductAnalytics {
 
     public static void main(String[] args) {
 
-
-
         List<Product> products = List.of(new Product("art-1,art-2,art-5,art-10"), new Product("art-1,art-2,art-7,art-9")
                 ,new Product("art-2,art-4,art-5,art-10"),new Product("art-1,art-2,art-3,art-4,art-5,art-6,art-7,art-8,art-9,art-10"));
         List<Shop> shops = List.of(new Shop(products));

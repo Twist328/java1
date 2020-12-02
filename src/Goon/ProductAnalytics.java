@@ -77,4 +77,32 @@ class ProductAnalytics {
         }
         return res;
     }
+
+    public Set<Product> existOnlyInOne() {   //товары из products, которые есть только в одном магазине
+
+        Set<Product> products = new HashSet<Product>();
+        if (bestproducts == null || bestproducts.size() == 0) return products;
+        if (shops == null || shops.size() == 0) return products;
+        for (int i = 0; i < shops.size(); i++) {
+            Set<Product> res1 = new HashSet<Product>();
+            Set<Product> res2;
+            Set<Product> res3 = new HashSet<Product>();
+            Iterator iterator = shops.iterator();
+            for (int j = 0; j < shops.size(); j++) {
+                res2 = new HashSet<Product>(((Shop) iterator.next()).getProducts());
+                res2.retainAll(bestproducts);
+                if (j < i) {
+                    res3.addAll(res2);
+                } else if (j == i) {
+                    res1 = res2;
+                    res1.removeAll(res3);
+                } else {
+                    res1.removeAll(res2);
+                }
+
+            }
+            products.addAll(res1);
+        }
+        return products;
+    }
 }
