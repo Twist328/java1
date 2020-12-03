@@ -45,6 +45,7 @@ class ProductAnalytics {
     }
 
     public Set<Product> existInAll() {     //товары из products, которые имеются во всех магазинах
+
         if (bestproducts == null || bestproducts.size() == 0) return new HashSet<Product>();
         if (shops == null || shops.size() == 0) return new HashSet<>();
         Set<Product> res = new HashSet<Product>(bestproducts);

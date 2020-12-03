@@ -22,10 +22,10 @@ public class LettersInFile {
         scan.close();
         reader.close();
 
-        List<Character> charList = new ArrayList<>(charSet);
+        List<Character> charList = new ArrayList<Character>(charSet);
         Collections.sort(charList);
         StringBuilder sB = new StringBuilder(50);
-        for (Character doChar : charList) {
+        for (char doChar : charList) {
             sB.append(doChar);
         }
         return sB.toString();
