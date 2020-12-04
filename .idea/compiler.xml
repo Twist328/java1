@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Task2" options="--add-exports java.base/jdk.internal.math=ALL-UNNAMED --add-exports java.net.http/jdk.internal.net.http.frame=ALL-UNNAMED --add-exports java.base/jdk.internal.module=ALL-UNNAMED --add-exports jdk.compiler/com.sun.tools.sjavac=ALL-UNNAMED" />
+      <module name="Task2" options="--add-exports java.base/jdk.internal.math=ALL-UNNAMED --add-exports java.net.http/jdk.internal.net.http.frame=ALL-UNNAMED --add-exports java.base/jdk.internal.module=ALL-UNNAMED --add-exports jdk.compiler/com.sun.tools.sjavac=ALL-UNNAMED --add-exports jdk.scripting.nashorn/jdk.nashorn.internal.objects=ALL-UNNAMED" />
     </option>
   </component>
 </project>

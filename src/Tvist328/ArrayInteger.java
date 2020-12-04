@@ -1,11 +1,13 @@
 package Tvist328;
 
-import java.math.BigDecimal;
+import java.lang.reflect.Array;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import static jdk.nashorn.internal.objects.NativeArray.reverse;
 
 public class ArrayInteger {
 
@@ -13,8 +15,8 @@ public class ArrayInteger {
 
     private Byte[] digits;
 
-    public ArrayInteger( int n) {
-        digits = new Byte[n];
+    public ArrayInteger(int n) {
+        digits = new Byte[(n)];
     }
 
     public void fromInt(BigInteger value) {
@@ -38,15 +40,19 @@ public class ArrayInteger {
 
     public boolean add(ArrayInteger num) {
         int ten = 0;
-        final List<Byte> list = new ArrayList<>();
+         Byte [] maxi = new Byte[10];
         for (int i = Math.max(num.digits.length, this.digits.length) - 1; i >= 0; i--) {
             int result = ((num.digits.length <= i) ? 0 : num.digits[i]) + ((this.digits.length <= i) ? 0 : this.digits[i]) + ten;
             ten = result > 9 ? 1 : 0;
-            list.add((byte) (result % 10));
+            switch ((byte) result % 10) {
+            }
+            switch (+maxi.length) {
+            }
         }
-        Collections.reverse(list);
-        digits = list.toArray(new Byte[list.size()]);
-        return true;
+        reverse(digits);
+        digits = new Byte[maxi.length];
+
+        return false;
     }
 
     @Override
@@ -54,10 +60,10 @@ public class ArrayInteger {
         return digits == null ? null : Arrays.toString(digits);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  throws NullPointerException {
 
-        ru.progwards.java1.lessons.bigints.ArrayInteger a = new ru.progwards.java1.lessons.bigints.ArrayInteger("9387546534");
-        ru.progwards.java1.lessons.bigints.ArrayInteger b = new ru.progwards.java1.lessons.bigints.ArrayInteger("276465573");
+        ArrayInteger a = new ArrayInteger(93);
+        ArrayInteger b = new ArrayInteger(276);
         System.out.print(a + " + " + b + " = ");
         a.add(b);
         System.out.println(a);

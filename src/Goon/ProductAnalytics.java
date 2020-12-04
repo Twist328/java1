@@ -1,9 +1,6 @@
 package Goon;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 class Product {
 
@@ -114,4 +111,46 @@ class ProductAnalytics {
         return products;
     }
 
+    public static void main(String[] args) {
+
+        Product aa1 = new Product("art-1");
+
+        Product aa2 = new Product("art-2");
+
+        Product aa3 = new Product("art-3");
+
+        Product aa4 = new Product("art-4");
+
+        Product aa5 = new Product("art-5");
+
+        Product aa6 = new Product("art-6");
+
+        Product aa7 = new Product("art-7");
+
+        Product aa8 = new Product("art-8");
+
+        Product aa9 = new Product("art-9");
+
+        Product aa10 = new Product("art-10");
+
+        Shop mag1 = new Shop(new ArrayList<Product>(Arrays.asList(aa2, aa7, aa8, aa10)));
+
+        Shop mag2 = new Shop(new ArrayList<Product>(Arrays.asList(aa1, aa4, aa6, aa10)));
+
+        Shop mag3 = new Shop(new ArrayList<Product>(Arrays.asList(aa1, aa4, aa5, aa10)));
+
+        List<Shop> supermags = new ArrayList<Shop>(Arrays.asList(mag1, mag2, mag3));
+
+        List<Product> superprods = new ArrayList<Product>(Arrays.asList(aa5, aa7, aa8, aa10));
+
+        ProductAnalytics productAnalytics = new ProductAnalytics(superprods, supermags);
+
+        System.out.println(productAnalytics.existInAll());
+        System.out.println(productAnalytics.existAtListInOne());
+        System.out.println(productAnalytics.notExistInShops());
+        System.out.println(productAnalytics.existOnlyInOne());
+
+    }
 }
+
+
