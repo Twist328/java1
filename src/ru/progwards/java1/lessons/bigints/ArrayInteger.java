@@ -17,18 +17,19 @@ import java.util.Arrays;
 public class ArrayInteger {
     byte[] digits; // массив цифр от 0 до 9
     int temp; // сколько цифр в даное время значимых
-    ArrayInteger() {
-        int n = 10;
-        digits = new byte[n];
 
-    }
     ArrayInteger(int n) {
+       // n=10;
         digits = new byte[n];
 
     }
     public ArrayInteger(String value) {
         this();
         fromString(value);
+    }
+
+    public ArrayInteger() {
+        digits = new byte[10];
     }
 
     void fromString(String value) {
@@ -95,9 +96,9 @@ public class ArrayInteger {
         return new String(res);
     }
     public static void main(String[] args) {
-        ArrayInteger a = new ArrayInteger("2897");
-        ArrayInteger b = new ArrayInteger("8934");
-        System.out.print(a + " + " + b + " = ");
+        ArrayInteger a = new ArrayInteger("888");
+        ArrayInteger b = new ArrayInteger("098");
+        System.out.println(a + " + " + b + " = ");
         a.add(b);
         System.out.println(a);
     }

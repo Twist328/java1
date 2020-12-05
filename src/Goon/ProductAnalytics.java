@@ -2,11 +2,11 @@ package Goon;
 
 import java.util.*;
 
-class Product {
+class Product0 {
 
     private String code; //уникальный артикул товара
 
-    public Product(String code) {
+    public Product0(String code) {
         this.code = code;
     }
 
@@ -21,42 +21,42 @@ class Product {
 }
 
 class Shop {
-    private List<Product> products; //товары имеющиеся в магазине
+    private List<Product0> products; //товары имеющиеся в магазине
 
-    public Shop(List<Product> products) {
+    public Shop(List<Product0> products) {
         this.products = products;
     }
 
-    public List<Product> getProducts() {
+    public List<Product0> getProducts() {
         return products;
     }
 }
 
-class ProductAnalytics {
+public class ProductAnalytics {
     private List<Shop> shops; //список магазинов
-    private List<Product> bestproducts; //список всех товаров
+    private List<Product0> bestproducts; //список всех товаров
 
-    public ProductAnalytics(List<Product> products, List<Shop> shops) {
+    public ProductAnalytics(List<Product0> products, List<Shop> shops) {
         this.shops = shops;
         this.bestproducts = products;
     }
 
-    public Set<Product> existInAll() {     //товары из products, которые имеются во всех магазинах
+    public Set<Product0> existInAll() {     //товары из products, которые имеются во всех магазинах
 
-        if (bestproducts == null || bestproducts.size() == 0) return new HashSet<Product>();
+        if (bestproducts == null || bestproducts.size() == 0) return new HashSet<Product0>();
         if (shops == null || shops.size() == 0) return new HashSet<>();
-        Set<Product> res = new HashSet<Product>(bestproducts);
+        Set<Product0> res = new HashSet<Product0>(bestproducts);
         Iterator iter = shops.iterator();
         while (iter.hasNext()) {
-            res.retainAll(new HashSet<Product>(((Shop) iter.next()).getProducts())); // удаляет элементы, не принадлежащие переданному товару
+            res.retainAll(new HashSet<Product0>(((Shop) iter.next()).getProducts())); // удаляет элементы, не принадлежащие переданному товару
         }
         return res;
     }
 
-    public Set<Product> existAtListInOne() {     //товары из products, которые имеются хотя бы в одном магазине
+    public Set<Product0> existAtListInOne() {     //товары из products, которые имеются хотя бы в одном магазине
         if (shops == null || shops.size() == 0) return new HashSet<>();
         Iterator iter = shops.iterator();
-        Set<Product> products = new HashSet<Product>(((Shop) iter.next()).getProducts());
+        Set<Product0> products = new HashSet<Product0>(((Shop) iter.next()).getProducts());
         while (iter.hasNext()) {
             products.addAll(((Shop) iter.next()).getProducts());
         }
@@ -65,34 +65,34 @@ class ProductAnalytics {
 
     }
 
-    public Set<Product> notExistInShops() {//товары из products, которых нет ни в одном магазине
+    public Set<Product0> notExistInShops() {//товары из products, которых нет ни в одном магазине
         if (bestproducts == null || bestproducts.size() == 0) return new HashSet<>();
-        Set<Product> res = new HashSet<Product>(bestproducts);
+        Set<Product0> res = new HashSet<Product0>(bestproducts);
         if (shops == null || shops.size() == 0) return res;
         Iterator iter = shops.iterator();
         while (iter.hasNext()) {
-            res.removeAll(new HashSet<Product>(((Shop) iter.next()).getProducts()));
+            res.removeAll(new HashSet<Product0>(((Shop) iter.next()).getProducts()));
         }
         return res;
     }
 
-    public Set<Product> existOnlyInOne() {   //товары из products, которые есть только в одном магазине
+    public Set<Product0> existOnlyInOne() {   //товары из products, которые есть только в одном магазине
 
-       Set<Product>products=new HashSet<Product>();
+       Set<Product0>products=new HashSet<Product0>();
        if(bestproducts==null||bestproducts.size()==0)return products;
        if(shops==null||shops.size()==0)return products;
 
         for (int i = 0; i < shops.size(); i++) {
 
-            Set<Product>res1=new HashSet<Product>();
-            Set<Product>res2;
-            Set<Product>res3=new HashSet<Product>();
+            Set<Product0>res1=new HashSet<Product0>();
+            Set<Product0>res2;
+            Set<Product0>res3=new HashSet<Product0>();
 
             Iterator iterator= shops.iterator();
 
             for (int j = 0; j < shops.size(); j++) {
 
-                res2=new HashSet<Product>(((Shop)iterator.next()).getProducts());
+                res2=new HashSet<Product0>(((Shop)iterator.next()).getProducts());
                 res2.retainAll(bestproducts);
 
                 if(j<i){
@@ -113,37 +113,23 @@ class ProductAnalytics {
 
     public static void main(String[] args) {
 
-        Product aa1 = new Product("art-1");
+        Product0 products1 = new Product0("art-1");
+        Product0 products2 = new Product0("art-2");
+        Product0 products3 = new Product0("art-3");
+        Product0 products4 = new Product0("art-4");
+        Product0 products5 = new Product0("art-5");
+        Product0 products6 = new Product0("art-6");
+        Product0 products7 = new Product0("art-7");
+        Product0 products8 = new Product0("art-8");
+        Product0 products9 = new Product0("art-9");
+        Product0 products10 = new Product0("art-10");
 
-        Product aa2 = new Product("art-2");
-
-        Product aa3 = new Product("art-3");
-
-        Product aa4 = new Product("art-4");
-
-        Product aa5 = new Product("art-5");
-
-        Product aa6 = new Product("art-6");
-
-        Product aa7 = new Product("art-7");
-
-        Product aa8 = new Product("art-8");
-
-        Product aa9 = new Product("art-9");
-
-        Product aa10 = new Product("art-10");
-
-        Shop mag1 = new Shop(new ArrayList<Product>(Arrays.asList(aa2, aa7, aa8, aa10)));
-
-        Shop mag2 = new Shop(new ArrayList<Product>(Arrays.asList(aa1, aa4, aa6, aa10)));
-
-        Shop mag3 = new Shop(new ArrayList<Product>(Arrays.asList(aa1, aa4, aa5, aa10)));
-
-        List<Shop> supermags = new ArrayList<Shop>(Arrays.asList(mag1, mag2, mag3));
-
-        List<Product> superprods = new ArrayList<Product>(Arrays.asList(aa5, aa7, aa8, aa10));
-
-        ProductAnalytics productAnalytics = new ProductAnalytics(superprods, supermags);
+        Shop shops1 = new Shop(new ArrayList<Product0>(Arrays.asList(products2, products7, products10, products9)));
+        Shop shops2 = new Shop(new ArrayList<Product0>(Arrays.asList(products1, products10, products6, products9)));
+        Shop shops3 = new Shop(new ArrayList<Product0>(Arrays.asList(products1,products4, products5, products9)));
+        List<Shop> shops = new ArrayList<Shop>(Arrays.asList(shops1, shops2, shops3));
+        List<Product0> products = new ArrayList<Product0>(Arrays.asList(products10, products7, products8, products9));
+        ProductAnalytics productAnalytics = new ProductAnalytics(products, shops);
 
         System.out.println(productAnalytics.existInAll());
         System.out.println(productAnalytics.existAtListInOne());

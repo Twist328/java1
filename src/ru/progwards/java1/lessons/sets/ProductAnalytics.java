@@ -1,6 +1,5 @@
 package ru.progwards.java1.lessons.sets;
 
-
 import java.util.*;
 
 import static java.util.List.*;
@@ -22,14 +21,15 @@ import static java.util.List.*;
 class Shop {
 
     private List<Product> products; //товары имеющиеся в магазине
+
     public Shop(List<Product> products) {
         this.products = products;
     }
+
     public List<Product> getProducts() {
         return products;
     }
 }
-
 public class ProductAnalytics {
 
     private List<Shop> shops; //список магазинов
@@ -119,38 +119,29 @@ public class ProductAnalytics {
 
     public static void main(String[] args) {
 
-        List<Product> products = List.of(new Product("art-1,art-2,art-5,art-10"), new Product("art-1,art-2,art-7,art-9")
-                ,new Product("art-2,art-4,art-5,art-10"),new Product("art-1,art-2,art-3,art-4,art-5,art-6,art-7,art-8,art-9,art-10"));
-        List<Shop> shops = List.of(new Shop(products));
+        Product products1 = new Product("art-1");
+        Product products2 = new Product("art-2");
+        Product products3 = new Product("art-3");
+        Product products4 = new Product("art-4");
+        Product products5 = new Product("art-5");
+        Product products6 = new Product("art-6");
+        Product products7 = new Product("art-7");
+        Product products8 = new Product("art-8");
+        Product products9 = new Product("art-9");
+        Product products10 = new Product("art-10");
 
+        Shop shops1 = new Shop(new ArrayList<Product>(List.of(products2, products7, products10, products9)));
+        Shop shops2 = new Shop(new ArrayList<Product>(List.of(products1, products10, products6, products9)));
+        Shop shops3 = new Shop(new ArrayList<Product>(List.of(products1, products4, products5, products9)));
+
+        List<Shop> shops = new ArrayList<Shop>(List.of(shops1, shops2, shops3));
+        List<Product> products = new ArrayList<Product>(List.of(products10, products7, products8, products9));
         ProductAnalytics productAnalytics = new ProductAnalytics(products, shops);
 
-
-
-        //System.out.println(productAnalytics.existInAll());
-        //System.out.println(productAnalytics.existAtListInOne());
-        //System.out.println(productAnalytics.notExistInShops());
+        System.out.println(productAnalytics.existInAll());
+        System.out.println(productAnalytics.existAtListInOne());
+        System.out.println(productAnalytics.notExistInShops());
         System.out.println(productAnalytics.existOnlyInOne());
 
-        /*Комментарий:
-ERROR: Тест "Класс ProductAnalytics, метод existInAll()" не пройден. Метод возвращает неверное множество. Были созданы следующие магазины:
-Магазин 1, товары: art-2,art-7,art-8,art-10
-Магазин 2, товары: art-2,art-5,art-6,art-8,art-10
-. В метод передан список товаров: art-2,art-8,art-10
-.Возвращено множество, содержащее: art-8,art-9,art-2,art-4,art-7,art-1,art-6,art-3,art-10,art-5. Ожидалось множество, содержащее: art-8,art-2,art-10.
-OK: Тест "Класс ProductAnalytics, метод existAtListInOne()" пройден успешно.
-ERROR: Тест "Класс ProductAnalytics, метод notExistInShops()" не пройден. Метод возвращает неверное множество. Были созданы следующие магазины:
-Магазин 1, товары: art-1,art-2,art-3,art-4,art-7
-Магазин 2, товары: art-3,art-4,art-5,art-9,art-10
-. В метод передан список товаров: art-6,art-8
-.Возвращено множество, содержащее: art-3,art-10,art-1,art-7,art-2,art-4,art-5,art-6,art-8,art-9. Ожидалось множество, содержащее: art-6,art-8.
-ERROR: Тест "Класс ProductAnalytics, метод existOnlyInOne()" не пройден. Метод возвращает неверное множество. Были созданы следующие магазины:
-Магазин 1, товары: art-1,art-2,art-5,art-10
-Магазин 2, товары: art-1,art-2,art-7,art-9
-Магазин 3, товары: art-2,art-4,art-5,art-10
-. В метод передан список товаров: art-1,art-2,art-3,art-4,art-5,art-6,art-7,art-8,art-9,art-10
-.Возвращено пустое множество. Ожидалось множество, содержащее: art-7,art-9,art-4.
-По данной задаче в целом не зачет, решение возвращено на доработку. Задача выполнена на 25.00%%
-;*/
     }
 }
