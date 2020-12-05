@@ -16,39 +16,33 @@ import java.util.Arrays;
 */
 public class ArrayInteger {
     byte[] digits; // массив цифр от 0 до 9
-    int signif; // сколько цифр в даное время значимых
+    int temp; // сколько цифр в даное время значимых
     ArrayInteger() {
         int n = 10;
         digits = new byte[n];
-        clear(n);
+
     }
     ArrayInteger(int n) {
         digits = new byte[n];
-        clear(n);
+
     }
     public ArrayInteger(String value) {
         this();
         fromString(value);
     }
-    private void clear() {
-        clear(signif);
-    }
-    private void clear(int count) {
-        for (int i = 0; i < count; i++) digits[i] = 0;
-        signif = 0;
-    }
+
     void fromString(String value) {
         char[] val = value.toCharArray();
-        int sig = val.length;
-        // переведем массив к числовому
-        for (int i = sig - 1, j = 0; i >= 0; i--, j++) {
+        int len = val.length;
+         //переведем массив к числовому
+        for (int i = len - 1, j = 0; i >= 0; i--, j++) {
             digits[j] = (byte) (val[i] - '0');
         }
         // обнулим ранее использовавшиеся
-        for (int i = sig; i < signif; i++) {
+        for (int i = len; i < temp; i++) {
             digits[i] = 0;
         }
-        signif = sig;
+        temp = len;
     }
         void fromInt(BigInteger value) {
             if (value.compareTo(BigInteger.TEN) == -1) {
@@ -61,20 +55,16 @@ public class ArrayInteger {
         }
 
     BigInteger toInt() {
-        char[] s = new char[signif];
-        for (int i = signif - 1, j = 0; i >= 0; i--, j++) {
-            s[i] = (char) ((digits[j] + '0') & 0xFF);
+        char[] charTemp = new char[temp];
+        for (int i = temp - 1, j = 0; i >= 0; i--, j++) {
+            charTemp[i] = (char) ((digits[j] + '0') & 0xFF);
         }
-        return new BigInteger(String.valueOf(s));
+        return new BigInteger(String.valueOf(charTemp));
     }
 
-    boolean raiseCalcError() {
-        clear(digits.length);
-        return false;
 
-    }
     public boolean add(ArrayInteger num) {
-        int sigMax = num.signif >= signif ? num.signif : signif; // max cущественный
+        int sigMax = num.temp >= temp ? num.temp : temp; // max cущественный
         int len = digits.length;
         int leng = num.digits.length;
         int transfer = 0; // перенос
@@ -86,20 +76,20 @@ public class ArrayInteger {
             if (i < leng) rez += num.digits[i];
             if (rez > 0) {
                 sig = i;
-                if (sig >= len) return raiseCalcError();
+                if (sig >= len) return false ;
                 digits[sig] = (byte) (rez % 10);
             } else {
                 if (i < len) digits[i] = 0;
             }
             transfer = rez / 10;
         }
-        signif = sig + 1;
+        temp = sig + 1;
         return true;
     }
     @Override
     public String toString() {
-        byte[] res = new byte[signif];
-        for (int i = signif - 1, j = 0; i >= 0; i--, j++) {
+        byte[] res = new byte[temp];
+        for (int i = temp - 1, j = 0; i >= 0; i--, j++) {
             res[j] = (byte) (digits[i] + '0');
         }
         return new String(res);
