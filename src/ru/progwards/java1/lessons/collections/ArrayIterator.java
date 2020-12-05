@@ -27,7 +27,7 @@ public class ArrayIterator<T> implements Iterator<T> {
     }
 
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<Integer>();
         for (Integer e : new Integer[]{90, 300, 12, 6, 3, 9, 21}) list.add(e);
         list.iterator();
         System.out.println(list);
