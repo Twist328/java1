@@ -4,49 +4,71 @@ import java.util.*;
 
 public class Finder {
 
-
     public static Collection<Integer> findMinSumPair(Collection<Integer> numbers) {
         //найти 2 соседних числа в коллекции сумма которых минимальна, вернуть коллекцию, содержащую индексы этих чисел
-        ArrayList<Integer> list = (ArrayList<Integer>) numbers;
+        /*ArrayList<Integer> list = (ArrayList<Integer>) numbers;
         List<Integer> res = new ArrayList<>();
         res.add(list.get(0));
         res.add(list.get(1));
         Integer sum = list.get(0) + list.get(1);
-        int indnum1 = 0;
-        int indnum2 = 1;
+        int indexnum1 = 0;
+        int indexnum2 = 1;
         for (int i = 1; i < list.size() - 1; i++) {
             if (list.get(i) + list.get(i + 1) < sum) {
                 sum = list.get(i) + list.get(i + 1);
                 res.set(0, list.get(i));
                 res.set(1, list.get(i + 1));
-                indnum1 = i;
-                indnum2 = i + 1;
+                indexnum1 = i;
+                indexnum2 = i + 1;
             }
         }
-        res.set(0, indnum1);
-        res.set(1, indnum2);
-        return res;
-    }
+        res.set(0, indexnum1);
+        res.set(1, indexnum2);
+        return res;*/
+       ArrayList<Integer>list=(ArrayList<Integer>)numbers;
+       List<Integer>min=new ArrayList<Integer>();
+       min.add(list.get(0));
+       min.add(list.get(1));
+       int indexnum1=0;
+       int indexnum2=1;
+       Integer sum= list.get(0)+ list.get(1);
+        for (int i = 1; i < list.size()-1; i++) {
+            if(list.get(i)+ list.get(i+1)<sum) {
+                sum = list.get(i) + list.get(i + 1);
+                min.set(0, list.get(i));
+                min.set(1, list.get(i + 1));
+                indexnum1 = i;
+                indexnum2 = i + 1;
+            }
+            }
+            min.set(0,indexnum1);
+        min.set(1,indexnum2);
+        return min;
+        }
+
+
+
 
     public static Collection<Integer> findLocalMax(Collection<Integer> numbers) {
         //найти локальные максимумы - числа, которые больше соседа справа и слева. Первый и последний элемент коллекции не может являться локальным
         // максимумом, вернуть коллекцию, содержащую значения этих максимумов
         ArrayList<Integer> list = (ArrayList<Integer>) numbers;
-        List<Integer> result = new ArrayList();
+        List<Integer> maxLocal = new ArrayList();
         for (int i = 1; i < list.size() - 1; i++) {
             if (list.get(i) > list.get(i - 1) & list.get(i) > list.get(i + 1)) {
-                result.add(list.get(i));
+                maxLocal.add(list.get(i));
             }
         }
-        return result;
+        return maxLocal;
     }
+
     public static boolean findSequence(Collection<Integer> numbers) {
         //проверить, содержит ли коллекция все числа от 1 до size(), порядок может быть произвольный
         ArrayList<Integer> list = (ArrayList<Integer>) numbers;
         for (int i = 1; i <= list.size(); i++) {
             int number = 0;
             for (int j = 0; j < list.size(); j++) {
-                if (list.get(j) == i) {
+                if (list.get(j).equals(i)) {
                     number++;
                 }
             }
@@ -56,6 +78,7 @@ public class Finder {
         }
         return true;
     }
+
     public static String findSimilar(Collection<String> names) {
         //найдите максимальное количество повторяющихся подряд элементов. Результат вернуть в виде строки <элемент>:<количество>, например Василий:5.
         // При равенстве максимального количества у разных повторяющихся элементов, вернуть результат для элемента, повторяющаяся последовательность
@@ -72,8 +95,7 @@ public class Finder {
             for (int j = i; j < list.size(); j++) {
                 if (list.get(i).equals(list.get(j))) {
                     tmp++;
-                }
-                else {
+                } else {
                     break;
                 }
             }
@@ -86,7 +108,6 @@ public class Finder {
                 forename = str;
                 number = tmp;
             }
-
         }
 
         return forename + ":" + number;
@@ -95,18 +116,19 @@ public class Finder {
 
     public static void main(String[] args) throws ClassCastException {
         Finder numbers = new Finder();
-        List<Integer> list= new ArrayList();
+        List<Integer> list = new ArrayList();
 
-        for (Integer e : new Integer[]{1,2,3,200,5,6,7,8,9,10,15,12,13,14}) list.add(e);
+        for (Integer e : new Integer[]{500, 600, 3, 200, 5, 6, 7, 8, 9, 10, 15, 12, 13, 14}) list.add(e);
 
 
         System.out.println(findMinSumPair(list));
         System.out.println(findLocalMax(list));
         System.out.println(findSequence(list));
 
-        List<String> arrayList= new ArrayList();
-        for(String s : new String[] {"КОЛЯ","ПЕТЯ","ПЕТЯ","ПЕТЯ","ПЕТЯ", "ПЕТЯ", "ВАСЯ","ВАСЯ", "ВАСЯ","ВАСЯ","ВАСЯ"})arrayList.add(s);
+        List<String> arrayList = new ArrayList();
+        for (String str : new String[]{"КОЛЯ", "ПЕТЯ", "ПЕТЯ", "ПЕТЯ", "ПЕТЯ", "ПЕТЯ", "ВАСЯ", "ВАСЯ", "ВАСЯ", "ВАСЯ", "ВАСЯ"})
+            arrayList.add(str);
         System.out.println(findSimilar(arrayList));
-            }
-        }
+    }
+}
 
