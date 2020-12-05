@@ -131,11 +131,11 @@ public class ProductAnalytics {
         Product products10 = new Product("art-10");
 
         Shop shops1 = new Shop(new ArrayList<Product>(List.of(products2, products7, products10, products9)));
-        Shop shops2 = new Shop(new ArrayList<Product>(List.of(products1, products10, products6, products9)));
-        Shop shops3 = new Shop(new ArrayList<Product>(List.of(products1, products4, products5, products9)));
+        Shop shops2 = new Shop(new ArrayList<Product>(List.of(products7, products10, products6, products9)));
+        Shop shops3 = new Shop(new ArrayList<Product>(List.of(products7, products1, products5, products9)));
 
         List<Shop> shops = new ArrayList<Shop>(List.of(shops1, shops2, shops3));
-        List<Product> products = new ArrayList<Product>(List.of(products10, products7, products8, products9));
+        List<Product> products = new ArrayList<Product>(List.of(products10, products7, products8,products1, products9));
         ProductAnalytics productAnalytics = new ProductAnalytics(products, shops);
 
         System.out.println(productAnalytics.existInAll());

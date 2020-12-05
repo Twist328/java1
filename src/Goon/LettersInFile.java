@@ -7,7 +7,7 @@ import java.io.Reader;
 import java.util.*;
 
 public class LettersInFile {
-    public static String process1(String fileName) throws IOException {
+    public static String processBest(String fileName) throws IOException {
         String letter = "";
         FileReader reader = new FileReader(fileName);
         Scanner scanner = new Scanner(reader);
@@ -64,6 +64,6 @@ public class LettersInFile {
 
     public static void main(String[] args) throws IOException {
         System.out.println(process("src/ru/progwards/java1/lessons/sets/process.txt"));
-        System.out.println(process1("src/ru/progwards/java1/lessons/sets/process.txt"));
+        System.out.println(processBest("src/ru/progwards/java1/lessons/sets/process.txt"));
     }
     }
