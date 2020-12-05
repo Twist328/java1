@@ -25,28 +25,26 @@ public class Finder {
         res.set(0, indexnum1);
         res.set(1, indexnum2);
         return res;*/
-       ArrayList<Integer>list=(ArrayList<Integer>)numbers;
-       List<Integer>min=new ArrayList<Integer>();
-       min.add(list.get(0));
-       min.add(list.get(1));
-       int indexnum1=0;
-       int indexnum2=1;
-       Integer sum= list.get(0)+ list.get(1);
-        for (int i = 1; i < list.size()-1; i++) {
-            if(list.get(i)+ list.get(i+1)<sum) {
+        ArrayList<Integer> list = (ArrayList<Integer>) numbers;
+        List<Integer> min = new ArrayList<Integer>();
+        min.add(list.get(0));
+        min.add(list.get(1));
+        int indexnum1 = 0;
+        int indexnum2 = 1;
+        Integer sum = list.get(0) + list.get(1);
+        for (int i = 1; i < list.size() - 1; i++) {
+            if (list.get(i) + list.get(i + 1) < sum) {
                 sum = list.get(i) + list.get(i + 1);
                 min.set(0, list.get(i));
                 min.set(1, list.get(i + 1));
                 indexnum1 = i;
                 indexnum2 = i + 1;
             }
-            }
-            min.set(0,indexnum1);
-        min.set(1,indexnum2);
-        return min;
         }
-
-
+        min.set(0, indexnum1);
+        min.set(1, indexnum2);
+        return min;
+    }
 
 
     public static Collection<Integer> findLocalMax(Collection<Integer> numbers) {
