@@ -16,7 +16,7 @@ public class ArrayInteger {
     private Byte[] digits;
 
     public ArrayInteger(int n) {
-        digits = new Byte[(n)];
+        digits = new Byte[n];
     }
 
     public void fromInt(BigInteger value) {
@@ -52,20 +52,20 @@ public class ArrayInteger {
         reverse(digits);
         digits = new Byte[maxi.length];
 
-        return false;
+        return true;
     }
 
-    @Override
+   /* @Override
     public String toString() {
         return digits == null ? null : Arrays.toString(digits);
-    }
+    }*/
 
     public static void main(String[] args)  throws NullPointerException {
 
         ArrayInteger a = new ArrayInteger(93);
         ArrayInteger b = new ArrayInteger(276);
         System.out.print(a + " + " + b + " = ");
-        a.add(b);
-        System.out.println(a);
+       // a.add(b);
+        //System.out.println(a);
     }
 }
