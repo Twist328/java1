@@ -6,25 +6,7 @@ public class Finder {
 
     public static Collection<Integer> findMinSumPair(Collection<Integer> numbers) {
         //найти 2 соседних числа в коллекции сумма которых минимальна, вернуть коллекцию, содержащую индексы этих чисел
-        /*ArrayList<Integer> list = (ArrayList<Integer>) numbers;
-        List<Integer> res = new ArrayList<>();
-        res.add(list.get(0));
-        res.add(list.get(1));
-        Integer sum = list.get(0) + list.get(1);
-        int indexnum1 = 0;
-        int indexnum2 = 1;
-        for (int i = 1; i < list.size() - 1; i++) {
-            if (list.get(i) + list.get(i + 1) < sum) {
-                sum = list.get(i) + list.get(i + 1);
-                res.set(0, list.get(i));
-                res.set(1, list.get(i + 1));
-                indexnum1 = i;
-                indexnum2 = i + 1;
-            }
-        }
-        res.set(0, indexnum1);
-        res.set(1, indexnum2);
-        return res;*/
+
         ArrayList<Integer> list = (ArrayList<Integer>) numbers;
         List<Integer> min = new ArrayList<Integer>();
         min.add(list.get(0));
@@ -50,19 +32,21 @@ public class Finder {
     public static Collection<Integer> findLocalMax(Collection<Integer> numbers) {
         //найти локальные максимумы - числа, которые больше соседа справа и слева. Первый и последний элемент коллекции не может являться локальным
         // максимумом, вернуть коллекцию, содержащую значения этих максимумов
+
         ArrayList<Integer> list = (ArrayList<Integer>) numbers;
-        List<Integer> maxLocal = new ArrayList();
+        List<Integer> maxLocal = new ArrayList<Integer>();
         for (int i = 1; i < list.size() - 1; i++) {
             if (list.get(i) > list.get(i - 1) & list.get(i) > list.get(i + 1)) {
                 maxLocal.add(list.get(i));
             }
+
         }
         return maxLocal;
     }
 
     public static boolean findSequence(Collection<Integer> numbers) {
         //проверить, содержит ли коллекция все числа от 1 до size(), порядок может быть произвольный
-        ArrayList<Integer> list = (ArrayList<Integer>) numbers;
+        /*ArrayList<Integer> list = (ArrayList<Integer>) numbers;
         for (int i = 1; i <= list.size(); i++) {
             int number = 0;
             for (int j = 0; j < list.size(); j++) {
@@ -71,6 +55,20 @@ public class Finder {
                 }
             }
             if (number == 0) {
+                return false;
+            }
+        }
+        return true;*/
+        ArrayList<Integer>list=(ArrayList<Integer>)numbers;
+        for (int i = 1; i < list.size() ; i++) {
+           int number=0;
+            for (int j = 0; j < list.size(); j++) {
+                if(list.get(j).equals(i)){
+                number++;
+            }
+
+            }
+            if(number==0){
                 return false;
             }
         }
@@ -112,11 +110,11 @@ public class Finder {
     }
 
 
-    public static void main(String[] args) throws ClassCastException {
+    public static void main(String[] args) {
         Finder numbers = new Finder();
         List<Integer> list = new ArrayList();
 
-        for (Integer e : new Integer[]{500, 600, 3, 200, 5, 6, 7, 8, 9, 10, 15, 12, 13, 14}) list.add(e);
+        for (Integer e : new Integer[]{50,500,600,400,10, 15, 5, 6, 7, 8, 9, 10, 15, 12, 13, 14}) list.add(e);
 
 
         System.out.println(findMinSumPair(list));
