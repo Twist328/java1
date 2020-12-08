@@ -46,8 +46,9 @@ public class Finder {
 
     public static boolean findSequence(Collection<Integer> numbers) {
         //проверить, содержит ли коллекция все числа от 1 до size(), порядок может быть произвольный
-        /*ArrayList<Integer> list = (ArrayList<Integer>) numbers;
-        for (int i = 1; i <= list.size(); i++) {
+        ArrayList<Integer> list = (ArrayList<Integer>) numbers;
+
+        for (int i = 1; i < list.size(); i++) {
             int number = 0;
             for (int j = 0; j < list.size(); j++) {
                 if (list.get(j).equals(i)) {
@@ -55,20 +56,6 @@ public class Finder {
                 }
             }
             if (number == 0) {
-                return false;
-            }
-        }
-        return true;*/
-        ArrayList<Integer>list=(ArrayList<Integer>)numbers;
-        for (int i = 1; i < list.size() ; i++) {
-           int number=0;
-            for (int j = 0; j < list.size(); j++) {
-                if(list.get(j).equals(i)){
-                number++;
-            }
-
-            }
-            if(number==0){
                 return false;
             }
         }
@@ -114,7 +101,7 @@ public class Finder {
         Finder numbers = new Finder();
         List<Integer> list = new ArrayList();
 
-        for (Integer e : new Integer[]{50,500,600,400,10, 15, 5, 6, 7, 8, 9, 10, 15, 12, 13, 14}) list.add(e);
+        for (Integer e : new Integer[]{50, 500, 600, 400, 10, 15, 5, 6, 7, 8, 9, 10, 15, 12, 13, 14}) list.add(e);
 
 
         System.out.println(findMinSumPair(list));
