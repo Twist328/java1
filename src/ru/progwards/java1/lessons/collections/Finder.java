@@ -66,34 +66,30 @@ public class Finder {
         //найдите максимальное количество повторяющихся подряд элементов. Результат вернуть в виде строки <элемент>:<количество>, например Василий:5.
         // При равенстве максимального количества у разных повторяющихся элементов, вернуть результат для элемента, повторяющаяся последовательность
         // которого началась с наименьшего индекса.
-        ArrayList<String> list = (ArrayList<String>) names;
 
-        int number = 0;
-        String forename = "";
-
+       ArrayList<String>list=(ArrayList<String>) names;
+        int number=0;
+        String forname="";
         for (int i = 0; i < list.size(); i++) {
-            String str = list.get(i);
-            int tmp = 0;
+            int temp=0;
 
+            String str= list.get(i);
             for (int j = i; j < list.size(); j++) {
                 if (list.get(i).equals(list.get(j))) {
-                    tmp++;
+                    temp++;
                 } else {
                     break;
                 }
             }
-
-            if (str.equals(forename) & number < tmp) {
-                number = tmp;
+            if (str.equals(forname)& number<temp){
+                number=temp;
             }
-
-            if (!str.equals(forename) & number < tmp) {
-                forename = str;
-                number = tmp;
+            if (!str.equals(forname)& number<temp){
+                forname=str;
+                number=temp;
             }
         }
-
-        return forename + ":" + number;
+        return forname+":"+number;
     }
 
 
