@@ -62,7 +62,7 @@ public class CollectionsSort {
         ArrayList<Integer> list = new ArrayList<Integer>(data);
         TreeSet<Integer> set = new TreeSet<Integer>();
 
-        if (data.size() > 0) {
+        if (list.size() > 0) {
             Integer minList = Collections.min(list);
             set.add(minList);
             list.remove(minList);
