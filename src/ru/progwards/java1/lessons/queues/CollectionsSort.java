@@ -22,7 +22,6 @@ public class CollectionsSort {
 
         minSort(list);
         System.out.println("\n" + "MinList: " + list);
-
         collSort(list);
         System.out.println("\n" + "CollSort: " + list);
 
