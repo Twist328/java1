@@ -20,10 +20,9 @@ public class CollectionsSort {
         for (int i = 0; i < list.size(); i++) {
             System.out.print(list.get(i) + " ");
         }
-
+        collSort(list);
         minSort(list);
         System.out.println("\n" + "MinList: " + list);
-        collSort(list);
         System.out.println("\n" + "CollSort: " + list);
         compareSort();
     }
@@ -61,24 +60,24 @@ public class CollectionsSort {
     public static void minSort(Collection<Integer> data) {
 
         ArrayList<Integer> list = new ArrayList<Integer>(data);
-        TreeSet<Integer> set = new TreeSet<Integer>();
+        ArrayList<Integer> set = new ArrayList<Integer>();
 
         if (list.size() > 0) {
             Integer minList = Collections.min(list);
             set.add(minList);
             list.remove(minList);
         }
-        //data.clear();
-        while (list.isEmpty()) {
+            data.clear();
+        //while (list.isEmpty()) {
             list.addAll(set);
         }
-    }
+
 
     public static void collSort(Collection<Integer> data) {
 
         LinkedList<Integer> intnumbers = new LinkedList<Integer>(data);
         Collections.sort(intnumbers);
-        //System.out.print("КОЛЛЕКЦИЯ ПОСЛЕ ОКОНЧАНИЯ ПРОГРАММЫ" + " " + "Collsort() :  " + intnumbers);
+        System.out.print("КОЛЛЕКЦИЯ ПОСЛЕ ОКОНЧАНИЯ ПРОГРАММЫ" + " " + "Collsort() :  " + intnumbers);
     }
 
     public static Collection<String> compareSort() {
