@@ -59,7 +59,7 @@ public class CollectionsSort {
 
     public static void minSort(Collection<Integer> data) {
 
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        ArrayList<Integer> list = new ArrayList<Integer>(data);
         ArrayList<Integer> set = new ArrayList<Integer>();
 
         if (list.size() > 0) {
