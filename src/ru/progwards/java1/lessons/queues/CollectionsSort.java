@@ -62,14 +62,14 @@ public class CollectionsSort {
         ArrayList<Integer> list = new ArrayList<Integer>(data);
         ArrayList<Integer> set = new ArrayList<Integer>(data.size());
 
-        if (list.size() > 0) {
-            int minList = Collections.min(list);
+        while (list.size() > 0) {
+           Integer minList = Collections.min(list);
             set.add(minList);
             list.remove(minList);
-            data.clear();
-            //while (list.isEmpty()) {
-                list.addAll(set);
+
             }
+        data.clear();
+        data.addAll(set);
         }
 
     public static void collSort(Collection<Integer> data) {
