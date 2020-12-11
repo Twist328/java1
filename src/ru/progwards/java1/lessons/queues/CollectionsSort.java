@@ -73,10 +73,10 @@ public class CollectionsSort {
         }
 
     public static void collSort(Collection<Integer> data) {
+        //ArrayList<Integer> list = new ArrayList<Integer>(data);
 
-        LinkedList<Integer> intnumbers = new LinkedList<Integer>(data);
-        Collections.sort(intnumbers);
-        //System.out.print("КОЛЛЕКЦИЯ ПОСЛЕ ОКОНЧАНИЯ ПРОГРАММЫ" + " " + "Collsort() :  " + intnumbers);
+        Collections.sort((List)data);
+
     }
 
     public static Collection<String> compareSort() {
