@@ -59,7 +59,7 @@ public class CollectionsSort {
 
     public static void minSort(Collection<Integer> data) {
 
-        ArrayList<Integer> list = new ArrayList<Integer>(data);
+        ArrayList<Integer> list = (ArrayList<Integer>) data;
         ArrayList<Integer> set = new ArrayList<Integer>();
 
         if (list.size() > 0) {
@@ -67,17 +67,17 @@ public class CollectionsSort {
             set.add(minList);
             list.remove(minList);
         }
-            data.clear();
-        //while (list.isEmpty()) {
+        data.clear();
+        while (list.isEmpty()) {
             list.addAll(set);
         }
-
+    }
 
     public static void collSort(Collection<Integer> data) {
 
         LinkedList<Integer> intnumbers = new LinkedList<Integer>(data);
         Collections.sort(intnumbers);
-        System.out.print("КОЛЛЕКЦИЯ ПОСЛЕ ОКОНЧАНИЯ ПРОГРАММЫ" + " " + "Collsort() :  " + intnumbers);
+        //System.out.print("КОЛЛЕКЦИЯ ПОСЛЕ ОКОНЧАНИЯ ПРОГРАММЫ" + " " + "Collsort() :  " + intnumbers);
     }
 
     public static Collection<String> compareSort() {
@@ -110,43 +110,43 @@ public class CollectionsSort {
             for (int j = 0; j < 1000; j++) {
                 anArray[j] = rand.nextInt();
             }
-                int count = 1;
-                long time0 = System.nanoTime();
-                for (int j = count; j > 0; j--) {
-                    ArrayList<Integer> sets = new ArrayList<Integer>(Arrays.asList(anArray));
-                    mySort(sets);
-                }
-                long time1 = System.nanoTime();
-                for (int j = count; j > 0; j--) {
-                    ArrayList<Integer> ar = new ArrayList<Integer>(Arrays.asList(anArray));
-                    minSort(ar);
-                }
-                long time2 = System.nanoTime();
-                for (int j = count; j > 0; j--) {
-                    ArrayList<Integer> arrayList = new ArrayList<Integer>(Arrays.asList(anArray));
-                    collSort(arrayList);
-                }
-                long time3 = System.nanoTime();
-                restime1 += time1 - time0;
-                restime2 += time2 - time1;
-                restime3 += time3 - time2;
-                System.out.println(restime1 / 1000 + " " + "mySort" + " " +
-                        restime2 / 1000 + " " + "minSort" + " " + restime3 / 1000 + " " + "collSort");
+            int count = 1;
+            long time0 = System.nanoTime();
+            for (int j = count; j > 0; j--) {
+                ArrayList<Integer> sets = new ArrayList<Integer>(Arrays.asList(anArray));
+                mySort(sets);
             }
-
-            ArrayList<KomparablTest> list = new ArrayList<KomparablTest>(3);
-            list.add(new KomparablTest("mySort", restime1));
-            list.add(new KomparablTest("minSort", restime2));
-            list.add(new KomparablTest("collSort", restime3));
-            Collections.sort(list, new SortAndGo());
-
-            ArrayList<String> itog = new ArrayList<String>(3);
-            for (KomparablTest e : list) {
-                itog.add(e.name);
+            long time1 = System.nanoTime();
+            for (int j = count; j > 0; j--) {
+                ArrayList<Integer> ar = new ArrayList<Integer>(Arrays.asList(anArray));
+                minSort(ar);
             }
-            return itog;
+            long time2 = System.nanoTime();
+            for (int j = count; j > 0; j--) {
+                ArrayList<Integer> arrayList = new ArrayList<Integer>(Arrays.asList(anArray));
+                collSort(arrayList);
+            }
+            long time3 = System.nanoTime();
+            restime1 += time1 - time0;
+            restime2 += time2 - time1;
+            restime3 += time3 - time2;
+            System.out.println(restime1 / 1000 + " " + "mySort" + " " +
+                    restime2 / 1000 + " " + "minSort" + " " + restime3 / 1000 + " " + "collSort");
         }
+
+        ArrayList<KomparablTest> list = new ArrayList<KomparablTest>(3);
+        list.add(new KomparablTest("mySort", restime1));
+        list.add(new KomparablTest("minSort", restime2));
+        list.add(new KomparablTest("collSort", restime3));
+        Collections.sort(list, new SortAndGo());
+
+        ArrayList<String> itog = new ArrayList<String>(3);
+        for (KomparablTest e : list) {
+            itog.add(e.name);
+        }
+        return itog;
     }
+}
 
 
 
