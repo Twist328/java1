@@ -24,7 +24,7 @@ public class CollectionsSort {
         System.out.println("\n" + "MinList: " + list);
         collSort(list);
         System.out.println("\n" + "CollSort: " + list);
-
+        compareSort();
     }
 
     public static void mySort(Collection<Integer> data) {  //ПЕРЕДЕЛАТЬ ARRAYSORT В МЕТОД СОРТИРОВКИ КОЛЛЕКЦИЙ
@@ -79,7 +79,67 @@ public class CollectionsSort {
         Collections.sort(intnumbers);
         System.out.println("КОЛЛЕКЦИЯ ПОСЛЕ ОКОНЧАНИЯ ПРОГРАММЫ" + " " + "Collection.sort() :  " + intnumbers);
     }
-}
+
+    public static Collection<String> compareSort(){
+
+            //сравнить производительность методов и вернуть их имена, отсортированные в порядке производительности,
+            // первый - самый быстрый. В случае равенства производительности первым вернуть "collSort"
+            class KomparablTest {
+                String name;
+                long time;
+
+                KomparablTest(String name, long time) {
+                    this.name = name;
+                    this.time = time;
+                }
+            }
+            class SortExpByTime implements Comparator<KomparablTest> {
+                public int compare(KomparablTest a, KomparablTest b) {
+                    return Long.compare(a.time, b.time);
+                }
+            }
+            long t3 = 0;
+            long t2 = 0;
+            long t1 = 0;
+            for (int cnt = 0; cnt < 3; cnt++) {
+                Integer[] c1 = new Integer[500];
+                Arrays.fill(c1,500);
+                int cCnt = 1;
+                long time0 = System.nanoTime();
+                for (int i = cCnt; i > 0; i--) {
+                    ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(c1));
+                    mySort(l);
+                }
+                long time1 = System.nanoTime();
+                for (int i = cCnt; i > 0; i--) {
+                    ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(c1));
+                    minSort(l);
+                }
+                long time2 = System.nanoTime();
+                for (int i = cCnt; i > 0; i--) {
+                    ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(c1));
+                    collSort(l);
+                }
+                long time3 = System.nanoTime();
+                t1 += time1 - time0;
+                t2 += time2 - time1;
+                t3 += time3 - time2;
+                System.out.println(t1 / 1000 + " " + t2 / 1000 + " " + t3 / 1000);
+            }
+
+            ArrayList<KomparablTest> exp = new ArrayList<KomparablTest>(3);
+            exp.add(new KomparablTest("mySort", t1));
+            exp.add(new KomparablTest("minSort", t2));
+            exp.add(new KomparablTest("collSort", t3));
+            Collections.sort(exp, new SortExpByTime());
+
+            ArrayList<String> result = new ArrayList<String>(3);
+            for (KomparablTest e : exp) {
+                result.add(e.name);
+            }
+            return result;
+        }
+    }
 
 
 
