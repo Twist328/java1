@@ -59,19 +59,19 @@ public class CollectionsSort {
 
     public static void minSort(Collection<Integer> data) {
 
-        ArrayList<Integer> list = new ArrayList<Integer>(data);
+        ArrayList<Integer> list = new ArrayList<Integer>();
         ArrayList<Integer> set = new ArrayList<Integer>();
 
         if (list.size() > 0) {
-            Integer minList = Collections.min(list);
+            int minList = Collections.min(list);
             set.add(minList);
             list.remove(minList);
+            data.clear();
+            while (list.isEmpty()) {
+                list.addAll(set);
+            }
         }
-        list.clear();
-        //while (list.clear()) {
-            list.addAll(set);
-        }
-
+    }
     public static void collSort(Collection<Integer> data) {
 
         LinkedList<Integer> intnumbers = new LinkedList<Integer>(data);
