@@ -24,7 +24,7 @@ public class CollectionsSort {
         minSort(list);
         System.out.println("\n" + "MinList: " + list);
         collSort(list);
-        //System.out.println("\n" + "CollSort: " + list);
+        System.out.println("\n" + "CollSort: " + list);
         compareSort();
     }
 
@@ -78,7 +78,7 @@ public class CollectionsSort {
 
         LinkedList<Integer> intnumbers = new LinkedList<Integer>(data);
         Collections.sort(intnumbers);
-        System.out.println("КОЛЛЕКЦИЯ ПОСЛЕ ОКОНЧАНИЯ ПРОГРАММЫ" + " " + "Collsort() :  " + intnumbers);
+        //System.out.print("КОЛЛЕКЦИЯ ПОСЛЕ ОКОНЧАНИЯ ПРОГРАММЫ" + " " + "Collsort() :  " + intnumbers);
     }
 
     public static Collection<String> compareSort() {
@@ -106,24 +106,25 @@ public class CollectionsSort {
 
         for (int i = 0; i < 3; i++) {
 
-            Integer []randNum = new Integer[1000];
-            for (int j = 0; j < randNum.length; j++) {
-                randNum[j] = ThreadLocalRandom.current().nextInt(0, 10);
+            Integer[] anArray = new Integer[1000];
+            Random rand = new Random();
+            for (int j = 0; j < 1000; j++) {
+                anArray[j] = rand.nextInt();
             }
                 int count = 1;
                 long time0 = System.nanoTime();
                 for (int j = count; j > 0; j--) {
-                    ArrayList<Integer> sets = new ArrayList<Integer>(Arrays.asList(randNum));
+                    ArrayList<Integer> sets = new ArrayList<Integer>(Arrays.asList(anArray));
                     mySort(sets);
                 }
                 long time1 = System.nanoTime();
                 for (int j = count; j > 0; j--) {
-                    ArrayList<Integer> ar = new ArrayList<Integer>(Arrays.asList(randNum));
+                    ArrayList<Integer> ar = new ArrayList<Integer>(Arrays.asList(anArray));
                     minSort(ar);
                 }
                 long time2 = System.nanoTime();
                 for (int j = count; j > 0; j--) {
-                    ArrayList<Integer> arrayList = new ArrayList<Integer>(Arrays.asList(randNum));
+                    ArrayList<Integer> arrayList = new ArrayList<Integer>(Arrays.asList(anArray));
                     collSort(arrayList);
                 }
                 long time3 = System.nanoTime();
