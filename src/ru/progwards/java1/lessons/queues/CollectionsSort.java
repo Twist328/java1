@@ -1,6 +1,7 @@
 package ru.progwards.java1.lessons.queues;
 
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class CollectionsSort {
 
@@ -23,7 +24,7 @@ public class CollectionsSort {
         minSort(list);
         System.out.println("\n" + "MinList: " + list);
         collSort(list);
-        System.out.println("\n" + "CollSort: " + list);
+        //System.out.println("\n" + "CollSort: " + list);
         compareSort();
     }
 
@@ -77,67 +78,73 @@ public class CollectionsSort {
 
         LinkedList<Integer> intnumbers = new LinkedList<Integer>(data);
         Collections.sort(intnumbers);
-        System.out.println("КОЛЛЕКЦИЯ ПОСЛЕ ОКОНЧАНИЯ ПРОГРАММЫ" + " " + "Collection.sort() :  " + intnumbers);
+        System.out.println("КОЛЛЕКЦИЯ ПОСЛЕ ОКОНЧАНИЯ ПРОГРАММЫ" + " " + "Collsort() :  " + intnumbers);
     }
 
-    public static Collection<String> compareSort(){
+    public static Collection<String> compareSort() {
 
-            //сравнить производительность методов и вернуть их имена, отсортированные в порядке производительности,
-            // первый - самый быстрый. В случае равенства производительности первым вернуть "collSort"
-            class KomparablTest {
-                String name;
-                long time;
+        //сравнить производительность методов и вернуть их имена, отсортированные в порядке производительности,
+        // первый - самый быстрый. В случае равенства производительности каких-то методов, возвращать их названия в алфавитном порядке.
+        class KomparablTest {
+            String name;
+            long time;
 
-                KomparablTest(String name, long time) {
-                    this.name = name;
-                    this.time = time;
-                }
+            KomparablTest(String name, long time) {
+                this.name = name;
+                this.time = time;
             }
-            class SortExpByTime implements Comparator<KomparablTest> {
-                public int compare(KomparablTest a, KomparablTest b) {
-                    return Long.compare(a.time, b.time);
-                }
+        }
+        class SortAndGo implements Comparator<KomparablTest> {
+
+            public int compare(KomparablTest a, KomparablTest b) {
+                return Long.compare(a.time, b.time);
             }
-            long t3 = 0;
-            long t2 = 0;
-            long t1 = 0;
-            for (int cnt = 0; cnt < 3; cnt++) {
-                Integer[] c1 = new Integer[500];
-                Arrays.fill(c1,5);
-                int cCnt = 1;
+        }
+        long restime3 = 0;
+        long restime2 = 0;
+        long restime1 = 0;
+
+        for (int i = 0; i < 3; i++) {
+
+            Integer []randNum = new Integer[1000];
+            for (int j = 0; j < randNum.length; j++) {
+                randNum[j] = ThreadLocalRandom.current().nextInt(0, 10);
+            }
+                int count = 1;
                 long time0 = System.nanoTime();
-                for (int i = cCnt; i > 0; i--) {
-                    ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(c1));
-                    mySort(l);
+                for (int j = count; j > 0; j--) {
+                    ArrayList<Integer> sets = new ArrayList<Integer>(Arrays.asList(randNum));
+                    mySort(sets);
                 }
                 long time1 = System.nanoTime();
-                for (int i = cCnt; i > 0; i--) {
-                    ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(c1));
-                    minSort(l);
+                for (int j = count; j > 0; j--) {
+                    ArrayList<Integer> ar = new ArrayList<Integer>(Arrays.asList(randNum));
+                    minSort(ar);
                 }
                 long time2 = System.nanoTime();
-                for (int i = cCnt; i > 0; i--) {
-                    ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(c1));
-                    collSort(l);
+                for (int j = count; j > 0; j--) {
+                    ArrayList<Integer> arrayList = new ArrayList<Integer>(Arrays.asList(randNum));
+                    collSort(arrayList);
                 }
                 long time3 = System.nanoTime();
-                t1 += time1 - time0;
-                t2 += time2 - time1;
-                t3 += time3 - time2;
-                System.out.println(t1 / 1000 + " " + t2 / 1000 + " " + t3 / 1000);
+                restime1 += time1 - time0;
+                restime2 += time2 - time1;
+                restime3 += time3 - time2;
+                System.out.println(restime1 / 1000 + " " + "mySort" + " " +
+                        restime2 / 1000 + " " + "minSort" + " " + restime3 / 1000 + " " + "collSort");
             }
 
-            ArrayList<KomparablTest> exp = new ArrayList<KomparablTest>(3);
-            exp.add(new KomparablTest("mySort", t1));
-            exp.add(new KomparablTest("minSort", t2));
-            exp.add(new KomparablTest("collSort", t3));
-            Collections.sort(exp, new SortExpByTime());
+            ArrayList<KomparablTest> list = new ArrayList<KomparablTest>(3);
+            list.add(new KomparablTest("mySort", restime1));
+            list.add(new KomparablTest("minSort", restime2));
+            list.add(new KomparablTest("collSort", restime3));
+            Collections.sort(list, new SortAndGo());
 
-            ArrayList<String> result = new ArrayList<String>(3);
-            for (KomparablTest e : exp) {
-                result.add(e.name);
+            ArrayList<String> itog = new ArrayList<String>(3);
+            for (KomparablTest e : list) {
+                itog.add(e.name);
             }
-            return result;
+            return itog;
         }
     }
 
