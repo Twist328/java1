@@ -103,7 +103,7 @@ public class CollectionsSort {
             long t1 = 0;
             for (int cnt = 0; cnt < 3; cnt++) {
                 Integer[] c1 = new Integer[500];
-                Arrays.fill(c1,500);
+                Arrays.fill(c1,5);
                 int cCnt = 1;
                 long time0 = System.nanoTime();
                 for (int i = cCnt; i > 0; i--) {
