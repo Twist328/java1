@@ -1,7 +1,6 @@
 package ru.progwards.java1.lessons.queues;
 
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class CollectionsSort {
 
@@ -83,7 +82,7 @@ public class CollectionsSort {
 
         //сравнить производительность методов и вернуть их имена, отсортированные в порядке производительности,
         // первый - самый быстрый. В случае равенства производительности каких-то методов, возвращать их названия в алфавитном порядке.
-        class KomparablTest {
+      /*  class KomparablTest {
             String name;
             long time;
 
@@ -144,6 +143,33 @@ public class CollectionsSort {
             itog.add(e.name);
         }
         return itog;
+    }*/
+        Integer[] anArray = new Integer[10000000];
+        Random random = new Random();
+        for (int j = 0; j < 10000000; j++) {
+            anArray[j] = random.nextInt();
+        }
+        //int count = 1;
+
+        long time0 = System.currentTimeMillis();
+        for (int i = 1; i > 0; i--) {
+            ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
+            mySort(l);
+        }
+        long time1 = System.currentTimeMillis();
+        for (int i = 1; i > 0; i--) {
+            ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
+            minSort(l);
+        }
+        long time2 = System.currentTimeMillis();
+        for (int i = 1; i > 0; i--) {
+            ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
+            collSort(l);
+        }
+        long time3 = System.currentTimeMillis();
+        System.out.println((time1 - time0) + " " + "mySort" + " " +
+                (time2 - time1) + " " + "minSort" + " " + (time3 - time2) + " " + "collSort");
+        return null;
     }
 }
 
