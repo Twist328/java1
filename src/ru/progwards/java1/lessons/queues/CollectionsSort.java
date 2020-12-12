@@ -8,7 +8,7 @@ public class CollectionsSort {
     public CollectionsSort(int i) {
     }
 
-    public static void main(String[] args) throws IndexOutOfBoundsException, IOException, NumberFormatException {
+    public static void main(String[] args) throws IndexOutOfBoundsException {
 
         ArrayList<Integer> list = new ArrayList<Integer>();
         System.out.println("\n" + "   " + " " + " mySort ДО СОРТИРОВКИ:");
@@ -82,7 +82,7 @@ public class CollectionsSort {
 
     }
 
-    public static Collection<String> compareSort() throws IOException {
+    public static Collection<String> compareSort()  {
 
         //сравнить производительность методов и вернуть их имена, отсортированные в порядке производительности,
         // первый - самый быстрый. В случае равенства производительности
