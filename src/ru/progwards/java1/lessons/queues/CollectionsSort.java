@@ -1,5 +1,6 @@
 package ru.progwards.java1.lessons.queues;
 
+import java.io.IOException;
 import java.util.*;
 
 public class CollectionsSort {
@@ -7,7 +8,7 @@ public class CollectionsSort {
     public CollectionsSort(int i) {
     }
 
-    public static void main(String[] args) throws IndexOutOfBoundsException {
+    public static void main(String[] args) throws IndexOutOfBoundsException, IOException, NumberFormatException {
 
         ArrayList<Integer> list = new ArrayList<Integer>();
         System.out.println("\n" + "   " + " " + " mySort ДО СОРТИРОВКИ:");
@@ -81,28 +82,29 @@ public class CollectionsSort {
 
     }
 
-    public static Collection<String>compareSort() {
+    public static Collection<String> compareSort() throws IOException {
 
         //сравнить производительность методов и вернуть их имена, отсортированные в порядке производительности,
-        // первый - самый быстрый. В случае равенства производительности каких-то методов, возвращать их названия в алфавитном порядке.
-      /*  class KomparablTest {
+        // первый - самый быстрый. В случае равенства производительности
+        // каких-то методов, возвращать их названия в алфавитном порядке.
+        class BestCompare {
             String name;
             long time;
 
-            KomparablTest(String name, long time) {
+            BestCompare(String name, long time) {
                 this.name = name;
                 this.time = time;
             }
         }
-        class SortAndGo implements Comparator<KomparablTest> {
+        class TimeSort implements Comparator<BestCompare> {
 
-            public int compare(KomparablTest a, KomparablTest b) {
+            public int compare(BestCompare a, BestCompare b) {
                 return Long.compare(a.time, b.time);
             }
         }
-        long restime3 = 0;
-        long restime2 = 0;
         long restime1 = 0;
+        long restime2 = 0;
+        long restime3 = 0;
 
         for (int i = 0; i < 3; i++) {
 
@@ -111,19 +113,19 @@ public class CollectionsSort {
             for (int j = 0; j < 1000; j++) {
                 anArray[j] = rand.nextInt();
             }
-            int count = 1;
+
             long time0 = System.nanoTime();
-            for (int j = count; j > 0; j--) {
+            for (int j = 1; j > 0; j--) {
                 ArrayList<Integer> sets = new ArrayList<Integer>(Arrays.asList(anArray));
                 mySort(sets);
             }
             long time1 = System.nanoTime();
-            for (int j = count; j > 0; j--) {
+            for (int j = 1; j > 0; j--) {
                 ArrayList<Integer> ar = new ArrayList<Integer>(Arrays.asList(anArray));
                 minSort(ar);
             }
             long time2 = System.nanoTime();
-            for (int j = count; j > 0; j--) {
+            for (int j = 1; j > 0; j--) {
                 ArrayList<Integer> arrayList = new ArrayList<Integer>(Arrays.asList(anArray));
                 collSort(arrayList);
             }
@@ -135,73 +137,19 @@ public class CollectionsSort {
                     restime2 / 1000 + " " + "minSort" + " " + restime3 / 1000 + " " + "collSort");
         }
 
-        ArrayList<KomparablTest> list = new ArrayList<KomparablTest>(3);
-        list.add(new KomparablTest("mySort", restime1));
-        list.add(new KomparablTest("minSort", restime2));
-        list.add(new KomparablTest("collSort", restime3));
-        Collections.sort(list, new SortAndGo());
+        ArrayList<BestCompare> listTime = new ArrayList<BestCompare>(3);
+        listTime.add(new BestCompare("mySort", restime1));
+        listTime.add(new BestCompare("minSort", restime2));
+        listTime.add(new BestCompare("collSort", restime3));
+        Collections.sort(listTime, new TimeSort());
 
-        ArrayList<String> itog = new ArrayList<String>(3);
-        for (KomparablTest e : list) {
-            itog.add(e.name);
+        ArrayList<String> itogSort = new ArrayList<String>(3);
+        for (BestCompare e : listTime) {
+            itogSort.add(e.name);
         }
-        return itog;
-    }*/long restime3 = 0;
-        long restime2 = 0;
-        long restime1 = 0;
-
-        Integer[] anArray = new Integer[10000];
-        Random random = new Random();
-        for (int j = 0; j < 10000; j++) {
-            anArray[j] = random.nextInt();
-        }
-        Integer[] anArray1 = new Integer[10000];
-        Random random1 = new Random();
-        for (int j = 0; j < 10000; j++) {
-            anArray1[j] = random1.nextInt();
-        }
-        Integer[] anArray2 = new Integer[10000];
-        Random random2 = new Random();
-        for (int j = 0; j < 10000; j++) {
-            anArray2[j] = random2.nextInt();
-        }
-        long time0 = System.currentTimeMillis();
-        for (int i = 1; i > 0; i--) {
-            ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
-            mySort(l);
-        }
-        long time1 = System.currentTimeMillis();
-        for (int i = 1; i > 0; i--) {
-            ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray1));
-            minSort(l);
-        }
-        long time2 = System.currentTimeMillis();
-        for (int i = 1; i > 0; i--) {
-            ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray2));
-            collSort(l);
-        }
-        long time3 = System.currentTimeMillis();
-        System.out.println((time1 - time0) + " " + "mySort" + " " +
-                (time2 - time1) + " " + "minSort" + " " + (time3 - time2) + " " + "collSort");
-
-        long time34 = System.nanoTime();
-        restime1 += time1 - time0;
-        restime2 += time2 - time1;
-        restime3 += time3 - time2;
-
-
-        ArrayList<Integer> itog = new ArrayList<Integer>(3);
-        itog.add((int) restime1);
-        itog.add((int) restime2);
-        itog.add((int) restime3);
-        Collections.sort(itog);
-
-        return Collections.singleton(itog.toString());
-        }
-
-        }
-
-
+        return itogSort;
+    }
+}
 
 
 

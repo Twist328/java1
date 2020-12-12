@@ -22,7 +22,7 @@ public class CollectionsSort {
         minSort(list);
         System.out.println("\n" + "MinList: " + list);
         System.out.println("\n" + "CollSort: " + list);
-        compareSort();
+        compareSort1();
     }
 
     public static void mySort(Collection<Integer> data) {  //ПЕРЕДЕЛАТЬ ARRAYSORT В МЕТОД СОРТИРОВКИ КОЛЛЕКЦИЙ
@@ -81,38 +81,47 @@ public class CollectionsSort {
     //  for (int i = a.length - 1; i >= 0; i--) a[i] = (int) (Math.random() * (to - from)) + from;
     // }
 
-    public static Collection<String> compareSort() {
+    //public static void randomFill(Integer[] a, int from, int to) {
+        //for (int i = a.length - 1; i >= 0; i--) a[i] = (int) (Math.random() * (to - from)) + from;
+
+
+    public static Collection<String> compareSort1() {
         //сравнить производительность методов и вернуть их имена, отсортированные в порядке производительности,
         // первый - самый быстрый. В случае равенства производительности первым вернуть "collSort"
-        for (int cnt = 1; cnt <= 3; cnt++) {
-            Integer[] anArray = new Integer[10000];
-            Random rand = new Random();
-            for (int j = 0; j < 10000; j++) {
-                anArray[j] = rand.nextInt();
-            }
-            //int count = 1;
 
+        for (int cnt = 1; cnt <= 10; cnt++) {
+            Integer[] a1 = new Integer[100];
+            randomFill(a1, 100, -100);
+            Integer[] b1 = new Integer[50_000];
+            randomFill(b1, 50_000, -50_000);
+            Integer[] c1 = new Integer[100_000];
+            randomFill(c1, 100_000, -100_000);
+            int aCnt = 1;
+            int bCnt = 3;
+            int cCnt = 1;
             long time0 = System.currentTimeMillis();
-            for (int i = 1; i > 0; i--) {
-                ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
+            for (int i = aCnt; i > 0; i--) {
+                ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(a1));
                 mySort(l);
             }
             long time1 = System.currentTimeMillis();
-            for (int i = 1; i > 0; i--) {
-                ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
+            for (int i = bCnt; i > 0; i--) {
+                ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(b1));
                 minSort(l);
             }
             long time2 = System.currentTimeMillis();
-            for (int i = 1; i > 0; i--) {
-                ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
+            for (int i = cCnt; i > 0; i--) {
+                ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(c1));
                 collSort(l);
             }
             long time3 = System.currentTimeMillis();
-            System.out.println((time1 - time0) + " " + "mySort" + " " +
-                    (time2 - time1) + " " + "minSort" + " " + (time3 - time2) + " " + "collSort");
-
+            System.out.println(((time1 - time0) + " " + (time2 - time1) + " " + (time3 - time2)));
         }
         return null;
+    }
+    public static void randomFill(Integer[] a, int from, int to) {
+        for (int i = a.length - 1; i >= 0; i--)
+            a[i] = (int) (Math.random() * (to - from)) + from;
     }
 
 }
