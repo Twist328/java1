@@ -62,19 +62,19 @@ public class CollectionsSort {
         ArrayList<Integer> set = new ArrayList<Integer>(data.size());
 
         while (list.size() > 0) {
-           Integer minList = Collections.min(list);
+            Integer minList = Collections.min(list);
             set.add(minList);
             list.remove(minList);
 
-            }
+        }
         data.clear();
         data.addAll(set);
-        }
+    }
 
     public static void collSort(Collection<Integer> data) {
         //ArrayList<Integer> list = new ArrayList<Integer>(data);
 
-        Collections.sort((List)data);
+        Collections.sort((List) data);
 
     }
 
@@ -144,35 +144,37 @@ public class CollectionsSort {
         }
         return itog;
     }*/
-        Integer[] anArray = new Integer[10000000];
-        Random random = new Random();
-        for (int j = 0; j < 10000000; j++) {
-            anArray[j] = random.nextInt();
-        }
-        //int count = 1;
+        for (int cnt = 1; cnt <= 3; cnt++) {
+            Integer[] anArray = new Integer[10000];
+            Random random = new Random();
+            for (int j = 0; j < 10000; j++) {
+                anArray[j] = random.nextInt();
+            }
+            //int count = 1;
 
-        long time0 = System.currentTimeMillis();
-        for (int i = 1; i > 0; i--) {
-            ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
-            mySort(l);
+            long time0 = System.currentTimeMillis();
+            for (int i = 1; i > 0; i--) {
+                ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
+                mySort(l);
+            }
+            long time1 = System.currentTimeMillis();
+            for (int i = 1; i > 0; i--) {
+                ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
+                minSort(l);
+            }
+            long time2 = System.currentTimeMillis();
+            for (int i = 1; i > 0; i--) {
+                ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
+                collSort(l);
+            }
+            long time3 = System.currentTimeMillis();
+            System.out.println((time1 - time0) + " " + "mySort" + " " +
+                    (time2 - time1) + " " + "minSort" + " " + (time3 - time2) + " " + "collSort");
+
         }
-        long time1 = System.currentTimeMillis();
-        for (int i = 1; i > 0; i--) {
-            ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
-            minSort(l);
-        }
-        long time2 = System.currentTimeMillis();
-        for (int i = 1; i > 0; i--) {
-            ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
-            collSort(l);
-        }
-        long time3 = System.currentTimeMillis();
-        System.out.println((time1 - time0) + " " + "mySort" + " " +
-                (time2 - time1) + " " + "minSort" + " " + (time3 - time2) + " " + "collSort");
         return null;
     }
 }
-
 
 
 
