@@ -150,8 +150,16 @@ public class CollectionsSort {
             for (int j = 0; j < 10000; j++) {
                 anArray[j] = random.nextInt();
             }
-            //int count = 1;
-
+                Integer[] anArray1 = new Integer[10000];
+                Random random1 = new Random();
+                for (int j = 0; j < 10000; j++) {
+                    anArray1[j] = random1.nextInt();
+                }
+            Integer[] anArray2 = new Integer[10000];
+            Random random2 = new Random();
+            for (int j = 0; j < 10000; j++) {
+                anArray2[j] = random2.nextInt();
+            }
             long time0 = System.currentTimeMillis();
             for (int i = 1; i > 0; i--) {
                 ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
@@ -159,12 +167,12 @@ public class CollectionsSort {
             }
             long time1 = System.currentTimeMillis();
             for (int i = 1; i > 0; i--) {
-                ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
+                ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray1));
                 minSort(l);
             }
             long time2 = System.currentTimeMillis();
             for (int i = 1; i > 0; i--) {
-                ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray));
+                ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(anArray2));
                 collSort(l);
             }
             long time3 = System.currentTimeMillis();
