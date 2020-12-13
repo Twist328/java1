@@ -31,8 +31,8 @@ public class StackCalc {
 
     public void div() {
         if (queue.size() < 2) return;      // поделить на верхнее значение на стеке, следующее по глубине,
-        Double e = queue.pollLast();      // результат положить на стек. В итоге в стеке должно быть на один элемент меньше
-        queue.offerLast(queue.pollLast() / e);
+        Double result = queue.pollLast();      // результат положить на стек. В итоге в стеке должно быть на один элемент меньше
+        queue.offerLast(queue.pollLast() / result);
     }
 }
 
