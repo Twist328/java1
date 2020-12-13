@@ -1,9 +1,7 @@
 package ru.progwards.java1.lessons.queues;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
-
-public class OrderQueue {
+import java.util.Collections;
+import java.util.TreeSet;
 /*
 2.5 Создать класс OrderQueue
 2.6 Разместить в нем очередь с приоритетом
@@ -16,43 +14,33 @@ public class OrderQueue {
 обслуживаться в порядке поступления. Метод не выбрасывает исключения, возвращает null в случае пустой очереди.
 Продумать, и, при необходимости, добавить в классы нужные методы, для того, чтобы реализовать эту задачу.
 */
-    Comparator<Order> orDerComparator = new Comparator<Order>() {
-        @Override
-        public int compare(Order o1, Order o2) {
 
-            int ord1 = ((int) o1.getSum() - 1) / 10000 + 1;
+public class OrderTests {
 
-            if (ord1 < 1)
-                ord1 = 1;
-            else if (ord1 > 3)
-                ord1 = 3;
+    public static void main(String[] args) {
 
-            int ord2 = ((int) o2.getSum() - 1) / 10000 + 1;
+        OrderQueue orderQ = new OrderQueue();
+        orderQ.add(new Order(10200.0));
+        orderQ.add(new Order(34800.0));
+        orderQ.add(new Order(10275.0));
+        orderQ.add(new Order(5890.0));
+        orderQ.add(new Order(25531.0));
+        orderQ.add(new Order(7800.0));
+        orderQ.add(new Order(1299.0));
+        orderQ.add(new Order(18400.0));
+        orderQ.add(new Order(21200.0));
+        orderQ.add(new Order(15400.0));
+        orderQ.add(new Order(5590.0));
+        orderQ.add(new Order(1297.0));
+        orderQ.add(new Order(9999.99));
 
-            if (ord2 < 1)
-                ord2 = 1;
-            else if (ord2 > 3)
-                ord2 = 3;
+        Order order = orderQ.getNum();
 
-            if (ord1 == ord2)
-                return o1.getNum() - o2.getNum();
-            return ord2 - ord1;
+        while (order != null) {
+
+            System.out.println(order);
+            order = orderQ.get();
+
         }
-    };
-
-
-    PriorityQueue<Order> queueP = new PriorityQueue<Order>(20, orDerComparator);
-
-    public void add(Order order) {
-        queueP.add(order);
     }
-
-    public Order get() {
-        return queueP.poll();
-    }
-
-    public Order getNum() {
-        return queueP.poll();
-    }
-};
-
+}
