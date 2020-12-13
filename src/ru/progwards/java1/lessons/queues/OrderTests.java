@@ -33,6 +33,7 @@ public class OrderTests {
         orderQ.add(new Order(5590.0));
         orderQ.add(new Order(1297.0));
         orderQ.add(new Order(9999.99));
+        orderQ.add(new Order(33800.0));
 
         Order order = orderQ.getNum();
 
