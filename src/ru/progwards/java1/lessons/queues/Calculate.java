@@ -1,6 +1,11 @@
 package ru.progwards.java1.lessons.queues;
 
 public class Calculate {
+
+    public static void main(String[] args) {
+        System.out.println(calculation1());
+        System.out.println(calculation2());
+    }
     public static double calculation1() {
         StackCalc res = new StackCalc();
         res.push(2.2);
@@ -12,32 +17,27 @@ public class Calculate {
     }
 
     public static double calculation2() {
-        StackCalc rez = new StackCalc();
-        rez.push(737.22);
-        rez.push(24);
-        rez.add();
-        rez.push(55.6);
-        rez.push(12.1);
-        rez.sub();
-        rez.div();
-        rez.push(19);
-        rez.push(3.33);        //(737.22+24)/(55.6-12.1)+(19-3.33)*(87+2*(13.001-9.2)), используя класс StackCalc
-        rez.sub();
-        rez.push(87);
-        rez.push(2);
-        rez.push(13.001);
-        rez.push(9.2);
-        rez.sub();
-        rez.mul();
-        rez.add();
-        rez.mul();
-        rez.add();
-        return rez.pop();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(calculation1());
-        System.out.println(calculation2());
+        StackCalc res = new StackCalc();
+        res.push(737.22);
+        res.push(24);
+        res.add();
+        res.push(55.6);
+        res.push(12.1);
+        res.sub();
+        res.div();
+        res.push(19);
+        res.push(3.33);     //(737.22+24)/(55.6-12.1)+(19-3.33)*(87+2*(13.001-9.2)), используя класс StackCalc
+        res.sub();
+        res.push(87);
+        res.push(2);
+        res.push(13.001);
+        res.push(9.2);
+        res.sub();
+        res.mul();
+        res.add();
+        res.mul();
+        res.add();
+        return res.pop();
     }
 }
 
