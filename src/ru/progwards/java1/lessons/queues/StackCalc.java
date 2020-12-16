@@ -2,7 +2,7 @@ package ru.progwards.java1.lessons.queues;
 
 import java.util.ArrayDeque;
 
-public class StackCalc {
+ public class StackCalc {
 
     private ArrayDeque<Double> queue = new ArrayDeque<Double>();
 
