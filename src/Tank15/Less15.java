@@ -32,10 +32,10 @@ public class Less15 {
         //System.out.println("\nkey=" + key);
         if (map.containsKey(key) || map == null || map.size() < 2) return;
         Integer first = map.firstKey();
-        //System.out.println("first=" + first);
+        System.out.println("first=" + first);
         if (key < first) return;
         Integer last = map.lastKey();
-        //System.out.println("last=" + last);
+        System.out.println("last=" + last);
         if (key > last) return;
         map.put(key, value);
         System.out.println("TreeMap:");
