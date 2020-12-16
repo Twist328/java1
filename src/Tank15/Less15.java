@@ -3,6 +3,7 @@ package Tank15;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Less15 {
     static HashMap<Integer, String> a2map(int[] akey, String[] aval) {
@@ -27,6 +28,20 @@ public class Less15 {
             }
             return temp;
         }
+    static void checkAndAdd(TreeMap<Integer, String> map, Integer key, String value){
+        //System.out.println("\nkey=" + key);
+        if (map.containsKey(key) || map == null || map.size() < 2) return;
+        Integer first = map.firstKey();
+        //System.out.println("first=" + first);
+        if (key < first) return;
+        Integer last = map.lastKey();
+        //System.out.println("last=" + last);
+        if (key > last) return;
+        map.put(key, value);
+        System.out.println("TreeMap:");
+    }
+
+
 
         public static void main (String[]args){
 
@@ -57,6 +72,22 @@ public class Less15 {
             System.out.println(fillHoles(map3, 5)+":");
             System.out.println(map3);
 
+            TreeMap<Integer, String> treeMap = new TreeMap<>();
+            treeMap.put(1, "Один");
+            treeMap.put(9, "Девять");
+            checkAndAdd(treeMap, 0, "Ноль");
+            checkAndAdd(treeMap, 3, "Три");
+            checkAndAdd(treeMap, 2, "Два");
+            checkAndAdd(treeMap, 3, "Three");
+            checkAndAdd(treeMap, 10, "Ten");
+            System.out.println(treeMap);
+
+            TreeMap<Integer, String> map = new TreeMap<>();
+            checkAndAdd(map, 0, "Zero");
+            checkAndAdd(map, 0, "Zero");
+            System.out.println(map);
         }
-    }
+
+
+}
 
