@@ -16,9 +16,9 @@ public class FiboMapCache {
         clearCahe();
     }
 
-    // Очистка кеша
 
-    public void clearCahe() {
+
+    public void clearCahe() {   // Очистка КЭШ
         if (cacheOn) {
             if (fiboCache != null) fiboCache.clear();
             fiboCache = new HashMap<Integer, BigDecimal>();
@@ -55,7 +55,7 @@ public class FiboMapCache {
             fiboCache.put(i, next);
             if (i % 3 == 0)
                 try {
-                    Thread.sleep(0);
+                    Thread.sleep(1);
                 } catch (InterruptedException ex) {
                 }
         }
@@ -132,10 +132,10 @@ public class FiboMapCache {
         for (int i = 1; i <= 1000; i++) temp.fiboNumber(i);
         System.out.println("fiboNumber cacheOn=" + true + " время выполнения " + (currentTimeMillis() - start));
 
-        start = currentTimeMillis();
+        /*start = currentTimeMillis();
         temp = new FiboMapCache(false);
         for (int i = 1; i <= 1000; i++) temp.fiboCacheLast(i);
-        System.out.println("fiboNumber cacheOn=my время выполнения " + (currentTimeMillis() - start));
+        System.out.println("fiboNumber cacheOn=my время выполнения " + (currentTimeMillis() - start));*/
 
     }
 
