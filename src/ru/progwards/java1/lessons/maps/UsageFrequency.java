@@ -25,8 +25,8 @@ public class UsageFrequency {
 
     static Map<String, Integer> speech;
 
-    // загрузить содержимое файла
-    public static void processFile(String fileName) {
+
+    public static void processFile(String fileName) {     // загрузить содержимое файла
         alphabet = new HashMap<Character, Integer>(2500);
         speech = new HashMap<String, Integer>(5000);
         try (FileReader rider = new FileReader(fileName);
