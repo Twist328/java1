@@ -43,7 +43,7 @@ public class FiboMapCache {
         return sum;
     }
 
-    public BigDecimal fiboNumber2(int n) {     // Рассчёт Фибоначчи без КЭШ
+    public BigDecimal fiboNumber(int n) {     // Рассчёт Фибоначчи без КЭШ
         try {
             Thread.sleep(0);
         } catch (InterruptedException ex) {
@@ -66,12 +66,12 @@ public class FiboMapCache {
 
         start = currentTimeMillis();
         temp = new FiboMapCache(false);
-        for (int i = 1; i <= 1000; i++) temp.fiboNumber2(i);
+        for (int i = 1; i <= 1000; i++) temp.fiboNumber(i);
         System.out.println("fiboNumber cacheOn=" + false + " время выполнения " + (currentTimeMillis() - start));
 
         start = currentTimeMillis();
         temp = new FiboMapCache(true);
-        for (int i = 1; i <= 1000; i++) temp.fiboNumber2(i);
+        for (int i = 1; i <= 1000; i++) temp.fiboNumber(i);
         System.out.println("fiboNumber cacheOn=" + true + " время выполнения " + (currentTimeMillis() - start));
 
     }
@@ -90,7 +90,7 @@ public class FiboMapCache {
 
     public static void main(String[] args) {
         FiboMapCache temp = new FiboMapCache(true);
-        for (int i = 1; i <= 10; i++) System.out.println(temp.fiboNumber2(i));
+        for (int i = 1; i <= 10; i++) System.out.println(temp.fiboNumber(i));
         test();
     }
 }
