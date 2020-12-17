@@ -56,11 +56,9 @@ public class FiboMapCache {
                 } catch (InterruptedException ex) {
                 }
         }
-
         lastFiboCache_n = n;
         return next;
     }
-
     int lastFibo_n = 1;
     BigDecimal lastFibo_prev = BigDecimal.ZERO;
     BigDecimal lastFibo_next = BigDecimal.ONE;
