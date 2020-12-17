@@ -18,9 +18,9 @@ public class FiboMapCache {
         return cacheOn ? fiboNumber1(n) : fiboNumber2(n);
     }
 
-    int lastFiboCache_n;       // Рассчёт Фибоначчи с кеш
+    int lastFiboCache_n;
 
-    public BigDecimal fiboNumber1(int n) {
+    public BigDecimal fiboNumber1(int n) { // Рассчёт Фибоначчи с кеш
 
         if (fiboCache.containsKey(n)) return fiboCache.get(n); // имеется в кеш
 
@@ -28,7 +28,6 @@ public class FiboMapCache {
         BigDecimal next = fiboCache.get(lastFiboCache_n);
         BigDecimal sum;
         int i = lastFiboCache_n;
-
         while (i++ < n) {
             sum = next;
             next = next.add(prev);
