@@ -132,14 +132,14 @@ public class FiboMapCache {
         for (int i = 1; i <= 1000; i++) temp.fiboNumber(i);
         System.out.println("fiboNumber cacheOn=" + true + " время выполнения " + (currentTimeMillis() - start));
 
-        /*start = currentTimeMillis();
-        temp = new FiboMapCache(false);
-        for (int i = 1; i <= 1000; i++) temp.fiboCacheLast(i);
-        System.out.println("fiboNumber cacheOn=my время выполнения " + (currentTimeMillis() - start));*/
-
     }
-
-   /* public static void test1() {
+    public static void main(String[] args) {
+        FiboMapCache temp = new FiboMapCache(true);
+        for (int i = 1; i <= 10; i++) System.out.println(temp.fiboNumber(i));
+        test();
+    }
+}
+ /* public static void test1() {
         FiboMapCache temp = new FiboMapCache(true);
         final int NUM_FROM = 1;
         final int NUM_TO = 1_000;
@@ -160,10 +160,3 @@ public class FiboMapCache {
         for (int i = numFrom; i <= numTo; i++) temp.fiboNumber(i);
         System.out.println(caption + ", мс: " + (currentTimeMillis() - start));
     }*/
-
-    public static void main(String[] args) {
-        FiboMapCache temp = new FiboMapCache(true);
-        for (int i = 1; i <= 10; i++) System.out.println(temp.fiboNumber(i));
-        test();
-    }
-}
