@@ -16,9 +16,9 @@ public class FiboMapCache {
         clearCahe();
     }
 
-    /*public BigDecimal fiboNumber(int n) {                      // Расчёт Фибоначчи
+    public BigDecimal fiboNumber(int n) {                      // Обычный расчёт Фибоначчи
         return cacheOn ? fiboNumber1(n) : fiboNumber2(n);
-    }*/
+    }
 
     public BigDecimal fiboNumber1(int n) { // Рассчёт Фибоначчи с кеш
 
@@ -43,7 +43,7 @@ public class FiboMapCache {
         return sum;
     }
 
-    public BigDecimal fiboNumber(int n) {     // Рассчёт Фибоначчи без КЭШ
+    public BigDecimal fiboNumber2(int n) {     // Рассчёт Фибоначчи без КЭШ
         try {
             Thread.sleep(0);
         } catch (InterruptedException ex) {
@@ -80,7 +80,7 @@ public class FiboMapCache {
         if (cacheOn == true) {
             if (fiboCache != null) fiboCache.clear();
 
-            fiboCache = new HashMap<Integer, BigDecimal>();
+            fiboCache = new HashMap<Integer, BigDecimal>();// иначе IOEXCEPTION nullpointer;
             fiboCache.put(1, BigDecimal.ONE);
             fiboCache.put(2, BigDecimal.ONE);
             lastFiboCache_n = 2;
