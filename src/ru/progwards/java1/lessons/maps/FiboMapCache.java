@@ -1,6 +1,7 @@
 package ru.progwards.java1.lessons.maps;
 
 import static java.lang.System.currentTimeMillis;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,17 +23,17 @@ public class FiboMapCache {
 
     public BigDecimal fiboNumber1(int n) { // Рассчёт Фибоначчи с кеш
 
-        if (fiboCache.containsKey(n)) return fiboCache.get(n); // имеется в кеш
+        if (fiboCache.containsKey(n)) return fiboCache.get(n);     //  n имеется в кеш
 
         BigDecimal prev = fiboCache.get(lastFiboCache_n - 1);
-        BigDecimal next = fiboCache.get(lastFiboCache_n);
-        BigDecimal sum;
+        BigDecimal sum = fiboCache.get(lastFiboCache_n);
+        BigDecimal next;
         int i = lastFiboCache_n;
         while (i++ < n) {
-            sum = next;
-            next = next.add(prev);
-            prev = sum;
-            fiboCache.put(i, next);
+            next = sum;
+            sum = sum.add(prev);
+            prev = next;
+            fiboCache.put(i, sum);
             if (i % 3 == 0)
                 try {
                     Thread.sleep(1);
@@ -40,23 +41,24 @@ public class FiboMapCache {
                 }
         }
         lastFiboCache_n = n;
-        return next;
+        return sum;
     }
+
     public BigDecimal fiboNumber2(int n) {     // Рассчёт Фибоначчи без КЭШ
         try {
             Thread.sleep(0);
         } catch (InterruptedException ex) {
         }
         BigDecimal prev = BigDecimal.ZERO;
-        BigDecimal next = BigDecimal.ONE;
-        BigDecimal sum;
+        BigDecimal sum = BigDecimal.ONE;
+        BigDecimal next;
         int i = 1;
         while (i++ < n) {
-            sum = next;
-            next = next.add(prev);
-            prev = sum;
+            next = sum;
+            sum = sum.add(prev);
+            prev = next;
         }
-        return next;
+        return sum;
     }
 
     public static void test() {
@@ -74,8 +76,9 @@ public class FiboMapCache {
         System.out.println("fiboNumber cacheOn=" + true + " время выполнения " + (currentTimeMillis() - start));
 
     }
+
     public void clearCahe() {   // Очистка КЭШ
-        if (cacheOn==true) {
+        if (cacheOn == true) {
             if (fiboCache != null) fiboCache.clear();
 
             fiboCache = new HashMap<Integer, BigDecimal>();
@@ -85,6 +88,7 @@ public class FiboMapCache {
             lastFiboCache_n = 2;
         }
     }
+
     public static void main(String[] args) {
         FiboMapCache temp = new FiboMapCache(true);
         for (int i = 1; i <= 1000; i++) System.out.println(temp.fiboNumber(i));
