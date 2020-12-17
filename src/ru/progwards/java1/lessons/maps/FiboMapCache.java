@@ -17,7 +17,6 @@ public class FiboMapCache {
         clearCahe();
     }
 
-
     public void clearCahe() {   // Очистка КЭШ
         if (cacheOn) {
             if (fiboCache != null) fiboCache.clear();
@@ -66,40 +65,7 @@ public class FiboMapCache {
     BigDecimal lastFibo_prev = BigDecimal.ZERO;
     BigDecimal lastFibo_next = BigDecimal.ONE;
 
-    /*public BigDecimal fiboCacheLast(int n) {
-
-        if (lastFibo_n == n) return lastFibo_next; //  последнее число КЭШ
-
-        BigDecimal prev;
-        BigDecimal next;
-        BigDecimal sum;
-        int i;
-
-        if (lastFibo_n < n) {                       //КЭШ
-            prev = lastFibo_prev;
-            next = lastFibo_next;
-            i = lastFibo_n;
-        } else {                               //сначала
-            prev = BigDecimal.ZERO;
-            next = BigDecimal.ONE;
-            i = 1;
-        }
-
-        while (i++ < n) {
-            sum = next;
-            next = next.add(prev);
-            prev = sum;
-        }
-
-        lastFibo_n = n;
-        lastFibo_prev = prev;
-        lastFibo_next = next;
-        return next;
-    }*/
-
-    // Рассчёт Фибоначчи без КЭШ
-
-    public BigDecimal fiboNoCache(int n) {
+    public BigDecimal fiboNoCache(int n) {// Рассчёт Фибоначчи без КЭШ
         try {
             Thread.sleep(0);
         } catch (InterruptedException ex) {
@@ -138,24 +104,33 @@ public class FiboMapCache {
         test();
     }
 }
- /* public static void test1() {
-        FiboMapCache temp = new FiboMapCache(true);
-        final int NUM_FROM = 1;
-        final int NUM_TO = 1_000;
+ /*public BigDecimal fiboCacheLast(int n) {
 
-        test2(temp, NUM_FROM, NUM_TO, "время на загрузку в КЭШ ");
-        test2(temp, NUM_FROM, NUM_TO, "выгрузка из КЭШ");
-        temp.clearCahe();
-        test2(temp, NUM_FROM, NUM_TO, "чистка КЭШ ");
-        temp.clearCahe();
-        test2(temp, NUM_TO, NUM_TO, " КЭШ расчетом " + NUM_TO);
-        temp.clearCahe();
-        test2(temp, NUM_FROM, NUM_TO, " КЭШ перебором с " + NUM_FROM + " до " + NUM_TO);
+        if (lastFibo_n == n) return lastFibo_next; //  последнее число КЭШ
 
-    }
+        BigDecimal prev;
+        BigDecimal next;
+        BigDecimal sum;
+        int i;
 
-    private static void test2(FiboMapCache temp, int numFrom, int numTo, String caption) {
-        long start = currentTimeMillis();
-        for (int i = numFrom; i <= numTo; i++) temp.fiboNumber(i);
-        System.out.println(caption + ", мс: " + (currentTimeMillis() - start));
+        if (lastFibo_n < n) {                       //КЭШ
+            prev = lastFibo_prev;
+            next = lastFibo_next;
+            i = lastFibo_n;
+        } else {                               //сначала
+            prev = BigDecimal.ZERO;
+            next = BigDecimal.ONE;
+            i = 1;
+        }
+
+        while (i++ < n) {
+            sum = next;
+            next = next.add(prev);
+            prev = sum;
+        }
+
+        lastFibo_n = n;
+        lastFibo_prev = prev;
+        lastFibo_next = next;
+        return next;
     }*/
