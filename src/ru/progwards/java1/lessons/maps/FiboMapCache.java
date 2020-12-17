@@ -1,12 +1,13 @@
 package ru.progwards.java1.lessons.maps;
 
 import static java.lang.System.currentTimeMillis;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 public class FiboMapCache {
-    private static  Map<Integer, BigDecimal> fiboCache;
+    private static Map<Integer, BigDecimal> fiboCache;
 
 
     private boolean cacheOn; // cacheOn = true кэш работает, при cacheOn = false - выключен
@@ -17,7 +18,6 @@ public class FiboMapCache {
     }
 
 
-
     public void clearCahe() {   // Очистка КЭШ
         if (cacheOn) {
             if (fiboCache != null) fiboCache.clear();
@@ -26,12 +26,10 @@ public class FiboMapCache {
             fiboCache.put(2, BigDecimal.ONE);
             lastFiboCache_n = 2;
             lastFibo_prev = BigDecimal.ZERO;
-            lastFibo_next  = BigDecimal.ONE;
+            lastFibo_next = BigDecimal.ONE;
             lastFibo_n = 1;
         }
     }
-
-
 
     public BigDecimal fiboNumber(int n) {                      // Расчёт Фибоначчи
         return cacheOn ? fiboCacheMap(n) : fiboNoCache(n);
@@ -66,11 +64,11 @@ public class FiboMapCache {
 
     int lastFibo_n = 1;
     BigDecimal lastFibo_prev = BigDecimal.ZERO;
-    BigDecimal lastFibo_next  = BigDecimal.ONE;
+    BigDecimal lastFibo_next = BigDecimal.ONE;
 
-    public BigDecimal fiboCacheLast(int n) {
+    /*public BigDecimal fiboCacheLast(int n) {
 
-        if (lastFibo_n == n) return lastFibo_next ; //  последнее число КЭШ
+        if (lastFibo_n == n) return lastFibo_next; //  последнее число КЭШ
 
         BigDecimal prev;
         BigDecimal next;
@@ -79,7 +77,7 @@ public class FiboMapCache {
 
         if (lastFibo_n < n) {                       //КЭШ
             prev = lastFibo_prev;
-            next = lastFibo_next ;
+            next = lastFibo_next;
             i = lastFibo_n;
         } else {                               //сначала
             prev = BigDecimal.ZERO;
@@ -95,9 +93,9 @@ public class FiboMapCache {
 
         lastFibo_n = n;
         lastFibo_prev = prev;
-        lastFibo_next  = next;
+        lastFibo_next = next;
         return next;
-    }
+    }*/
 
     // Рассчёт Фибоначчи без КЭШ
 
@@ -133,6 +131,7 @@ public class FiboMapCache {
         System.out.println("fiboNumber cacheOn=" + true + " время выполнения " + (currentTimeMillis() - start));
 
     }
+
     public static void main(String[] args) {
         FiboMapCache temp = new FiboMapCache(true);
         for (int i = 1; i <= 10; i++) System.out.println(temp.fiboNumber(i));
