@@ -55,7 +55,7 @@ public class FiboMapCache {
             fiboCache.put(i, next);
             if (i % 3 == 0)
                 try {
-                    Thread.sleep(1);
+                    Thread.sleep(0);
                 } catch (InterruptedException ex) {
                 }
         }
@@ -77,11 +77,11 @@ public class FiboMapCache {
         BigDecimal sum;
         int i;
 
-        if (lastFibo_n < n) {                       //    КЭШ
+        if (lastFibo_n < n) {                       //КЭШ
             prev = lastFibo_prev;
             next = lastFibo_next ;
             i = lastFibo_n;
-        } else {                               //  сначала
+        } else {                               //сначала
             prev = BigDecimal.ZERO;
             next = BigDecimal.ONE;
             i = 1;
@@ -99,11 +99,11 @@ public class FiboMapCache {
         return next;
     }
 
-    // Рассчитываем Фибоначчи с нуля без кеша
+    // Рассчёт Фибоначчи без КЭШ
 
     public BigDecimal fiboNoCache(int n) {
         try {
-            Thread.sleep(1);
+            Thread.sleep(0);
         } catch (InterruptedException ex) {
         }
         BigDecimal prev = BigDecimal.ZERO;
@@ -124,18 +124,18 @@ public class FiboMapCache {
 
         start = currentTimeMillis();
         temp = new FiboMapCache(false);
-        for (int i = 1; i <= 50; i++) temp.fiboNumber(i);
+        for (int i = 1; i <= 1000; i++) temp.fiboNumber(i);
         System.out.println("fiboNumber cacheOn=" + false + " время выполнения " + (currentTimeMillis() - start));
 
         start = currentTimeMillis();
         temp = new FiboMapCache(true);
-        for (int i = 1; i <= 50; i++) temp.fiboNumber(i);
+        for (int i = 1; i <= 1000; i++) temp.fiboNumber(i);
         System.out.println("fiboNumber cacheOn=" + true + " время выполнения " + (currentTimeMillis() - start));
 
-        /*start = currentTimeMillis();
+        start = currentTimeMillis();
         temp = new FiboMapCache(false);
         for (int i = 1; i <= 1000; i++) temp.fiboCacheLast(i);
-        System.out.println("fiboNumber cacheOn=my время выполнения " + (currentTimeMillis() - start));*/
+        System.out.println("fiboNumber cacheOn=my время выполнения " + (currentTimeMillis() - start));
 
     }
 
