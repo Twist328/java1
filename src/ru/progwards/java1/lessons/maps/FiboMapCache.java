@@ -37,9 +37,6 @@ public class FiboMapCache {
         return cacheOn ? fiboCacheMap(n) : fiboNoCache(n);
     }
 
-
-
-
     int lastFiboCache_n;       // Рассчёт Фибоначчи с кеш
 
     public BigDecimal fiboCacheMap(int n) {
@@ -127,12 +124,12 @@ public class FiboMapCache {
 
         start = currentTimeMillis();
         temp = new FiboMapCache(false);
-        for (int i = 1; i <= 1000; i++) temp.fiboNumber(i);
+        for (int i = 1; i <= 50; i++) temp.fiboNumber(i);
         System.out.println("fiboNumber cacheOn=" + false + " время выполнения " + (currentTimeMillis() - start));
 
         start = currentTimeMillis();
         temp = new FiboMapCache(true);
-        for (int i = 1; i <= 1000; i++) temp.fiboNumber(i);
+        for (int i = 1; i <= 50; i++) temp.fiboNumber(i);
         System.out.println("fiboNumber cacheOn=" + true + " время выполнения " + (currentTimeMillis() - start));
 
         /*start = currentTimeMillis();
@@ -166,8 +163,7 @@ public class FiboMapCache {
 
     public static void main(String[] args) {
         FiboMapCache temp = new FiboMapCache(true);
-        for (int i = 1; i <= 50; i++) System.out.println(temp.fiboNumber(i));
+        for (int i = 1; i <= 10; i++) System.out.println(temp.fiboNumber(i));
         test();
     }
-
 }
