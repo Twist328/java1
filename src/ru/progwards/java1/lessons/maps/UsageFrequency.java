@@ -66,10 +66,10 @@ public class UsageFrequency {
         }
     }
 
-    public static Map<Character, Integer> getAlphabet() {     // вернуть Map, который содержит все найденные буквы и цифры
+    public static Map<Character, Integer> getLetters() {     // вернуть Map, который содержит все найденные буквы и цифры
         return alphabet;
     }
-    public static Map<String, Integer> getSpeech() {     // вернуть Map, который содержит все найденные слова
+    public static Map<String, Integer> getWords() {     // вернуть Map, который содержит все найденные слова
         return speech;
     }
 
@@ -78,7 +78,7 @@ public class UsageFrequency {
        // processFile("..\\java1\\src\\ru\\progwards\\java1\\lessons\\maps\\UsageFrequency.java");
         processFile("..\\java1\\src\\ru\\progwards\\java1\\lessons\\maps\\wiki.test.tokens");
         processFile("..\\java1\\src\\ru\\progwards\\java1\\lessons\\maps\\wiki.train.tokens");
-        System.out.println(getAlphabet());
-        System.out.println(getSpeech());
+        System.out.println(getLetters());
+        System.out.println(getWords());
     }
 }
