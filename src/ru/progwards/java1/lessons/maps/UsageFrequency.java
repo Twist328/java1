@@ -6,18 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-/*
-Реализовать класс, подсчитывающий частоту использования слов и букв в словах на основе текстов. Методы:
-2.1 public static void processFile(String fileName) - загрузить содержимое файла
-2.2 public static Map<Character, Integer> getLetters() - вернуть Map, который содержит все найденные
-буквы и цифры, и количество раз, которое встретился каждый искомый символ. Знаки препинания,
-такие как “.,!? @” и др не учитывать.
-2.3 public static Map<String, Integer> getWords() - вернуть Map, который содержит все найденные
-слова и количество раз, которое каждое слово встретилось. Знаки препинания, такие как “.,!? @” и др
-являются разделителями.
-2.4 Протестировать на файле wiki.train.tokens (во вложении), для отладки можно использовать
-wiki.test.tokens
-*/
+
 
 public class UsageFrequency {
 
