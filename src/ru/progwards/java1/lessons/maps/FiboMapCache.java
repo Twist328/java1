@@ -45,7 +45,7 @@ public class FiboMapCache {
 
     public BigDecimal fiboNumber2(int n) {     // Рассчёт Фибоначчи без КЭШ
         try {
-            Thread.sleep(1);
+            Thread.sleep(0);
         } catch (InterruptedException ex) {
         }
         BigDecimal prev = BigDecimal.ZERO;
