@@ -1,5 +1,6 @@
 package ru.progwards.java1.lessons.bigints;
 
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Arrays;
@@ -9,10 +10,6 @@ public class ArrayInteger {
 
     ArrayInteger(int n) {
         digits = new byte[n];
-    }
-
-    public ArrayInteger() {
-
     }
 
     void fromInt(BigInteger value) {
@@ -80,7 +77,7 @@ public class ArrayInteger {
             for (int i = 0; i < num.digits.length; i++) {
                 byte number = (byte) (digits[i] + num.digits[i]);
 
-                if (number >= 10 & digits[num.digits.length] == 9 & digits.length == num.digits.length + 1) {
+                if (number >= 10 & digits[num.digits.length] == 9 & digits.length== num.digits.length + 1) {
                     for (int j = 0; j < digits.length; j++) {
                         digits[j] = 0;
                     }
@@ -96,7 +93,7 @@ public class ArrayInteger {
             }
 
             for (int i = 0; i < digits.length; i++) {
-                if (digits[i] > 9 & i == digits.length - 1) {
+                if (digits[i] > 9 & i== digits.length - 1) {
                     for (int j = 0; j < digits.length; j++) {
                         digits[i] = 0;
                     }
@@ -115,6 +112,7 @@ public class ArrayInteger {
     public static  void main(String[] args) {
         ArrayInteger arrayInteger=new ArrayInteger(10);
         arrayInteger.fromInt(new BigInteger("3777377"));
+
         System.out.println(Arrays.toString(arrayInteger.digits));
         System.out.println(arrayInteger.toInt());
 
