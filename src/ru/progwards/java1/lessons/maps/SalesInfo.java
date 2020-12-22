@@ -60,6 +60,7 @@ public class SalesInfo {
     public static Map<String, AbstractMap.SimpleEntry<Double, Integer>> getCustomers() {
         return CONSUMERS;
     }
+
     public static void main(String[] args) {
 
         loadOrders("..\\java1\\src\\ru\\progwards\\java1\\lessons\\maps\\SalesINFO");

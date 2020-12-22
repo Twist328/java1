@@ -1,6 +1,6 @@
 package ru.progwards.java1.lessons.bigints;
 
-class ShortInteger extends AbsInteger {
+public class ShortInteger extends AbsInteger {
     short num;
 
     public ShortInteger(short num) {

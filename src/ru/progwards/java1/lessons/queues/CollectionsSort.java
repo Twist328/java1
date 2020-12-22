@@ -12,7 +12,7 @@ public class CollectionsSort {
 
         ArrayList<Integer> list = new ArrayList<Integer>();
         System.out.println("\n" + "   " + " " + " mySort ДО СОРТИРОВКИ:");
-        for (Integer e : new Integer[]{50, 600, 400, 10, -257, 15, 5, 0, -200, 7, 8, 9, 10, 15, 12, -13, -14, -500})
+        for (Integer e : new Integer[]{50, 600, 400, 10, -257, 15, 5, 0, -200, 7,-5000, 8, 9, 10, 15, 12, -13, -14, -500})
             list.add(e);
 
         for (int i = 0; i < list.size(); i++) {
@@ -28,6 +28,7 @@ public class CollectionsSort {
         System.out.println("\n" + "MinList: " + list);
         System.out.println("\n" + "CollSort: " + list);
         compareSort();
+        //System.out.println("\n" + "compareSort: " + list);
     }
 
     public static void mySort(Collection<Integer> data) {  //ПЕРЕДЕЛАТЬ ARRAYSORT В МЕТОД СОРТИРОВКИ КОЛЛЕКЦИЙ
@@ -106,7 +107,7 @@ public class CollectionsSort {
         long restime2 = 0;
         long restime3 = 0;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i <3; i++) {
 
             Integer[] anArray = new Integer[1000];
             Random rand = new Random();
@@ -116,8 +117,8 @@ public class CollectionsSort {
 
             long time0 = System.nanoTime();
             for (int j = 1; j > 0; j--) {
-                ArrayList<Integer> sets = new ArrayList<Integer>(Arrays.asList(anArray));
-                mySort(sets);
+                ArrayList<Integer> set = new ArrayList<Integer>(Arrays.asList(anArray));
+                mySort(set);
             }
             long time1 = System.nanoTime();
             for (int j = 1; j > 0; j--) {
@@ -141,13 +142,17 @@ public class CollectionsSort {
         listTime.add(new BestCompare("mySort", restime1));
         listTime.add(new BestCompare("minSort", restime2));
         listTime.add(new BestCompare("collSort", restime3));
+
         Collections.sort(listTime, new TimeSort());
+        System.out.println();
 
         ArrayList<String> itogSort = new ArrayList<String>(3);
         for (BestCompare e : listTime) {
             itogSort.add(e.name);
+            System.out.print(itogSort);
         }
         return itogSort;
+
     }
 }
 

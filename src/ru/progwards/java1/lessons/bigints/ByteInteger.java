@@ -1,6 +1,6 @@
 package ru.progwards.java1.lessons.bigints;
 
-class ByteInteger extends AbsInteger {
+public class ByteInteger extends AbsInteger {
     byte num;
 
     public ByteInteger(byte num) {
