@@ -1,4 +1,4 @@
-package Riba;
+package ru.progwards.java1.lessons.datetime;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;

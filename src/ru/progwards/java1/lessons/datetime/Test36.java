@@ -1,4 +1,4 @@
-package Riba;
+package ru.progwards.java1.lessons.datetime;
 
 import java.util.Calendar;
 import java.util.Date;

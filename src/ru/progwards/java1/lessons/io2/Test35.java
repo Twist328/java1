@@ -1,4 +1,4 @@
-package Riba;
+package ru.progwards.java1.lessons.io2;
 
 import java.io.*;
 import java.util.Scanner;
