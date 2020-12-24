@@ -29,7 +29,7 @@ public class Less15 {
             return temp;
         }
     static void checkAndAdd(TreeMap<Integer, String> map, Integer key, String value){
-        //System.out.println("\nkey=" + key);
+        System.out.println("\nkey=" + key);
         if (map.containsKey(key) || map == null || map.size() < 2) return;
         Integer first = map.firstKey();
         System.out.println("first=" + first);
@@ -38,7 +38,7 @@ public class Less15 {
         System.out.println("last=" + last);
         if (key > last) return;
         map.put(key, value);
-        System.out.println("TreeMap:");
+        System.out.print("TreeMap:");
     }
 
 
