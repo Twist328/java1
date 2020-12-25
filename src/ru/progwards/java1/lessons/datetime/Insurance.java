@@ -34,16 +34,16 @@ public class Insurance {
     ZonedDateTime start; // дата-время начала действия страховки
     Duration valid; // продолжительность действия
 
+    public Insurance(ZonedDateTime start){
+        this.start = start;
+    }
+
     // установить дату-время начала действия страховки
-    public void setStart(ZonedDateTime start) {
+    public void Insurance(ZonedDateTime start) {
         this.start = start;
     }
 
     Insurance() {
-    }
-
-    Insurance(ZonedDateTime start) {
-        this.start = start;
     }
 
    /* Insurance(String strStart, FormatStyle style) {
