@@ -16,10 +16,11 @@ public class Insurance {
         start=
     }
 }*/
-import java.time.*;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-
-
 
 
 //Класс должен проверять валидность страховок,
@@ -28,13 +29,13 @@ import java.time.format.DateTimeFormatter;
 
 public class Insurance {
 
-   static enum FormatStyle
-    {SHORT, LONG, FULL} // стиль формата даты-времени // перенесено сюда для тестера
+    static enum FormatStyle {SHORT, LONG, FULL} // стиль формата даты-времени // перенесено сюда для тестера
 
-    ZonedDateTime start; // дата-время начала действия страховки
-    Duration valid; // продолжительность действия
+    private ZonedDateTime start; // дата-время начала действия страховки
+    private Duration duration; // продолжительность действия
+    Duration valid;
 
-    public Insurance(ZonedDateTime start){
+    public Insurance(ZonedDateTime start) {
         this.start = start;
     }
 
@@ -46,8 +47,10 @@ public class Insurance {
     Insurance() {
     }
 
-   Insurance(String strStart, FormatStyle style) {
-        setDuration(strStart, style);
+    Insurance(String strStart, FormatStyle style) {
+        start = ZonedDateTime.parse(strStart);
+        style = style;
+
     }
 
     // найти дату-время по строке с заданным форматом
@@ -104,7 +107,7 @@ public class Insurance {
     }
 
     // проверить валидна ли страховка на указанную дату-время
-    public  boolean checkValid(ZonedDateTime dateTime) {
+    public boolean checkValid(ZonedDateTime dateTime) {
         if (valid == null) return dateTime.isAfter(start);
         ZonedDateTime over = start.plusHours(valid.toHours());
         return dateTime.isAfter(start) && dateTime.isBefore(over);
