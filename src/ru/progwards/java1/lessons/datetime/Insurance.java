@@ -27,6 +27,9 @@ import java.time.format.DateTimeFormatter;
 
 public class Insurance {
 
+    public Insurance(Duration valid) {
+    }
+
     static enum FormatStyle {SHORT, LONG, FULL} // стиль формата даты-времени // перенесено сюда для тестера
 
     private ZonedDateTime start; // дата-время начала действия страховки
@@ -38,20 +41,20 @@ public class Insurance {
     }
 
     // установить дату-время начала действия страховки
-    public void Insurance(ZonedDateTime start) {
+    /*public void Insurance(ZonedDateTime start) {
         this.start = start;
-    }
+    }*/
 
     Insurance() {
     }
 
-    Insurance(String strStart, FormatStyle style) {
+    public Insurance(String strStart, FormatStyle style) {
         start = Insurance(strStart,style);
 
     }
 
     // найти дату-время по строке с заданным форматом
-    private ZonedDateTime Insurance(String strStart, FormatStyle style) {
+     ZonedDateTime Insurance(String strStart, FormatStyle style) {
         DateTimeFormatter formatter;
         switch (style) {
             case SHORT:
