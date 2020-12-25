@@ -46,12 +46,12 @@ public class Insurance {
     }
 
     Insurance(String strStart, FormatStyle style) {
-        //start = styledStringToZDT(strStart,style);
+        start = Insurance(strStart,style);
 
     }
 
     // найти дату-время по строке с заданным форматом
-    private ZonedDateTime styledStringToZDT(String strStart, FormatStyle style) {
+    private ZonedDateTime Insurance(String strStart, FormatStyle style) {
         DateTimeFormatter formatter;
         switch (style) {
             case SHORT:
