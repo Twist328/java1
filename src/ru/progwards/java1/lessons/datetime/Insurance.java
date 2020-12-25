@@ -1,5 +1,21 @@
 package ru.progwards.java1.lessons.datetime;
 
+/*import java.time.Duration;
+import java.time.ZonedDateTime;
+
+public class Insurance {
+
+    public static enum FormatStyle {SHORT, LONG, FULL}  //SHORT соответствует ISO_LOCAL_DATE
+    private ZonedDateTime start;                         //LONG  - ISO_LOCAL_DATE_TIME
+    private Duration duration;                            //FULL - ISO_ZONED_DATE_TIME
+
+    public Insurance(ZonedDateTime start) {
+        this.start = start;
+    }
+    public Insurance(String strStart, FormatStyle style){
+        start=
+    }
+}*/
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
@@ -30,12 +46,12 @@ public class Insurance {
         this.start = start;
     }
 
-    Insurance(String strStart, FormatStyle style) {
+   /* Insurance(String strStart, FormatStyle style) {
         start = styledStringToZDT(strStart, style);
     }
 
     // найти дату-время по строке с заданным форматом
-    private ZonedDateTime styledStringToZDT(String strStart, FormatStyle style) {
+    /*private ZonedDateTime styledStringToZDT(String strStart, FormatStyle style) {
         DateTimeFormatter formatter;
         switch (style) {
             case SHORT:
@@ -51,7 +67,7 @@ public class Insurance {
         }
         LocalDate date = LocalDate.parse(strStart, formatter);
         return date.atStartOfDay(ZoneId.systemDefault());
-    }
+    }*/
 
     // установить продолжительность действия страховки
     public void setDuration(Duration duration) {
