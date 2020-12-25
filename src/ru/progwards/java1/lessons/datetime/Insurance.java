@@ -46,8 +46,8 @@ public class Insurance {
     Insurance() {
     }
 
-   /* Insurance(String strStart, FormatStyle style) {
-        start = styledStringToZDT(strStart, style);
+   Insurance(String strStart, FormatStyle style) {
+        setDuration(strStart, style);
     }
 
     // найти дату-время по строке с заданным форматом
