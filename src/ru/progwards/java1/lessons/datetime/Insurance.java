@@ -101,7 +101,7 @@ public class Insurance {
 
     public static void main(String[] args) {
         LocalDateTime date0 = LocalDateTime.parse("2020-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-        LocalDateTime date1 = LocalDateTime.parse("2020-01-06T10:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME).
+        LocalDateTime date1 = LocalDateTime.parse("2020-11-30T10:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME).
                 plusMonths(1).plusDays(1);
         Duration valid = Duration.between(date0, date1);
         System.out.println(date0);
