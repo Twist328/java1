@@ -17,9 +17,7 @@ public class Insurance {
     }
 }*/
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 
@@ -48,13 +46,12 @@ public class Insurance {
     }
 
     Insurance(String strStart, FormatStyle style) {
-        start = ZonedDateTime.parse(strStart);
-        style = style;
+        //start = styledStringToZDT(strStart,style);
 
     }
 
     // найти дату-время по строке с заданным форматом
-    /*private ZonedDateTime styledStringToZDT(String strStart, FormatStyle style) {
+    private ZonedDateTime styledStringToZDT(String strStart, FormatStyle style) {
         DateTimeFormatter formatter;
         switch (style) {
             case SHORT:
@@ -70,7 +67,7 @@ public class Insurance {
         }
         LocalDate date = LocalDate.parse(strStart, formatter);
         return date.atStartOfDay(ZoneId.systemDefault());
-    }*/
+    }
 
     // установить продолжительность действия страховки
     public void setDuration(Duration duration) {
