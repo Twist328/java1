@@ -1,23 +1,59 @@
 package ru.progwards.java1.lessons.datetime;
 
-/*import java.time.Duration;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Insurance {
 
     public static enum FormatStyle {SHORT, LONG, FULL}  //SHORT соответствует ISO_LOCAL_DATE
+
     private ZonedDateTime start;                         //LONG  - ISO_LOCAL_DATE_TIME
-    private Duration duration;                            //FULL - ISO_ZONED_DATE_TIME
+    private Duration duration;
+    Duration valid;                                      //FULL - ISO_ZONED_DATE_TIME
 
     public Insurance(ZonedDateTime start) {
         this.start = start;
     }
-    public Insurance(String strStart, FormatStyle style){
-        start=
-    }
-}*/
 
-import java.time.*;
+    public Insurance(String strStart, FormatStyle style) {
+        start = Insurance(strStart, style);
+    }
+
+    ZonedDateTime Insurance(String strStart, FormatStyle style) {
+        DateTimeFormatter formatter;
+        switch (style) {
+            case SHORT:
+                formatter = DateTimeFormatter.ISO_LOCAL_DATE;
+                break;
+            case LONG:
+                formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+                break;
+            case FULL:
+            default:
+                formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+                return ZonedDateTime.parse(strStart, formatter);
+        }
+        LocalDate date = LocalDate.parse(strStart, formatter);
+        return date.atStartOfDay(ZoneId.systemDefault());
+    }
+
+    public void setDuration(Duration duration) { // установить продолжительность действия страховки
+        valid = duration;
+    }
+
+    public void setDuration(ZonedDateTime stop) {
+        valid=Duration.between(start,stop);
+    }
+
+    public void setDuration(String durationStr, FormatStyle style) {
+
+    }
+}
+
+/*import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 
@@ -31,7 +67,7 @@ public class Insurance {
 
     }
 
-    static enum FormatStyle {SHORT, LONG, FULL} // стиль формата даты-времени // перенесено сюда для тестера
+    static enum FormatStyle {SHORT, LONG, FULL} // стиль формата даты-времени
 
     private ZonedDateTime start; // дата-время начала действия страховки
     private Duration duration; // продолжительность действия
@@ -41,9 +77,7 @@ public class Insurance {
         this.start = start;
     }
 
-   //
-
-    public Insurance(String strStart, FormatStyle style) {
+    public Insurance(String strStart, FormatStyle style) {// дата-время начала действия страховки
         start = Insurance(strStart,style);
 
     }
@@ -124,4 +158,4 @@ public class Insurance {
         System.out.println(valid.toString());
         System.out.println(new Insurance().equals(valid));
     }
-}
+}*/
