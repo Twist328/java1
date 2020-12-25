@@ -27,7 +27,8 @@ import java.time.format.DateTimeFormatter;
 
 public class Insurance {
 
-    public Insurance(Duration valid) {
+    public Insurance() {
+
     }
 
     static enum FormatStyle {SHORT, LONG, FULL} // стиль формата даты-времени // перенесено сюда для тестера
@@ -36,17 +37,11 @@ public class Insurance {
     private Duration duration; // продолжительность действия
     Duration valid;
 
-    public Insurance(ZonedDateTime start) {
+    public Insurance(ZonedDateTime start) {// установить дату-время начала действия страховки
         this.start = start;
     }
 
-    // установить дату-время начала действия страховки
-    /*public void Insurance(ZonedDateTime start) {
-        this.start = start;
-    }*/
-
-    Insurance() {
-    }
+   //
 
     public Insurance(String strStart, FormatStyle style) {
         start = Insurance(strStart,style);
