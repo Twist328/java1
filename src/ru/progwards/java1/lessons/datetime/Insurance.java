@@ -70,7 +70,7 @@ public class Insurance {
                 // что продолжительность действия страховки 0 лет, 6 месяцев, 3 дня 10 часов.
                 //LocalDate date = LocalDate.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
                 //valid = Duration.ofMillis(date.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli());
-                LocalDateTime date0 = LocalDateTime.parse("2020-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                LocalDateTime date0 = LocalDateTime.parse("0000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
                 LocalDateTime date1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).plusMonths(1).plusDays(1);
                 valid = Duration.between(date0, date1);
                 break;
