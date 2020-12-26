@@ -1,18 +1,18 @@
 package ru.progwards.java1.lessons.datetime;
 
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 public class Insurance {
+
+    public Insurance(String strStart, LocalDateTime date1) {
+    }
 
     public static enum FormatStyle {SHORT, LONG, FULL}  //SHORT соответствует ISO_LOCAL_DATE
 
     private ZonedDateTime start;                         //LONG  - ISO_LOCAL_DATE_TIME
     private Duration duration;
-    Duration valid;                                      //FULL - ISO_ZONED_DATE_TIME
+    //Duration valid;                                      //FULL - ISO_ZONED_DATE_TIME
 
     public Insurance(ZonedDateTime start) {
         this.start = start;
@@ -41,17 +41,33 @@ public class Insurance {
     }
 
     public void setDuration(Duration duration) { // установить продолжительность действия страховки
-        valid = duration;
+        duration = duration;
     }
 
-    public void setDuration(ZonedDateTime stop) {
-        valid=Duration.between(start,stop);
+    public void setDuration(ZonedDateTime stop) {// установить продолжительность действия страховки, задав дату-время окончания
+        duration = Duration.between(start, stop);
     }
 
     public void setDuration(String durationStr, FormatStyle style) {
-
+        switch (style) {
+            case SHORT:
+                Duration.ofMillis(Integer.parseInt(durationStr));
+                break;
+            case LONG:
+                LocalDateTime dateTime0 = LocalDateTime.parse("0000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                LocalDateTime dateTime1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).
+                        plusMonths(1).plusDays(1);
+                break;
+            case FULL:
+            default:
+                duration = Duration.parse(durationStr);
+        }
     }
-}
+    // установить продолжительность действия страховки, задав целыми числами количество месяцев, дней и часов
+public void setDuration(int months,int days,int hours){
+
+
+
 
 /*import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -129,16 +145,16 @@ public class Insurance {
     }
 
     // установить продолжительность действия страховки, задав целыми числами количество месяцев, дней и часов
-    public void setDuration(int mons, int days, int hrs) {
+    public void setDuration(int mons, int days, int hrs) {*/
         ZonedDateTime zdt = start == null ? ZonedDateTime.now() : start;
-        zdt = zdt.plusMonths(mons).plusDays(days).plusHours(hrs);
-        valid = Duration.between(start, zdt);
+        zdt = zdt.plusMonths(months).plusDays(days).plusHours(hours);
+             duration = Duration.between(start, zdt);
     }
 
     // проверить валидна ли страховка на указанную дату-время
     public boolean checkValid(ZonedDateTime dateTime) {
-        if (valid == null) return dateTime.isAfter(start);
-        ZonedDateTime over = start.plusHours(valid.toHours());
+        if (duration == null) return dateTime.isAfter(start);
+        ZonedDateTime over = start.plusHours(duration.toHours());
         return dateTime.isAfter(start) && dateTime.isBefore(over);
     }
 
@@ -152,10 +168,10 @@ public class Insurance {
         LocalDateTime date0 = LocalDateTime.parse("2020-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
         LocalDateTime date1 = LocalDateTime.parse("2020-11-30T10:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME).
                 plusMonths(1).plusDays(1);
-        Duration valid = Duration.between(date0, date1);
+        Duration duration = Duration.between(date0, date1);
         System.out.println(date0);
         System.out.println(date1);
-        System.out.println(valid.toString());
-        System.out.println(new Insurance().equals(valid));
+        System.out.println(duration.toString());
+        System.out.println(duration);
     }
-}*/
+}
