@@ -88,7 +88,7 @@ public class Insurance {
     static enum FormatStyle {SHORT, LONG, FULL} // стиль формата даты-времени
 
     private ZonedDateTime start; // дата-время начала действия страховки
-    private Duration duration; // продолжительность действия
+    private Duration duration1; // продолжительность действия
     //Duration val;
 
     public Insurance(ZonedDateTime start) {// установить дату-время начала действия страховки
@@ -126,23 +126,23 @@ public class Insurance {
 
     // установить продолжительность действия страховки, задав дату-время окончания
     public void setDuration(ZonedDateTime stop) {
-        duration = Duration.between(start, stop);
+        duration1 = Duration.between(start, stop);
     }
 
     public void setDuration(String durationStr, FormatStyle style) {
 
         switch (style) {
             case SHORT: //целое число миллисекунд (тип long)
-                duration = Duration.ofMillis(Integer.parseInt(durationStr));
+                duration1 = Duration.ofMillis(Integer.parseInt(durationStr));
                 break;
             case LONG:
                 LocalDateTime date0 = LocalDateTime.parse("0000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
                 LocalDateTime date1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).plusMonths(1).plusDays(1);
-                duration = Duration.between(date0, date1);
+                duration1 = Duration.between(date0, date1);
                 break;
             case FULL:
             default:
-                duration = Duration.parse(durationStr);
+                duration1 = Duration.parse(durationStr);
         }
     }
 
@@ -150,13 +150,13 @@ public class Insurance {
     public void setDuration(int mes, int days, int hrs) {
         ZonedDateTime zdt = start == null ? ZonedDateTime.now() : start;
         zdt = zdt.plusMonths(mes).plusDays(days).plusHours(hrs);
-        duration = Duration.between(start, zdt);
+        duration1 = Duration.between(start, zdt);
     }
 
     // проверить валидна ли страховка на указанную дату-время
     public boolean checkValid(ZonedDateTime dateTime) {
-        if (duration == null) return dateTime.isAfter(start);
-        ZonedDateTime over = start.plusHours(duration.toHours());
+        if (duration1 == null) return dateTime.isAfter(start);
+        ZonedDateTime over = start.plusHours(duration1.toHours());
         return dateTime.isAfter(start) && dateTime.isBefore(over);
     }
 
