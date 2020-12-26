@@ -58,14 +58,18 @@ public class Insurance {
     }
 
     public void setDuration(String durationStr, FormatStyle style) {//параметры проверки полиса на валидность
+
         if (style.equals(FormatStyle.SHORT)) {
             durationVal = Duration.ofMillis(Integer.parseInt(durationStr));
+
         } else if (style.equals(FormatStyle.LONG)) {
 
             LocalDateTime dateTime0 = LocalDateTime.parse("000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
             LocalDateTime dateTime1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).plusMonths(1).plusDays(1);
             durationVal = Duration.between(dateTime0, dateTime1);
+
         } else if(style.equals(FormatStyle.FULL)){
+
             durationVal = Duration.parse(durationStr);
 
         }
@@ -73,6 +77,7 @@ public class Insurance {
 
     // установить продолжительность действия страховки, задав целыми числами количество месяцев, дней и часов
     public void setDuration(int months, int days, int hours) {
+
         ZonedDateTime zdt = start == null ? ZonedDateTime.now() : start;
         zdt = zdt.plusMonths(months).plusDays(days).plusHours(hours);
         durationVal = Duration.between(start, zdt);
@@ -81,19 +86,25 @@ public class Insurance {
 
 
     public boolean checkValid(ZonedDateTime dateTime) {// проверить валидна ли страховка на указанную дату-время
+
         if (durationVal == null) return dateTime.isAfter(start);
         ZonedDateTime over = start.plusHours((durationVal.toHours()));
         return dateTime.isAfter(start) & dateTime.isBefore(over);
     }
 
     public static void main(String[] args) {
+
         LocalDateTime date0 = LocalDateTime.parse("2020-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
         LocalDateTime date1 = LocalDateTime.parse("2020-11-30T10:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME).
                 plusMonths(1).plusDays(1);
+
         Duration val = Duration.between(date0, date1);
+
         System.out.println(date0);
         System.out.println(date1);
+
         System.out.println(val.toString());
+
         System.out.println(new Insurance("0000-01-01T00:00:00", FormatStyle.LONG));
         System.out.println(new Insurance("0000-01-01T00:00:00", FormatStyle.LONG).checkValid(ZonedDateTime.now()));
     }
