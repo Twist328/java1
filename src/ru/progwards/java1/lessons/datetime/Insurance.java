@@ -1,83 +1,8 @@
 package ru.progwards.java1.lessons.datetime;
 
-/*import java.time.*;
-import java.time.format.DateTimeFormatter;
-
-public class Insurance {
-
-    public Insurance(String strStart, LocalDateTime date1) {
-    }
-
-    public static enum FormatStyle {SHORT, LONG, FULL}  //SHORT соответствует ISO_LOCAL_DATE
-
-    private ZonedDateTime start;                         //LONG  - ISO_LOCAL_DATE_TIME
-    private Duration duration;
-    Duration val;                                      //FULL - ISO_ZONED_DATE_TIME
-
-    public Insurance(ZonedDateTime start) {
-        this.start = start;
-    }
-
-    public Insurance(String strStart, FormatStyle style) {
-        start = Insurance(strStart, style);
-    }
-
-    ZonedDateTime Insurance(String strStart, FormatStyle style) {
-        DateTimeFormatter formatter;
-        switch (style) {
-            case SHORT:
-                formatter = DateTimeFormatter.ISO_LOCAL_DATE;
-                break;
-            case LONG:
-                formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
-                break;
-            case FULL:
-            default:
-                formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
-                return ZonedDateTime.parse(strStart, formatter);
-        }
-        LocalDate date = LocalDate.parse(strStart, formatter);
-        return date.atStartOfDay(ZoneId.systemDefault());
-    }
-
-    public void setDuration(Duration duration) { // установить продолжительность действия страховки
-        val = duration;
-    }
-
-    public void setDuration(ZonedDateTime stop) {// установить продолжительность действия страховки, задав дату-время окончания
-        val = Duration.between(start, stop);
-    }
-
-    public void setDuration(String durationStr, FormatStyle style) {
-        switch (style) {
-            case SHORT:
-                Duration.ofMillis(Integer.parseInt(durationStr));
-                break;
-            case LONG:
-                LocalDateTime date0 = LocalDateTime.parse("0000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-                LocalDateTime date1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).
-                        plusMonths(1).plusDays(1);
-                val = Duration.between(date0, date1);
-                break;
-            case FULL:
-            default:
-                val = Duration.parse(durationStr);
-        }
-    }
-
-    // установить продолжительность действия страховки, задав целыми числами количество месяцев, дней и часов
-    public void setDuration(int months, int days, int hours) {*/
-
-
-
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-
-
-//Класс должен проверять валидность страховок,
-//Каждая страховка имеет дату-время начала, и продолжительность.
-
 
 public class Insurance {
 
