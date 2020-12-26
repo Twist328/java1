@@ -6,6 +6,12 @@ import java.time.format.DateTimeFormatter;
 
 public class Insurance {
 
+    @Override
+    public String toString() {// вернуть строку формата "Insurance "+start+" "+duration
+        return "Insurance issued on " + start + " is " + (checkValid(ZonedDateTime.now()) ? "" : "not") + " valid";
+
+    }
+
     static enum FormatStyle {SHORT, LONG, FULL} // стиль формата даты-времени
 
     DateTimeFormatter formatter;
@@ -22,8 +28,8 @@ public class Insurance {
 
     }
 
-    // найти дату-время по строке с заданным форматом
-    ZonedDateTime Insurance(String strStart, FormatStyle style) {
+
+    ZonedDateTime Insurance(String strStart, FormatStyle style) {// задать нужный формат для времени, зоны  и даты
         //DateTimeFormatter formatter;
         switch (style) {
             case SHORT:
@@ -41,8 +47,8 @@ public class Insurance {
         return date.atStartOfDay(ZoneId.systemDefault());
     }
 
-    // установить продолжительность действия страховки
-    public void setDuration(Duration duration) {
+
+    public void setDuration(Duration duration) {// установить продолжительность действия страховки
         durationVal = duration;
     }
 
@@ -51,15 +57,17 @@ public class Insurance {
         durationVal = Duration.between(start, expiration);
     }
 
-    public void setDuration(String durationStr, FormatStyle style) {
+    public void setDuration(String durationStr, FormatStyle style) {//параметры проверки полиса на валидность
         if (style.equals(FormatStyle.SHORT)) {
             durationVal = Duration.ofMillis(Integer.parseInt(durationStr));
         } else if (style.equals(FormatStyle.LONG)) {
-            LocalDateTime dateTime0 = LocalDateTime.parse("0000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+
+            LocalDateTime dateTime0 = LocalDateTime.parse("000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
             LocalDateTime dateTime1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).plusMonths(1).plusDays(1);
             durationVal = Duration.between(dateTime0, dateTime1);
         } else {
             durationVal = Duration.parse(durationStr);
+
         }
     }
 
@@ -68,19 +76,14 @@ public class Insurance {
         ZonedDateTime zdt = start == null ? ZonedDateTime.now() : start;
         zdt = zdt.plusMonths(months).plusDays(days).plusHours(hours);
         durationVal = Duration.between(start, zdt);
+
     }
 
-    // проверить валидна ли страховка на указанную дату-время
-    public boolean checkValid(ZonedDateTime dateTime) {
+
+    public boolean checkValid(ZonedDateTime dateTime) {// проверить валидна ли страховка на указанную дату-время
         if (durationVal == null) return dateTime.isAfter(start);
-        ZonedDateTime over = start.plusHours(durationVal.toHours());
+        ZonedDateTime over = start.plusHours((durationVal.toHours()));
         return dateTime.isAfter(start) & dateTime.isBefore(over);
-    }
-
-    // вернуть строку формата "Insurance "+start+" "+duration
-    @Override
-    public String toString() {
-        return "Insurance issued on " + start + " is " + (checkValid(ZonedDateTime.now()) ? "" : "not ") + "valid";
     }
 
     public static void main(String[] args) {
