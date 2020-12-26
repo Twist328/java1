@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 public class Insurance {
 
     @Override
-    public String toString() {// вернуть строку формата "Insurance "+start+" "+duration
+    public String toString() {   // вернуть строку формата "Insurance "+start+" "+duration
         return "Insurance issued on " + start + " is " + (checkValid(ZonedDateTime.now()) ? "" : "not ") + "valid";
 
     }
@@ -105,6 +105,6 @@ public class Insurance {
         System.out.println(val.toString());
 
         System.out.println(new Insurance("0000-01-01T00:00:00", FormatStyle.LONG));
-        System.out.println(new Insurance("0000-01-01T00:00:00", FormatStyle.LONG).checkValid(ZonedDateTime.now()));
+        System.out.println(new Insurance("0000-01-01T01:01:01", FormatStyle.LONG).checkValid(ZonedDateTime.now()));
     }
 }
