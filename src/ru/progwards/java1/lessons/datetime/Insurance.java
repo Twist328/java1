@@ -8,7 +8,7 @@ public class Insurance {
 
     @Override
     public String toString() {// вернуть строку формата "Insurance "+start+" "+duration
-        return "Insurance issued on " + start + " is " + (checkValid(ZonedDateTime.now()) ? "" : "not") + " valid";
+        return "Insurance issued on " + start + " is " + (checkValid(ZonedDateTime.now()) ? "" : "not") + "valid";
 
     }
 
