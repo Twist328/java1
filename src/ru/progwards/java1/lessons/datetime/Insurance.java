@@ -46,7 +46,7 @@ public class Insurance {
 
     // установить продолжительность действия страховки
     public void setDuration(Duration duration) {
-        duration = duration;
+        duration1 = duration;
     }
 
     // установить продолжительность действия страховки, задав дату-время окончания
