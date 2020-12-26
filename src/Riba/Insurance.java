@@ -1,5 +1,4 @@
-package ru.progwards.java1.lessons.datetime;
-
+package Riba;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -22,7 +21,7 @@ public class Insurance {
     }
 
     // найти дату-время по строке с заданным форматом
-     ZonedDateTime Insurance(String strStart, FormatStyle style) {
+    ZonedDateTime Insurance(String strStart, FormatStyle style) {
         //DateTimeFormatter formatter;
         switch (style) {
             case SHORT:
@@ -51,16 +50,29 @@ public class Insurance {
     }
 
     public void setDuration(String durationStr, FormatStyle style) {
-        if (style == FormatStyle.SHORT) {
-            durationVal = Duration.ofMillis(Integer.parseInt(durationStr));
-        } else if (style == FormatStyle.LONG) {
-            LocalDateTime dateTime0 = LocalDateTime.parse("0000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-            LocalDateTime dateTime1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).plusMonths(1).plusDays(1);
-            durationVal = Duration.between(dateTime0, dateTime1);
-        } else {
-            durationVal = Duration.parse(durationStr);
+             if(style==FormatStyle.SHORT) {
+                 durationVal = Duration.ofMillis(Integer.parseInt(durationStr));
+             }else if(style==FormatStyle.LONG) {
+                 LocalDateTime dateTime0 = LocalDateTime.parse("0000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                 LocalDateTime dateTime1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).plusMonths(1).plusDays(1);
+                 durationVal = Duration.between(dateTime0, dateTime1);
+             }else{
+                 durationVal = Duration.parse(durationStr);
+        /*switch (style) {
+            case SHORT: //целое число миллисекунд (тип long)
+                durationVal = Duration.ofMillis(Integer.parseInt(durationStr));
+                break;
+            case LONG:
+                LocalDateTime dateTime0 = LocalDateTime.parse("0000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                LocalDateTime dateTime1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).plusMonths(1).plusDays(1);
+                durationVal = Duration.between(dateTime0, dateTime1);
+                break;
+            case FULL:
+            default:
+                durationVal = Duration.parse(durationStr);*/
         }
     }
+
     // установить продолжительность действия страховки, задав целыми числами количество месяцев, дней и часов
     public void setDuration(int months, int days, int hours) {
         ZonedDateTime zdt = start == null ? ZonedDateTime.now() : start;
@@ -90,6 +102,6 @@ public class Insurance {
         System.out.println(date1);
         System.out.println(val.toString());
 
-        System.out.println(new Insurance("2020-11-30T10:00:00",FormatStyle.LONG));
+        System.out.println(new Insurance("2020-11-30T10:00:00", FormatStyle.LONG));
     }
 }
