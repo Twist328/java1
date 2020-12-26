@@ -60,12 +60,14 @@ public class Insurance {
     public void setDuration(String durationStr, FormatStyle style) {//параметры проверки полиса на валидность
 
         if (style.equals(FormatStyle.SHORT)) {
+
             durationVal = Duration.ofMillis(Integer.parseInt(durationStr));
 
         } else if (style.equals(FormatStyle.LONG)) {
 
             LocalDateTime dateTime0 = LocalDateTime.parse("000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
             LocalDateTime dateTime1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).plusMonths(1).plusDays(1);
+
             durationVal = Duration.between(dateTime0, dateTime1);
 
         } else if(style.equals(FormatStyle.FULL)){
