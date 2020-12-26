@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 public class Insurance {
 
     static enum FormatStyle {SHORT, LONG, FULL} // стиль формата даты-времени
-
+    DateTimeFormatter formatter;
     private ZonedDateTime start; // дата-время начала действия страховки
     private Duration durationVal; // продолжительность действия
     //Duration val;
@@ -23,7 +23,7 @@ public class Insurance {
 
     // найти дату-время по строке с заданным форматом
      ZonedDateTime Insurance(String strStart, FormatStyle style) {
-        DateTimeFormatter formatter;
+        //DateTimeFormatter formatter;
         switch (style) {
             case SHORT:
                 formatter = DateTimeFormatter.ISO_LOCAL_DATE;
@@ -78,7 +78,7 @@ public class Insurance {
     public boolean checkValid(ZonedDateTime dateTime) {
         if (durationVal == null) return dateTime.isAfter(start);
         ZonedDateTime over = start.plusHours(durationVal.toHours());
-        return dateTime.isAfter(start) | dateTime.isBefore(over);
+        return dateTime.isAfter(start) & dateTime.isBefore(over);
     }
 
     // вернуть строку формата "Insurance "+start+" "+duration
