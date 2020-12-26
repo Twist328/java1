@@ -54,10 +54,10 @@ public class Insurance {
                 Duration.ofMillis(Integer.parseInt(durationStr));
                 break;
             case LONG:
-                LocalDateTime dateTime0 = LocalDateTime.parse("0000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-                LocalDateTime dateTime1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).
+                LocalDateTime date0 = LocalDateTime.parse("0000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                LocalDateTime date1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).
                         plusMonths(1).plusDays(1);
-                val = Duration.between(dateTime0, dateTime1);
+                val = Duration.between(date0, date1);
                 break;
             case FULL:
             default:
