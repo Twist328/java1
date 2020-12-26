@@ -1,6 +1,6 @@
 package ru.progwards.java1.lessons.datetime;
 
-import java.time.*;
+/*import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 public class Insurance {
@@ -66,12 +66,12 @@ public class Insurance {
     }
 
     // установить продолжительность действия страховки, задав целыми числами количество месяцев, дней и часов
-    public void setDuration(int months, int days, int hours) {
+    public void setDuration(int months, int days, int hours) {*/
 
 
 
 
-/*import java.time.*;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 
@@ -147,16 +147,16 @@ public class Insurance {
     }
 
     // установить продолжительность действия страховки, задав целыми числами количество месяцев, дней и часов
-    public void setDuration(int mons, int days, int hrs) {*/
+    public void setDuration(int mes, int days, int hrs) {
         ZonedDateTime zdt = start == null ? ZonedDateTime.now() : start;
-        zdt = zdt.plusMonths(months).plusDays(days).plusHours(hours);
-        val = Duration.between(start, zdt);
+        zdt = zdt.plusMonths(mes).plusDays(days).plusHours(hrs);
+        valid = Duration.between(start, zdt);
     }
 
     // проверить валидна ли страховка на указанную дату-время
     public boolean checkValid(ZonedDateTime dateTime) {
-        if (val == null) return dateTime.isAfter(start);
-        ZonedDateTime over = start.plusHours(val.toHours());
+        if (valid == null) return dateTime.isAfter(start);
+        ZonedDateTime over = start.plusHours(valid.toHours());
         return dateTime.isAfter(start) && dateTime.isBefore(over);
     }
 
