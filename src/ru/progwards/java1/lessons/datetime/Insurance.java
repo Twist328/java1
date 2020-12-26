@@ -65,7 +65,7 @@ public class Insurance {
             LocalDateTime dateTime0 = LocalDateTime.parse("000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
             LocalDateTime dateTime1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).plusMonths(1).plusDays(1);
             durationVal = Duration.between(dateTime0, dateTime1);
-        } else {
+        } else if(style.equals(FormatStyle.FULL)){
             durationVal = Duration.parse(durationStr);
 
         }
