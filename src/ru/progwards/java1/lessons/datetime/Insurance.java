@@ -147,9 +147,9 @@ public class Insurance {
     }
 
     // установить продолжительность действия страховки, задав целыми числами количество месяцев, дней и часов
-    public void setDuration(int mes, int days, int hrs) {
+    public void setDuration(int months, int days, int hours) {
         ZonedDateTime zdt = start == null ? ZonedDateTime.now() : start;
-        zdt = zdt.plusMonths(mes).plusDays(days).plusHours(hrs);
+        zdt = zdt.plusMonths(months).plusDays(days).plusHours(hours);
         duration1 = Duration.between(start, zdt);
     }
 
