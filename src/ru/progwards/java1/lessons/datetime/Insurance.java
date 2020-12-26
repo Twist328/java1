@@ -12,7 +12,7 @@ public class Insurance {
 
     private ZonedDateTime start;                         //LONG  - ISO_LOCAL_DATE_TIME
     private Duration duration;
-    //Duration valid;                                      //FULL - ISO_ZONED_DATE_TIME
+    Duration val;                                      //FULL - ISO_ZONED_DATE_TIME
 
     public Insurance(ZonedDateTime start) {
         this.start = start;
@@ -41,11 +41,11 @@ public class Insurance {
     }
 
     public void setDuration(Duration duration) { // установить продолжительность действия страховки
-        duration = duration;
+        val = duration;
     }
 
     public void setDuration(ZonedDateTime stop) {// установить продолжительность действия страховки, задав дату-время окончания
-        duration = Duration.between(start, stop);
+        val = Duration.between(start, stop);
     }
 
     public void setDuration(String durationStr, FormatStyle style) {
@@ -57,14 +57,16 @@ public class Insurance {
                 LocalDateTime dateTime0 = LocalDateTime.parse("0000-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
                 LocalDateTime dateTime1 = LocalDateTime.parse(durationStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME).
                         plusMonths(1).plusDays(1);
+                val = Duration.between(dateTime0, dateTime1);
                 break;
             case FULL:
             default:
-                duration = Duration.parse(durationStr);
+                val = Duration.parse(durationStr);
         }
     }
+
     // установить продолжительность действия страховки, задав целыми числами количество месяцев, дней и часов
-public void setDuration(int months,int days,int hours){
+    public void setDuration(int months, int days, int hours) {
 
 
 
@@ -148,13 +150,13 @@ public class Insurance {
     public void setDuration(int mons, int days, int hrs) {*/
         ZonedDateTime zdt = start == null ? ZonedDateTime.now() : start;
         zdt = zdt.plusMonths(months).plusDays(days).plusHours(hours);
-             duration = Duration.between(start, zdt);
+        val = Duration.between(start, zdt);
     }
 
     // проверить валидна ли страховка на указанную дату-время
     public boolean checkValid(ZonedDateTime dateTime) {
-        if (duration == null) return dateTime.isAfter(start);
-        ZonedDateTime over = start.plusHours(duration.toHours());
+        if (val == null) return dateTime.isAfter(start);
+        ZonedDateTime over = start.plusHours(val.toHours());
         return dateTime.isAfter(start) && dateTime.isBefore(over);
     }
 
@@ -168,10 +170,10 @@ public class Insurance {
         LocalDateTime date0 = LocalDateTime.parse("2020-01-01T00:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
         LocalDateTime date1 = LocalDateTime.parse("2020-11-30T10:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME).
                 plusMonths(1).plusDays(1);
-        Duration duration = Duration.between(date0, date1);
+        Duration val = Duration.between(date0, date1);
         System.out.println(date0);
         System.out.println(date1);
-        System.out.println(duration.toString());
-        System.out.println(duration);
+        System.out.println(val.toString());
+        System.out.println(val);
     }
 }
