@@ -1,10 +1,11 @@
-package ru.progwards.java1.lessons.datetime;
+package Riba;
+
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-public class StatisticInfo implements Comparable {
+class StatisticInfo implements Comparable {
     public String sectionName; // имя секции
     public int fullTime = 0; // полное время выполнения секции в миллисекундах
     public int selfTime = 0; // чистое время выполнения секции в миллисекундах
@@ -90,11 +91,16 @@ public class StatisticInfo implements Comparable {
         return "\n" + sectionName + " Sec " + " Total:" + fullTime + " Self:" + selfTime + " Count:" + count;
     }
 
-    // для сортировки в TreeMap
     @Override
     public int compareTo(Object o) {
         return this.sectionName.compareTo(((StatisticInfo) o).sectionName);
     }
+
+    // для сортировки в TreeMap
+  /* @Override
+    public int compareTo(Object o) {
+        return this.sectionName.compareTo(((StatisticInfo) o).sectionName);
+    }*/
 }
 
 

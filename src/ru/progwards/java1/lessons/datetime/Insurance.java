@@ -84,7 +84,7 @@ public class Insurance {
     }
 
 
-    public boolean checkValid(ZonedDateTime dateTime) {// проверить валидна ли страховка на указанную дату-время
+    public boolean checkValid(ZonedDateTime dateTime) { // проверить валидна ли страховка на указанную дату-время
 
         if (durationVal == null) return dateTime.isAfter(start);
         ZonedDateTime over = start.plusHours((durationVal.toHours()));
