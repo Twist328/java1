@@ -96,29 +96,29 @@ public class SessionManager {
     public static void main(String[] args) {
         SessionManager manager = new SessionManager(3);
         manager.sessionValid = 3;
-        String n = "u1";
-        UserSession u1 = new UserSession(n);
-        if (manager.find(n) == null) manager.add(u1);
-        System.out.println(manager.get(u1.getSessionHandle()));
-        System.out.println(manager.get(u1.getSessionHandle()));
-        System.out.println(manager.get(u1.getSessionHandle()));
+        String e = "one";
+        UserSession one = new UserSession(e);
+        if (manager.find(e) == null) manager.add(one);
+        System.out.println(manager.get(one.getSessionHandle()));
+        System.out.println(manager.get(one.getSessionHandle()));
+        System.out.println(manager.get(one.getSessionHandle()));
         sleep(1600);
-        System.out.println(manager.get(u1.getSessionHandle()));
+        System.out.println(manager.get(one.getSessionHandle()));
         sleep(1600);
-        System.out.println("null=" + manager.get(u1.getSessionHandle()));
-        UserSession u2 = new UserSession("u2");
-        manager.add(u2);
+        System.out.println("null=" + manager.get(one.getSessionHandle()));
+        UserSession too = new UserSession("too");
+        manager.add(too);
         System.out.println(manager);
         sleep(1600);
-        UserSession u3 = new UserSession("u3");
-        manager.add(u3);
+        UserSession three = new UserSession("three");
+        manager.add(three);
         System.out.println(manager);
         sleep(1600);
         System.out.println(manager);
         manager.deleteExpired();
         System.out.println("deleteExpired()");
         System.out.println(manager);
-        manager.delete(u3.getSessionHandle());
+        manager.delete(three.getSessionHandle());
         System.out.println(manager);
     }
 }
