@@ -55,31 +55,31 @@ public class SessionManager {
 
     // удаляет указанную сессию пользователя
     public void delete(int sessionHandle) {
-        UserSession us = hashSessions.get(sessionHandle);
-        if (us != null) {
+        UserSession userSession = hashSessions.get(sessionHandle);
+        if (userSession != null) {
             hashSessions.remove(sessionHandle);
-            sessions.remove(us);
+            sessions.remove(userSession);
         }
     }
 
     // удаляет все сессии с истекшим сроком годности.
     public void deleteExpired() {
-        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime ldt = LocalDateTime.now();
         Iterator iter = sessions.listIterator();
         while (iter.hasNext()) {
             UserSession us = (UserSession) iter.next();
-            if (us.isValid(sessionValid, now)) {
+            if (us.isValid(sessionValid, ldt)) {
                 hashSessions.remove(us.getSessionHandle());
                 iter.remove();
             }
         }
     }
 
-    // проиводим обновление hash сесии пользователя
-    protected void reHash(UserSession userSession, int oldHash, int newHash) {
+    // производим обновление hash сесии пользователя
+    /*protected void reHash(UserSession userSession, int oldHash, int newHash) {
         hashSessions.remove(oldHash);
         hashSessions.put(newHash, userSession);
-    }
+    }*/
 
     @Override
     public String toString() {

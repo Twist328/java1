@@ -24,7 +24,7 @@ class UserSession {
     }
 
     public void setSessionHandle(int sessionHanle) {
-        sessionManager.reHash(this, this.sessionHanle, sessionHanle);
+        //sessionManager.reHash(this, this.sessionHanle, sessionHanle);
         this.sessionHanle = sessionHanle;
     }
 
