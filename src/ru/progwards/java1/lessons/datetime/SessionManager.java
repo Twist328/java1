@@ -69,7 +69,7 @@ public class SessionManager {
         while (iter.hasNext()) {
             UserSession us = (UserSession) iter.next();
             if (us.isValid(sessionValid, ldt)) {
-                hashSessions.remove(us.getSessionHandle());
+                //hashSessions.remove(us.getSessionHandle());
                 iter.remove();
             }
         }
