@@ -27,14 +27,14 @@ public class SessionManager {
         userSession.setSessionManager(this);
         sessions.add(userSession);
         hashSessions.put(userSession.getSessionHandle(), userSession);
-        //userSessions.put(userSession.getUserName(), userSession);
+
     }
 
     // проверяет наличие существующей сессии по userName. Если срок валидности истек, или такой нет, возвращает null
     public UserSession find(String userName) {
         LocalDateTime ldt = LocalDateTime.now();
         for (UserSession us : sessions) {
-            if (us.getUserName() == userName) {
+            if (us.getUserName().equals(userName)) {
 
                 if (us.isValid(sessionValid, ldt)) return us;// нашли по имени пользователя, проверим на валидность
             }
@@ -69,17 +69,11 @@ public class SessionManager {
         while (iter.hasNext()) {
             UserSession us = (UserSession) iter.next();
             if (us.isValid(sessionValid, ldt)) {
-                //hashSessions.remove(us.getSessionHandle());
+
                 iter.remove();
             }
         }
     }
-
-    // производим обновление hash сесии пользователя
-    /*protected void reHash(UserSession userSession, int oldHash, int newHash) {
-        hashSessions.remove(oldHash);
-        hashSessions.put(newHash, userSession);
-    }*/
 
     @Override
     public String toString() {
@@ -96,9 +90,9 @@ public class SessionManager {
     public static void main(String[] args) {
         SessionManager manager = new SessionManager(3);
         manager.sessionValid = 3;
-        String e = "one";
-        UserSession one = new UserSession(e);
-        if (manager.find(e) == null) manager.add(one);
+        String s = "one";
+        UserSession one = new UserSession(s);
+        if (manager.find(s) == null) manager.add(one);
         System.out.println(manager.get(one.getSessionHandle()));
         System.out.println(manager.get(one.getSessionHandle()));
         System.out.println(manager.get(one.getSessionHandle()));
@@ -106,8 +100,8 @@ public class SessionManager {
         System.out.println(manager.get(one.getSessionHandle()));
         sleep(1600);
         System.out.println("null=" + manager.get(one.getSessionHandle()));
-        UserSession too = new UserSession("too");
-        manager.add(too);
+        UserSession two = new UserSession("two");
+        manager.add(two);
         System.out.println(manager);
         sleep(1600);
         UserSession three = new UserSession("three");

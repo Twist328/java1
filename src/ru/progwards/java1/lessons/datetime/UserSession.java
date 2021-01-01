@@ -24,7 +24,6 @@ class UserSession {
     }
 
     public void setSessionHandle(int sessionHanle) {
-        //sessionManager.reHash(this, this.sessionHanle, sessionHanle);
         this.sessionHanle = sessionHanle;
     }
 
@@ -58,7 +57,7 @@ class UserSession {
 
     @Override
     public String toString() {
-        return "S{" + "h=" + sessionHanle + ",u='" + userName + '}';
+        return "Session{" + "h=" + sessionHanle + ",u='" + userName + '}';
     }
 }
 
