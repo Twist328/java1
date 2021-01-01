@@ -5,7 +5,7 @@ import java.util.*;
 
 class UserSession {
     static private int handleNextNum = 0;
-    private int sessionHanle;
+    private int sessionHandle;
     private String userName;
     private LocalDateTime lastAccess;
     private SessionManager sessionManager;
@@ -14,7 +14,7 @@ class UserSession {
     UserSession(String userName) {
        // Random rand = new Random();
         //this.sessionHanle = (int)(Math.random()*Integer.MAX_VALUE);// по заданию
-        this.sessionHanle = handleNextNum++;
+        this.sessionHandle = handleNextNum++;
         this.userName = userName;
         refreshLastAccess();
     }
@@ -24,11 +24,11 @@ class UserSession {
     }
 
     public void setSessionHandle(int sessionHanle) {
-        this.sessionHanle = sessionHanle;
+        this.sessionHandle = sessionHanle;
     }
 
     public int getSessionHandle() {
-        return sessionHanle;
+        return sessionHandle;
     }
 
     public void setUserName(String userName) {
@@ -57,7 +57,7 @@ class UserSession {
 
     @Override
     public String toString() {
-        return "Session{" + "h=" + sessionHanle + ",u='" + userName + '}';
+        return "Session{" + "h=" + sessionHandle + ",u='" + userName + '}';
     }
 }
 
