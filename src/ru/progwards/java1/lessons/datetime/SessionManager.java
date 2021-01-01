@@ -7,9 +7,10 @@ import java.util.Iterator;
 import java.util.List;
 
 public class SessionManager {
+
     List<UserSession> sessions; // список сессий пользователей по sessionHanle (т.к. есть setSessionHanle, нет гарантий, что не изменят его)
+
     Hashtable<Integer, UserSession> hashSessions; // поиск сессии по sessionHanle
-    //Hashtable<String, UserSession> userSessions; // поск сессии по userName: не понятно, может ли быть несколько сессий у одного пользователя
 
     int sessionValid; // период валидности сессии в секундах
 
@@ -21,7 +22,6 @@ public class SessionManager {
 
     // добавляет новую сессию пользователя
     public void add(UserSession userSession) {
-
         if (get(userSession.getSessionHandle()) != null) return; // проверка на уникальность по хэшу сессии
         // основное действие
         userSession.setSessionManager(this);
