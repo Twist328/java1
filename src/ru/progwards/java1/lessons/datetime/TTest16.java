@@ -10,9 +10,8 @@ public class TTest16 {
     public static void main(String[] args) {
         SessionManager manager = new SessionManager(3);
         manager.sessionValid = 3;
-        String s = "one";
-        UserSession one = new UserSession(s);
-        if (manager.find(s) == null) manager.add(one);
+        UserSession one = new UserSession("one");
+        if (manager.find("one") == null) manager.add(one);
         System.out.println(manager.get(one.getSessionHandle()));
         System.out.println(manager.get(one.getSessionHandle()));
         System.out.println(manager.get(one.getSessionHandle()));
