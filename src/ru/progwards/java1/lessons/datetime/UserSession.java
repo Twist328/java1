@@ -11,12 +11,10 @@ class UserSession {
     private SessionManager sessionManager;
 
     // создать сессию пользователя
-    UserSession(String userName) {
-       // Random rand = new Random();
-        //this.sessionHanle = (int)(Math.random()*Integer.MAX_VALUE);// по заданию
+    public UserSession(String userName) {
         this.sessionHandle = handleNextNum++;
         this.userName = userName;
-        refreshLastAccess();
+        updateLastAccess();
     }
 
     public void setSessionManager(SessionManager sessionManager) {
@@ -39,7 +37,7 @@ class UserSession {
         return userName;
     }
 
-    public void refreshLastAccess() {
+    public void updateLastAccess() {
         this.lastAccess = LocalDateTime.now();
     }
 

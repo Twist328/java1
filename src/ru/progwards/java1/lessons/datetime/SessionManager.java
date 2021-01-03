@@ -46,7 +46,7 @@ public class SessionManager {
     public UserSession get(int sessionHandle) {
         UserSession us = hashSessions.get(sessionHandle);
         if (us != null && us.isValid(sessionValid, LocalDateTime.now())) {
-            us.refreshLastAccess();
+            us.updateLastAccess();
             return us;
         } else {
             return null;
@@ -69,7 +69,6 @@ public class SessionManager {
         while (iter.hasNext()) {
             UserSession us = (UserSession) iter.next();
             if (us.isValid(sessionValid, ldt)) {
-
                 iter.remove();
             }
         }
