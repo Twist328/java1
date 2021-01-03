@@ -26,7 +26,7 @@ public class TTest17t1 {
     }
 
        public static void main(String[] args) {
-        System.out.println(new TTest17t1().createFolder("C:\\java1\\src\\ru\\progwards\\java1\\lessons\\maps\\wiki.test.tokens"));
+        System.out.println(new TTest17t1().createFolder("..java1\\lessons\\maps\\wiki.test.tokens"));
            new TTest17t1();
            System.out.println(replaceF("C:\\java1\\src\\ru\\progwards\\java1\\lessons\\maps\\wiki.train.tokens"));
     }
