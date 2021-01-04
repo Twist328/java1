@@ -16,10 +16,6 @@ public class FiboMapCache {
         clearCahe();
     }
 
-    public BigDecimal fiboNumber(int n) {                      // Обычный расчёт Фибоначчи
-        return cacheOn ? fiboNumber1(n) : fiboNumber2(n);
-    }
-
     public BigDecimal fiboNumber1(int n) { // Рассчёт Фибоначчи с кеш
 
         if (fiboCache.containsKey(n)) return fiboCache.get(n);     //  n имеется в кеш
@@ -60,6 +56,10 @@ public class FiboMapCache {
         return sum;
     }
 
+    public BigDecimal fiboNumber(int n) {                      // Обычный расчёт Фибоначчи
+        return cacheOn ? fiboNumber1(n) : fiboNumber2(n);
+
+    }
     public static void test() {
         long start;
         FiboMapCache temp;
@@ -90,7 +90,7 @@ public class FiboMapCache {
 
     public static void main(String[] args) {
         FiboMapCache temp = new FiboMapCache(true);
-        for (int i = 1; i <= 10; i++) System.out.println(temp.fiboNumber(i));
+        for (int i = 1; i <= 1000; i++) System.out.println(temp.fiboNumber(i));
         test();
     }
 }
