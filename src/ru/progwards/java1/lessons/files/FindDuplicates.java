@@ -26,7 +26,7 @@ public class FindDuplicates implements NeedPathValue {
     }
 
     public static List<List<String>> findDuplicates(String startPath) {  // В заданном каталоге и его подкаталогах найти файлы, точно совпадающие
-        System.out.println("Каталог для поиска:");
+        System.out.println("В каталоге  для поиска:");
         List<Path> path = readAllPathsNio(startPath);
         if (path == null) return null;
         List<List<Path>> content = new ArrayList<List<Path>>();
