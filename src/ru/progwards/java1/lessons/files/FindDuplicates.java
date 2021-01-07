@@ -26,7 +26,7 @@ public class FindDuplicates implements NeedPathValue {
     }
 
     public static List<List<String>> findDuplicates(String startPath) {  // В заданном каталоге и его подкаталогах найти файлы, точно совпадающие
-        System.out.println("В каталоге  для поиска:");
+        System.out.println("В указанном каталоге:");
         List<Path> path = readAllPathsNio(startPath);
         if (path == null) return null;
         List<List<Path>> content = new ArrayList<List<Path>>();
@@ -78,6 +78,7 @@ public class FindDuplicates implements NeedPathValue {
 
     // посчитать общее количество элементов вместе со всеми подколлекциями
     public static int countAll(Collection<Object> manyCollection) {
+
         int result = manyCollection.size();
         if (result > 0) {
             Iterator iter = manyCollection.iterator();
@@ -89,6 +90,7 @@ public class FindDuplicates implements NeedPathValue {
                 }
             }
         }
+        //System.out.println(result);
         return result;
     }
     // сравнить содержимое двух файлов
@@ -139,9 +141,9 @@ public class FindDuplicates implements NeedPathValue {
                         if (!found[j]) {
                             int cmp = comp.compare(p1, p2);
                             if (cmp == 0) {
-                                int idx = foundIndx[i];
-                                if (idx > 0) {
-                                    res.get(idx).add(p2);
+                                int indx = foundIndx[i];
+                                if (indx > 0) {
+                                    res.get(indx).add(p2);
                                 } else {
                                     foundIndx[i] = res.size();
                                     ArrayList<T> list = new ArrayList<T>();
