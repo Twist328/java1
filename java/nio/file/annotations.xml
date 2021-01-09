@@ -1,0 +1,7 @@
+<root>
+    <item name='java.nio.file.Files java.nio.file.Path walkFileTree(java.nio.file.Path, java.nio.file.FileVisitor&lt;? super java.nio.file.Path&gt;)'>
+        <annotation name='org.jetbrains.annotations.Contract'>
+            <val val="&quot;!null,_-&gt;!null;null,_-&gt;null&quot;"/>
+        </annotation>
+    </item>
+</root>
