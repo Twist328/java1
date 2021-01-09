@@ -34,9 +34,10 @@ public class FilesSelect {
     public static void selectFiles(String inFolder, String outFolder, List<String> keys) {
         List<Path> paths = null;
         try {
-            paths = Files.walk(Paths.get(inFolder))
-                    .filter(str -> str.toString().endsWith(".txt"))
-                    .collect(Collectors.toList());
+            paths = Files.walk(Paths.get(inFolder))//поиск нужных файлов в дир inFolder
+                    .filter(str -> str.toString().endsWith(".txt"))//ф. filter Возвращает поток, состоящий из результатов применения заданного
+//Возвращает хэш-код для этой строки (endsWith) //на самом деле отбирает файлы с расширением ".txt"
+                    .collect(Collectors.toList());//Возвращает последний (правый) элемент этого потока в соответствии с предоставленным
         } catch (IOException e) {
             e.printStackTrace();
         }
