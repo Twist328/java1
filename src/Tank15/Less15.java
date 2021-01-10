@@ -44,6 +44,23 @@ public class Less15 {
 
 
         public static void main (String[]args){
+            Map<String, String> books = new HashMap<>();
+            books.put("Война и мир", "Лев Толстой");
+            books.put("Преступление и наказание", "Федор Достоевский");
+            books.put("Философия Java", "Брюс Эккель");
+            books.put("Братья Карамазовы", "Федор Достоевский");
+            books.put("Властелин Колец", "Джон Толкин");
+
+            books.computeIfPresent("Евгений Онегин", (a, b) -> b = "Александр Пушкин");
+            System.out.println("_________________");
+            books.forEach((a, b) -> System.out.println("Название книги: " + a + ". Автор: " + b));
+            books.computeIfPresent("Братья Карамазовы", (a, b) -> b = "Александр Пушкин");
+            System.out.println("_________________");
+            books.forEach((a, b) -> System.out.println("Название книги: " + a + ". Автор: " + b + "\n"));
+
+
+
+
 
             System.out.println(a2map(new int[]{12, 7, 10, 5}, new String[]{"Cow", "Sheep", "Pig", "Goat"}));
 

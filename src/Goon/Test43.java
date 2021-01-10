@@ -1,5 +1,6 @@
 package Goon;
 
+import java.sql.Array;
 import java.util.*;
 
 public class Test43 {
@@ -26,37 +27,53 @@ public class Test43 {
         Set<String> wordSet = new HashSet<>(Arrays.asList(TEXT.split(" ")));
         Iterator<String> iter = wordSet.iterator();
         while (iter.hasNext())
-            if (iter.next().contains("ра"))
+            if (iter.next().contains("на"))
                 iter.remove();
         System.out.println(TEXT);
         System.out.println(wordSet);
         System.out.println(wordSet.size());
         //__________________________________________________________________________________________//
-        Set<Integer> fiboTreeSet1000 = Set.of(0, 1, 2, 3, 5, 8, 13, 21, 34, 55);
+        Set<Integer> fiboTreeSet1000 = new TreeSet<>();
+
+        fiboTreeSet1000.add(0);
+        fiboTreeSet1000.add(987);
+        fiboTreeSet1000.add(1);
+        fiboTreeSet1000.add(5);
+        fiboTreeSet1000.add(3);
+        fiboTreeSet1000.add(8);
+        fiboTreeSet1000.add(21);
+        fiboTreeSet1000.add(13);
+        fiboTreeSet1000.add(55);
+        fiboTreeSet1000.add(34);
 
         for (int num : fiboTreeSet1000)
 
-            System.out.println(num + " " + (fiboTreeSet1000.contains(num) ? "Фибо" : ""));
+            System.out.println(num + " " + (fiboTreeSet1000.contains(num) ? "Фибо" : ""+"\n"));
 //__________________________________________________________________________________________//
-        Set<Integer> fiboSet1000a = Set.of(0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987);
+        Set<Integer> fiboSet1000a = new TreeSet<Integer>();
+
+        fiboSet1000a.add(0);
+        fiboSet1000a.add(987);
+        fiboSet1000a.add(1);
+        fiboSet1000a.add(5);
+        fiboSet1000a.add(3);
+        fiboSet1000a.add(8);
+        fiboSet1000a.add(21);
+        fiboSet1000a.add(13);
+        fiboSet1000a.add(55);
+        fiboSet1000a.add(34);
+        fiboSet1000a.add(144);
+        fiboSet1000a.add(89);
+        fiboSet1000a.add(377);
+        fiboSet1000a.add(233);
+        fiboSet1000a.add(2);
+        fiboSet1000a.add(610);
+
         System.out.println(fiboSet1000a);
-        for (int i = 0; i < 1; i++) {
-            System.out.print(i + " " + (fiboSet1000a.contains(i) ? "ДА!!!!" : ""));
 
+        for (int i = 0; i < 1000; i++) {
 
-            Map<String, String> books = new HashMap<>();
-            books.put("Война и мир", "Лев Толстой");
-            books.put("Преступление и наказание", "Федор Достоевский");
-            books.put("Философия Java", "Брюс Эккель");
-            books.put("Братья Карамазовы", "Федор Достоевский");
-            books.put("Властелин Колец", "Джон Толкин");
-
-            books.computeIfPresent("Евгений Онегин", (a, b) -> b = "Александр Пушкин");
-            System.out.println("_________________");
-            books.forEach((a, b) -> System.out.println("Название книги: " + a + ". Автор: " + b));
-            books.computeIfPresent("Братья Карамазовы", (a, b) -> b = "Александр Пушкин");
-            System.out.println("_________________");
-            books.forEach((a, b) -> System.out.println("Название книги: " + a + ". Автор: " + b));
+            System.out.println(i+"  "+ (fiboSet1000a.contains(i) ? "ДА!!!!" : ""));
 
 
         }
