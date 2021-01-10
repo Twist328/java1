@@ -93,7 +93,7 @@ ZZZZ - обязательные 4 символа customerId - идентифик
         return null;
     }
 
-    // Загрузим заказ одного файла. Если что-то поёдет не так, вернем false, заказ игнорируем
+    // При загрузке Ордера в случае ошибки получаем false Ордер в корзину
     public boolean loadOrderFile(Path path) {
         Order order = new Order();
         Double sum = 0D;
@@ -106,7 +106,7 @@ ZZZZ - обязательные 4 символа customerId - идентифик
                 try {
                     if (str.compareTo("") == 0) continue;
                     String[] anArray = str.split(dell);
-                    if (anArray.length != 3) return false; // критическая ошибка
+                    if (anArray.length != 3) return false;
                     OrderItem item = new OrderItem();
                     item.googsName = anArray[0];
                     item.count = Integer.parseInt(anArray[1].trim());
@@ -140,8 +140,8 @@ ZZZZ - обязательные 4 символа customerId - идентифик
         return false;
     }
 
-    // сортировка заказов "в порядке обработки"
-    private void sortOrders() {
+    // сортировка заказов
+     void sortOrders() {
         Comparator<Order> dateTime = new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
@@ -154,7 +154,7 @@ ZZZZ - обязательные 4 символа customerId - идентифик
     // выдать список заказов в порядке обработки (отсортированные по дате-времени), для заданного магазина.
     // Если shopId == null, то для всех
     public List<Order> process(String shopId) {
-        if (shopId == null || (loadShop != null && shopId.compareTo(loadShop) == 0)) return orders;
+        if (shopId == null || (loadShop != null && shopId.equals(loadShop))) return orders;
         List<Order> result = new ArrayList<Order>();
         for (Order o : orders) {
             if (o.shopId.equals(shopId)) result.add(o);
