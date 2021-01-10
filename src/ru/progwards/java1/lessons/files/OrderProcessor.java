@@ -48,10 +48,8 @@ ZZZZ - обязательные 4 символа customerId - идентифик
         loadShop = shopId;
 
         // список файлов с информацией о заказах
-        // плохо, что имена папок "не имеют значения". В имя папки или файла обязательно надо было сделать привязку к дате. Как процессинг будет работать через 10 лет!?
-        String shopFilter = shopId == null ? "???" : shopId;
-        String pattern = "glob:**/" + shopFilter + "-??????-????.csv"; // tester not passed
-        //String pattern = "glob:**/" + shopFilter + "-*-*.csv"; // tester changed his mind )
+        String filterID = shopId == null ? "???" : shopId;
+        String pattern = "glob:**/" + filterID + "-??????-????.csv";
         PathMatcher matcher = FileSystems.getDefault().getPathMatcher(pattern);
         try {
             paths = Files.walk(loadPath)
@@ -73,7 +71,7 @@ ZZZZ - обязательные 4 символа customerId - идентифик
         //System.out.println(paths);
 
         for (Path path : paths) {
-            if (!loadOrderFromFile(path)) {
+            if (!loadOrderFile(path)) {
                 fFiles++;
                 System.out.println("Processing failed: " + path);
             } else {
@@ -96,7 +94,7 @@ ZZZZ - обязательные 4 символа customerId - идентифик
     }
 
     // Загрузим заказ одного файла. Если что-то поёдет не так, вернем false, заказ игнорируем
-    public boolean loadOrderFromFile(Path path) {
+    public boolean loadOrderFile(Path path) {
         Order order = new Order();
         Double sum = 0D;
         final String dell = ",";
