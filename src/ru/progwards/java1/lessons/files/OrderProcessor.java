@@ -10,6 +10,7 @@ import java.time.Month;
 import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
+
 public class OrderProcessor {
 
 /*
@@ -32,6 +33,7 @@ ZZZZ - обязательные 4 символа customerId - идентифик
     String loadShop; // загруженный магазин
 
     // инициализирует класс, с указанием начальной папки для хранения файлов
+
     public OrderProcessor(String loadPath) {
         this.loadPath = Paths.get(loadPath);
     }
@@ -41,6 +43,7 @@ ZZZZ - обязательные 4 символа customerId - идентифик
     // если shopId == null - грузим для всех магазинов
     // При наличии хотя бы одной ошибки в формате файла, файл полностью игнорируется, т.е. Не поступает в обработку.
     // Метод возвращает количество файлов с ошибками. При этом, если в классе содержалась информация, ее надо удалить
+
     public int loadOrders(LocalDate start, LocalDate finish, String shopId) {
         orders = new ArrayList<Order>();
         int fFiles = 0;
@@ -79,8 +82,6 @@ ZZZZ - обязательные 4 символа customerId - идентифик
             }
         }
         //System.out.println(orders);
-
-
         return fFiles;
     }
 
@@ -141,7 +142,7 @@ ZZZZ - обязательные 4 символа customerId - идентифик
     }
 
     // сортировка заказов
-     void sortOrders() {
+    void sortOrders() {
         Comparator<Order> dateTime = new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
