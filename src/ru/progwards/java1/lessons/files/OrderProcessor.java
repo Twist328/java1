@@ -44,7 +44,7 @@ ZZZZ - обязательные 4 символа customerId - идентифик
     // При наличии хотя бы одной ошибки в формате файла, файл полностью игнорируется, т.е. Не поступает в обработку.
     // Метод возвращает количество файлов с ошибками. При этом, если в классе содержалась информация, ее надо удалить
 
-    public int loadOrders(LocalDate start, LocalDate finish, String shopId) {
+    public int loadOrders(LocalDate start, LocalDate finish, String shopId) throws IOException {
         orders = new ArrayList<Order>();
         int fFiles = 0;
         List<Path> paths = null;
@@ -95,7 +95,7 @@ ZZZZ - обязательные 4 символа customerId - идентифик
     }
 
     // При загрузке Ордера в случае ошибки получаем false Ордер в корзину
-    public boolean loadOrderFile(Path path) {
+    public boolean loadOrderFile(Path path) throws IOException {
         Order order = new Order();
         Double sum = 0D;
         final String dell = ",";
@@ -105,7 +105,7 @@ ZZZZ - обязательные 4 символа customerId - идентифик
             String str;
             while ((str = reader.readLine()) != null) {
                 try {
-                    if (str.compareTo("") == 0) continue;
+                    if (str.equals("")) continue;
                     String[] anArray = str.split(dell);
                     if (anArray.length != 3) return false;
                     OrderItem item = new OrderItem();
@@ -139,7 +139,9 @@ ZZZZ - обязательные 4 символа customerId - идентифик
             System.err.println(fileName + ':' + e);
         }
         return false;
-    }
+        }
+
+
 
     // сортировка заказов
     void sortOrders() {
