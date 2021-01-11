@@ -139,8 +139,7 @@ ZZZZ - обязательные 4 символа customerId - идентифик
             System.err.println(fileName + ':' + e);
         }
         return false;
-        }
-
+    }
 
 
     // сортировка заказов
