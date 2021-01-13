@@ -158,8 +158,8 @@ ZZZZ - обязательные 4 символа customerId - идентифик
     public List<Order> process(String shopId) {
         if (shopId == null || (loadShop != null && shopId.equals(loadShop))) return orders;
         List<Order> result = new ArrayList<Order>();
-        for (Order o : orders) {
-            if (o.shopId.equals(shopId)) result.add(o);
+        for (Order order : orders) {
+            if (order.shopId.equals(shopId)) result.add(order);
         }
         return result;
     }
@@ -167,11 +167,11 @@ ZZZZ - обязательные 4 символа customerId - идентифик
     // cтатистика по объему продаж по магазинам (отсортированную по ключам): String - shopId, double - сумма стоимости всех проданных товаров в этом магазине
     public Map<String, Double> statisticsByShop() {
         Map<String, Double> res = new TreeMap<String, Double>();
-        for (Order o : orders) {
-            String key = o.shopId;
+        for (Order order : orders) {
+            String key = order.shopId;
             boolean isExists = res.containsKey(key);
             double sum = isExists ? res.get(key) : 0;
-            res.put(key, sum + o.sum);
+            res.put(key, sum + order.sum);
         }
         return res;
     }
@@ -179,8 +179,8 @@ ZZZZ - обязательные 4 символа customerId - идентифик
     // cтатистика по объему продаж по товарам (отсортированную по ключам): String - goodsName, double - сумма стоимости всех проданных товаров этого наименования
     public Map<String, Double> statisticsByGoods() {
         Map<String, Double> result = new TreeMap<String, Double>();
-        for (Order o : orders) {
-            for (OrderItem item : o.items) {
+        for (Order order : orders) {
+            for (OrderItem item : order.items) {
                 String key = item.googsName;
                 boolean isExists = result.containsKey(key);
                 double sum = isExists ? result.get(key) : 0;
@@ -193,11 +193,11 @@ ZZZZ - обязательные 4 символа customerId - идентифик
     // cтатистика по объему продаж по дням (отсортированную по ключам): LocalDate - конкретный день, double - сумма стоимости всех проданных товаров в этот день
     public Map<LocalDate, Double> statisticsByDay() {
         Map<LocalDate, Double> result = new TreeMap<LocalDate, Double>();
-        for (Order o : orders) {
-            LocalDate key = o.datetime.toLocalDate();
+        for (Order order : orders) {
+            LocalDate key = order.datetime.toLocalDate();
             boolean isExists = result.containsKey(key);
             double sum = isExists ? result.get(key) : 0;
-            result.put(key, sum + o.sum);
+            result.put(key, sum + order.sum);
         }
         return result;
     }
