@@ -102,7 +102,6 @@ class CalculatorFrame extends JFrame {
         switch (oper) {
             case '^':
             case '=':
-            case '~':
                 return 3;
             case '*':
             case '%':
@@ -141,7 +140,7 @@ class CalculatorFrame extends JFrame {
             addButton(" ", insert);
             addButton(" ", command);
 
-            addButton("~", insert);
+            addButton("%1", command);
             addButton("7", insert);
             addButton("8", insert);
             addButton("9", insert);
@@ -230,8 +229,8 @@ class CalculatorFrame extends JFrame {
                 case "^":
                     result = Math.pow(result, x);
                     break;
-                case "~":
-                    result = (result *  x) / 100;
+                case "%1":
+                    result = Math.log10(result);
                     break;
                 case "=":
                     result = x;
