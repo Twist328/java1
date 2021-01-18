@@ -1,6 +1,7 @@
 package Goon;
 
 import java.util.Iterator;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class Test8777 {
@@ -12,7 +13,7 @@ public class Test8777 {
     public static void main(String[] args) {
 
         Test8777 test8777 = new Test8777(); // Обратная итерация множества
-        TreeSet<Integer> treeSet = new TreeSet<>();
+        Set<Integer> treeSet = new TreeSet<>();
 
         treeSet.add(9);
         treeSet.add(1);
@@ -22,7 +23,7 @@ public class Test8777 {
         treeSet.add(8);
 
         String s = "";
-        Iterator<Integer> iterator = treeSet.descendingIterator();
+        Iterator<Integer> iterator = treeSet.iterator();
 
         while (iterator.hasNext())
             s += iterator.next();

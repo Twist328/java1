@@ -33,8 +33,11 @@ public class Person {
                 new Person("Петя", new Date(199234885678L), 55331.123),
                 new Person("Коля", new Date(598812345678L), 99999.999)};
         printPersons(persons);
-        System.out.format("|%04d|%#x|%2.1f|", 2, 15, 3.25);
+        System.out.format("|%04d|%#x|%2.1f|\n", 2, 15, 3.25);
+        new Person().printPersons(new Person("Ибрагим",new Date(1212121212121L),156000.777));
+
     }
-}
+    }
+
 
 

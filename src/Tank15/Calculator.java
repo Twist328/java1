@@ -36,26 +36,27 @@ class CalculatorPanel extends JPanel {
 
         display = new JButton("0");
         display.setEnabled(false);
-        add(display, BorderLayout.NORTH);
+        add(display, BorderLayout.PAGE_START);
 
         ActionListener insert = new InsertAction();
         ActionListener command = new CommandAction();
 
         panel = new JPanel();
         panel.setLayout(new GridLayout(4, 5));
-        addButton("", command);
+        //addButton("%", command);
+        addButton("y3", command);
         addButton("7", insert);
         addButton("8", insert);
         addButton("9", insert);
 
         addButton("/", command);
-        addButton("", command);
+        addButton("y2", command);
         addButton("4", command);
         addButton("5", insert);
         addButton("6", insert);
         addButton("*", command);
 
-        addButton("", command);
+        addButton("%", command);
         addButton("1", insert);
         addButton("2", insert);
         addButton("3", insert);
@@ -67,7 +68,7 @@ class CalculatorPanel extends JPanel {
         addButton("=", command);
         addButton("+", command);
 
-        add(panel, BorderLayout.CENTER);
+        add(panel, BorderLayout.EAST);
     }
 
     private void addButton(String label, ActionListener listener) {
@@ -92,7 +93,7 @@ class CalculatorPanel extends JPanel {
             String command = event.getActionCommand();
             if (start) {
                 if (command.equals("Cl")) {
-// display.setText(command);
+                    display.setText(command);
                     display.setText("");
                     start = false;
                 } else lastCommand = command;
@@ -118,6 +119,15 @@ class CalculatorPanel extends JPanel {
                 break;
             case "/":
                 result = Math.rint((result / x) * 100) / 100;
+                break;
+            case "%":
+                result =( result *  x) / 100;
+                break;
+            case "y2":
+                result = Math.rint((result * x) * 100) / 100;
+                break;
+            case "y3":
+                result = /*Math.rint*/((result * x * x) * 100) / 100;
                 break;
             case "=":
                 result = x;
