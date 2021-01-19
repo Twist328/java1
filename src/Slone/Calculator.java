@@ -19,9 +19,10 @@ public class Calculator {
 
     }
 }
+
 class CalculatorFrame extends JFrame {
     public CalculatorFrame() {
-        setTitle("Calculator 2.0");
+        setTitle("Calculator 2.5");
         CalculatorPanel panel = new CalculatorPanel();
         add(panel);
         pack();
@@ -86,7 +87,6 @@ class CalculatorFrame extends JFrame {
             case '/':
             case '%':
             case '^':
-            case '~':
                 return true;
         }
         return false;
@@ -95,7 +95,7 @@ class CalculatorFrame extends JFrame {
     /**
      * Возвращает приоритет операции
      *
-     * @param op char
+     * @param oper char
      * @return byte
      */
     private static byte operPrior(char oper) {
@@ -114,7 +114,7 @@ class CalculatorFrame extends JFrame {
     /**
      * Считает выражение, записанное в обратной польской нотации
      *
-     * @param strInn
+     * @param
      * @return double result
      */
     class CalculatorPanel extends JPanel {
@@ -134,25 +134,25 @@ class CalculatorFrame extends JFrame {
 
             panel = new JPanel();
             panel.setLayout(new GridLayout(5, 5));
-            addButton(" ", command);
-            addButton(" ", insert);
-            addButton(" ", insert);
-            addButton(" ", insert);
-            addButton(" ", command);
+            addButton("√", command);
+            addButton("√3", command);
+            addButton("sin", command);
+            addButton("cos", command);
+            addButton("tan", command);
 
-            addButton("%1", command);
+            addButton("%", command);
             addButton("7", insert);
             addButton("8", insert);
             addButton("9", insert);
             addButton("/", command);
 
-            addButton("%", command);
+            addButton("%mod", command);
             addButton("4", insert);
             addButton("5", insert);
             addButton("6", insert);
             addButton("*", command);
 
-            addButton("^", command);
+            addButton("pow", command);
             addButton("1", insert);
             addButton("2", insert);
             addButton("3", insert);
@@ -223,17 +223,32 @@ class CalculatorFrame extends JFrame {
                 case "/":
                     result = Math.rint((result / x) * 100) / 100;
                     break;
-                case "%":
+                case "%mod":
                     result %= x;
                     break;
-                case "^":
+                case "pow":
                     result = Math.pow(result, x);
                     break;
-                case "%1":
-                    result = Math.log10(result);
+                case "%":
+                    result = (result * x) / 100;
+                    break;
+                case "√":
+                    result = Math.sqrt(result);
+                    break;
+                case "√3":
+                    result = Math.cbrt(result);
+                    break;
+                case "sin":
+                    result = Math.sin(result);
+                    break;
+                case "cos":
+                    result = Math.cos(result);
+                    break;
+                case "tan":
+                    result = Math.tan(result);
                     break;
                 case "=":
-                    result = x;
+                    result = x;//Math.sin
                     break;
 
             }
