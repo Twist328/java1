@@ -133,12 +133,19 @@ class CalculatorFrame extends JFrame {
             ActionListener command = new CommandAction();
 
             panel = new JPanel();
-            panel.setLayout(new GridLayout(5, 5));
+            panel.setLayout(new GridLayout(6, 5));
+
+            addButton("tan", command);
+            addButton("", insert);
+            addButton("", insert);
+            addButton("", insert);
+            addButton("", insert);
+
             addButton("√", command);
             addButton("√3", command);
             addButton("sin", command);
             addButton("cos", command);
-            addButton("tan", command);
+            addButton("10", insert);
 
             addButton("%", command);
             addButton("7", insert);
