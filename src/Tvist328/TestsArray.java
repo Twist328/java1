@@ -18,6 +18,7 @@ class TestsArray {
         String str1 = "12345";
         String str2 = "12345";
         System.out.println(str1 == str2);
+        System.out.println(Math.log10(45));
     }
 
 }

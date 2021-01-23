@@ -42,6 +42,6 @@ public class FiboDinamic {
 
         System.out.println(dynamicFibonacci(46));
         System.out.println(iterativeFactorial(6)-iterativeFactorial(4));
-        System.out.println(fibonacci(100));
+        System.out.println(fibonacci(1000));
     }
 }
