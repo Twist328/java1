@@ -5,9 +5,9 @@ public class BestTest {
 
     public static void main(String[] args) {
 
-            final var length = Length.AVERAGE; // line n1
-            switch (length) { // line n2
-                case AVERAGE:  { System.out.print(length);} // line n3
+            final var length = Length.AVERAGE; // уровень n1
+            switch (length) {   // уровень n2
+                case AVERAGE:  { System.out.print(length);} // уровень n3
             }
         }
     }
