@@ -213,11 +213,8 @@ String boolean contains(String str)
     public void scanLines() {
 
         try(Scanner scanner = new Scanner(System.in)) {
-
             String line, lineLow;
-
             while (true) {
-
                 line = scanner.nextLine();
 
                 lineLow = line.toLowerCase();

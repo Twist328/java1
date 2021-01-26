@@ -1,6 +1,6 @@
-package Mama;
+package ru.progwards.java1.lessons.io2;
 
-
+import java.io.RandomAccessFile;
 import java.util.Scanner;
 
 public class INvertString {
@@ -13,10 +13,10 @@ public class INvertString {
 
     static String invertWords(String sentence) {
 
-        String[] s = sentence.split(" ");
+        String[] str = sentence.split(" ");
         StringBuilder builder = new StringBuilder(30);
-        for (int i = s.length - 1; i >= 0; i--) {
-            builder.append(s[i]);
+        for (int i = str.length - 1; i >= 0; i--) {
+            builder.append(str[i]);
             if (i > 0) builder.append('.');
         }
         return builder.toString();
@@ -32,15 +32,26 @@ public class INvertString {
 Примечание: для проверки, содержит ли строка, содержимое другой строки используйте метод класса
 String boolean contains(String str)
 */
-        try(Scanner scanner = new Scanner(System.in)) {
-            String line, newline;
+        try (Scanner scanner = new Scanner(System.in)) {
+            String str;
             while (true) {
-                line = scanner.nextLine();
-                newline = line.toLowerCase();
-                if (newline.contains("привет")) System.out.println("Здравствуйте!");
-                else if (newline.contains("как дела")) System.out.println("Хорошо");
-                else if (newline.contains("/stop")) return;
-                else System.out.println(line);
+                str = scanner.nextLine();
+                if (str.contains("Привет!")) {
+                    System.out.println("Здравствуйте!");
+                } else if (str.contains("как дела?")) {
+                    System.out.println("Хорошо");
+                } else if (str.contains("Как погода?")) {
+                    System.out.println("Как погода?");
+                } else if (str.contains("Мой друг, Привет тебе, привет!")) {
+                    System.out.println("Здравствуйте!");
+                } else if (str.contains("Как настроение?")) {
+                    System.out.println("Как настроение?");
+                } else if (str.contains("У тебя сейчас как дела?")) {
+                    System.out.println("Хорошо");
+
+                } else {
+                    break;
+                }
             }
         }
     }
@@ -51,6 +62,8 @@ String boolean contains(String str)
         System.out.println(invertWords(invertWords
                 ("Java это строго типизированный объектно-ориентированный язык программирования")));
         System.out.println(invertWords("Hello World!"));
-        new INvertString().scanLines();
+        scanLines();
+
+
     }
 }
