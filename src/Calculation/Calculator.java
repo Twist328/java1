@@ -78,7 +78,7 @@ public class Calculator {
     /**
      * Возвращает приоритет операции
      *
-     * @param op char
+     * @param
      * @return byte
      */
     private static byte operPrior(char oper) {

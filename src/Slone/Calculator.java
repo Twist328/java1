@@ -145,7 +145,7 @@ class CalculatorFrame extends JFrame {
             addButton("√3", command);
             addButton("sin", command);
             addButton("cos", command);
-            addButton("10", insert);
+            addButton("0000", insert);
 
             addButton("%", command);
             addButton("7", insert);

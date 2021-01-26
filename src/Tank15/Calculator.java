@@ -44,19 +44,19 @@ class CalculatorPanel extends JPanel {
         panel = new JPanel();
         panel.setLayout(new GridLayout(4, 5));
         //addButton("%", command);
-        addButton("y3", command);
+        addButton(" ", command);
         addButton("7", insert);
         addButton("8", insert);
         addButton("9", insert);
 
         addButton("/", command);
-        addButton("y2", command);
+        addButton(" ", command);
         addButton("4", command);
         addButton("5", insert);
         addButton("6", insert);
         addButton("*", command);
 
-        addButton("%", command);
+        addButton(" ", command);
         addButton("1", insert);
         addButton("2", insert);
         addButton("3", insert);
@@ -120,15 +120,7 @@ class CalculatorPanel extends JPanel {
             case "/":
                 result = Math.rint((result / x) * 100) / 100;
                 break;
-            case "%":
-                result =( result *  x) / 100;
-                break;
-            case "y2":
-                result = Math.rint((result * x) * 100) / 100;
-                break;
-            case "y3":
-                result = /*Math.rint*/((result * x * x) * 100) / 100;
-                break;
+
             case "=":
                 result = x;
                 break;

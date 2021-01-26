@@ -37,9 +37,9 @@ public class TriangleSimpleInfo {
     }
 
     public static void main(String[] args) {
-        System.out.println(maxSide(10, 2581, 2581));
+        System.out.println(maxSide(10, 2582, 2581));
         System.out.println(minSide(277, 277, 277));
-        System.out.println(isEquilateralTriangle(10, 10, 10));
+        System.out.println(isEquilateralTriangle(10, 11, 10));
     }
 
 }
