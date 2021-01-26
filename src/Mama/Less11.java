@@ -13,55 +13,30 @@ import java.util.Scanner;
 
 
     public static void doSomething(int n) throws IOException {
-
         throw new IOException("ok");
-
     }
-
     public static void test1(int n){
-
         //Throwable suppressed = null;
-
         try {
-
             doSomething(n);
-
         }catch (Throwable e) {
-
             System.out.println(e.getMessage());
-
             //suppressed = e;
-
             throw new RuntimeException(e.getMessage());
-
         } finally {
-
             System.out.println("finally executed");
-
         }
-
     }
-
     public void test (int n) throws IOException {
-
         //Throwable suppressed = null;
-
         try {
-
             doSomething(n);
-
         }catch (IOException e) {
-
             System.out.println(e.getMessage());
-
             //suppressed = e;
-
             throw e;
-
         } finally {
-
             System.out.println("finally executed");
-
         }
 
     }
