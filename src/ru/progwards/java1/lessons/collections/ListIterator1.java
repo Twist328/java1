@@ -1,6 +1,7 @@
 package ru.progwards.java1.lessons.collections;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -20,7 +21,7 @@ public class ListIterator1 {
     public static void main(String[] args) {
 
         List<Integer> list = new ArrayList<>();
-        for(Integer e:new Integer[]{40, 300, 0, 6, 3, 1, 2}) list.add(e);
+        list.addAll(Arrays.asList(new Integer[]{40, 300, 0, 6, 3, 1, 2}));
         iterator3(list.listIterator());
         System.out.println(list);
     }
