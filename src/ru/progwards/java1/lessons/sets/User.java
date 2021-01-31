@@ -19,11 +19,11 @@ public class User {
 
     }
 
-    /*public User() {
+  /*  public User() {
 
     }*/
 
-    public static TreeSet<User> createSet() {
+    public  TreeSet<User> createSet() {
         TreeSet<User> treeSet = new TreeSet<User>(new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
@@ -35,13 +35,14 @@ public class User {
 
     public static void main(String[] args) {
 
-        TreeSet<User> backsort = createSet();
+        TreeSet<User> backsort =  new User().createSet();
         backsort.add(new User(1, "Вася"));
-        backsort.add(new User(5, "Петя"));
+        backsort.add(new User(0, "Петя"));
         backsort.add(new User(2, "Коля"));
         backsort.add(new User(4, "Дима"));
 
-        System.out.println(new TreeSet<User>(backsort));
+        System.out.println( backsort);
+        System.out.println(backsort.size());
 
     }
 
