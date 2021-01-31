@@ -15,6 +15,22 @@ public class EgtsDirectionAndSpeed {
         return (dirLow & 0b1111_1111) + (speedAndDir >>> 7 & 0b1_0000_0000);
 
     }
+
+    public static void main(String[] args) {
+        System.out.println("2=" + getSpeed((short)0b1000_0000_0000_0010));
+        System.out.println("2=" + getDirection((byte)0b0000_0010, (short)0b0000_0000_0000_0000));
+        System.out.println("258=" + getDirection((byte)0b0000_0010, (short)0b1000_0000_0000_0000));
+        System.out.println("255=" + getDirection((byte)0b1111_1111, (short)0b0000_0000_0000_0000));
+        System.out.println("511=" + getDirection((byte)0b1111_1111, (short)0b1000_0000_0000_0000));
+        System.out.println("144=" + getDirection((byte)0b1001_0000, (short)0b0000_0000_0000_0000));
+        System.out.println("456=" + getDirection((byte)0b1111_1111, (short)0b0000_0000_0000_0000));//11001001
+
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
 //Эта задача основана на реальной практике (с минимальным упрощением)
 // и связана с обработкой протокола EGTS для отслеживания движения и состояния транспортных средств (далее ТС).
