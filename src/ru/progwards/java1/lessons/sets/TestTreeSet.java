@@ -40,7 +40,9 @@ public class TestTreeSet {
         Set<Integer> iSet = new HashSet<>();
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++) {
-
+                System.out.println(i+"\n");
+                //System.out.println("/_______________________________/");
+                System.out.println(j);
                 iSet.add(i+j);
             }
         System.out.println(iSet);

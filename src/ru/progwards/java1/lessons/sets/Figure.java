@@ -10,9 +10,9 @@ public class Figure {
      static String figDetect(Figure fig) {
          if (fig == null) {
              return "Неизвестная фигура";
-         }else if (fig.getClass() == Square.class) {
+         }else if (fig.getClass().equals( Square.class)) {
              return "Сторона квадрата " + ((Square) fig).getSide();
-         } else if (fig.getClass() == Round.class) {
+         } else if (fig.getClass().equals(Round.class)) {
              return "Диаметр круга " + ((Round) fig).getDiameter();
          } else
         return "Неизвестная фигура";
