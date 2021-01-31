@@ -24,6 +24,11 @@ public class DoubleNumber extends Number {
     public static Number div(Number n1, Number n2) {
         return new DoubleNumber(Double.parseDouble(n1.toString()) / Double.parseDouble(n2.toString()));
     }
+
+    DoubleNumber(String strNum) {
+        super(strNum);
+    }
+
     public static DoubleNumber newNumber(String strNum) {
         DoubleNumber d = new DoubleNumber();
         d.strNum = strNum;
