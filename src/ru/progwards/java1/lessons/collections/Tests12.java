@@ -1,8 +1,12 @@
-package Mama;
+package ru.progwards.java1.lessons.collections;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
-public class Test121 {
+public class Tests12 {
+
     public static void main(String[] args) {
 
         Collection<Integer> numbers = new ArrayList();
@@ -13,19 +17,19 @@ public class Test121 {
         System.out.println(numbers);
 
         Collection<Integer> numbers1 = new ArrayList();
-        for(int i=0; i<5; i++)
+        for (int i = 0; i < 5; i++)
             numbers1.add(i);
         numbers1.remove(3);
         System.out.println(numbers1);
 
         Collection<Integer> numbers2 = new ArrayList();
-        for(int i=0; i<5; i++)
+        for (int i = 0; i < 5; i++)
             numbers2.add(i);
-        ((ArrayList)numbers2).add(3, numbers2.size());
+        ((ArrayList) numbers2).add(3, numbers2.size());
         System.out.println(numbers2);
 
         Collection<Integer> numbers3 = new ArrayList();
-        for(int i=0; i<5; i++)
+        for (int i = 0; i < 5; i++)
             numbers3.add(i);
         //numbers3.add(3, 5); компилятор выдаст ошибку из-за (3,5!)*/
 
@@ -53,7 +57,5 @@ public class Test121 {
 
     }
 
-    private static boolean filter(List<Integer> list) {
-        return true;
-    }
 }
+

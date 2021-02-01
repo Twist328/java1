@@ -18,13 +18,14 @@ public class FilterList {
         List<Integer> result = new ArrayList<>();
         int tmp = sum / 100;
 
-        for (Integer e : list) {
+        for (Integer e : list){
             if (e < tmp) result.add(e);
 
 
         }
         return result;
     }
+
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
         for(Integer e:new Integer[]{40, 300, 0, 4, 3, 1, 2}) list.add(e);

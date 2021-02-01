@@ -1,6 +1,6 @@
 package ru.progwards.java1.lessons.abstractnum;
 
-public class Test111 {
+public class TestAbstractNum {
     public static void main(String[] args) {
         Number num = new IntNumber(2);
 
