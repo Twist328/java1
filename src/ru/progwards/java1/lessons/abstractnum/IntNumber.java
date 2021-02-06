@@ -29,6 +29,11 @@ public class IntNumber extends Number {
     }
 
     @Override
+    public Number div(Number num) {
+        return super.div(num);
+    }
+
+    @Override
     public int toInt() {
         return num;
     }
