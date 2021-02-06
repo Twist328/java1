@@ -1,6 +1,5 @@
 package ru.progwards.java1.lessons.abstractnum;
 
-import java.io.IOException;
 
 /*
 Реализовать класс Pyramid, переопределяющий метод
@@ -8,26 +7,19 @@ public Number volume(), который будет возвращать объе�
  квадрата по формуле Segment*Segment*Segment/3;
 */
 public class Pyramid extends Figure3D {
+    @Override
+    public Number volume() {
+        return super.volume();
+    }
+
     public Pyramid() {
         super();
     }
 
     public Pyramid(Number segment) {
-        this.segment = segment;
-    }
+        super(segment);
 
 
-    @Override
-    public Number volume(){
-        return segment.mul(segment.mul(segment).div(segment));
 
-
-    }
-
-    @Override
-    public String toString() {
-        return "Pyramid{" +
-                "segment=" + segment +
-                '}';
     }
 }

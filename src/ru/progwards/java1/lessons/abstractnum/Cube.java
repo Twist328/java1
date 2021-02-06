@@ -1,6 +1,6 @@
 package ru.progwards.java1.lessons.abstractnum;
 
-import java.io.IOException;
+
 
 /*
 3.3 Реализовать класс Cube, переопределяющий метод
