@@ -1,8 +1,6 @@
 package ru.progwards.java1.lessons.abstractnum;
 
 
-import com.fasterxml.jackson.databind.node.IntNode;
-
 /*
 Реализовать класс Pyramid, переопределяющий метод
 public Number volume(), который будет возвращать объем пирамиды, с основанием квадрат, и высотой равной стороне
