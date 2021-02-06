@@ -31,7 +31,10 @@ public class DoubleNumber extends Number{
         double num2 = Double.valueOf(num.toString());
         return new DoubleNumber(this.num*num2);
     }
+    public Number newNumber(String strNum){
 
+        return new DoubleNumber(Double.valueOf(strNum));
+    }
     @Override
     public String toString() {
         return String.valueOf(num);
