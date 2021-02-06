@@ -3,6 +3,8 @@ package ru.progwards.java1.lessons.abstractnum;
 
 //import ru.progwards.java1.lessons.bigints.IntInteger;
 
+import ru.progwards.java1.lessons.bigints.IntInteger;
+
 /*
 Реализовать класс Pyramid, переопределяющий метод
 public Number volume(), который будет возвращать объем пирамиды, с основанием квадрат, и высотой равной стороне
@@ -23,7 +25,7 @@ public class Pyramid extends Figure3D {
 
     public Number volume(){
 
-        return (this.segment.mul(segment.mul(segment).div(new IntNumber(3))));
+        return this.segment.mul(segment.mul(segment).div(new IntNumber(3)));
     }
 
 
