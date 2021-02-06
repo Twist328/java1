@@ -10,7 +10,7 @@ public Number volume(), который будет возвращать объе�
 */
 public class Pyramid extends Figure3D {
     public Number volume(){
-        return segment.mul(segment.mul(segment)).div(new Number(3));
+        return segment.mul(segment.mul(segment)).div(super.segment);
     }
     public Pyramid() {
     }

@@ -10,8 +10,7 @@ package ru.progwards.java1.lessons.abstractnum;
 */
 
 public class Number {
-    public Number(double v) {
-    }
+
 
     public Number mul (Number num) {//, который будет возвращать произведение содержимого класса на num.
         return null;
