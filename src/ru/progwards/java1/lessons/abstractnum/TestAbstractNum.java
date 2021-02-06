@@ -7,7 +7,7 @@ public class TestAbstractNum {
         System.out.println(fig.volume());
 
         Figure3D fig1 = new Pyramid(num);
-        fig1 = new Pyramid(new DoubleNumber(1));
+        fig1 = new Pyramid(new DoubleNumber(4));
         System.out.println(fig1.volume());
 
         fig = new Cube(new DoubleNumber(3));

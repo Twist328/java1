@@ -21,6 +21,10 @@ public class IntNumber extends Number {
         this.num = num;
     }
 
+    public IntNumber(Double aDouble) {
+        super();
+    }
+
 
     @Override
     public Number mul(Number num){
