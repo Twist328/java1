@@ -9,7 +9,7 @@ public Number volume(), который будет возвращать объе�
 public class Pyramid extends Figure3D {
     @Override
     public Number volume() {
-        return super.volume();
+        return segment.div(segment.mul(segment.mul(segment)));
     }
 
     public Pyramid() {
