@@ -21,8 +21,8 @@ public class IntNumber extends Number {
         this.num = num;
     }
 
-    public IntNumber(Double aDouble) {
-        super();
+    public IntNumber() {
+
     }
 
 
