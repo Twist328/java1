@@ -9,11 +9,14 @@ public Number volume(), который будет возвращать объе�
  квадрата по формуле Segment*Segment*Segment/3;
 */
 public class Pyramid extends Figure3D {
+    public Pyramid(Number segment) {
+        super(segment);
+    }
+
     public Number volume(){
         return segment.mul(segment.mul(segment)).div(super.segment);
     }
-    public Pyramid() {
-    }
+
 }
 
 
