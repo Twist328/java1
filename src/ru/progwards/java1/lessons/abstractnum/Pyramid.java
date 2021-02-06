@@ -21,7 +21,7 @@ public class Pyramid extends Figure3D {
 
     public Number volume(){
 
-        return segment.mul(segment.mul(segment).div(new IntNumber(3.0)));
+        return segment.mul(segment.mul(segment).div(segment.newNumber("3")));
     }
 }
 
