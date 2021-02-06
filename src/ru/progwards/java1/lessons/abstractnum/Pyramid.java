@@ -14,7 +14,7 @@ public class Pyramid extends Figure3D {
     }
 
     public Number volume(){
-        return segment.mul(segment.mul(segment)).div(super.segment.mul(segment.mul(segment)));
+        return segment.mul(segment.mul(segment)).div(super.segment.mul(segment));
     }
 
 }

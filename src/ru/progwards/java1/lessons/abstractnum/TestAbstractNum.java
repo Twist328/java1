@@ -6,8 +6,13 @@ public class TestAbstractNum {
         Figure3D fig = new Cube(num);
         System.out.println(fig.volume());
 
+        Figure3D fig1 = new Pyramid(num);
+        System.out.println(fig.volume());
+
+
         fig = new Cube(new DoubleNumber(3));
         System.out.println(fig.volume());
+
     }
 
     static void testNum() {
