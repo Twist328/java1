@@ -1,4 +1,7 @@
 package ru.progwards.java1.lessons.abstractnum;
+
+import java.io.IOException;
+
 /*
 Реализовать классы Cube, Ball, вычисляющие объем фигуры в абстрактных числах класса Number,
 реализованный в целых числах, и в числах с плавающей точкой.
@@ -20,7 +23,7 @@ public class Figure3D {
 
     }
 
-    public Number volume() {
+    public Number volume() throws IOException {
         return null;
     }
 }

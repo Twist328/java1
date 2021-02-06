@@ -1,5 +1,7 @@
 package ru.progwards.java1.lessons.abstractnum;
 
+import java.io.IOException;
+
 /*
 Реализовать класс Pyramid, переопределяющий метод
 public Number volume(), который будет возвращать объем пирамиды, с основанием квадрат, и высотой равной стороне
@@ -16,7 +18,7 @@ public class Pyramid extends Figure3D {
 
 
     @Override
-    public Number volume() {
+    public Number volume() throws IOException {
         return segment.mul(segment.mul(segment).div(segment));
 
 

@@ -1,4 +1,7 @@
 package ru.progwards.java1.lessons.abstractnum;
+
+import java.io.IOException;
+
 /*
 Реализовать класс IntNumber, который содержит
 3.8 конструктор
@@ -21,7 +24,7 @@ public class IntNumber extends Number {
     }
 
     @Override
-    public Number mul(Number num) {
+    public Number mul(Number num) throws IOException {
         //int num2 = Integer.valueOf(num.toString());
         //int num2 = num.toInt();
         int num2 = ((IntNumber)num).num;
