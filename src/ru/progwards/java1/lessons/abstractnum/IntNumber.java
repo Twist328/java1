@@ -21,6 +21,7 @@ public class IntNumber extends Number {
         this.num = num;
     }
 
+
     @Override
     public Number mul(Number num){
         //int num2 = Integer.valueOf(num.toString());
