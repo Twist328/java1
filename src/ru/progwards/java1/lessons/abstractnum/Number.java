@@ -30,7 +30,7 @@ public class Number {
         return null;
     }// - привести значение числа к строке
 
-    public Number div(int i) {
+    public Number div(Double i) {
         return null;
     }
 }
