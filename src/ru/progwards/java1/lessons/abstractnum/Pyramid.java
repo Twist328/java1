@@ -9,6 +9,7 @@ public Number volume(), который будет возвращать объе�
  квадрата по формуле Segment*Segment*Segment/3;
 */
 public class Pyramid extends Figure3D {
+
     @Override
     public String toString() {
         return "Pyramid{" +
@@ -22,12 +23,9 @@ public class Pyramid extends Figure3D {
 
     public Number volume(){
 
-        return (segment.mul(segment.mul(segment)).div((toString("3"))));
+        return (this.segment.mul(segment.mul(segment).div(new IntNumber(3))));
     }
 
-    private Number toString(String s) {
-        return null;
-    }
 
 }
 
