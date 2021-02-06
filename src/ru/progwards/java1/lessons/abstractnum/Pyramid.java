@@ -9,7 +9,7 @@ public class Pyramid extends Figure3D {
     @Override
     public String toString() {
         return "Pyramid{" +
-                "segment=" + segment +
+                "volume=" + segment +
                 '}';
     }
 
@@ -19,7 +19,7 @@ public class Pyramid extends Figure3D {
 
     public Number volume(){
 
-        return this.segment.mul(segment.mul(segment).div(new IntNumber(3)));
+        return segment.mul(segment.mul(segment).div(new IntNumber(3)));
     }
 }
 
