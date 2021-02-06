@@ -9,9 +9,10 @@ package ru.progwards.java1.lessons.abstractnum;
 класса с указанным значением. Для класса Number - null
 */
 
-import java.io.IOException;
-
 public class Number {
+    public Number(double v) {
+    }
+
     public Number mul (Number num) {//, который будет возвращать произведение содержимого класса на num.
         return null;
     }
@@ -30,8 +31,5 @@ public class Number {
         return null;
     }// - привести значение числа к строке
 
-    public Number div(Double i) {
-        return null;
-    }
 }
 

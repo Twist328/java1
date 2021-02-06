@@ -23,8 +23,7 @@ public class Figure3D {
 
     }
 
-    public Number volume()  {
-        return null;
+    public Number volume(){    return null;
     }
 }
 
