@@ -7,7 +7,7 @@ public Number volume(), который будет возвращать объе�
  квадрата по формуле Segment*Segment*Segment/3;
 */
 public class Pyramid extends Figure3D {
-    Double DoubleNumber;
+
     @Override
     public String toString() {
         return "Pyramid{" +
