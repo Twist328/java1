@@ -16,6 +16,12 @@ public Number newNumber(String strNum), который будет возвращ
 public class DoubleNumber extends Number{
     double num;
 
+    @Override
+    public Number div(Number num) {
+        double num2 = Double.valueOf(num.toString());
+        return new DoubleNumber(this.num/num2);
+    }
+
     public DoubleNumber(double num) {
         this.num = num;
     }
