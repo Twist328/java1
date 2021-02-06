@@ -31,8 +31,10 @@ public class IntNumber extends Number {
 
     @Override
     public Number div(Number num) {
-        return super.div(num);
+        int num2 = ((IntNumber)num).num;
+        return new IntNumber(this.num/num2);
     }
+
 
     @Override
     public int toInt() {
