@@ -18,7 +18,7 @@ public class Pyramid extends Figure3D {
 
 
     @Override
-    public Number volume() throws IOException {
+    public Number volume(){
         return segment.mul(segment.mul(segment).div(segment));
 
 

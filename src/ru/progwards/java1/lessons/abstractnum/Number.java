@@ -12,7 +12,7 @@ package ru.progwards.java1.lessons.abstractnum;
 import java.io.IOException;
 
 public class Number {
-    public Number mul (Number num) throws IOException {//, который будет возвращать произведение содержимого класса на num.
+    public Number mul (Number num) {//, который будет возвращать произведение содержимого класса на num.
         return null;
     }
     public Number div(Number num) {//, который будет возвращать частное от деления содержимого класса на num.

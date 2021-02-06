@@ -12,7 +12,7 @@ public class Cube extends Figure3D {
         super(segment);
     }
 
-    public Number volume() throws IOException {
+    public Number volume()  {
         return segment.mul(segment.mul(segment));
     }
 
