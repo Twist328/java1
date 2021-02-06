@@ -4,7 +4,7 @@ package ru.progwards.java1.lessons.abstractnum;
 public Number volume(), который будет возвращать объем пирамиды, с основанием квадрат, и высотой равной стороне
  квадрата по формуле Segment*Segment*Segment/3;
 */
-public class Pyramid extends Figure3D {
+/*public class Pyramid extends Figure3D {
     public Pyramid() {
         super();
     }
@@ -25,4 +25,4 @@ public class Pyramid extends Figure3D {
         return "Шар с радиусом " + segment.toString() + ", объемом " + volume();
     }
 
-    }
+    }*/

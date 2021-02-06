@@ -19,7 +19,7 @@ class PizzaBotKompot extends ProgwardsTelegramBot {
             if (checkLastFound("конец"))
                 return "Спасибо за заказ.";
             if (checkLastFound("дурак"))
-                return "Не надоругаться. Я не волшебник, я только учусь";
+                return "Не надо ругаться. Просто скажи иначе";
 
             return "Отлично, добавляю в заказ " + getLastFound() + " Желаешь что-то еще?";
 
@@ -42,7 +42,7 @@ class PizzaBotKompot extends ProgwardsTelegramBot {
 
                 bot.addTags("Как сам", "Как ты, Братан, Даров, Салам ");
                 bot.addTags("привет", "Привет, привет,здрасьте, здравствуй, добр, день, вечер, утро, хай ");
-                bot.addTags("конец", "конец, все, стоп, нет");
+                bot.addTags("конец", "конец, все,Всё,стоп, нет");
                 bot.addTags("дурак", "дурак, придурок, идиот, тупой, козел ");
 
                 bot.addTags("Но Вам нужно выбрать \n" + bot.menu, "есть, поесть, Дайте, Чего");

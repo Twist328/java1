@@ -14,25 +14,29 @@ public Number newNumber(String strNum), который будет возвращ
 Надо будет правильно распарсить строку и привести значение к нужному типу.
 */
 public class IntNumber extends Number {
-    public IntNumber() {}
-    public IntNumber(int number) {
-        super("" + number, NumType.INT);
+    int num;
 
+    public IntNumber(int num) {
+        this.num = num;
     }
 
-    public static Number mul(Number n1, Number n2) {
-        return new IntNumber(Integer.parseInt(n1.toString()) * Integer.parseInt(n2.toString()));
-    }
-    public static Number div(Number n1, Number n2) {
-        return new IntNumber(Integer.parseInt(n1.toString()) / Integer.parseInt(n2.toString()));
-    }
-
-    public static IntNumber newNumber(String strNum) {
-        IntNumber d = new IntNumber();
-        d.strNum = strNum;
-        d.numType = getNumType(strNum);
-        return d;
+    @Override
+    public Number mul(Number num) {
+        //int num2 = Integer.valueOf(num.toString());
+        //int num2 = num.toInt();
+        int num2 = ((IntNumber)num).num;
+        return new IntNumber(this.num*num2);
     }
 
+    @Override
+    public int toInt() {
+        return num;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(num);
+    }
 }
+
 

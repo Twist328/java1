@@ -4,16 +4,15 @@ package ru.progwards.java1.lessons.abstractnum;
 public Number volume(), который будет возвращать объем куба по формуле Segment*Segment*Segment;
 */
 public class Cube extends Figure3D {
-    @Override
-    public Number volume() {
-        return segment.mul(segment, segment.mul(segment, segment));
-    }
+
     public Cube(Number segment) {
         super(segment);
     }
-    @Override
-    public String toString() {
-        return "Куб со стороной " + segment.toString() + ", объемом " + volume();
+
+    public Number volume() {
+        return segment.mul(segment.mul(segment));
     }
+
 }
+
 

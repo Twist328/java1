@@ -10,74 +10,22 @@ package ru.progwards.java1.lessons.abstractnum;
 */
 
 public class Number {
-    String strNum = null;
-    enum NumType {INT, DOUBLE};
-    NumType numType = null;
-
-    Number() {}
-
-    Number(String strNum) {
-        this();
-        this.strNum = strNum;
-        this.numType = getNumType(strNum);
-    }
-    Number(String strNum, NumType numType) {
-        this();
-        this.strNum = strNum;
-        this.numType = numType;
-    }
-    @Override
-    public String toString() {
-        return strNum;
-    }
-
-    public static Number mul(Number n1, Number n2) {
-        //checkNumType(n1);
-        switch (n1.numType) {
-            case INT:
-                return IntNumber.mul(n1, n2);
-            case DOUBLE:
-                return DoubleNumber.mul(n1, n2);
-        }
+    public Number mul (Number num) {//, который будет возвращать произведение содержимого класса на num.
         return null;
     }
-    public static Number div(Number n1, Number n2) {
-        //checkNumType(n1);
-        switch (n1.numType) {
-            case INT:
-                return IntNumber.div(n1, n2);
-            case DOUBLE:
-                return DoubleNumber.div(n1, n2);
-        }
+    public Number div(Number num) {//, который будет возвращать частное от деления содержимого класса на num.
         return null;
     }
-    // работает автоопределение типа!
 
-    public static Number newNumber(String strNum) {
-        //return new Number(strNum); //it's workable, but creates not IntNumber, DoubleNumber
-        Number n = null;
+    public Number newNumber(String strNum) {//, который будет возвращать новый экземпляр класса с указанным значением.
+        return null;
+    }
+    public int toInt() {
+        return 0;
+    }
 
-        switch (getNumType(strNum)) {
-            case INT:
-                n = new IntNumber(Integer.parseInt(strNum));
-                break;
-            case DOUBLE:
-                n = new DoubleNumber(Double.parseDouble(strNum));
-                break;
-        }
-        return n;
-    }
-    public static void checkNumType(Number n) {
-        if (n.numType == null) n.numType = getNumType(n.strNum);
-    }
-    public static NumType getNumType(String strNum) {
-        try {
-            Integer.parseInt(strNum);
-            return NumType.INT;
-        } catch(NumberFormatException e) {
-            Double.parseDouble(strNum);
-            return NumType.DOUBLE;
-        }
-    }
+    public String toString() {//1
+        return null;
+    }// - привести значение числа к строке
 }
 

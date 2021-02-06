@@ -11,16 +11,14 @@ public Number volume(), который будет возвращать объе�
 */
 public class Figure3D {
     Number segment;
-    public Figure3D() {}
+
     public Figure3D(Number segment) {
         this.segment = segment;
     }
+
     public Number volume() {
         return null;
     }
-    @Override
-    public String toString() {
-        return "Объемная фигура";
-    }
 }
+
 
