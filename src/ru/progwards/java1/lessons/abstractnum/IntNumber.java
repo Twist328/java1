@@ -35,11 +35,15 @@ public class IntNumber extends Number {
         return new IntNumber(this.num/num2);
     }
 
+    public Number newNumber(String strNum){
 
+        return new IntNumber(Integer.valueOf(strNum));
+    }
     @Override
     public int toInt() {
         return num;
     }
+
 
     @Override
     public String toString() {
