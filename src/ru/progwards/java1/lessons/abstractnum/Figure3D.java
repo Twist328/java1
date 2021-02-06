@@ -16,6 +16,10 @@ public class Figure3D {
         this.segment = segment;
     }
 
+    public Figure3D() {
+
+    }
+
     public Number volume() {
         return null;
     }

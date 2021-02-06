@@ -27,5 +27,9 @@ public class Number {
     public String toString() {//1
         return null;
     }// - привести значение числа к строке
+
+    public Number div(int i) {
+        return null;
+    }
 }
 
