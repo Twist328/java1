@@ -1,9 +1,8 @@
 package ru.progwards.java1.lessons.abstractnum;
 
 
-//import ru.progwards.java1.lessons.bigints.IntInteger;
 
-import ru.progwards.java1.lessons.bigints.IntInteger;
+
 
 /*
 Реализовать класс Pyramid, переопределяющий метод
@@ -25,7 +24,7 @@ public class Pyramid extends Figure3D {
 
     public Number volume(){
 
-        return this.segment.mul(segment.mul(segment).div(new IntNumber(3)));
+        return this.segment.mul(segment.mul(segment).div(new DoubleNumber(3)));
     }
 
 
