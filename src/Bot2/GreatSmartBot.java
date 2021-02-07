@@ -40,8 +40,8 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
 
         // сохранить в заказ
         void saveOrderItem(Integer userid, FoundTags tags, String text) {
-            Food meal = sets.getMeal(tags);
-            check.add(userid, meal);
+            Food foods = sets.getMeal(tags);
+            check.add(userid, foods);
 
             // ключи - order1, order2
             // данные - getLastFound(tags)
@@ -52,11 +52,11 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
 
         }
 
-        String getOrder(Integer userid) {
+        String getCheck(Integer userid) {
             // считать количество
 
             // в цикле по каждому элементу вывести содержимое
-            // ключ orderKey + номер
+            // ключ checkKey + номер
             return "Ваш заказ";
         }
 
@@ -88,7 +88,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
                 if (checkLastFound(tags, "нет"))
                     return "На нет, и суда нет";
                 if (checkLastFound(tags, "заказ"))
-                    return getOrder(userid);
+                    return getCheck(userid);
                 // Добавить связанные предложения, например если он заказывает картошку, то предложить соус,
                 // если отказывается - сохранить флажок, что бы бесконечно не предлагать
                 // дополнительно 2
