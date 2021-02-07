@@ -86,7 +86,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
                 if (checkLastFound(tags, "дурак"))
                     return "О дорогой. Прости конечно, Но у нас так не принято! Просто спроси по-другому";
                 if (checkLastFound(tags, "нет"))
-                    return "Ну нет, так нет";
+                    return "На нет, и суда нет";
                 if (checkLastFound(tags, "заказ"))
                     return getOrder(userid);
                 // Добавить связанные предложения, например если он заказывает картошку, то предложить соус,
