@@ -12,11 +12,11 @@ public class Sets {
         this.bot = bot;
     }
 
-    int add(Food meal) {
+    int add(Food food) {
         int len = foods.length;
         Food[] array = new Food[len + 1];
         System.arraycopy(foods, 0, array, 0, len);
-        array[len] = meal;
+        array[len] = food;
         foods = array;
         return len;
     }
