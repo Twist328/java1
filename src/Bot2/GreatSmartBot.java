@@ -163,7 +163,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
             do {
                 str = in.nextLine();
 
-                System.out.println(processMessage(123, str));
+                System.out.println(processMessage(125, str));
             } while (!stop);
             in.close();
         }
