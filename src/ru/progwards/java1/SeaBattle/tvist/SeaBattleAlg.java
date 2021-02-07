@@ -53,9 +53,9 @@ public class SeaBattleAlg {
         if (!doPrint)
             return;
 
-        for (int y = 0; y < seaBattle.getSizeX(); y++) {
+        for (int y = 0; y < seaBattle.getSizeY(); y++) {
             String str = "|";
-            for (int x = 0; x < seaBattle.getSizeY(); x++) {
+            for (int x = 0; x < seaBattle.getSizeX(); x++) {
                 str += field[y][x] + "|";
             }
             System.out.println(str);
@@ -64,8 +64,8 @@ public class SeaBattleAlg {
     }
 
     void markKilled() {
-        for (int y = 0; y < seaBattle.getSizeX(); y++) {
-            for (int x = 0; x < seaBattle.getSizeY(); x++) {
+        for (int y = 0; y < seaBattle.getSizeY(); y++) {
+            for (int x = 0; x < seaBattle.getSizeX(); x++) {
                 if (field[y][x] == 'X')
                     markHit(x, y);
             }
@@ -212,8 +212,8 @@ public class SeaBattleAlg {
     void variant1() {
         // пример алгоритма:
         // стрельба по всем квадратам поля полным перебором
-        for (int y = 0; y < seaBattle.getSizeX(); y++) {
-            for (int x = 0; x < seaBattle.getSizeY(); x++) {
+        for (int y = 0; y < seaBattle.getSizeY(); y++) {
+            for (int x = 0; x < seaBattle.getSizeX(); x++) {
                 SeaBattle.FireResult fireResult = fireAndKill(x, y);
             }
         }
@@ -221,7 +221,7 @@ public class SeaBattleAlg {
 
     public void battleAlgorithm(SeaBattle seaBattle) {
         init(seaBattle);
-        doPrint = false;
+        doPrint = true;
         //variant1();
        //variant2();
       variant3();
