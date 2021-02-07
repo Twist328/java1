@@ -84,7 +84,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
                 if (checkLastFound(tags, "конец"))
                     return finishCheck(userid);
                 if (checkLastFound(tags, "дурак"))
-                    return "Не надо ругаться. Я не волшебник, я только учусь";
+                    return "О дорогой. Прости конечно, Но у нас так не принято! Просто спроси по-другому";
                 if (checkLastFound(tags, "нет"))
                     return "Ну нет, так нет";
                 if (checkLastFound(tags, "заказ"))
