@@ -12,6 +12,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
         static Sets sets;
         static Check check;
 
+
         private final String setsStr = "У нас есть роллы, напитки и десерт, а еще для поднятия духа смешной анекдот...";
 
         static final String groupKey = "group";
@@ -23,7 +24,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
         // Пердложить группы блюд
         // спросить адрес доставки
         String finishCheck(Integer userid) {
-            // проверить что все 4 группы блюд в заказе
+            // проверить что все 5 групп  в заказе
             // если какой-то группы нет && бот не предлагал
             // то предложить и учтановить ключ, что бы не предлагать 2 раза
 
@@ -43,6 +44,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
             Food foods = sets.getFood(tags);
             check.add(userid, foods);
 
+            //check.add(userid, jokes);
             // ключи - check1, check2
             // данные - getLastFound(tags)
 
@@ -153,6 +155,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
             sets.add("Кофе Американо, 160р.", "напит, пить, кофе,  Американо", 4, 160 );
 
             sets.add("Анекдот , 160оч.", "Брежнева, анекдот, смешно,  расскажи", 5, 160 );
+
             sets.fillTags();
             check = new Check(bot, sets);
             bot.start();

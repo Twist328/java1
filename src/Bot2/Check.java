@@ -5,7 +5,7 @@ public class Check {
     Sets sets;
     GreatSmartBot bot;
 
-    Check(GreatSmartBot bot, Sets menu) {
+    Check(GreatSmartBot bot, Sets sets) {
         this.bot = bot;
         this.sets = sets;
         int maxGroup = 0;
