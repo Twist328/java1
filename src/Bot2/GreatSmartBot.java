@@ -12,7 +12,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
         static Sets sets;
         static Check check;
 
-        private final String setsStr = "У нас есть роллы, напитки и десерт";
+        private final String setsStr = "У нас есть роллы, напитки и десерт, а еще для поднятия духа смешной анекдот...";
 
         static final String groupKey = "group";
         static final String checkKey = "check";
@@ -33,17 +33,17 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
                 setUserData(userid, addressKey, "*");
                 return "Укажите, пожалуйста, адрес доставки";
             }
-            stop = true;
+            stop = false;
             // если заказ пуст выдать другое сообщение
             return "Спасибо за заказ.";
         }
 
         // сохранить в заказ
         void saveOrderItem(Integer userid, FoundTags tags, String text) {
-            Food foods = sets.getMeal(tags);
+            Food foods = sets.getFood(tags);
             check.add(userid, foods);
 
-            // ключи - order1, order2
+            // ключи - check1, check2
             // данные - getLastFound(tags)
 
             // дополнительно 1
@@ -125,13 +125,13 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
             bot.addTags("нет", "нет");
 
             sets = new Sets(bot);
-            Food f1 = sets.add("Тянь шань 360р.", "ролл, шань, тянь, снежный краб, краб, огурец, сливочный сыр, угорь, лосось", 1, 360);
-            Food f2 = sets.add("Филадельфия Классик 360р.", "ролл, классик, филадельф, сливочный сыр, лосось", 1, 360);
-            Food f3 = sets.add("Спайси краб 280р.", "ролл, спайси, снежный краб, краб, икра лосося, спайси соус", 1, 280);
-            Food f4 = sets.add("Унаги филадельфия 360р.", "ролл, унаги, филадельф, угорь, сливочный сыр, лосось, соус унаги", 1, 360);
-            Food f5 = sets.add("Самурай 320р.", "ролл, самурай, креветка тигр, лосос, томат", 1, 320);
-            Food f6 = sets.add("Аляска 270р.", "ролл, аляск, сливочный сыр, креветк, огурец, укроп, икра", 1, 270);
-            Food f7 = sets.add("Горячая тортилья 270р.", "ролл, тортил, говя, сливочный сыр, помид, огур, лук", 1, 270);
+            Food f1 = sets.add("Тянь шань 360р.", "ролл,еда, шань, еды,тянь, снежный краб, краб, огурец, сливочный сыр, угорь, лосось", 1, 360);
+            Food f2 = sets.add("Филадельфия Классик 360р.", "ролл,еда, еды,классик, филадельф, сливочный сыр, лосось", 1, 360);
+            Food f3 = sets.add("Спайси краб 280р.", "ролл, спайси, снежный краб,еда, еды,краб, икра лосося, спайси соус", 1, 280);
+            Food f4 = sets.add("Унаги филадельфия 360р.", "ролл, унаги, филадельф, еда,угорь, еды,сливочный сыр, лосось, соус унаги", 1, 360);
+            Food f5 = sets.add("Самурай 320р.", "ролл, самурай, креветка тигр,еды, лосос, еда,томат", 1, 320);
+            Food f6 = sets.add("Аляска 270р.", "ролл, аляск, сливочный сыр, креветк,еды, огурец,еда, укроп, икра", 1, 270);
+            Food f7 = sets.add("Горячая тортилья 270р.", "ролл, тортил, говя, сливочный сыр,еды, помид, еда,огур, лук", 1, 270);
 
             Food m1 = sets.add("Больше Имбиря 20р.", "добавк, приправ, имбир", 2, 20);
             m1.linkTo(new Food[]{f1, f2, f4, f5});
@@ -140,7 +140,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
             Food m3 = sets.add("Больше Соевого соуса 20р.", "добавк, соус, соев, приправ, васаб", 2, 20);
             m3.linkTo(new Food[]{f5, f6, f7});
 
-            sets.add("Торт тирамису, 110р.", "десерт, кофе, маскарпоне, бисквит", 3, 110);
+            sets.add("Торт тирамису, 110р.", "десерт, Тирамису, маскарпоне, бисквит", 3, 110);
             sets.add("Торт медовик, 80р.", "десерт, мед, бисквит", 3, 80);
             sets.add("Эклеры, 70р.", "десерт, заварной, крем, тесто", 3, 70);
 
@@ -150,8 +150,9 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
             sets.add("Сок 60р.", "напит, пить, сок, апельсиноый, яблочный, вишневый", 4, 60);
             sets.add("Кофе Капучино, 160р.", "напит, пить, кофе, Капучино, взбитые сливки, сахар", 4, 160);
             sets.add("Кофе Эспрессо, 160р.", "напит, пить, кофе,  Эспрессо", 4, 160 );
-            sets.add("Кофе Американо, 160р.", "напит, пить, кофе,  Амнрикано", 4, 160 );
+            sets.add("Кофе Американо, 160р.", "напит, пить, кофе,  Американо", 4, 160 );
 
+            sets.add("Анекдот , 160оч.", "Брежнева, анекдот, смешно,  расскажи", 5, 160 );
             sets.fillTags();
             check = new Check(bot, sets);
             bot.start();
@@ -163,8 +164,8 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
             do {
                 str = in.nextLine();
 
-                System.out.println(processMessage(125, str));
-            } while (!stop);
+                System.out.println(processMessage(5, str));
+            } while (stop);
             in.close();
         }
 
