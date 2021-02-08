@@ -32,7 +32,7 @@ public class DoubleNumber extends Number{
         return new DoubleNumber(this.num*num2);
     }
     public Number newNumber(String strNum){
-        return new DoubleNumber(Double.valueOf(strNum));
+        return new DoubleNumber(Double.parseDouble(strNum));
     }
     @Override
     public String toString() {
