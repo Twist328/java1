@@ -22,7 +22,7 @@ public class Pyramid extends Figure3D {
 
     public Number volume(){
 
-        return segment.mul(segment.mul(segment).div(segment.newNumber("3")));//еще Вариант .div(segment.newNumber("3")));
+        return segment.mul(segment.mul(segment).div(segment.newNumber("3.0")));//еще Вариант .div(segment.newNumber("3")));
         //если прописать в newNumber("3.0"))) будет ошибка . Также не хочет вариант с .div(new DoubleNumber(3.0)))
         // Вот в сданном варианте не принимается задача именно класс Pyramid, неточность в результате копеечная.
         // ЧТО СДЕЛАТЬ???
