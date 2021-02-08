@@ -26,10 +26,13 @@ public class Number {
         return 0;
     }
 
-    public String toString() {//1
-        return null;
-    }// - привести значение числа к строке
 
-}
+    @Override
+    public String toString() {
+        return null;
+    }
+}// - привести значение числа к строке
+
+
 
 

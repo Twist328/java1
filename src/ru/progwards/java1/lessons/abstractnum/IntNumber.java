@@ -45,12 +45,6 @@ public class IntNumber extends Number {
         return new IntNumber(Integer.parseInt(strNum));
     }
     @Override
-    public int toInt() {
-        return num;
-    }
-
-
-    @Override
     public String toString() {
         return String.valueOf(num);
     }
