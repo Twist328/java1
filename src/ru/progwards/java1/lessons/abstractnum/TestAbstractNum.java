@@ -2,13 +2,17 @@ package ru.progwards.java1.lessons.abstractnum;
 
 public class TestAbstractNum {
     public static void main(String[] args) {
-        Number num = new IntNumber(2);
+        Number num = new IntNumber(3);
+
         Figure3D fig = new Cube(num);
+        Figure3D fig3 = new Cube(new DoubleNumber(3));
         System.out.println(fig.volume());
+        System.out.println(fig3.volume());
 
         Figure3D fig1 = new Pyramid(num);
-        fig1 = new Pyramid(new DoubleNumber(20));
+        Figure3D fig2 = new Pyramid(new DoubleNumber(3));
         System.out.println(fig1.volume());
+        System.out.println(fig2.volume());
 
         fig = new Cube(new DoubleNumber(3));
         System.out.println(fig.volume());
@@ -16,7 +20,7 @@ public class TestAbstractNum {
     }
 
     static void testNum() {
-        IntNumber inum = new IntNumber(2);
+        IntNumber inum = new IntNumber(3);
         Number num = inum;
 
         inum = (IntNumber) num;

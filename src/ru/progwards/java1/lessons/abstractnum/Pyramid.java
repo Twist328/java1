@@ -8,13 +8,6 @@ public Number volume(), который будет возвращать объе�
 */
 public class Pyramid extends Figure3D {
 
-    @Override
-    public String toString() {
-        return "Pyramid{" +
-                "volume=" + segment +
-                '}';
-    }
-
     public Pyramid(Number segment) {
         super(segment);
 
@@ -22,10 +15,17 @@ public class Pyramid extends Figure3D {
 
     public Number volume(){
 
-        return segment.mul(segment.mul(segment).div(segment.newNumber("3.0")));//еще Вариант .div(segment.newNumber("3")));
+        return segment.mul(segment.mul(segment).div(segment.newNumber("3")));//еще Вариант .div(segment.newNumber("3")));
         //если прописать в newNumber("3.0"))) будет ошибка . Также не хочет вариант с .div(new DoubleNumber(3.0)))
         // Вот в сданном варианте не принимается задача именно класс Pyramid, неточность в результате копеечная.
         // ЧТО СДЕЛАТЬ???
+    }
+
+    @Override
+    public String toString() {
+        return "Pyramid{" +
+                "segment=" + segment +
+                '}';
     }
 }
 
