@@ -3,7 +3,8 @@ package ru.progwards.java1.lessons.abstractnum;
 
 
 /*
-
+Реализовать классы Cube, Ball, вычисляющие объем фигуры в абстрактных числах класса Number,
+реализованный в целых числах, и в числах с плавающей точкой.
 Реализовать класс Figure3D, содержащий
 3.1 конструктор
 public Figure3D(Number segment), который будет сохранять в классе значение длины отрезка.
@@ -25,5 +26,4 @@ public class Figure3D {
     public Number volume(){    return null;
     }
 }
-
 

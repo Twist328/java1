@@ -42,7 +42,7 @@ public class IntNumber extends Number {
 
     public Number newNumber(String strNum){
 
-        return new IntNumber(Integer.valueOf(strNum));
+        return new IntNumber(Integer.parseInt(strNum));
     }
     @Override
     public int toInt() {
@@ -55,5 +55,4 @@ public class IntNumber extends Number {
         return String.valueOf(num);
     }
 }
-
 
