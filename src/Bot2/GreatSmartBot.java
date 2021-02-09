@@ -168,7 +168,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
                 str = in.nextLine();
 
                 System.out.println(processMessage(5, str));
-            } while (stop);
+            } while (!stop);
             in.close();
         }
 
