@@ -1,8 +1,6 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-import java.util.Comparator;
-
-public class DoubleNumber extends Number {
+public class DoubleNumber extends Number implements Comparator {
     double num;
 
     @Override

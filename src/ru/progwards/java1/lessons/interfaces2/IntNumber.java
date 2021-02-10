@@ -1,8 +1,6 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-import java.util.Comparator;
-
-public class IntNumber extends Number {
+public class IntNumber extends Number implements Comparator{
     int num;
 
     public IntNumber(int num) {
