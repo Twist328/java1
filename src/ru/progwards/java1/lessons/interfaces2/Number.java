@@ -1,8 +1,8 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-import java.util.Comparator;
 
-public class Number {
+
+public class Number implements Comparator {
 
 
     public Number mul(Number num) {//, который будет возвращать произведение содержимого класса на num.
@@ -22,26 +22,18 @@ public class Number {
     }
 
 
+    public Number() {
+        super();
+    }
+
     @Override
     public String toString() {
         return null;
     }
 
-
-    Comparator<Number> comparator = new Comparator<Number>() {
-        @Override
-        public int compare(Number o1, Number o2) {
-            return 0;
-        }
-
-    };
-
-    public Comparator<Number> getComparator() {
-        return comparator;
-    }
-
-    public void setComparator(Comparator<Number> comparator) {
-        this.comparator = comparator;
+    @Override
+    public int compare(Object o1, Object o2) {
+        return 0;
     }
 }
 
