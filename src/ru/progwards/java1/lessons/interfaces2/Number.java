@@ -33,8 +33,14 @@ public class Number implements Comparator {
 
     @Override
     public int compare(Object o1, Object o2) {
+        return compare(newNumber((String) o1).newNumber((String) o2));
+    }
+
+    private int compare(Number newNumber) {
         return 0;
     }
+
 }
+
 
 
