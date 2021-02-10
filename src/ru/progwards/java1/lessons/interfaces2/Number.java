@@ -36,6 +36,13 @@ public class Number {
 
     };
 
+    public Comparator<Number> getComparator() {
+        return comparator;
+    }
+
+    public void setComparator(Comparator<Number> comparator) {
+        this.comparator = comparator;
+    }
 }
 
 
