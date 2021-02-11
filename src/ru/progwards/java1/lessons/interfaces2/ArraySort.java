@@ -5,8 +5,26 @@ import ru.progwards.java1.lessons.interfaces.*;
 import java.util.Arrays;
 import java.util.Random;
 
-public class ArraySort implements Comparable {
+public class ArraySort implements Comparable<Number> {
 
+    public static void main(String[] args) {
+
+    }
+
+    int[] a = new Random().ints(10, -10, 10).toArray();
+
+    public static void sort(Comparable<Number>[] a) {
+        sort(a);
+
+    }
+
+    @Override
+    public int compareTo(Number o) {
+        return this.compareTo(o);
+    }
+
+
+}
    /* public static void sort(int[] a) {
 
 
@@ -31,12 +49,11 @@ public class ArraySort implements Comparable {
         }
 
     }*/
-   public static void main(String[] args) {
 
-     //  Comparable<Number> public static void sort(Comparable<Number>[] a){
-       //Сomparatable<Number> comparator = Comparator.comparing(obj -> obj.getId());
-      //ArraySort.sort(a, comparator);
-       int[] a = {1, -100, 800, 567};
+
+            //Сomparatable<Number> comparator = Comparator.comparing(obj -> obj.getId());
+            //ArraySort.sort(a, comparator);
+       /*int[] a = {1, -100, 800, 567};
        int[] a1 = new Random().ints(100, -100, 100).toArray();
        sort(a);
        sort(a1);
@@ -64,4 +81,5 @@ public class ArraySort implements Comparable {
     public int compareTo(Object o) {
         return 0;
     }
-}
+}*/
+
