@@ -35,12 +35,13 @@ public class IntNumber extends Number {
         return new IntNumber(Integer.parseInt(strNum));
     }
 
-
     @Override
-    public Comparator thenComparing(Comparator other) {
-        return this;
+    public int compare(Number o1, Number o2) {
+        return super.compare(o1, o2);
     }
-};
+
+    }
+
 
 
 
