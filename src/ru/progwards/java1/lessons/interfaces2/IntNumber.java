@@ -37,7 +37,7 @@ public class IntNumber extends Number {
 
     @Override
     public int compareTo(Number o) {
-        return ((o.equals( o.num) ? -1 : ((o == o.num) ? 0 : 1)));
+        return super.compareTo(o);
     }
 
 
