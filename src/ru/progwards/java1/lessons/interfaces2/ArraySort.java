@@ -2,7 +2,7 @@ package ru.progwards.java1.lessons.interfaces2;
 
 import java.util.*;
 
-public class ArraySort implements Comparable<Number> {
+public class ArraySort implements Comparator<Number> {
 
     public static void main(String[] args) {
 
@@ -10,11 +10,11 @@ public class ArraySort implements Comparable<Number> {
 
     int[] a = new Random().ints(10, -10, 10).toArray();
 
-    public static void sort(Comparable<Number>[] a) {
-        Set<Comparable<Number>[]> sortedSet = new TreeSet<Comparable<Number>[]>(new Comparator<Comparable<Number>[]>() {
+    public static void sort(Comparator<Number>[] a) {
+        Set<Comparator<Number>[]> sortedSet = new TreeSet<Comparator<Number>[]>(new java.util.Comparator() {
 
             @Override
-            public int compare(Comparable<Number>[] o1, Comparable<Number>[] o2) {
+            public int compare(Comparator<Number>[] o1, Comparator<Number>[] o2) {
                 return compare(o1, o2);
             }
         });

@@ -1,8 +1,6 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-import java.util.Comparator;
-
-public class Number implements Comparable<Number> {
+public class Number implements Comparator<Number> {
 
 Number num;
 
@@ -38,6 +36,6 @@ Number num;
 
     @Override
     public int compareTo(Number o) {
-        return ((o.equals( o.num)) ? 0 : ((o != o.num) ? -1 : 1));
+        return ((o.equals( o.num)) ? 0 : ((o == o.num) ? -1 : 1));
     }
 }
