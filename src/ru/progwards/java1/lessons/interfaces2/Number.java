@@ -1,8 +1,5 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-
-
-
 import java.util.Comparator;
 
 public class Number implements Comparable<Number> {
