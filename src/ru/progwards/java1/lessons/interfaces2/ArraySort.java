@@ -15,27 +15,27 @@ public class ArraySort implements Comparable<Number> {
     int[] a = new Random().ints(10, 10, 100).toArray();
 
     public static void sort(Comparable<Number>[] a) {
-
-        new ArraySort().sort(a);
-        System.out.println(Arrays.toString(a));
-        Arrays.sort(a, (o1, o2) -> o2.compareTo((Number) o1));
-        for (Comparable<Number> i : a)
-            System.out.print(i + " ");
         Comparable<Number> comp = new Comparable<Number>() {
-
             @Override
             public int compareTo(Number o) {
                 return ((o.compareTo(o.num) > 0) ? 1 : ((o == o.num) ? 0 : -1));
-            }
-        };
-        new ArraySort().sort(a);
-        System.out.println(Arrays.toString(a));
+            }};
 
+        for (Comparable<Number> i : a)
+            System.out.print(i + " ");
     }
+
 
     @Override
     public int compareTo(Number o) {
-        return ((o.compareTo(o.num) > 0) ? 1 : ((o == o.num) ? 0 : -1));
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "ArraySort{" +
+                "a=" + Arrays.toString(a) +
+                '}';
     }
 }
 
