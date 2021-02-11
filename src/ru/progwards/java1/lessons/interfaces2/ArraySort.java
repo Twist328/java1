@@ -1,7 +1,5 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-import ru.progwards.java1.lessons.interfaces.*;
-
 import java.util.Arrays;
 import java.util.Random;
 
@@ -15,7 +13,7 @@ public class ArraySort implements Comparable<Number> {
 
     public static void sort(Comparable<Number>[] a) {
         sort(a);
-
+        System.out.println(Arrays.toString(a));
     }
 
     @Override
@@ -24,6 +22,12 @@ public class ArraySort implements Comparable<Number> {
     }
 
 
+    @Override
+    public String toString() {
+        return "ArraySort{" +
+                "a=" + Arrays.toString(a) +
+                '}';
+    }
 }
    /* public static void sort(int[] a) {
 
