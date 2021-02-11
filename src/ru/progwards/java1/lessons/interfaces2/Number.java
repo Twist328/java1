@@ -41,6 +41,6 @@ Number num;
 
     @Override
     public int compareTo(Number o) {
-        return 0;
+        return ((o.equals( o.num) ? -1 : ((o == o.num) ? 0 : 1)));
     }
 }
