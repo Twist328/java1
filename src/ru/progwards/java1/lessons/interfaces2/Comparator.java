@@ -1,7 +1,8 @@
 package ru.progwards.java1.lessons.interfaces2;
 
 public interface Comparator <Number>{
-    int compare(Number o1, Number o2);
 
-
-}
+     public default boolean compare(Number o1, Number o2) {
+         return o1.equals(o2);
+     }
+ };

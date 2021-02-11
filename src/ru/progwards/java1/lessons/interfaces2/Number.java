@@ -4,6 +4,11 @@ package ru.progwards.java1.lessons.interfaces2;
 
 public class Number implements Comparator {
 
+Number num;
+
+    public Number() {
+
+    }
 
     public Number mul(Number num) {//, который будет возвращать произведение содержимого класса на num.
         return null;
@@ -22,8 +27,8 @@ public class Number implements Comparator {
     }
 
 
-    public Number() {
-        super();
+    public Number(Number num) {
+        this.num=num;
     }
 
     @Override
@@ -31,16 +36,15 @@ public class Number implements Comparator {
         return null;
     }
 
+
     @Override
-    public int compare(Object o1, Object o2) {
-        return compare(newNumber((String) o1).newNumber((String) o2));
+    public boolean compare(Object o1, Object o2) {
+        return compare(o1,o2);
     }
-
-    private int compare(Number newNumber) {
-        return 0;
-    }
-
 }
+
+
+
 
 
 

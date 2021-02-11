@@ -27,8 +27,8 @@ public class DoubleNumber extends Number implements Comparator {
     }
     Comparator<DoubleNumber> comparator = new Comparator<DoubleNumber>() {
         @Override
-        public int compare(DoubleNumber o1, DoubleNumber o2) {
-            return 0;
+        public boolean compare(DoubleNumber o1, DoubleNumber o2) {
+            return compare(o1,o2);
         }
 
 
