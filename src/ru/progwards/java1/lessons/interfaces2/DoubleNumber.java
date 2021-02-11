@@ -32,6 +32,8 @@ public class DoubleNumber extends Number  {
     public int compare(Number o1, Number o2) {
         return super.compare(o1, o2);
     }
+
+
 }
 
 
