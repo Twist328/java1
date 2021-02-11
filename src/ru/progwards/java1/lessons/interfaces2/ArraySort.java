@@ -1,32 +1,30 @@
 package ru.progwards.java1.lessons.interfaces2;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
-public class ArraySort implements Comparator<Number> {
+public class ArraySort {
 
     public static void main(String[] args) {
 
     }
 
-    int[] a = new Random().ints(10, -10, 10).toArray();
+   int[] a = new Random().ints(10, -10, 10).toArray();
 
-    public static void sort(Comparator<Number>[] a) {
-        Set<Comparator<Number>[]> sortedSet = new TreeSet<Comparator<Number>[]>(new java.util.Comparator() {
+    public static void sort(Comparable<Number>[] a) {
+        Set<Comparable<Number>[]> set  = new TreeSet<>();
+        set.add(a);
+        sort(a);
+        System.out.println(a.toString());
+            };
 
-            @Override
-            public int compare(Comparator<Number>[] o1, Comparator<Number>[] o2) {
-                return compare(o1, o2);
-            }
-        });
-        //sort(a);
-       return;//System.out.println(a);
-    }
 
-    @Override
-    public int compareTo(Number o) {
-        return 0;
-    }
-}     /*Arrays.sort(a, (o1, o2) -> o2.compareTo((Number) o1));
+        }
+
+
+
+
+     /*Arrays.sort(a, (o1, o2) -> o2.compareTo((Number) o1));
 
         for (Comparable<Number> i : a)
             System.out.print(i + " ");
