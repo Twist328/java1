@@ -1,6 +1,8 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-public class DoubleNumber extends Number implements Comparator {
+import java.util.Comparator;
+
+public class DoubleNumber extends Number  {
     double num;
 
     @Override
@@ -25,14 +27,13 @@ public class DoubleNumber extends Number implements Comparator {
     public String toString() {
         return String.valueOf(num);
     }
-    Comparator<DoubleNumber> comparator = new Comparator<DoubleNumber>() {
-        @Override
-        public boolean compare(DoubleNumber o1, DoubleNumber o2) {
-            return compare(o1,o2);
-        }
 
 
-    };
+    @Override
+    public Comparator thenComparing(Comparator other) {
+        return this;
+    }
+};
 
-}
+
 

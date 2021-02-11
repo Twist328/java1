@@ -1,6 +1,7 @@
 package ru.progwards.java1.lessons.interfaces2;
 
 
+import java.util.Comparator;
 
 public class Number implements Comparator {
 
@@ -22,11 +23,6 @@ Number num;
         return null;
     }
 
-    public int toInt() {
-        return 0;
-    }
-
-
     public Number(Number num) {
         this.num=num;
     }
@@ -36,12 +32,12 @@ Number num;
         return null;
     }
 
-
     @Override
-    public boolean compare(Object o1, Object o2) {
+    public int compare(Object o1, Object o2) {
         return compare(o1,o2);
     }
 }
+
 
 
 

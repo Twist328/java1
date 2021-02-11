@@ -1,5 +1,7 @@
 package ru.progwards.java1.lessons.interfaces2;
 
+import java.util.Comparator;
+
 public class IntNumber extends Number {
     int num;
 
@@ -32,20 +34,15 @@ public class IntNumber extends Number {
 
         return new IntNumber(Integer.parseInt(strNum));
     }
+
+
     @Override
-    public String toString() {
-        return String.valueOf(num);
+    public Comparator thenComparing(Comparator other) {
+        return this;
     }
-    Comparator<IntNumber> comparator = new Comparator<IntNumber>() {
-        @Override
-        public boolean compare(IntNumber o1, IntNumber o2) {
-            return compare(o1,o2);
-        }
+};
 
 
-    };
-
-}
 
 
 
