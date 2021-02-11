@@ -15,7 +15,7 @@ public  class ArraySort implements Comparable<Number> {
 
     public static void sort(Comparable<Number>[] a) {
 
-        Arrays.sort(a, (o1, o2) -> o2.compareTo((Number) o1));
+        Arrays.sort(a, (o1, o2) -> o1.compareTo((Number) o2));
 
         for (Comparable<Number> i : a)
             System.out.print(i + " ");
