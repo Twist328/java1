@@ -1,28 +1,35 @@
 package ru.progwards.java1.lessons.interfaces2;
 
+import org.glassfish.grizzly.utils.ArraySet;
+
 import java.lang.reflect.Array;
 import java.util.*;
 
-public class ArraySort {
+public class ArraySort implements Comparable<Number> {
+
 
     public static void main(String[] args) {
 
     }
-
-   int[] a = new Random().ints(10, -10, 10).toArray();
+    int[] a = new Random().ints(10, 10, 100).toArray();
 
     public static void sort(Comparable<Number>[] a) {
-        Set<Comparable<Number>[]> set  = new TreeSet<>();
-        set.add(a);
-        sort(a);
-        System.out.println(a.toString());
-            };
+Comparable<Number>comp=new Comparable<Number>() {
+    @Override
+    public int compareTo(Number o) {
+        return ((o.compareTo(o.num)>0)? 1 :((o==o.num)? 0 : -1));
+    }
+};
+      new ArraySort().sort(a);
+        System.out.println(Arrays.toString(a));
 
+    }
 
-        }
-
-
-
+    @Override
+    public int compareTo(Number o) {
+        return this.compareTo(o);
+    }
+}
 
      /*Arrays.sort(a, (o1, o2) -> o2.compareTo((Number) o1));
 
@@ -98,4 +105,3 @@ public class ArraySort {
         return 0;
     }
 }*/
-
