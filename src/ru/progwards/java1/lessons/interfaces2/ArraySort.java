@@ -15,11 +15,11 @@ public class ArraySort implements Comparable<Number> {
 
             @Override
             public int compare(Comparable<Number>[] o1, Comparable<Number>[] o2) {
-                return 0;
+                return compare(o1, o2);
             }
         });
-        sort(a);
-        System.out.println(a);
+        //sort(a);
+       return;//System.out.println(a);
     }
 
     @Override
