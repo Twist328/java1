@@ -5,7 +5,7 @@ package ru.progwards.java1.lessons.interfaces2;
 
 import java.util.Comparator;
 
-public class Number implements Comparator {
+public class Number implements Comparable<Number> {
 
 Number num;
 
@@ -35,9 +35,12 @@ Number num;
         return null;
     }
 
-    @Override
-    public int compare(Object o1, Object o2) {
-        return  ((o1.equals( o2) ? -1 : ((o1 == o2) ? 0 : 1)));
-    }
 
+       // return  ((o1.equals( o2) ? -1 : ((o1 == o2) ? 0 : 1)));
+
+
+    @Override
+    public int compareTo(Number o) {
+        return 0;
     }
+}
