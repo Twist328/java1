@@ -1,9 +1,6 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public  class ArraySort implements Comparable<Number> {
 
@@ -14,8 +11,20 @@ public  class ArraySort implements Comparable<Number> {
     int[] a = new Random().ints(10, -10, 10).toArray();
 
     public static void sort(Comparable<Number>[] a) {
+        Set<Comparable<Number>[]> sortedSet = new TreeSet<Comparable<Number>[]>(new Comparator<Comparable<Number>[]>() {
+            @Override
+            public int compare(Comparable<Number>[] o1, Comparable<Number>[] o2) {
+                return 0;
+            }
+        });
 
-        Arrays.sort(a, (o, o1) -> o1.compareTo((Number) o));
+    }
+
+    @Override
+    public int compareTo(Number o) {
+        return 0;
+    }
+}     /*Arrays.sort(a, (o1, o2) -> o2.compareTo((Number) o1));
 
         for (Comparable<Number> i : a)
             System.out.print(i + " ");
@@ -25,7 +34,7 @@ public  class ArraySort implements Comparable<Number> {
     public int compareTo(Number o) {
         return ((o.compareTo( o.num)>0) ? -1 : ((o == o.num) ? 0 : 1));
     }
-    }
+    }*/
 
 
 
