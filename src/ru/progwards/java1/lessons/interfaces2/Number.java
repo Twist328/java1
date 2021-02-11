@@ -1,9 +1,11 @@
 package ru.progwards.java1.lessons.interfaces2;
 
 
+
+
 import java.util.Comparator;
 
-public class Number implements Comparator<Number> {
+public class Number implements Comparator {
 
 Number num;
 
@@ -29,20 +31,13 @@ Number num;
 
     @Override
     public String toString() {
+
         return null;
     }
 
-
     @Override
-    public int compare(Number o1, Number o2) {
-        return 0;
+    public int compare(Object o1, Object o2) {
+        return  ((o1.equals( o2) ? -1 : ((o1 == o2) ? 0 : 1)));
     }
-}
 
-
-
-
-
-
-
-
+    }
