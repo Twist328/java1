@@ -5,7 +5,7 @@ import ru.progwards.java1.lessons.interfaces.*;
 import java.util.Arrays;
 import java.util.Random;
 
-public class ArraySort {
+public class ArraySort implements Comparable {
 
    /* public static void sort(int[] a) {
 
@@ -33,18 +33,22 @@ public class ArraySort {
     }*/
    public static void main(String[] args) {
 
-       int [] a = {1, -100, 800, 567};
-
-  sort(a);
-
-        System.out.println(Arrays.toString(a));
-}
+     //  Comparable<Number> public static void sort(Comparable<Number>[] a){
+       //Сomparatable<Number> comparator = Comparator.comparing(obj -> obj.getId());
+      //ArraySort.sort(a, comparator);
+       int[] a = {1, -100, 800, 567};
+       int[] a1 = new Random().ints(100, -100, 100).toArray();
+       sort(a);
+       sort(a1);
+       System.out.println(Arrays.toString(a));
+       System.out.println(Arrays.toString(a1));
+   }
     public static void sort(int[] a) {
         for (int i = 0; i < a.length; i++) {
             int min = a[i];
             int minId = i;
             for (int j = i+1; j < a.length; j++) {
-                if (a[j] > min) {
+                if (a[j] < min) {
                     min = a[j];
                     minId = j;
                 }
@@ -56,14 +60,8 @@ public class ArraySort {
         }
     }
 
-
-
-
-
-
-
     @Override
-    public String toString() {
-        return "ArraySort{}";
+    public int compareTo(Object o) {
+        return 0;
     }
 }
