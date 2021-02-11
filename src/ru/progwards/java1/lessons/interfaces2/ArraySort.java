@@ -2,8 +2,10 @@ package ru.progwards.java1.lessons.interfaces2;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
 
-public class ArraySort implements Comparable<Number> {
+public  class ArraySort implements Comparable<Number> {
 
     public static void main(String[] args) {
 
@@ -12,23 +14,24 @@ public class ArraySort implements Comparable<Number> {
     int[] a = new Random().ints(10, -10, 10).toArray();
 
     public static void sort(Comparable<Number>[] a) {
-        sort(a);
-        System.out.println(Arrays.toString(a));
+
+        Arrays.sort(a, (o1, o2) -> o2.compareTo((Number) o1));
+
+        for (Comparable<Number> i : a)
+            System.out.print(i + " ");
     }
 
     @Override
     public int compareTo(Number o) {
-        return this.compareTo(o);
+        return ((o.equals( o.num) ? -1 : ((o == o.num) ? 0 : 1)));
+    }
     }
 
 
-    @Override
-    public String toString() {
-        return "ArraySort{" +
-                "a=" + Arrays.toString(a) +
-                '}';
-    }
-}
+
+
+
+
    /* public static void sort(int[] a) {
 
 
