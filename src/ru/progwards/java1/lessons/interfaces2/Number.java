@@ -2,14 +2,12 @@ package ru.progwards.java1.lessons.interfaces2;
 
 public class Number implements Comparable<Number> {
 
-Number num;
+    Number num;
 
     public Number() {
 
     }
 
-    public Number(Comparable<Number>[] a) {
-    }
 
     public Number mul(Number num) {//, который будет возвращать произведение содержимого класса на num.
         return null;
@@ -24,7 +22,7 @@ Number num;
     }
 
     public Number(Number num) {
-        this.num=num;
+        this.num = num;
     }
 
     @Override
@@ -33,12 +31,14 @@ Number num;
         return null;
     }
 
-
-       // return  ((o1.equals( o2) ? -1 : ((o1 == o2) ? 0 : 1)));
-
-
     @Override
-    public int compareTo(Number num) {
-        return num.compareTo(num.num);
+    public int compareTo(Number o) {
+        if (this.num.compareTo(o.num) == 0) {
+            return 0;
+        } else if (this.num.compareTo(o.num) > 0) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 }

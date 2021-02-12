@@ -5,6 +5,7 @@ public class IntNumber extends Number {
 
     public IntNumber(int num) {
         super();
+
         this.num = num;
     }
 
@@ -34,8 +35,8 @@ public class IntNumber extends Number {
     }
 
     @Override
-    public int compareTo(Number num) {
-        return super.compareTo(num);
+    public int compareTo(Number o) {
+        return super.compareTo(o);
     }
 
 
