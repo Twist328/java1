@@ -6,38 +6,50 @@ import java.lang.reflect.Array;
 import java.util.*;
 
 public class ArraySort implements Comparable<Number> {
+    private Number num;
+    private int index;
+    private static int result;
 
 
-    public static void main(String[] args) {
-
+    public ArraySort(Number num, int index) {
+        this.num = num;
+        this.index = index;
     }
 
-    int[] a = new Random().ints(10, 10, 100).toArray();
+    public ArraySort() {
+
+    }
 
     public static void sort(Comparable<Number>[] a) {
-        Comparable<Number> comp = new Comparable<Number>() {
-            @Override
-            public int compareTo(Number o) {
-                return ((o.compareTo(o.num) > 0) ? 1 : ((o == o.num) ? 0 : -1));
-            }};
-
-        for (Comparable<Number> i : a)
-            System.out.print(i + " ");
     }
-
 
     @Override
     public int compareTo(Number o) {
-        return 0;
+        result = this.num.compareTo(o.num);
+
+        return result;
+
     }
 
-    @Override
-    public String toString() {
-        return "ArraySort{" +
-                "a=" + Arrays.toString(a) +
-                '}';
+
+    public static void main(String[] args) {
+        Comparable<Number>comparable=new Comparable<Number>() {
+            @Override
+            public int compareTo(Number o) {
+                return result = this.compareTo(o.num);
+            }
+        };
+        int[] a = new Random().ints(10, 10, 100).toArray();
+Arrays.sort(a);
+
+        System.out.print(Arrays.toString(a));
+
     }
+
+
 }
+
+
 
      /*Arrays.sort(a, (o1, o2) -> o2.compareTo((Number) o1));
 
