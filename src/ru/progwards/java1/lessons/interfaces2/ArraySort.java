@@ -23,7 +23,7 @@ public class ArraySort implements Comparable<Number> {
 
     @Override
     public int compareTo(Number o) {
-        result = this.num.compareTo(o.num);
+        result = this.compareTo(o.num);
 
         return result;
 

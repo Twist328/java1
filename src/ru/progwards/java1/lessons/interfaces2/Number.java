@@ -38,6 +38,6 @@ Number num;
 
     @Override
     public int compareTo(Number o) {
-        return this.num.compareTo(o.num);
+        return this.compareTo(o.num);
     }
 }
