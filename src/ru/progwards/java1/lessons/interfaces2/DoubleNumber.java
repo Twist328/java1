@@ -27,8 +27,8 @@ public class DoubleNumber extends Number  {
     }
 
     @Override
-    public int compareTo(Number o) {
-        return super.compareTo(o);
+    public int compareTo(Number num) {
+        return super.compareTo(num);
     }
 
 
