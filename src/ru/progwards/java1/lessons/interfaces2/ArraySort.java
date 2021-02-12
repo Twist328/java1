@@ -17,18 +17,20 @@ public class ArraySort implements Comparable<Number> {
     public static void main(String[] args) {
 
 
-        int[] a = new Random().ints(10,-10,100).sorted().toArray();
-       // Arrays.sort(a);
+        int[] a = new Random().ints(10, -10, 100).sorted().toArray();
+        // Arrays.sort(a);
         System.out.println(Arrays.toString(a));
     }
 
     public static void sort(Comparable<Number>[] a) {
-
+        Comparable<Number>[] comp = new Comparable[a.length];
+        Arrays.stream(comp).sorted();
+        System.out.println(Arrays.asList(comp));
     }
 
     @Override
-    public int compareTo(Number a) {
-        return a.compareTo(a.num);
+    public int compareTo(Number o) {
+        return 0;
     }
 }
 

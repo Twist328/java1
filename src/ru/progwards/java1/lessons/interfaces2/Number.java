@@ -8,6 +8,9 @@ Number num;
 
     }
 
+    public Number(Comparable<Number>[] a) {
+    }
+
     public Number mul(Number num) {//, который будет возвращать произведение содержимого класса на num.
         return null;
     }
@@ -35,7 +38,7 @@ Number num;
 
 
     @Override
-    public int compareTo(Number o) {
-        return this.compareTo(o.num);
+    public int compareTo(Number num) {
+        return num.compareTo(num.num);
     }
 }
