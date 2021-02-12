@@ -8,43 +8,32 @@ public class ArraySort implements Comparable<Number> {
     private int index;
     private static int result;
 
-
     public ArraySort(Number num, int index) {
         this.num = num;
         this.index = index;
     }
 
-    public ArraySort() {
+    public static void main(String[] args) {
 
+
+        int[] a = new Random().ints(10, 10, 100).toArray();
+        Arrays.sort(a);
+        System.out.println(Arrays.toString(a));
     }
 
     public static void sort(Comparable<Number>[] a) {
+        Comparable<Number> comparable = new Comparable<Number>() {
+            @Override
+            public int compareTo(Number o) {
+                return this.compareTo(o);
+            }
+        };
     }
 
     @Override
     public int compareTo(Number o) {
-        result = this.num.compareTo(o.newNumber(" "));
-
-        return result;
-
+        return this.compareTo(o);
     }
-
-
-    public static void main(String[] args) {
-        Comparable<Number>comparable=new Comparable<Number>() {
-            @Override
-            public int compareTo(Number o) {
-                return this.compareTo(o.newNumber(" "));
-            }
-        };
-        int[] a = new Random().ints(10, 10, 100).toArray();
-Arrays.sort(a);
-
-        System.out.print(Arrays.toString(a));
-
-    }
-
-
 }
 
 

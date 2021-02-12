@@ -1,7 +1,5 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-import java.util.Objects;
-
 public class Number implements Comparable<Number> {
 
 Number num;
