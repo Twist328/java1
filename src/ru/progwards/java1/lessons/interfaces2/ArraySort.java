@@ -4,6 +4,7 @@ package ru.progwards.java1.lessons.interfaces2;
 import java.util.*;
 
 public class ArraySort implements Comparable<Number> {
+
     private Number num;
     private int index;
     private static int result;
@@ -16,25 +17,29 @@ public class ArraySort implements Comparable<Number> {
     public static void main(String[] args) {
 
 
-        int[] a = new Random().ints(10, 10, 100).toArray();
-        Arrays.sort(a);
+        int[] a = new Random().ints(10,-10,100).sorted().toArray();
+       // Arrays.sort(a);
         System.out.println(Arrays.toString(a));
     }
 
     public static void sort(Comparable<Number>[] a) {
-        Comparable<Number> comparable = new Comparable<Number>() {
-            @Override
-            public int compareTo(Number o) {
-                return this.compareTo(o);
-            }
-        };
+
     }
 
     @Override
-    public int compareTo(Number o) {
-        return this.compareTo(o);
+    public int compareTo(Number a) {
+        return a.compareTo(a.num);
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 
