@@ -1,8 +1,6 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-import org.glassfish.grizzly.utils.ArraySet;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class ArraySort implements Comparable<Number> {
