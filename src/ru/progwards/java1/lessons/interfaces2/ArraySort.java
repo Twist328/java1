@@ -3,7 +3,7 @@ package ru.progwards.java1.lessons.interfaces2;
 import java.util.*;
 
 
-public class ArraySort extends Number {
+public class ArraySort extends Number implements Comparable<Number> {
 
     private static Number num;
 
@@ -17,11 +17,9 @@ public class ArraySort extends Number {
             private DoubleNumber num;
 
 
-            public int compareTo(Number o) {
+            /*public int compareTo(Number o) {
                 Number num = (Number) o;
-                return this.num.compareTo(o.num);
-
-            }
+                return this.num.compareTo(o.num);*/
 
             @Override
             public String toString() {
@@ -35,16 +33,17 @@ public class ArraySort extends Number {
     public static void main(String[] args) throws NullPointerException {
 
         Comparable<Number>[] a = new Comparable[]{90, 300, -100000, 10000000, 6, 3, 9, 21};
-
-        //Arrays.sort(a);
         sort(a);
+        //Arrays.sort(a);
         System.out.println(Arrays.toString(a));
 
     }
 
     @Override
     public int compareTo(Number o) {
-        return super.compareTo(o);
+        if(this.num == o.num) return 0;
+        else
+            return (this.num.compareTo( o.num)>0) ? 1 : -1;
     }
 
 }

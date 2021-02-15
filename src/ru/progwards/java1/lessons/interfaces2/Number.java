@@ -1,16 +1,10 @@
 package ru.progwards.java1.lessons.interfaces2;
-
-import ru.progwards.java1.lessons.arrays.ArraySort;
-
-import java.security.ProtectionDomain;
 import java.util.Arrays;
 import java.util.Random;
 
 public class Number implements Comparable<Number> {
 
     Number num;
-
-
 
     public Number() {
 
@@ -32,8 +26,6 @@ public class Number implements Comparable<Number> {
         this.num = num;
     }
 
-
-
     public static void main(String[] args) {
         int[] b = new Random().ints(15, -50, 100).toArray();
         Arrays.sort(b);
@@ -41,14 +33,15 @@ public class Number implements Comparable<Number> {
             System.out.println(Arrays.toString(b));
         }
 
-
-
     @Override
     public int compareTo(Number o) {
-        Number num=(Number)o;
-        return this.num.compareTo(o.num);
-
+        if(this.num == o.num) return 0;
+        else
+            return (this.num.compareTo( o.num)>0) ? 1 : -1;
     }
+   /* public int compareTo(Number o) {
+        Number num=(Number)o;
+        return this.num.compareTo(o.num);*/
 
     @Override
     public String toString() {
