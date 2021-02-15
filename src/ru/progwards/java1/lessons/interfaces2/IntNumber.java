@@ -34,10 +34,6 @@ public class IntNumber extends Number {
         return new IntNumber(Integer.parseInt(strNum));
     }
 
-    @Override
-    public int compareTo(Number num) {
-        return super.compareTo(num);
-    }
 
 
 }

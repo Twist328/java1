@@ -1,11 +1,34 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-public class Number implements Comparable<Number> {
+import ru.progwards.java1.lessons.arrays.ArraySort;
+
+import java.security.ProtectionDomain;
+import java.util.Arrays;
+import java.util.Random;
+
+public class Number<NewNumber> implements Comparable<NewNumber> {
 
     Number num;
+    NewNumber strNum;
+
+    @Override
+    public String toString() {
+        return "Number{" +
+                "strNum=" + strNum +
+                '}';
+    }
+
+    public Number(NewNumber strNum) {
+        this.strNum = strNum;
+    }
+
+
 
     public Number() {
 
+    }
+
+    public Number(int i) {
     }
 
 
@@ -25,20 +48,21 @@ public class Number implements Comparable<Number> {
         this.num = num;
     }
 
-    @Override
-    public String toString() {
-
-        return null;
+    void sorted(int[] strNum){
+        strNum = new Random().ints(10, -10, 100).sorted().toArray();
+        System.out.println(Arrays.toString(strNum));
     }
 
+
+    public static void main(String[] args) {
+        int[] b = new Random().ints(10, -10, 100).toArray();
+        new Number().sorted(b);
+        System.out.println(Arrays.toString(b));
+    }
+
+
     @Override
-    public int compareTo(Number num) {
-        if (num.num.compareTo(this.num) > 0) {
-            return 1;
-        } else if (this.num.compareTo(num.num) == 0) {
-            return 0;
-        } else {
-            return -1;
-        }
+    public int compareTo(NewNumber o) {
+        return 0;
     }
 }

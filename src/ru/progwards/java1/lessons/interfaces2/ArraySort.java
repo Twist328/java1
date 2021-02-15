@@ -1,42 +1,55 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-
 import java.util.*;
+
 
 public class ArraySort implements Comparable<Number> {
 
-    private Number num;
-    private int index;
-    private static int result;
-
-    public ArraySort(Number num, int index) {
-        this.num = num;
-        this.index = index;
-    }
-
-    public static void main(String[] args) {
+    private static Number num;
 
 
-        int[] b = new Random().ints(10, -10, 100).sorted().toArray();
-        // Arrays.sort(a);
-        //System.out.println(Arrays.toString(a));
-        Comparable<Number>[] a = new Comparable[100];
-    }
 
-    public static void sort(Comparable<Number>[] a) {
-        Comparable<Number>[] comp = new Comparable[a.length+1];
-        //Arrays.sort(comp);
-        System.out.println(Arrays.toString(comp));
+    public static void sort(Comparable<Number>[] a){
+        Set<Number> c = new TreeSet(Arrays.asList(a.length)){
+            @Override
+            public Comparator comparator() {
+                return super.comparator();
+            }
+
+            @Override
+            public String toString() {
+                return "ArraySort{" +
+                        "num=" + num +
+                        '}';
+            }
+        };
     }
 
     @Override
-    public int compareTo(Number num) {
-        if (num.num.compareTo(this.num) > 0) {
+    public int compareTo(Number o) {
+        if (o.num.compareTo(this.num) > 0) {
             return 1;
-        } else if (this.num.compareTo(num.num) == 0) {
+        } else if (o.num.compareTo(this.num) == 0) {
             return 0;
         } else {
             return -1;
+        }
+    }
+
+    static class Main {
+        public static void main(String[] args) throws NullPointerException {
+
+           Set set = new TreeSet();
+
+            for (Integer e : new Integer[]{90, 300, 10000000, 6, 3, 9, 21}) set.add(e);
+            for (Object o : set) {
+
+                System.out.println(o);
+
+            }
+            // Arrays.sort(a);
+            //System.out.println(Arrays.toString(a));
+
         }
     }
 }
