@@ -36,20 +36,12 @@ public class Number implements Comparable<Number> {
         this.num = num;
     }
 
-    /*void sorted(int[] strNum) {
-        strNum = new Random().ints(10, -10, 100).sorted().toArray();
-        System.out.println(Arrays.toString(strNum));
-    }*/
-
-   /* @Override
-    public int compareTo(Number num) {
-        return ((num.num - this.num));*/
 
 
     public static void main(String[] args) {
         int[] b = new Random().ints(10, -50, 100).toArray();
         Arrays.sort(b);
-        //for (int i : b) {
+
             System.out.println(Arrays.toString(b));
         }
 

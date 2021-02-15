@@ -31,36 +31,15 @@ public class ArraySort extends Number {
         };
     }
 
-
-
-
-
-
-
-   /* @Override
-    public int compareTo(Number o) {
-        if (o.num.compareTo(this.num) > 0) {
-            return 1;
-        } else if (o.num.compareTo(this.num) == 0) {
-            return 0;
-        } else {
-            return -1;
-        }
-    }*/
-
-    //static class Main {
         public static void main(String[] args) throws NullPointerException {
 
             Comparable<Number>[] a = new Comparable[]{90, 300, 10000000, 6, 3, 9, 21};
 
             Arrays.sort(a);
-            // for (Object o : a) {
 
             System.out.println(Arrays.toString(a));
 
         }
-        // Arrays.sort(a);
-        //System.out.println(Arrays.toString(a));
 
     }
 
