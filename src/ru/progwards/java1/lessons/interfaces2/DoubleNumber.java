@@ -2,7 +2,7 @@ package ru.progwards.java1.lessons.interfaces2;
 
 import java.util.Comparator;
 
-public class DoubleNumber extends Number  {
+public class DoubleNumber extends Number {
     Double num;
 
     public DoubleNumber(double num) {
@@ -12,21 +12,22 @@ public class DoubleNumber extends Number  {
     @Override
     public Number div(Number num) {
         double num2 = Double.valueOf(num.toString());
-        return new DoubleNumber(this.num/num2);
+        return new DoubleNumber(this.num / num2);
     }
 
     @Override
     public Number mul(Number num) {
         double num2 = Double.valueOf(num.toString());
-        return new DoubleNumber(this.num*num2);
+        return new DoubleNumber(this.num * num2);
     }
-    public Number newNumber(String strNum){
+
+    public Number newNumber(String strNum) {
         return new DoubleNumber(Double.parseDouble(strNum));
     }
 
 
     public int compareTo(DoubleNumber o) {
-        DoubleNumber num=(DoubleNumber) o;
+        DoubleNumber num = (DoubleNumber) o;
         return this.num.compareTo(o.num);
     }
 
@@ -34,13 +35,8 @@ public class DoubleNumber extends Number  {
     public String toString() {
         return String.valueOf(num);
     }
-
-
-    @Override
-    public Comparator<Number> reversed() {
-        return null;
-    }
 }
+
 
 
 

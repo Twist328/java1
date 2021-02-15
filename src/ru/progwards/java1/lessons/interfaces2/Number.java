@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
 
-public class Number implements Comparator<Number> {
+public class Number implements Comparable<Number> {
 
     Number num;
 
@@ -35,7 +35,7 @@ public class Number implements Comparator<Number> {
         System.out.println(Arrays.toString(b));
     }
 
-    @Override
+
 
     public int compare(Number o1, Number o2) {
 
@@ -58,6 +58,12 @@ public class Number implements Comparator<Number> {
 
     }
 
+    @Override
+    public int compareTo(Number o) {
+        if(this.num == o.num) return 0;
+        else
+            return (this.num.compareTo( o.num)>0) ? 1 : -1;
+    }
 }
 
 

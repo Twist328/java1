@@ -41,10 +41,7 @@ public class IntNumber extends Number {
                 '}';
     }
 
-    @Override
-    public Comparator<Number> reversed() {
-        return null;
-    }
+
 }
 
 
