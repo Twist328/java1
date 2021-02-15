@@ -38,5 +38,13 @@ class Rectangle {
         System.out.println(result1);
 
     }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "a=" + a +
+                ", b=" + b +
+                '}';
+    }
 }
 

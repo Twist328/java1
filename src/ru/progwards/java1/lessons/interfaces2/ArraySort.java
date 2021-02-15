@@ -3,17 +3,23 @@ package ru.progwards.java1.lessons.interfaces2;
 import java.util.*;
 
 
-public class ArraySort implements Comparable<Number> {
+public class ArraySort extends Number {
 
     private static Number num;
+    public ArraySort() {
+        super();
+    }
+
+    public static void sort(Comparable<Number>[] a) {
+        Set<Comparable<Number>[]> comparables = new TreeSet(Arrays.asList(a)) {
+
+            private DoubleNumber num;
 
 
+            public int compareTo(Number o) {
+                Number num = (Number) o;
+                return this.num.compareTo(o.num);
 
-    public static void sort(Comparable<Number>[] a){
-        Set<Number> c = new TreeSet(Arrays.asList(a.length)){
-            @Override
-            public Comparator comparator() {
-                return super.comparator();
             }
 
             @Override
@@ -25,7 +31,13 @@ public class ArraySort implements Comparable<Number> {
         };
     }
 
-    @Override
+
+
+
+
+
+
+   /* @Override
     public int compareTo(Number o) {
         if (o.num.compareTo(this.num) > 0) {
             return 1;
@@ -34,25 +46,25 @@ public class ArraySort implements Comparable<Number> {
         } else {
             return -1;
         }
-    }
+    }*/
 
-    static class Main {
+    //static class Main {
         public static void main(String[] args) throws NullPointerException {
 
-           Set set = new TreeSet();
+            Comparable<Number>[] a = new Comparable[]{90, 300, 10000000, 6, 3, 9, 21};
 
-            for (Integer e : new Integer[]{90, 300, 10000000, 6, 3, 9, 21}) set.add(e);
-            for (Object o : set) {
+            Arrays.sort(a);
+            // for (Object o : a) {
 
-                System.out.println(o);
-
-            }
-            // Arrays.sort(a);
-            //System.out.println(Arrays.toString(a));
+            System.out.println(Arrays.toString(a));
 
         }
+        // Arrays.sort(a);
+        //System.out.println(Arrays.toString(a));
+
     }
-}
+
+
 
 
 

@@ -6,21 +6,9 @@ import java.security.ProtectionDomain;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Number<NewNumber> implements Comparable<NewNumber> {
+public class Number implements Comparable<Number> {
 
     Number num;
-    NewNumber strNum;
-
-    @Override
-    public String toString() {
-        return "Number{" +
-                "strNum=" + strNum +
-                '}';
-    }
-
-    public Number(NewNumber strNum) {
-        this.strNum = strNum;
-    }
 
 
 
@@ -48,21 +36,37 @@ public class Number<NewNumber> implements Comparable<NewNumber> {
         this.num = num;
     }
 
-    void sorted(int[] strNum){
+    /*void sorted(int[] strNum) {
         strNum = new Random().ints(10, -10, 100).sorted().toArray();
         System.out.println(Arrays.toString(strNum));
-    }
+    }*/
+
+   /* @Override
+    public int compareTo(Number num) {
+        return ((num.num - this.num));*/
 
 
     public static void main(String[] args) {
-        int[] b = new Random().ints(50, -50, 100).toArray();
-        new Number().sorted(b);
-       // System.out.println(Arrays.toString(b));
-    }
+        int[] b = new Random().ints(10, -50, 100).toArray();
+        Arrays.sort(b);
+        //for (int i : b) {
+            System.out.println(Arrays.toString(b));
+        }
+
 
 
     @Override
-    public int compareTo(NewNumber o) {
-        return 0;
+    public int compareTo(Number o) {
+        Number num=(Number)o;
+        return this.num.compareTo(o.num);
+
+    }
+
+    @Override
+    public String toString() {
+        return "Number{" +
+                "num=" + num +
+                '}';
     }
 }
+
