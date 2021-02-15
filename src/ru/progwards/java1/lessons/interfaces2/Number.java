@@ -1,4 +1,5 @@
 package ru.progwards.java1.lessons.interfaces2;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
@@ -31,12 +32,14 @@ public class Number implements Comparator<Number> {
         int[] b = new Random().ints(15, -50, 100).toArray();
         Arrays.sort(b);
 
-            System.out.println(Arrays.toString(b));
-        }
+        System.out.println(Arrays.toString(b));
+    }
 
     @Override
 
-        public int compare(Number o1, Number o2) {
+    public int compare(Number o1, Number o2) {
+
+
         if (o1 instanceof IntNumber && o2 instanceof IntNumber) {
             return ((IntNumber) o1).compareTo((IntNumber) o2);
         } else if (o1 instanceof DoubleNumber && o2 instanceof DoubleNumber) {
@@ -54,4 +57,8 @@ public class Number implements Comparator<Number> {
         return this.num.compareTo(o.num);*/
 
     }
-    }
+
+}
+
+
+
