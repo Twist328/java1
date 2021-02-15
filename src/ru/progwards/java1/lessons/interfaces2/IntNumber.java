@@ -1,7 +1,7 @@
 package ru.progwards.java1.lessons.interfaces2;
 
 public class IntNumber extends Number {
-    int num;
+    Integer num;
 
     public IntNumber(int num) {
         super();
@@ -24,11 +24,12 @@ public class IntNumber extends Number {
         return new IntNumber(Integer.parseInt(strNum));
     }
 
-    @Override
-    public int compareTo(Number o) {
+
+    public int compareTo(IntNumber o) {
         IntNumber num=(IntNumber) o;
-        return this.compareTo(o.num);
+        return this.num.compareTo(o.num);
     }
+
 
 
     @Override

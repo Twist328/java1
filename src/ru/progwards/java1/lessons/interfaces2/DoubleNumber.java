@@ -3,14 +3,14 @@ package ru.progwards.java1.lessons.interfaces2;
 public class DoubleNumber extends Number  {
     Double num;
 
+    public DoubleNumber(double num) {
+        this.num = num;
+    }
+
     @Override
     public Number div(Number num) {
         double num2 = Double.valueOf(num.toString());
         return new DoubleNumber(this.num/num2);
-    }
-
-    public DoubleNumber(double num) {
-        this.num = num;
     }
 
     @Override
@@ -27,7 +27,6 @@ public class DoubleNumber extends Number  {
         DoubleNumber num=(DoubleNumber) o;
         return this.num.compareTo(o.num);
     }
-
 
     @Override
     public String toString() {

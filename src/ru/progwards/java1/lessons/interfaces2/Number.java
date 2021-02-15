@@ -35,7 +35,7 @@ public class Number implements Comparable<Number> {
 
 
     public static void main(String[] args) {
-        int[] b = new Random().ints(99, -50, 100).toArray();
+        int[] b = new Random().ints(15, -50, 100).toArray();
         Arrays.sort(b);
 
             System.out.println(Arrays.toString(b));
