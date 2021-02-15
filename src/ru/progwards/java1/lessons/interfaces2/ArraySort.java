@@ -33,7 +33,7 @@ public class ArraySort extends Number {
 
         public static void main(String[] args) throws NullPointerException {
 
-            Comparable<Number>[] a = new Comparable[]{90, 300, 10000000, 6, 3, 9, 21};
+            Comparable<Number>[] a = new Comparable[]{90, 300, -100000,10000000, 6, 3, 9, 21};
 
             Arrays.sort(a);
 
