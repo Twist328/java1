@@ -58,13 +58,27 @@ public class Number implements Comparable<Number> {
 
     }
 
+
     @Override
     public int compareTo(Number o) {
-        if(this == o.num) return 0;
-        else
-            return (this.compareTo( o.num)>0) ? 1 : -1;
-    }
-}
+if (((Object) num).getClass().equals(((Object) o.num).getClass())) {
+        // both numbers are instances of the same type!
+        if (num instanceof Comparable) {
+        // and they implement the Comparable interface
+        return ((Comparable)this.num).compareTo(o.num);
+        }
+        }
+        // for all different Number types, let's check there double values
+        if (this.num.doubleValue()!=(o.num.doubleValue()))
+        return -1;
+        if (!(this.num.doubleValue() == o.num.doubleValue()))
+        return 1;
+        return 0;
+        }
 
+    private boolean doubleValue() {
+        return true;
+    }
+    }
 
 
