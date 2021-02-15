@@ -60,9 +60,9 @@ public class Number implements Comparable<Number> {
 
     @Override
     public int compareTo(Number o) {
-        if(this.num == o.num) return 0;
+        if(this == o.num) return 0;
         else
-            return (this.num.compareTo( o.num)>0) ? 1 : -1;
+            return (this.compareTo( o.num)>0) ? 1 : -1;
     }
 }
 
