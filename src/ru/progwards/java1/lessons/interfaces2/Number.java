@@ -1,8 +1,9 @@
 package ru.progwards.java1.lessons.interfaces2;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
-public class Number implements Comparable<Number> {
+public class Number implements Comparator<Number> {
 
     Number num;
 
@@ -34,20 +35,23 @@ public class Number implements Comparable<Number> {
         }
 
     @Override
-    public int compareTo(Number o) {
+
+        public int compare(Number o1, Number o2) {
+        if (o1 instanceof IntNumber && o2 instanceof IntNumber) {
+            return ((IntNumber) o1).compareTo((IntNumber) o2);
+        } else if (o1 instanceof DoubleNumber && o2 instanceof DoubleNumber) {
+            return ((DoubleNumber) o1).compareTo((DoubleNumber) o2);
+
+        } else {
+            throw new RuntimeException("Ooopps!");
+    /*public int compareTo(Number o) {
         if(this.num == o.num) return 0;
         else
-            return (this.num.compareTo( o.num)>0) ? 1 : -1;
-    }
+            return (this.num.compareTo( o.num)>0) ? 1 : -1;*/
+        }
    /* public int compareTo(Number o) {
         Number num=(Number)o;
         return this.num.compareTo(o.num);*/
 
-    @Override
-    public String toString() {
-        return "Number{" +
-                "num=" + num +
-                '}';
     }
-}
-
+    }

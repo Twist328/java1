@@ -34,20 +34,28 @@ public class ArraySort extends Number implements Comparable<Number> {
 
         Comparable<Number>[] a = new Comparable[]{90, 300, -100000, 10000000, 6, 3, 9, 21};
         sort(a);
-        //Arrays.sort(a);
+        Arrays.sort(a);
         System.out.println(Arrays.toString(a));
 
     }
 
     @Override
-    public int compareTo(Number o) {
-        if(this.num == o.num) return 0;
-        else
-            return (this.num.compareTo( o.num)>0) ? 1 : -1;
+    public int compare(Number o1, Number o2) {
+        if (o1 instanceof IntNumber && o2 instanceof IntNumber) {
+            return ((IntNumber) o1).compareTo((IntNumber) o2);
+        } else if (o1 instanceof DoubleNumber && o2 instanceof DoubleNumber) {
+            return ((DoubleNumber) o1).compareTo((DoubleNumber) o2);
+
+        } else {
+            throw new RuntimeException("Ooopps!");
+        }
     }
 
+    @Override
+    public int compareTo(Number o) {
+        return 0;
+    }
 }
-
 
 
 

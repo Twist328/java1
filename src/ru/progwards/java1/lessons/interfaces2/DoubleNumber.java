@@ -1,5 +1,7 @@
 package ru.progwards.java1.lessons.interfaces2;
 
+import java.util.Comparator;
+
 public class DoubleNumber extends Number  {
     Double num;
 
@@ -34,7 +36,10 @@ public class DoubleNumber extends Number  {
     }
 
 
-
+    @Override
+    public Comparator<Number> reversed() {
+        return null;
+    }
 }
 
 

@@ -1,5 +1,7 @@
 package ru.progwards.java1.lessons.interfaces2;
 
+import java.util.Comparator;
+
 public class IntNumber extends Number {
     Integer num;
 
@@ -37,6 +39,11 @@ public class IntNumber extends Number {
         return "IntNumber{" +
                 "num=" + num +
                 '}';
+    }
+
+    @Override
+    public Comparator<Number> reversed() {
+        return null;
     }
 }
 
