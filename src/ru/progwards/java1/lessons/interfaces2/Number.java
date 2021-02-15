@@ -16,10 +16,6 @@ public class Number implements Comparable<Number> {
 
     }
 
-    public Number(int i) {
-    }
-
-
     public Number mul(Number num) {//, который будет возвращать произведение содержимого класса на num.
         return null;
     }
@@ -39,7 +35,7 @@ public class Number implements Comparable<Number> {
 
 
     public static void main(String[] args) {
-        int[] b = new Random().ints(10, -50, 100).toArray();
+        int[] b = new Random().ints(99, -50, 100).toArray();
         Arrays.sort(b);
 
             System.out.println(Arrays.toString(b));

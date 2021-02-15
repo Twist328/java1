@@ -1,7 +1,7 @@
 package ru.progwards.java1.lessons.interfaces2;
 
 public class DoubleNumber extends Number  {
-    double num;
+    Double num;
 
     @Override
     public Number div(Number num) {
@@ -22,9 +22,10 @@ public class DoubleNumber extends Number  {
         return new DoubleNumber(Double.parseDouble(strNum));
     }
 
-    @Override
-    public int compareTo(Number o) {
-        return super.compareTo(o);
+
+    public int compareTo(DoubleNumber o) {
+        DoubleNumber num=(DoubleNumber) o;
+        return this.num.compareTo(o.num);
     }
 
 
