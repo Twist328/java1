@@ -3,10 +3,12 @@ package ru.progwards.java1.lessons.interfaces2;
 public class IntNumber extends Number {
     int num;
 
+
+
     public IntNumber(int num) {
         super();
+       this.num=num;
 
-        this.num = num;
     }
 
     public IntNumber() {
@@ -34,9 +36,17 @@ public class IntNumber extends Number {
         return new IntNumber(Integer.parseInt(strNum));
     }
 
+    @Override
+    public int compareTo(Object o) {
+        return super.compareTo(o);
+    }
 
 
-}
+    // return super.compareTo(o);
+    }
+
+
+
 
 
 
