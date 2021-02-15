@@ -55,9 +55,9 @@ public class Number<NewNumber> implements Comparable<NewNumber> {
 
 
     public static void main(String[] args) {
-        int[] b = new Random().ints(10, -10, 100).toArray();
+        int[] b = new Random().ints(50, -50, 100).toArray();
         new Number().sorted(b);
-        System.out.println(Arrays.toString(b));
+       // System.out.println(Arrays.toString(b));
     }
 
 

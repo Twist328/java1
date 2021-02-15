@@ -21,15 +21,17 @@ public class DoubleNumber extends Number  {
     public Number newNumber(String strNum){
         return new DoubleNumber(Double.parseDouble(strNum));
     }
+
+    @Override
+    public int compareTo(Object o) {
+        return super.compareTo(o);
+    }
+
     @Override
     public String toString() {
         return String.valueOf(num);
     }
 
-    @Override
-    public int compareTo(Number num) {
-        return super.compareTo(num);
-    }
 
 
 }
