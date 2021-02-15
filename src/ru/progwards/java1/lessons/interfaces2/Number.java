@@ -1,8 +1,6 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-import ru.progwards.java1.lessons.arrays.ArraySort;
 
-import java.security.ProtectionDomain;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -50,7 +48,7 @@ public class Number<NewNumber> implements Comparable<NewNumber> {
 
     void sorted(int[] strNum){
         strNum = new Random().ints(10, -10, 100).sorted().toArray();
-        System.out.println(Arrays.toString(strNum));
+       // System.out.println(Arrays.toString(strNum));
     }
 
 
