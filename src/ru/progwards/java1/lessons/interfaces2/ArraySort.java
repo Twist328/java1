@@ -13,7 +13,7 @@ public class ArraySort implements Comparable<Number> {
         super();
     }
 
-    public  void sort(Comparable<Number>[] a) {
+    public static void sort(Comparable<Number>[] a) {
 
         for (int i = 0; i < a.length; i++) {
             Comparable<Number> min = a[i];
