@@ -19,7 +19,7 @@ public class ArraySort implements Comparable<Number> {
             Comparable<Number> min = a[i];
             int minId = i;
             for (int j = i + 1; j < a.length; j++) {
-                if (!(min == (a[j]))) {
+                if (!(min != (a[j]))) {
                     min = a[j];
                     minId = j;
 
