@@ -1,7 +1,6 @@
 package ru.progwards.java1.lessons.interfaces2;
 
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 public class Number implements Comparable<Number> {
 
@@ -35,19 +34,27 @@ public class Number implements Comparable<Number> {
     }
 
 
-
     @Override
     public int compareTo(Number o) {
+        List<Number> num = (List<Number>) new Number(o);
+        Collections.sort(num, new Comparator<Number>() {
+            @Override
+            public int compare(Number o1, Number o2) {
+                List<Number> num = new ArrayList<Number>();
+                int res = o1.num.compareTo(o2.num);
+                return res;
+            }
+        });
         return 0;
     }
-
+}
 
 
     /*public int compareTo(Number o) {
         if(this.num == o.num) return 0;
         else
             return (this.num.compareTo( o.num)>0) ? 1 : -1;*/
-        }
+
    /* public int compareTo(Number o) {
         Number num=(Number)o;
         return this.num.compareTo(o.num);*/

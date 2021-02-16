@@ -19,25 +19,24 @@ public class ArraySort implements Comparable<Number> {
             Comparable<Number> min = a[i];
             int minId = i;
             for (int j = i + 1; j < a.length; j++) {
-                if (min.compareTo((Number) a[j]) == 1){
+                if (min.compareTo((Number) a[j]) == 1) {
 
-                        min = a[j];
-                        minId = j;
-                    }
+                    min = a[j];
+                    minId = j;
                 }
-
-                Comparable<Number> temp = a[i];
-                a[i] = min;
-                a[minId] = temp;
             }
-            Arrays.sort(a);
-        }
 
+            Comparable<Number> temp = a[i];
+            a[i] = min;
+            a[minId] = temp;
+        }
+        Arrays.sort(a);
+    }
 
 
     public static void main(String[] args) throws NullPointerException {
 
-        Comparable<Number>[] a = new Comparable[]{72628, 876786876,99, 9999,0,0, 7};
+        Comparable<Number>[] a = new Comparable[]{72628, 876786876, 99, 9999, 0, 0, 7};
         //new ArraySort().sort(a);
         Arrays.sort(a);
         System.out.println(Arrays.toString(a));
@@ -52,12 +51,13 @@ public class ArraySort implements Comparable<Number> {
             @Override
             public int compare(Number o1, Number o2) {
                 List<Number> num = new ArrayList<Number>();
-                int res= o1.num.compareTo(o2.num);
+                int res = o1.num.compareTo(o2.num);
                 return res;
             }
         });
         return 0;
     }
+
 }
            /* @Override
             public int compare(Number o1, Number o2) {
