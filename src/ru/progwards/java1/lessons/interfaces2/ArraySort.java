@@ -1,61 +1,76 @@
 package ru.progwards.java1.lessons.interfaces2;
 
+
 import java.util.*;
 
 
-public class ArraySort extends Number implements Comparable<Number> {
+public class ArraySort implements Comparable<Number> {
 
     private static Number num;
+    Comparable<Number> min;
 
     public ArraySort() {
         super();
     }
 
     public static void sort(Comparable<Number>[] a) {
-        Set<Comparable<Number>[]> comparables = new TreeSet(Arrays.asList(a)) {
 
-            private DoubleNumber num;
+        for (int i = 0; i < a.length; i++) {
+            Comparable<Number> min = a[i];
+            int minId = i;
+            for (int j = i + 1; j < a.length; j++) {
+                if (!(min == (a[j]))) {
+                    min = a[j];
+                    minId = j;
 
-
-            /*public int compareTo(Number o) {
-                Number num = (Number) o;
-                return this.num.compareTo(o.num);*/
-
-            @Override
-            public String toString() {
-                return "ArraySort{" +
-                        "num=" + num +
-                        '}';
+                    Comparable<Number> temp = a[i];
+                    a[i] = min;
+                    a[minId] = temp;
+                }
+                Arrays.sort(a);
             }
-        };
+        }
     }
 
     public static void main(String[] args) throws NullPointerException {
 
-        Comparable<Number>[] a = new Comparable[]{90, 300, -100000, 10000000, 6, 3, 9, 21};
+        Comparable<Number>[] a = new Comparable[]{72628, 876786876,99, 9999,0,0, 7};
         sort(a);
-        Arrays.sort(a);
+        //Arrays.sort(a);
         System.out.println(Arrays.toString(a));
 
     }
 
     @Override
-    public int compare(Number o1, Number o2) {
-        if (o1 instanceof IntNumber && o2 instanceof IntNumber) {
-            return ((IntNumber) o1).compareTo((IntNumber) o2);
-        } else if (o1 instanceof DoubleNumber && o2 instanceof DoubleNumber) {
-            return ((DoubleNumber) o1).compareTo((DoubleNumber) o2);
-
-        } else {
-            throw new RuntimeException("Ooopps!");
-        }
-    }
-
-    @Override
     public int compareTo(Number o) {
+        List<Number> num = (List<Number>) new Number(o);
+        Collections.sort(num, new Comparator<Number>() {
+
+            @Override
+            public int compare(Number o1, Number o2) {
+                List<Number> num = new ArrayList<Number>();
+                int res= o1.num.compareTo(o2.num);
+                return res;
+            }
+        });
         return 0;
     }
 }
+           /* @Override
+            public int compare(Number o1, Number o2) {
+                List<Number> num = new ArrayList<Number>();
+
+                Collections.sort(num, new Comparator<Number>(){
+            {
+                return o1.Number.compareTo(o2.Number);
+            }
+        });
+                return 0;
+            });
+                })*/
+
+
+
 
 
 
