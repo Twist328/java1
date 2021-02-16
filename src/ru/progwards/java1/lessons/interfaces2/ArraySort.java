@@ -13,30 +13,33 @@ public class ArraySort implements Comparable<Number> {
         super();
     }
 
-    public static void sort(Comparable<Number>[] a) {
+    public  void sort(Comparable<Number>[] a) {
 
         for (int i = 0; i < a.length; i++) {
             Comparable<Number> min = a[i];
             int minId = i;
             for (int j = i + 1; j < a.length; j++) {
-                if (!(min != (a[j]))) {
-                    min = a[j];
-                    minId = j;
+                if (min.compareTo((Number) a[j]) == 1){
 
-                    Comparable<Number> temp = a[i];
-                    a[i] = min;
-                    a[minId] = temp;
+                        min = a[j];
+                        minId = j;
+                    }
                 }
-                Arrays.sort(a);
+
+                Comparable<Number> temp = a[i];
+                a[i] = min;
+                a[minId] = temp;
             }
+            Arrays.sort(a);
         }
-    }
+
+
 
     public static void main(String[] args) throws NullPointerException {
 
         Comparable<Number>[] a = new Comparable[]{72628, 876786876,99, 9999,0,0, 7};
-        sort(a);
-        //Arrays.sort(a);
+        //new ArraySort().sort(a);
+        Arrays.sort(a);
         System.out.println(Arrays.toString(a));
 
     }
