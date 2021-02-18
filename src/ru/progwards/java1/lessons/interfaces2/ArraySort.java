@@ -7,7 +7,7 @@ import java.util.*;
 public class ArraySort implements Comparable<Number> {
 
     private static Number num;
-    Comparable<Number> min;
+
 
     public ArraySort() {
         super();
@@ -15,49 +15,48 @@ public class ArraySort implements Comparable<Number> {
 
     public static void sort(Comparable<Number>[] a) {
 
-        for (int i = 0; i < a.length; i++) {
-            Comparable<Number> min = a[i];
-            int minId = i;
-            for (int j = i + 1; j < a.length; j++) {
-                if (min.compareTo((Number) a[j]) == 1) {
 
-                    min = a[j];
-                    minId = j;
+        Comparable<Number> tmpValue;
+        for (int i = a.length - 1; i >= 0; i--) {
+            // найдем в остатках максимальный
+            for (int j = 0; j < i; j++) {
+                if (a[j].compareNumber(a[i])==CompareResult.GREATER) {
+                        tmpValue = a[i];
+                a[i] = a[j];
+                a[j] = tmpValue;
                 }
             }
-
-            Comparable<Number> temp = a[i];
-            a[i] = min;
-            a[minId] = temp;
         }
-        Arrays.sort(a);
     }
-
 
     public static void main(String[] args) throws NullPointerException {
 
-        Comparable<Number>[] a = new Comparable[]{72628, 876786876, 99, 9999, 0, 0, 7};
-        //new ArraySort().sort(a);
+        Comparable<Number>[] a = new Comparable[]{new Number(72628, 876786876, 99, 9999, 0, 0, 7)};
+       // new ArraySort().sort(a);
         Arrays.sort(a);
         System.out.println(Arrays.toString(a));
 
     }
 
-    @Override
-    public int compareTo(Number o) {
-        List<Number> num = (List<Number>) new Number(o);
-        Collections.sort(num, new Comparator<Number>() {
 
+    @Override
+    public CompareResult compareNumber(Comparable<Number> smthHasNumber) {
+        List<Number> num = (List<Number>) new Number();
+        Collections.sort(num, new Comparator<Number>() {
             @Override
             public int compare(Number o1, Number o2) {
-                List<Number> num = new ArrayList<Number>();
-                int res = o1.num.compareTo(o2.num);
-                return res;
+                return 0;
             }
+
+
         });
-        return 0;
+        return null;
     }
 
+    @Override
+    public String toString() {
+        return "ArraySort{}";
+    }
 }
            /* @Override
             public int compare(Number o1, Number o2) {

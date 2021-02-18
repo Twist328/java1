@@ -10,6 +10,12 @@ public class Number implements Comparable<Number> {
 
     }
 
+    public Number(int i, int i1, int i2, int i3, int i4, int i5, int i6) {
+    }
+
+    public Number(Object o1, Object o2) {
+    }
+
     public Number mul(Number num) {//, который будет возвращать произведение содержимого класса на num.
         return null;
     }
@@ -35,21 +41,18 @@ public class Number implements Comparable<Number> {
 
 
     @Override
-    public int compareTo(Number o) {
-        List<Number> num = (List<Number>) new Number(o);
+    public CompareResult compareNumber(Comparable<Number> smthHasNumber) {
+        List<Number> num = (List<Number>) new Number();
         Collections.sort(num, new Comparator<Number>() {
             @Override
             public int compare(Number o1, Number o2) {
-                List<Number> num = new ArrayList<Number>();
-                int res = o1.num.compareTo(o2.num);
-                return res;
+                return 0;
             }
         });
-        return 0;
+        return null;
     }
+
 }
-
-
     /*public int compareTo(Number o) {
         if(this.num == o.num) return 0;
         else

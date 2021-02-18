@@ -1,9 +1,6 @@
 package ru.progwards.java1.lessons.collections;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /*Напишите метод, с сигнатурой public List<Integer> filter(List<Integer> list) который работает по следующему алгоритму
         -суммирует значения всех элементов списка
@@ -28,8 +25,9 @@ public class FilterList {
 
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
-        for(Integer e:new Integer[]{40, 300, 0, 4, 3, 1, 2}) list.add(e);
+        for(Integer e:new Random().ints(50,-10,50).toArray()) list.add(e);
 
-        System.out.println(filter(list));
+        System.out.println(filter((List<Integer>) list));
+
     }
 }
