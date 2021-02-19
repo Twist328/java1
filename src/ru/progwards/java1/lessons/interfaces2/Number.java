@@ -3,7 +3,7 @@ package ru.progwards.java1.lessons.interfaces2;
 import java.io.IOException;
 import java.util.*;
 
-public  class Number implements Comparable {
+public  class Number implements Comparable<Number> {
 
     Number num;
 
@@ -11,6 +11,8 @@ public  class Number implements Comparable {
 
     }
 
+    public Number(int i, int i1, int i2, int i3) {
+    }
 
 
     public Number mul(Number num) {//, который будет возвращать произведение содержимого класса на num.
@@ -37,17 +39,14 @@ public  class Number implements Comparable {
     }
 
 
-    @Override
-    public CompareResult compareNumber(Comparable smthHasNumber) {
-        return null;
-    }
+
+
 
     @Override
     public int compareTo(Number o) {
+        Number num=(Number)o;
         return this.num.compareTo(o.num);
     }
-
-
 }
     /*public int compareTo(Number o) {
         if(this.num == o.num) return 0;

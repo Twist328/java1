@@ -34,11 +34,9 @@ public class DoubleNumber extends Number {
         return String.valueOf(num);
     }
 
-    @Override
-    public CompareResult compareNumber(Comparable smthHasNumber) {
-        return null;
+
     }
-}
+
 
 
 

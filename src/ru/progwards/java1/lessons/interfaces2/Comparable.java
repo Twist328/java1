@@ -1,4 +1,4 @@
-package ru.progwards.java1.lessons.interfaces2;
+/*package ru.progwards.java1.lessons.interfaces2;
 
 
 
@@ -12,4 +12,4 @@ public interface Comparable<Number> {
         EQUAL,
         GREATER;
     }
-}
+}*/

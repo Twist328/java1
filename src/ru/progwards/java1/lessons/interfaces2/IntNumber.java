@@ -30,19 +30,11 @@ public class IntNumber extends Number {
         return this.num.compareTo(o.num);
     }
 
-
-
     @Override
     public String toString() {
         return "IntNumber{" +
                 "num=" + num +
                 '}';
-    }
-
-
-    @Override
-    public CompareResult compareNumber(Comparable smthHasNumber) {
-        return null;
     }
 }
 

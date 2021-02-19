@@ -24,7 +24,21 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\ru\progwards\java1\SeaBattle\tvist\SeaBattleAlg.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\ru\progwards\java1\lessons\arrays\ArraySort.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\ru\progwards\java1\lessons\bigints\AbsInteger.java">
           <value>
             <Attribute>
               <option name="separator" value=";" />
