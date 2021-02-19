@@ -33,6 +33,11 @@ public class DoubleNumber extends Number {
     public String toString() {
         return String.valueOf(num);
     }
+
+    @Override
+    public CompareResult compareNumber(Comparable smthHasNumber) {
+        return null;
+    }
 }
 
 

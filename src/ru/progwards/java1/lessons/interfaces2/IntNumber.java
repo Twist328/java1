@@ -40,6 +40,10 @@ public class IntNumber extends Number {
     }
 
 
+    @Override
+    public CompareResult compareNumber(Comparable smthHasNumber) {
+        return null;
+    }
 }
 
 

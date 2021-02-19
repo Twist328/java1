@@ -1,8 +1,9 @@
 package ru.progwards.java1.lessons.interfaces2;
 
+import java.io.IOException;
 import java.util.*;
 
-public class Number implements Comparable<Number> {
+public  class Number implements Comparable {
 
     Number num;
 
@@ -10,11 +11,7 @@ public class Number implements Comparable<Number> {
 
     }
 
-    public Number(int i, int i1, int i2, int i3, int i4, int i5, int i6) {
-    }
 
-    public Number(Object o1, Object o2) {
-    }
 
     public Number mul(Number num) {//, который будет возвращать произведение содержимого класса на num.
         return null;
@@ -32,7 +29,7 @@ public class Number implements Comparable<Number> {
         this.num = num;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         int[] b = new Random().ints(15, -50, 100).toArray();
         Arrays.sort(b);
 
@@ -41,16 +38,15 @@ public class Number implements Comparable<Number> {
 
 
     @Override
-    public CompareResult compareNumber(Comparable<Number> smthHasNumber) {
-        List<Number> num = (List<Number>) new Number();
-        Collections.sort(num, new Comparator<Number>() {
-            @Override
-            public int compare(Number o1, Number o2) {
-                return 0;
-            }
-        });
+    public CompareResult compareNumber(Comparable smthHasNumber) {
         return null;
     }
+
+    @Override
+    public int compareTo(Number o) {
+        return this.num.compareTo(o.num);
+    }
+
 
 }
     /*public int compareTo(Number o) {
