@@ -44,11 +44,12 @@ public abstract class Number implements Comparable<Number> {
 
     @Override
     public int compareTo(Number o) {
-        int result = this.num.compareTo(o.num) == 1 ? 1 : -1;
-        if (result != 0) {
-            return result;
-        }
-        return 0;
+        int result;
+        result= this.num.compareTo(o.num) > 0 ? 1 : -1;
+        if (result == 0) {
+            return 0;
+        }else
+        return result;
     }
 }
 
