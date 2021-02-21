@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import java.util.*;
 
-public class Number implements Comparable<Number> {
+public abstract class Number implements Comparable<Number> {
 
     Number num;
 
@@ -34,20 +34,20 @@ public class Number implements Comparable<Number> {
     public static void main(String[] args) throws IOException {
 
 
-        long a []= {89,58,34};
+        long a[] = {89, 58, 34};
         Arrays.sort(((long[]) a));
         System.out.println(Arrays.toString(((long[]) a)));
     }
 
     @Override
     public int compareTo(Number o) {
-        int result=this.num.compareTo(o);
-        if (result==0)return 0;
-        else
+        int result = this.compareTo(o);
+        if (result != 0) {
+
+        }
         return result;
     }
-
-    }
+}
 
 
 
