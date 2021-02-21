@@ -41,9 +41,12 @@ public class Number implements Comparable<Number> {
 
     @Override
     public int compareTo(Number o) {
-        return 0;
+        if(this==o)return 0;
+        return this.num.compareTo(o.num) == 1 ? 1 : -1;
     }
-}
+
+    }
+
 
 
 

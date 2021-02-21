@@ -1,10 +1,10 @@
 package ru.progwards.java1.lessons.interfaces2;
 
 public class IntNumber extends Number {
-    Integer num;
+    int num;
 
     public IntNumber(int num) {
-        super();
+
         this.num = num;
     }
 
@@ -28,6 +28,7 @@ public class IntNumber extends Number {
     public int compareTo(Number o) {
         return super.compareTo(o);
     }
+
 
     @Override
     public String toString() {
