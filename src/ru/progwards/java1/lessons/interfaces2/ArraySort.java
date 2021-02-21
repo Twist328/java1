@@ -9,7 +9,7 @@ public class ArraySort extends Number {
     private static Number num;
 
     public ArraySort(Number num) {
-        super(num);
+
     }
 
 
@@ -41,7 +41,8 @@ public class ArraySort extends Number {
 
     @Override
     public int compareTo(Number o) {
-        return super.compareTo(o);
+        //return super.compareTo(o);
+        return 0;
     }
 }
 

@@ -4,16 +4,16 @@ import java.io.IOException;
 
 import java.util.*;
 
-public abstract class Number implements Comparable<Number> {
+public  class Number implements Comparable<Number> {
 
     Number num;
+     protected Number num2;
 
-    public Number(Number num) {
-        this.num = num;
+    public Number() {
+
+        this.num = num2;
     }
 
-    protected Number() {
-    }
 
     @Override
     public String toString() {
@@ -44,14 +44,16 @@ public abstract class Number implements Comparable<Number> {
 
     @Override
     public int compareTo(Number o) {
-        int result;
-        result= this.num.compareTo(o.num) > 0 ? 1 : -1;
-        if (result == 0) {
-            return 0;
-        }else
-        return result;
+        return this.num.compareTo(o.num2)>0?1:-1;
     }
 }
+  /*  @Override
+    public int compareTo(Number o) {
+
+       // return this.num-o.strNum ;
+
+    //}
+//}*/
 
 
 
