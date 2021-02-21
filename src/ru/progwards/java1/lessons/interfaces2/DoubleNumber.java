@@ -24,9 +24,10 @@ public class DoubleNumber extends Number {
         return new DoubleNumber(Double.parseDouble(strNum));
     }
 
+
     @Override
-    public int compareTo(Number o) {
-        return super.compareTo(o);
+    public int compareTo(Object obj) {
+        return super.compareTo(obj);
     }
 
     @Override

@@ -24,11 +24,11 @@ public class IntNumber extends Number {
         return new IntNumber(Integer.parseInt(strNum));
     }
 
-    @Override
-    public int compareTo(Number o) {
-        return super.compareTo(o);
-    }
 
+    @Override
+    public int compareTo(Object obj) {
+        return super.compareTo(obj);
+    }
 
     @Override
     public String toString() {

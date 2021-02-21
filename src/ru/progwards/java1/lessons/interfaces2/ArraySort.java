@@ -29,6 +29,11 @@ public class ArraySort extends Number {
         }
     }
 
+    @Override
+    public int compareTo(Object obj) {
+        return super.compareTo(obj);
+    }
+
     public static void main(String[] args) throws IOException {
 
 
@@ -38,13 +43,8 @@ public class ArraySort extends Number {
     }
 
 
-
-    @Override
-    public int compareTo(Number o) {
-        //return super.compareTo(o);
-        return 0;
     }
-}
+
 
 
 
