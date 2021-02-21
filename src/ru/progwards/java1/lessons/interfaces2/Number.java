@@ -55,7 +55,10 @@ public  class Number implements Comparable<Number> {
 /*  @Override
     public int compareTo(Number o) {
 
-       // return this.num-o.strNum ;
+       // @Override
+       //    public int compareTo(Number o) {
+       //        o = (Number) num;
+       //        return this.num.compareTo(o.num);
 
     //}
 //}*/
