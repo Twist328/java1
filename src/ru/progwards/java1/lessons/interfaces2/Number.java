@@ -7,7 +7,7 @@ import java.util.*;
 public  class Number implements Comparable<Number> {
 
     Number num;
-     protected Number num2;
+    protected Number num2;
 
     public Number() {
 
@@ -43,11 +43,16 @@ public  class Number implements Comparable<Number> {
     }
 
     @Override
-    public int compareTo(Number o) {
-        return this.num.compareTo(o.num2)>0?1:-1;
+    public int compareTo(Number num2) {
+        int s = num.compareTo(num2);
+        if (s != 0) {
+            return s;
+        }
+        return 0;
     }
 }
-  /*  @Override
+
+/*  @Override
     public int compareTo(Number o) {
 
        // return this.num-o.strNum ;
