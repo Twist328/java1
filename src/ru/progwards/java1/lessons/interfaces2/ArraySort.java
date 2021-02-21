@@ -39,12 +39,10 @@ public class ArraySort extends Number {
 
     @Override
     public int compareTo(Number o) {
-        if (this.num.compareTo(o) == -1) {
-            return -1;
-        }else if (this.num.compareTo(o) == 1) {
-            return 1;
-        }else
-            return 0;
+        int result =this.num.compareTo(o.num);
+        if (result==0)return 0;
+        else
+            return result;
     }
 }
 
