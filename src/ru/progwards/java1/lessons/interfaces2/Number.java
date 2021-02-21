@@ -44,10 +44,10 @@ public  class Number implements Comparable<Number> {
 
     @Override
     public int compareTo(Number num2) {
-        int s = num.compareTo(num2);
+        int s = this.num.compareTo(num2.num);
         if (s != 0) {
             return s;
-        }
+        }else
         return 0;
     }
 }
