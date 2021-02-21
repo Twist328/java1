@@ -1,17 +1,20 @@
 package ru.progwards.java1.lessons.interfaces2;
 
 import java.io.IOException;
+
 import java.util.*;
 
-public  class Number implements Comparable<Number> {
+public class Number implements Comparable<Number> {
 
     Number num;
 
     public Number() {
-
+        this.num = num;
     }
 
-    public Number(int i, int i1, int i2, int i3) {
+    @Override
+    public String toString() {
+        return "[num=" + this.num + "]";
     }
 
 
@@ -27,35 +30,29 @@ public  class Number implements Comparable<Number> {
         return null;
     }
 
-    public Number(Number num) {
-        this.num = num;
-    }
-
-    public static void main(String[] args) throws IOException {
-        int[] b = new Random().ints(15, -50, 100).toArray();
-        Arrays.sort(b);
-
-        System.out.println(Arrays.toString(b));
-    }
-
-
-
-
 
     @Override
     public int compareTo(Number o) {
-        Number num=(Number)o;
-        return this.num.compareTo(o.num);
+        if (this.num.compareTo(o.num) == -1) {
+            return -1;
+        }else if (this.num.compareTo(o.num) == 1) {
+            return 1;
+        }else
+            return 0;
+    }
+
+
+    public static void main(String[] args) throws IOException {
+
+
+        long a []= {89,58,34};
+        Arrays.sort(((long[]) a));
+        System.out.println(Arrays.toString(((long[]) a)));
     }
 }
-    /*public int compareTo(Number o) {
-        if(this.num == o.num) return 0;
-        else
-            return (this.num.compareTo( o.num)>0) ? 1 : -1;*/
 
-   /* public int compareTo(Number o) {
-        Number num=(Number)o;
-        return this.num.compareTo(o.num);*/
+
+
 
 
 

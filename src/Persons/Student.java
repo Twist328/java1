@@ -1,5 +1,7 @@
 package Persons;
 
+import java.util.Arrays;
+
 public class Student implements Comparable<Student> {
     private String name;
     private int age;
@@ -8,6 +10,10 @@ public class Student implements Comparable<Student> {
         this.name = name;
         this.age = age;
     }
+
+    //public Student() {
+
+   // }
 
     public int getAge() {
         return this.age;
@@ -18,36 +24,22 @@ public class Student implements Comparable<Student> {
     }
 
     @Override
-    public String toString() {
-        return "";
+    public int compareTo(Student p) {
+        return this.age-p.age;
     }
+    public static void main(String[] args) {
+        Student[]e =new Student[4];
+        e[0]  = new Student("Adam", 65);
+        e[1] = new Student("Steve", 60);
+        e[2] = new Student("Adams", 55);
+        e[3] = new Student("Steven", 40);
+        Arrays.sort(e);
+                System.out.println(Arrays.toString(e));
+        }
 
     @Override
-    public int compareTo(Student p) {
-        if (this.age == p.age)
-            return 0;
-        else
-            return this.age > p.age ? 1 : -1;
-    }
-
-
-    public static void main(String[] args) {
-        Student e1 = new Student("Adam", 65);
-        Student e2 = new Student("Steve", 60);
-        Student e3 = new Student("Adams", 55);
-        Student e4 = new Student("Steven", 40);
-        int retval = e1.compareTo(e4);
-        switch (retval) {
-            case -1: {
-                System.out.println("The " + e2.getName() + " is older!");
-                break;
-            }
-            case 1: {
-                System.out.println("The " + e1.getName() + " is older!");
-                break;
-            }
-            default:
-                System.out.println("The two persons are of the same age!");
-        }
+    public String toString() {
+        return "[name=" + this.name + ", age=" + this.age + "]";
     }
 }
+

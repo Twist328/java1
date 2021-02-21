@@ -26,15 +26,17 @@ public class IntNumber extends Number {
 
 
     public int compareTo(IntNumber o) {
-        IntNumber num=(IntNumber) o;
-        return this.num.compareTo(o.num);
+        if (this.num.compareTo(o.num) == -1) {
+            return -1;
+        }else if (this.num.compareTo(o.num) == 1) {
+            return 1;
+        }else
+            return 0;
     }
 
     @Override
     public String toString() {
-        return "IntNumber{" +
-                "num=" + num +
-                '}';
+        return "[num=" + this.num + "]";
     }
 }
 

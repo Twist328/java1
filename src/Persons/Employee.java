@@ -38,15 +38,8 @@ public class Employee implements Comparable<Employee> {
         //будем возвращать отрицательное число, 0 или положительное число по каждому сравнению объектов
         // здесь мы просто отнимаем значение поля одного объекта от значения поля другого объекта
         // в результате получим 1 из 3 вариантов описанных выше вариантов
-        return Math.toIntExact((this.age - emp.age));
+        return Math.toIntExact((this.salary - emp.salary));
     }
-
-   /* @Override
-    // переопределяем метод таким образом, чтобы
-    // он возвращаем информацию об объекте в читабельном виде
-    /*public String toString() {
-        return "[id=" + this.id + ", name=" + this.name + ", age=" + this.age + ", salary=" + this.salary + "]";
-    }*/
 
     public static void main(String[] args) {
         Employee[] empArr = new Employee[4];
@@ -63,11 +56,6 @@ public class Employee implements Comparable<Employee> {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", salary=" + salary +
-                '}';
+        return "[id=" + this.id + ", name=" + this.name + ", age=" + this.age + ", salary=" + this.salary + "]";
     }
 }
