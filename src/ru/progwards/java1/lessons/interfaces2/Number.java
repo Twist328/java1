@@ -31,23 +31,17 @@ public class Number implements Comparable<Number> {
     }
 
 
-    @Override
-    public int compareTo(Number o) {
-        if (this.num.compareTo(o)==-1) {
-            return -1;
-        }else if (this.num.compareTo(o) == 1) {
-            return 1;
-        }else
-            return 0;
-    }
-
-
     public static void main(String[] args) throws IOException {
 
 
         long a []= {89,58,34};
         Arrays.sort(((long[]) a));
         System.out.println(Arrays.toString(((long[]) a)));
+    }
+
+    @Override
+    public int compareTo(Number o) {
+        return 0;
     }
 }
 

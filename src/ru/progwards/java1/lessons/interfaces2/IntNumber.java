@@ -24,14 +24,9 @@ public class IntNumber extends Number {
         return new IntNumber(Integer.parseInt(strNum));
     }
 
-
-    public int compareTo(IntNumber o) {
-        if (this.compareTo(o)==-1) {
-            return -1;
-        }else if (this.compareTo(o) == 1) {
-            return 1;
-        }else
-            return 0;
+    @Override
+    public int compareTo(Number o) {
+        return super.compareTo(o);
     }
 
     @Override
