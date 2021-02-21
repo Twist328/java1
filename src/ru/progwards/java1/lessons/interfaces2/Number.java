@@ -8,8 +8,11 @@ public abstract class Number implements Comparable<Number> {
 
     Number num;
 
-    public Number() {
+    public Number(Number num) {
         this.num = num;
+    }
+
+    protected Number() {
     }
 
     @Override
@@ -41,11 +44,11 @@ public abstract class Number implements Comparable<Number> {
 
     @Override
     public int compareTo(Number o) {
-        int result = this.compareTo(o);
+        int result = this.num.compareTo(o.num) == 1 ? 1 : -1;
         if (result != 0) {
-
+            return result;
         }
-        return result;
+        return 0;
     }
 }
 

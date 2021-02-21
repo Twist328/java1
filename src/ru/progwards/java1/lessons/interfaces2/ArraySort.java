@@ -8,8 +8,10 @@ public class ArraySort extends Number {
 
     private static Number num;
 
-    public ArraySort(int[] a) {
+    public ArraySort(Number num) {
+        super(num);
     }
+
 
     public static void sort(Comparable<Number>[] a) {
 
