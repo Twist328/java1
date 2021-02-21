@@ -26,9 +26,9 @@ public class IntNumber extends Number {
 
 
     public int compareTo(IntNumber o) {
-        if (this.num.compareTo(o.num) == -1) {
+        if (this.compareTo(o)==-1) {
             return -1;
-        }else if (this.num.compareTo(o.num) == 1) {
+        }else if (this.compareTo(o) == 1) {
             return 1;
         }else
             return 0;

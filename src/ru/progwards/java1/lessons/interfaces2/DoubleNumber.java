@@ -23,10 +23,9 @@ public class DoubleNumber extends Number {
         return new DoubleNumber(Double.parseDouble(strNum));
     }
 
-
-    public int compareTo(DoubleNumber o) {
-        DoubleNumber num = (DoubleNumber) o;
-        return this.num.compareTo(o.num);
+    @Override
+    public int compareTo(Number o) {
+        return super.compareTo(o);
     }
 
     @Override
