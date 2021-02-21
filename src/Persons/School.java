@@ -57,20 +57,20 @@ class SortSchools implements Comparator<School> {
         s[9] = new School("sch10", 20);
 
         Arrays.sort(s);
-        System.out.println("Сортировка учебных заведений по количеству учащихся:\n"+Arrays.toString(s));//Camparable
+        System.out.println("Сортировка учебных заведений по количеству учащихся:\n"+Arrays.toString(s)+"\n");//Camparable
 
         School sch1 = new School("sch1", 20);
-        School sch2 = new School("sch2", 15);
+        School sch2 = new School("sch2", 21);
 
         SortSchools sortSch = new SortSchools();//Компаратор для 2 школ
         int retval = sortSch.compare(sch1, sch2);
         switch(retval) {
             case -1: {
-                System.out.println("The " + sch2.getName() + " is bigger!");
+                System.out.println("В школе " + sch2.getName() + " больше учащихся!");
                 break;
             }
             case 1: {
-                System.out.println("The " + sch1.getName() + " is bigger!");
+                System.out.println("В школе " + sch1.getName() + " больше учеников!");
                 break;
             }
             default:
