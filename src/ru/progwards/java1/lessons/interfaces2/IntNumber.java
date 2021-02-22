@@ -1,5 +1,8 @@
 package ru.progwards.java1.lessons.interfaces2;
 
+import java.io.IOException;
+import java.util.Arrays;
+
 public class IntNumber extends Number {
     Integer num;
 
@@ -29,7 +32,7 @@ public class IntNumber extends Number {
     public int compareTo(Object obj) {
         IntNumber entry = (IntNumber) obj;
 
-        int result = this.num - ((Integer) entry.num);
+        int result = this.num - (Integer) entry.num;
         if (result != 0) {
             return result;
         }
@@ -40,7 +43,15 @@ public class IntNumber extends Number {
     public String toString() {
         return String.valueOf(num);
     }
+    public static void main(String[] args) throws IOException {
+
+
+        int a[] = {89, 58, 34};
+        Arrays.sort(((int[]) a));
+        System.out.println(Arrays.toString(((int[]) a)));
+    }
 }
+
 
 
 

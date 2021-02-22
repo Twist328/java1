@@ -15,7 +15,7 @@ public class ArraySort extends Number {
 
     public static void sort(Comparable<Number>[] a) {
 
-        Comparable<Number> tmpValue = null;
+        /*Comparable<Number> tmpValue = null;
         for (int i = a.length - 1; i >= 0; i--) {
             // найдем в остатках максимальный
             for (int j = 0; j < i; j++) {
@@ -23,11 +23,11 @@ public class ArraySort extends Number {
                     ((tmpValue)) = a[i];
                     a[i] = a[j];
                     a[j] = tmpValue;
-                }
+                }*/
                 Arrays.sort(a);
             }
-        }
-    }
+        //}
+   // }
 
     @Override
     public int compareTo(Object obj) {

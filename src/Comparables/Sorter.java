@@ -1,4 +1,4 @@
-package Persons;
+package Comparables;
 
 import java.util.*;
 

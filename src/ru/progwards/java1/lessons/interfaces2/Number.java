@@ -18,7 +18,7 @@ public  class Number implements Comparable {
     public int compareTo(Object obj) {
         Number entry = (Number) obj;
 
-        int result = this.num.compareTo(entry.num);
+        int result = this.num.compareTo( entry.num);
         if(result != 0) {
             return result;
         }

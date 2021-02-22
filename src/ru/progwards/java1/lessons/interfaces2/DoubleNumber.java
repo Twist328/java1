@@ -1,5 +1,8 @@
 package ru.progwards.java1.lessons.interfaces2;
 
+import java.io.IOException;
+import java.util.Arrays;
+
 public class DoubleNumber extends Number {
     Double num;
 
@@ -29,7 +32,7 @@ public class DoubleNumber extends Number {
     public int compareTo(Object obj) {
         DoubleNumber entry = (DoubleNumber)  obj;
 
-        double result = this.num-((Double) entry.num);
+        double result = this.num-(Double) entry.num;
         if(result != 0) {
             return (int) result;
         }
@@ -42,8 +45,17 @@ public class DoubleNumber extends Number {
     }
 
 
+
+    public static void main(String[] args) throws IOException {
+
+
+        double a[] = {89, 58, 34};
+        Arrays.sort(((double[])  a));
+        System.out.println(Arrays.toString(((double[]) a)));
     }
 
+
+}
 
 
 
