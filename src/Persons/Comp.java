@@ -21,10 +21,10 @@ class Comp implements Comparable {
             return result;
         }
 
-        result = number - entry.number;
+       /* result = number - entry.number;
         if(result != 0) {
             return (int) result / Math.abs( result );
-        }
+        }*/
         return 0;
     }
 
