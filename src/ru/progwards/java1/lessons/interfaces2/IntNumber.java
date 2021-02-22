@@ -27,10 +27,10 @@ public class IntNumber extends Number {
 
     @Override
     public int compareTo(Object obj) {
-        IntNumber entry = (IntNumber)  obj;
+        IntNumber entry = (IntNumber) obj;
 
-        int result = this.num-((Integer) entry.num);
-        if(result != 0) {
+        int result = this.num - ((Integer) entry.num);
+        if (result != 0) {
             return result;
         }
         return 0;
@@ -38,7 +38,7 @@ public class IntNumber extends Number {
 
     @Override
     public String toString() {
-        return "[num=" + this.num + "]";
+        return String.valueOf(num);
     }
 }
 
