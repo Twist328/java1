@@ -27,7 +27,13 @@ public class DoubleNumber extends Number {
 
     @Override
     public int compareTo(Object obj) {
-        return super.compareTo(obj);
+        DoubleNumber entry = (DoubleNumber)  obj;
+
+        double result = this.num-((Double) entry.num);
+        if(result != 0) {
+            return (int) result;
+        }
+        return 0;
     }
 
     @Override
