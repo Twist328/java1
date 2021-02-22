@@ -41,8 +41,6 @@ public class ArraySort extends Number {
         sort(a);
         System.out.println(Arrays.toString( a));
     }
-
-
     }
 
 

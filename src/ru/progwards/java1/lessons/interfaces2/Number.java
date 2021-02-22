@@ -18,7 +18,7 @@ public  class Number implements Comparable {
     public int compareTo(Object obj) {
         Number entry = (Number) obj;
 
-        int result = this.num.compareTo( entry.num);
+        int result = this.num.compareTo(entry.num);
         if(result != 0) {
             return result;
         }
@@ -47,7 +47,7 @@ public  class Number implements Comparable {
     public static void main(String[] args) throws IOException {
 
 
-        long a[] = {89, 58, 34};
+        long[] a = new Random().longs(10, -10, 10).toArray();
         Arrays.sort(((long[]) a));
         System.out.println(Arrays.toString(((long[]) a)));
     }

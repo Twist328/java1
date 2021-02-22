@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Car implements Comparable<Car> {
+public class Car implements Comparable<Car> { //Сортировка Comparable
 
     private int manufactureYear;
     private String model;
@@ -56,7 +56,7 @@ public class Car implements Comparable<Car> {
     }
 }
 
-class MaxSpeedCarComparator implements Comparator<Car> {
+class MaxSpeedCarComparator implements Comparator<Car> { //Сортировка  Comparator
 
     @Override
     public int compare(Car o1, Car o2) {
@@ -82,12 +82,12 @@ class MaxSpeedCarComparator implements Comparator<Car> {
             cars.add(lada);
 
             Collections.sort(cars);// Cортировка с помощью Comparable по году выпуска
-            System.out.println("Cортировка авто по году выпуска с завода:");
+            System.out.println("                 Cортировка авто по году выпуска с завода:");
             System.out.println(cars+"\n");
 
             Comparator speedComparator = new MaxSpeedCarComparator();
             Collections.sort(cars, speedComparator);//Cортировка с помощью Comparator по максимальной скорости
-            System.out.println("Cортировка авто по максимальной скорости:");
+            System.out.println("                 Cортировка авто по максимальной скорости:");
             System.out.print(cars);
 
         }
