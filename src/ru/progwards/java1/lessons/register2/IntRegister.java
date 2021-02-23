@@ -20,7 +20,7 @@ public class IntRegister extends ByteRegister {
         value &= 0x7F_FF_FF_FF; // отбрасываем знаковый бит
         for (int i = 0; i < last; i++) {
             bits[i].set((value & 1) == 1);
-            value >>>= 1;
+            value >>>= 2;
         }
     }
 
