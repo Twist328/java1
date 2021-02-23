@@ -7,7 +7,7 @@ public class IntRegister extends ByteRegister {
     public IntRegister() {
         len= 32;
         signed = true;
-        Score scorType = Score .ADDITION;
+        Score scorType = Score.BEFORE;
         init();
     }
 
@@ -35,7 +35,7 @@ public class IntRegister extends ByteRegister {
     public static void main(String[] args) {
         IntRegister r = new IntRegister();
        /* r.print();*/
-        r = new IntRegister();
+        r = new IntRegister(-237968432);
         r.print();
        /* r.set(1);
         r.print();*/
