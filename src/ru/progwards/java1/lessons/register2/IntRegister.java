@@ -1,11 +1,6 @@
 package ru.progwards.java1.lessons.register2;
 
-import ru.progwards.java1.lessons.register1.ByteRegister;
-import ru.progwards.java1.lessons.register1.Summator;
-
 public class IntRegister extends ByteRegister {
-
-    
 
     public IntRegister() {
         len= 32;

@@ -1,10 +1,10 @@
 package ru.progwards.java1.lessons.register2;
 
-import ru.progwards.java1.lessons.register1.Bit;
+
 
 public class ByteRegister {
 
-    public ru.progwards.java1.lessons.register1.Bit[] bits;
+    public Bit[] bits;
     public int len = 8; // количество бит
     public boolean signed = false; // знаковое ли число
     public enum Score {JUST, BEFORE, ADDITION}
@@ -19,13 +19,13 @@ public class ByteRegister {
         set(value);
     }
 
-    public ByteRegister(ru.progwards.java1.lessons.register1.ByteRegister value) {
+    public ByteRegister(ByteRegister value) {
         this();
         set(value);
     }
 
     protected void init() {
-        bits = new ru.progwards.java1.lessons.register1.Bit[len];
+        bits = new Bit[len];
         for (int i = 0; i < len; i++) {
             bits[i] = new Bit();
         }
@@ -41,7 +41,7 @@ public class ByteRegister {
         }
     }
 
-    public void set(ru.progwards.java1.lessons.register1.ByteRegister value) {
+    public void set(ByteRegister value) {
         boolean differ = len != value.len;
         len = value.len;
         signed = value.signed;

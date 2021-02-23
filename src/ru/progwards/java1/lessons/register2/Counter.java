@@ -1,7 +1,5 @@
 package ru.progwards.java1.lessons.register2;
 
-import ru.progwards.java1.lessons.register1.ByteRegister;
-
 public class Counter {
 
     public static void inc(ByteRegister value) {
