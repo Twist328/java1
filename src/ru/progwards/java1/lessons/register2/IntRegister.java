@@ -6,8 +6,8 @@ public class IntRegister extends ByteRegister {
 
     public IntRegister() {
         len= 32;
-        signed = true;
-        Score scorType = Score.BEFORE;
+        signed = false;
+        Score scorType = Score.ADDITION;
         init();
     }
 
