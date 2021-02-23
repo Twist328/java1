@@ -1,23 +1,14 @@
-package ru.progwards.java1.lessons.register1;
+package ru.progwards.java1.lessons.register2;
 
-/*
-Реализовать класс, ByteRegister, содержащий 8 бит, реализованных на классе Bit, как целое беззнаковое число, хранить
-биты в массиве. Методы:
-public ByteRegister() - инициализация нулями
-public ByteRegister(byte value) - обратить внимание на то, что в Java byte знаковый, а у нас нет. При сохранении просто
-копируем побитно, просто по другому интерпретируем значение.
-public String toString() - вывод в двоичном виде
-public String toDecString() - вывод в десятичной системе счисления, при преобразовании рассматриваем значение как целое
-положительное число
-*/
+import ru.progwards.java1.lessons.register1.Bit;
 
-public class ByteRegister extends ru.progwards.java1.lessons.register2.ByteRegister {
+public class ByteRegister {
 
-    public Bit[] bits;
+    public ru.progwards.java1.lessons.register1.Bit[] bits;
     public int len = 8; // количество бит
     public boolean signed = false; // знаковое ли число
     public enum Score {JUST, BEFORE, ADDITION}
-    protected Score scorType = Score.JUST;
+    public Score scorType = Score.JUST;
 
     public ByteRegister() {
         init();
@@ -28,13 +19,13 @@ public class ByteRegister extends ru.progwards.java1.lessons.register2.ByteRegis
         set(value);
     }
 
-    public ByteRegister(ByteRegister value) {
+    public ByteRegister(ru.progwards.java1.lessons.register1.ByteRegister value) {
         this();
         set(value);
     }
 
     protected void init() {
-        bits = new Bit[len];
+        bits = new ru.progwards.java1.lessons.register1.Bit[len];
         for (int i = 0; i < len; i++) {
             bits[i] = new Bit();
         }
@@ -50,11 +41,11 @@ public class ByteRegister extends ru.progwards.java1.lessons.register2.ByteRegis
         }
     }
 
-    public void set(ByteRegister value) {
+    public void set(ru.progwards.java1.lessons.register1.ByteRegister value) {
         boolean differ = len != value.len;
         len = value.len;
         signed = value.signed;
-        scorType = value.scorType;
+        //scorType = value.scorType;
         if (differ) init();
         for (int i = 0; i < len; i++) {
             bits[i].set(value.bits[i].get());

@@ -34,7 +34,6 @@ public class Employee implements Comparable {
 
     @Override
     public int compareTo(Object obj) {
-
         Employee entry = (Employee) obj;
         int result = name.compareTo((entry.name));
         if (result != 0) {
