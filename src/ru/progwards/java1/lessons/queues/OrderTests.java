@@ -1,7 +1,7 @@
 package ru.progwards.java1.lessons.queues;
 
-import java.util.Collections;
-import java.util.TreeSet;
+import java.util.ArrayDeque;
+import java.util.Arrays;
 /*
 2.5 Создать класс OrderQueue
 2.6 Разместить в нем очередь с приоритетом
@@ -39,9 +39,43 @@ public class OrderTests {
 
         while (order != null) {
 
-            System.out.println(order);
+            System.out.print("\n"+order+"\n");
             order = orderQ.get();
 
+            int[]a=new int[]{7,5,9,3};
+            System.out.print("\n"+new  OrderTests().array2queue(a).toString()+"\n");
+
+            ArrayDeque<Integer>deque=new ArrayDeque<Integer>();
+            deque.add(7);
+            deque.add(127);
+            deque.add(2);
+            deque.add(165);
+            int res = sumLastAndFirst(deque);
+            System.out.print("\n"+new  OrderTests().sumLastAndFirst(deque)+"\n");
+            }
+
         }
+
+
+
+        ArrayDeque<Integer> array2queue(int[] a){//Создайте метод с сигнатурой ArrayDeque<Integer> array2queue(int[] a),
+                                                 // который копирует содержимое массива в очередь
+            ArrayDeque<Integer>deque=new ArrayDeque<Integer>();
+            if(a==null)return deque;
+            for(int o:a){
+                deque.offer(o);
+            }
+            return deque;
+        }
+    static int sumLastAndFirst(ArrayDeque<Integer> deque) { /*
+                                                     Реализуйте метод с сигнатурой int sumLastAndFirst(ArrayDeque<Integer> deque)
+                                                     который возвращает сумму первого и последнего элемента очереди. При пустой очереди вернуть 0
+                                                                                                                                              */
+        if (deque.isEmpty()) return 0;
+        return deque.peekFirst() + deque.peekLast();
+
     }
 }
+
+
+
