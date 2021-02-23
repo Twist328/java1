@@ -13,29 +13,31 @@ public Number newNumber(String strNum), который будет возвращ
 Внимание! Реально будет передаваться строковое значение в виде и double и int, например 3.14.... или 4, 3.
 Надо будет правильно распарсить строку и привести значение к нужному типу.
 */
-public class DoubleNumber extends Number{
-    double num;
-
-    @Override
-    public Number div(Number num) {
-        double num2 = Double.valueOf(num.toString());
-        return new DoubleNumber(this.num/num2);
-    }
+public class DoubleNumber extends Number {
+    public double num;
 
     public DoubleNumber(double num) {
         this.num = num;
     }
 
     @Override
-    public Number mul(Number num) {
-        double num2 = Double.valueOf(num.toString());
-        return new DoubleNumber(this.num*num2);
-    }
-    public Number newNumber(String strNum){
-        return new DoubleNumber(Double.parseDouble(strNum));
-    }
-    @Override
     public String toString() {
         return String.valueOf(num);
+    }
+
+    @Override
+    public Number mul(Number num) {
+        double num2 = ((DoubleNumber)num).num;
+        return new DoubleNumber(this.num*num2);
+    }
+
+    @Override
+    public Number div(Number num) {
+        double num2 = Double.parseDouble(num.toString());
+        return new DoubleNumber(this.num/num2);
+    }
+
+    public Number newNumber(String strNum){
+        return new DoubleNumber(Double.parseDouble(strNum));
     }
 }
