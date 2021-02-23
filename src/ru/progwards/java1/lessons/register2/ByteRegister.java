@@ -45,7 +45,7 @@ public class ByteRegister {
         boolean differ = len != value.len;
         len = value.len;
         signed = value.signed;
-        //scorType = value.scorType;
+        scorType = value.scorType;
         if (differ) init();
         for (int i = 0; i < len; i++) {
             bits[i].set(value.bits[i].get());

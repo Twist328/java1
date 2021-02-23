@@ -80,10 +80,4 @@ public class IntRegister extends ByteRegister {
         b.print();
     }
 
-    @Override
-    public String toString() {
-        return "IntRegister{" +
-                "bits=" + Arrays.toString(bits) +
-                '}';
-    }
 }
