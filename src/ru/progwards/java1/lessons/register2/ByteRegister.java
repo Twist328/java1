@@ -63,10 +63,7 @@ public class ByteRegister {
     public String toDecString() {
         int sum, a = 1, last;
         boolean lastBitVal = false;
-        /*for (Bit b : bits) {
-            if (b.get()) sum += a;
-            a <<= 1;
-        }*/
+
         if (signed) {
             last = len - 1;
             lastBitVal = bits[last].get();
