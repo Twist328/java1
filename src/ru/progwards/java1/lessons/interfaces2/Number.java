@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import java.util.*;
 
-public  class Number implements Comparable {
+public  class Number implements Comparable<Number> {
 
     Number num;
     protected Number num2;
@@ -15,7 +15,7 @@ public  class Number implements Comparable {
     }
 
     @Override
-    public int compareTo(Object obj) {
+    public int compareTo(Number obj) {
         Number entry = (Number) obj;
 
         int result = this.num.compareTo(entry.num);

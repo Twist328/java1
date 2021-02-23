@@ -29,12 +29,16 @@ public class DoubleNumber extends Number {
 
 
     @Override
-    public int compareTo(Object obj) {
-        DoubleNumber entry = (DoubleNumber)  obj;
+    public int compareTo(Number obj) {
+        DoubleNumber entry = (DoubleNumber) obj;
 
-        double result = this.num-(Double) entry.num;
-        if(result != 0) {
+        double result = this.num - (double) entry.num;
+        if (result != 0) {
             return (int) result;
+        }
+        result = this.num - ((entry.num));
+        if (result != 0) {
+            return (int) ((int) result / Math.abs(result));
         }
         return 0;
     }

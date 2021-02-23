@@ -29,12 +29,16 @@ public class IntNumber extends Number {
 
 
     @Override
-    public int compareTo(Object obj) {
+    public int compareTo(Number obj) {
         IntNumber entry = (IntNumber) obj;
 
         int result = this.num - (Integer) entry.num;
         if (result != 0) {
             return result;
+        }
+        result = this.num - ((entry.num));
+        if (result != 0) {
+            return (int) result / Math.abs(result);
         }
         return 0;
     }
