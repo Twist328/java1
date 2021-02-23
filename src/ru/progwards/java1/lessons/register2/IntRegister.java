@@ -22,7 +22,7 @@ public class IntRegister extends ByteRegister {
         value &= 0x7F_FF_FF_FF; // отбрасываем знаковый бит
         for (int i = 0; i < last; i++) {
             bits[i].set((value & 1) == 1);
-            value >>>= 1;
+             value >>>=1;
         }
     }
 
@@ -33,11 +33,11 @@ public class IntRegister extends ByteRegister {
 
     // tests
     public static void main(String[] args) {
-        /*IntRegister r = new IntRegister();
+        IntRegister r = new IntRegister();
+       /* r.print();*/
+        r = new IntRegister();
         r.print();
-        r = new IntRegister(12345678);
-        r.print();
-        r.set(1);
+       /* r.set(1);
         r.print();*/
 
         /*IntRegister r = new IntRegister(1);
@@ -66,18 +66,18 @@ public class IntRegister extends ByteRegister {
         Counter.dec(r);
         r.print();*/
 
-        IntRegister a = new IntRegister(-5);
-        IntRegister b = new IntRegister(6);
+        /*IntRegister a = new IntRegister(-2132582563);
+        IntRegister b = new IntRegister(0);
         a.print();
         b.print();
         /*System.out.println(Summator.add(a, b));
         a.print();
         System.out.println(Summator.add(a, b));
-        a.print();*/
+        a.print();
         System.out.println(Summator.sub(a, b));
         a.print();
         System.out.println(Summator.sub(b, a));
-        b.print();
+        b.print();*/
     }
 
 }

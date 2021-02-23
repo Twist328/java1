@@ -11,7 +11,7 @@ public String toDecString() - вывод в десятичной системе 
 положительное число
 */
 
-public class ByteRegister extends ru.progwards.java1.lessons.register2.ByteRegister {
+public class ByteRegister {
 
     public Bit[] bits;
     public int len = 8; // количество бит
