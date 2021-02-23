@@ -1,5 +1,7 @@
 package ru.progwards.java1.lessons.register2;
 
+import java.util.Arrays;
+
 public class IntRegister extends ByteRegister {
 
     public IntRegister() {
@@ -20,7 +22,7 @@ public class IntRegister extends ByteRegister {
         value &= 0x7F_FF_FF_FF; // отбрасываем знаковый бит
         for (int i = 0; i < last; i++) {
             bits[i].set((value & 1) == 1);
-            value >>>= 2;
+            value >>>= 1;
         }
     }
 
@@ -78,4 +80,10 @@ public class IntRegister extends ByteRegister {
         b.print();
     }
 
+    @Override
+    public String toString() {
+        return "IntRegister{" +
+                "bits=" + Arrays.toString(bits) +
+                '}';
+    }
 }
