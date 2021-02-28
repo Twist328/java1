@@ -4,6 +4,7 @@
     <exclude-output />
     <javadoc-paths>
       <root url="jar://$MODULE_DIR$/Bot/telegrambots-4.4.0-jar-with-dependencies.jar!/" />
+      <root url="file://$MODULE_DIR$/../../Program Files/apache-maven-3.6.3" />
     </javadoc-paths>
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />

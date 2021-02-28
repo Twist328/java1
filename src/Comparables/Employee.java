@@ -2,7 +2,7 @@ package Comparables;
 
 import java.util.Arrays;
 
-public class Employee implements Comparable {
+public class Employee implements Comparable<Employee> {
 
     private int id;
     private String name;
@@ -33,7 +33,7 @@ public class Employee implements Comparable {
     }
 
     @Override
-    public int compareTo(Object obj) {
+    public int compareTo(Employee obj) {
         Employee entry = (Employee) obj;
         int result = name.compareTo((entry.name));
         if (result != 0) {
@@ -50,7 +50,7 @@ public class Employee implements Comparable {
     public static void main(String[] args) {
         Employee[] empArr = new Employee[4];
 // заполняем массив объектов Employee данными
-        empArr[0] = new Employee(25, "Генулик", 21, 10000);//CompareTo если имена совпадают
+        empArr[0] = new Employee(27, "Генулик", 21, 10000);//CompareTo если имена совпадают
         empArr[1] = new Employee(20, "Дмитрий", 49, 20000);//то сортирует по id
         empArr[2] = new Employee(5, "Виктор", 45, 5000);//если правильно переопределен метод
         empArr[3] = new Employee(26, "Генулик", 22, 10000);

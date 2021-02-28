@@ -5,7 +5,7 @@ import ru.progwards.java1.testlesson.ProgwardsTelegramBot;
 
 class PizzaBotKompot extends ProgwardsTelegramBot {
 
-    private final String menu = "У нас есть пицца, напитки, десерт";
+    private final String menu = "У нас есть пицца, напитки, кофе, десерт";
 
     @Override
     public String processMessage(String text) {
@@ -57,8 +57,11 @@ class PizzaBotKompot extends ProgwardsTelegramBot {
                 bot.addTags("Кола", "напит, пить, кола");
                 bot.addTags("Холодный чай", "напит, пить, чай, липтон, лимон");
                 bot.addTags("Сок", "напит, пить, сок, апельсиноый, яблочный, вишневый");
-                bot.addTags("Кофе", "напит, пить, кофе, американо, капучино, эспрессо");
 
+                bot.addTags("Кофе Американо", "кофе,американо, молоко");
+                bot.addTags("Кофе Эспрессо", "кофе, эспрессо");
+                bot.addTags("Кофе Капучино", "кофе,капучино, с молоком");
+                bot.addTags("Кофе Пеле", "растворимый,пеле, с молоком");
                 bot.start();
             }
         }
