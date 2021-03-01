@@ -21,9 +21,7 @@ public class Summator {
     // второе дополнение в дополнительном коде
     public static ByteRegister invert(ByteRegister value) {
         ByteRegister bR = new ByteRegister((ByteRegister) value);
-        /*if (result.signed && result.negStoreType != ByteRegister.NegStoreType.ADDITIONAL && result.bits[result.size - 1].get()) {
-            result.bits[result.size - 1].set(false); // инвертируем знаковый бит для отрицательных
-        }*/
+
         for (int i = 0; i < bR.len; i++) {
             bR.bits[i].set(!bR.bits[i].get());
         }

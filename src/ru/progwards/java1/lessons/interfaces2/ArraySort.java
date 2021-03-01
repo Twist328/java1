@@ -25,7 +25,7 @@ public class ArraySort extends Number {
     public static void main(String[] args) throws IOException {
 
 
-        Comparable<Number>[] a = new Comparable[]{Long.valueOf(89),Long.valueOf(58),Long.valueOf(34)};
+        Comparable<Number>[] a = new Comparable[]{Double.valueOf(89),Double.valueOf(58),Double.valueOf(34)};
         sort(a);
         System.out.println(Arrays.toString( a));
     }
