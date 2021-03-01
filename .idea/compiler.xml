@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="TelegramBotApi" />
+        <module name="WeatherBotApi" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="TelegramBotApi" target="14" />
+      <module name="WeatherBotApi" target="14" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
