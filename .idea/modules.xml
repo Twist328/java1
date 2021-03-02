@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Task2.iml" filepath="$PROJECT_DIR$/Task2.iml" />
-      <module fileurl="file://$USER_HOME$/IdeaProjects/java1/WeatherBotApi/WeatherBotApi.iml" filepath="$USER_HOME$/IdeaProjects/java1/WeatherBotApi/WeatherBotApi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/bot3/Telegram/Telegram.iml" filepath="$PROJECT_DIR$/src/bot3/Telegram/Telegram.iml" />
     </modules>
   </component>
 </project>
