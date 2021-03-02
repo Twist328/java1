@@ -1,3 +1,5 @@
+package ru.progwards.java1.lessons.io1;
+
 import java.io.IOException;
 
 public class TTTest {

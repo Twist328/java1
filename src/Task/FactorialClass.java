@@ -1,3 +1,5 @@
+package Task;
+
 public class FactorialClass {
     static long factorial(long n) {
 
