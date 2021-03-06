@@ -4,6 +4,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/src/bot3/Telegram/pom.xml" />
+        <option value="$PROJECT_DIR$/src/apigratebot/apigrandebot/pom.xml" />
+        <option value="$PROJECT_DIR$/src/botnewcast/grandesmartbot/pom.xml" />
       </list>
     </option>
   </component>

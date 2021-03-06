@@ -3,6 +3,20 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\src\Bot2\GreatSmartBot.java">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\Bots\BotKompot.java">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\Person.java">
           <value>
             <Attribute>
@@ -24,7 +38,35 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\apigratebot\apigrandebot\pom.xml">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\apigratebot\apigrandebot\src\main\java\GreatSmartBot.java">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\bot3\Telegram\pom.xml">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\bot3\Telegram\src\main\java\Bot.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\bot3\Telegram\src\main\java\Climat.java">
           <value>
             <Attribute>
               <option name="separator" value=";" />
@@ -38,7 +80,42 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\bot3\Telegram\src\main\java\Pattern.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\bot3\Telegram\src\main\java\Weather.java">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\botnewcast\grandesmartbot\pom.xml">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\botnewcast\grandesmartbot\src\main\java\Bot.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\botnewcast\grandesmartbot\src\main\java\Climat.java">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\botnewcast\grandesmartbot\src\main\java\Pattern.java">
           <value>
             <Attribute>
               <option name="separator" value="," />

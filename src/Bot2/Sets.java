@@ -1,6 +1,6 @@
 package Bot2;
 
-public class Sets {
+/*public class Sets {
 
     Food[] foods = {};
     GreatSmartBot bot;
@@ -80,4 +80,4 @@ public class Sets {
         return null;
     }
 
-}
+}*/

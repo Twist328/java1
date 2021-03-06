@@ -1,6 +1,6 @@
 package Bot2;
 
-public class Check {
+/*public class Check {
 
     Sets sets;
     GreatSmartBot bot;
@@ -54,4 +54,4 @@ public class Check {
                 result += getUserData(userid, bot.groupKey + "[" + m.index + "]");
         return result;
     }
-}
+}*/

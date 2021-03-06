@@ -1,6 +1,6 @@
 package Bot2;
 
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 
 import org.telegram.telegrambots.ApiContextInitializer;
@@ -66,7 +66,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
          * Метод, который возвращает ответ бота
          * @return ответ
          */
-        @Override
+       /* @Override
         public String processMessage(Integer userid, String text) {
             // проверяем, спрашивали ли адрес доставки
             if (getUserData(userid, addressKey) != null && getUserData(userid, addressKey).equals("*")) {
@@ -109,7 +109,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
             System.getProperties().put("socksProxyHost", "127.0.0.1");
             System.getProperties().put("socksProxyPort", "9150");*/
 
-            System.out.println("Hello bot!");
+           /* System.out.println("Hello bot!");
             ApiContextInitializer.init();
 
             // инициализируем бота
@@ -180,4 +180,4 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
                     ", stop=" + stop +
                     '}';
         }
-    }
+    }*/
