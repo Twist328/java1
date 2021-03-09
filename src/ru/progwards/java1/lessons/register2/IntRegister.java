@@ -34,11 +34,11 @@ public class IntRegister extends ByteRegister {
     // tests
     public static void main(String[] args) {
         IntRegister r = new IntRegister();
-       /* r.print();*/
+        /*r.print();*/
         r = new IntRegister(-237968432);
         r.print();
-       /* r.set(1);
-        r.print();*/
+        r.set(1);
+        r.print();
 
         /*IntRegister r = new IntRegister(1);
         r.print();

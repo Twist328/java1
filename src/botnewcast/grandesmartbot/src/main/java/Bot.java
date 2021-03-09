@@ -18,9 +18,11 @@ import java.util.List;
 
 public class Bot extends TelegramLongPollingBot {
     private static final String WHAT_THE_DATE_REQUEST = "Какой сегодня день?";
-    public static final String ПРИВЕТ = "Привет";
+    public static final String ПРИВЕТ = "Привет!!!";
     public static final String НУ_И_КАК_ПОГОДА = "Ну и как погода?";
     private static final String WHAT_THE_TIME_REQUEST= "Который час?";
+    public static final String START = "/start";
+    public static final String HELP = "/help";
     private Update update;
 
     public static void main(String[] args) {
@@ -54,7 +56,7 @@ public class Bot extends TelegramLongPollingBot {
         Message message = update.getMessage ();
         SendMessage responce = new SendMessage ();
         responce.setText ("Привет,   " + message.getFrom ().getFirstName ()
-                + "! Вы мне прислали: " + message.getText ());
+                + "! Обрабатываю ваш запрос: " + message.getText ());
         responce.setChatId (message.getChatId ());
         responce.setReplyMarkup (getMainMenu ());
         if (message != null && message.hasText ()) {
@@ -65,11 +67,12 @@ public class Bot extends TelegramLongPollingBot {
                 e.printStackTrace ();
             }
             switch (message.getText ()) {
-                case "Привет":
-                    sendMsg (message, "Привет!  Я Бот - Погод!");
+                case "/start":
+                    sendMsg (message, "Привет! Мой друг, я умею показать дату-время, а также погоду!" +
+                            "  Воспользуйся клавиатурой "+Emoji.GRINNING_FACE_WITH_SMILING_EYES);
                     break;
-                case "Как погода":
-                    sendMsg (message, "Напишите город и я пришлю погоду в нём!");
+                case "/help":
+                    sendMsg (message, " Что пошло не так?\nНапишите город и я пришлю погоду в нём! Либо нажмите на встроенную клавиатуру"+Emoji.FACE_WITH_TEARS_OF_JOY);
                     break;
                 default:
                     try {
@@ -111,11 +114,13 @@ public class Bot extends TelegramLongPollingBot {
             case WHAT_THE_TIME_REQUEST:
                 return getCurrentTimeResponce (message);
             case ПРИВЕТ:
-                return sendMsg (message, "Я Бот-У, показываю Погоду-y! Напиши город!" );
+                return sendMsg (message, "Я Бот-У, показываю Погод-y! Напиши город!" );
             case WHAT_THE_DATE_REQUEST:
                 return getCurrentDateResponce (message);
             case НУ_И_КАК_ПОГОДА:
                 return sendMsg (message, " Напиши город!" );
+            case "Спасибо":
+                return getThanks(message);
             default:
                 return greetingMessage (message);
         }
@@ -125,7 +130,7 @@ public class Bot extends TelegramLongPollingBot {
     private SendMessage greetingMessage(Message message) {
         SendMessage responce = new SendMessage ();
         responce.setText ("Привет,   " + message.getFrom ().getFirstName ()
-                + "! Вы мне прислали: " + message.getText () + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES);
+                + "! Я Бот У, обрабатываю команд-у: " + message.getText () + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES);
 
         responce.setChatId (message.getChatId ());
         responce.setReplyMarkup (getMainMenu ());
@@ -141,11 +146,13 @@ public class Bot extends TelegramLongPollingBot {
 
         row1.add (WHAT_THE_TIME_REQUEST);
         row1.add (WHAT_THE_DATE_REQUEST);
+        row1.add (START);
 
         KeyboardRow row2 = new KeyboardRow ();
 
         row2.add (ПРИВЕТ);
         row2.add (НУ_И_КАК_ПОГОДА);
+        row2.add (HELP);
 
         List<KeyboardRow> rows = new ArrayList<> ();
         rows.add (row1);
@@ -198,9 +205,9 @@ public class Bot extends TelegramLongPollingBot {
         return markup;
     }
 
-    private SendMessage getOrderPizza(Message message) {
+    private SendMessage getThanks(Message message) {
         SendMessage responce = new SendMessage ();
-        responce.setText ("Please make your chois:)" + Emoji.WINKING_FACE);
+        responce.setText ("Всегда к вашим услугам)" + Emoji.WINKING_FACE);
         responce.setReplyMarkup (creatChoisePizzaMenu ());
         responce.setChatId (message.getChatId ());
         return responce;

@@ -203,8 +203,8 @@ public class SeaBattleAlg {
         deathСellx(1);
         deathСelly(2);
         deathСellx(0);
-        deathСelly(1);
-        deathСellx(0);
+        deathСelly(4);
+        deathСellx(5);
         deathСelly(0);
 
     }

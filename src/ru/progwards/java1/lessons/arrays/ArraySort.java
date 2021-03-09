@@ -87,7 +87,7 @@ public class ArraySort {
         for(int i = a.length - 1; i>=0; i++) a[i] = 1;
     }*/
     public static void main(String[] args) {
-        for (int cnt = 1; cnt <= 10; cnt++) {
+        for (int cnt = 1; cnt <= 3; cnt++) {
             int[] a1 = new Random().ints(100, -100, 100).toArray();
             int[] b1 = new Random().ints(50_000, -50_000, 50_000).toArray();
             int[] c1 = new Random().ints(100_000, -100_000, 100_000).toArray();

@@ -2,6 +2,8 @@ package ru.progwards.java1.lessons.interfaces2;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Random;
+import java.util.stream.DoubleStream;
 
 public class DoubleNumber extends Number {
     Double num;
@@ -53,9 +55,9 @@ public class DoubleNumber extends Number {
     public static void main(String[] args) throws IOException {
 
 
-        double a[] = {89, 58, 34};
-        Arrays.sort(((double[])  a));
-        System.out.println(Arrays.toString(((double[]) a)));
+        Double[] a = new Double[]{Double.valueOf(50), Double.valueOf(110), Double.valueOf(33)};
+        Arrays.sort( a);
+        System.out.println(Arrays.toString(( a)));
     }
 
 

@@ -2,6 +2,7 @@ package ru.progwards.java1.lessons.bigints;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Random;
 
 import static java.math.BigDecimal.*;
 
@@ -25,8 +26,8 @@ public class BigAlgebra {
         System.out.println(dec.fastPow(BigDecimal.valueOf(23456789.33), 9));
 
 
-
-        System.out.println(new BigInteger(String.valueOf(fibonacci(100))));
+int[] n=new Random().ints(1000,500,1000).toArray();
+        System.out.println(new BigInteger(String.valueOf(fibonacci(99))));
     }
 
     static BigInteger fibonacci(int n) {

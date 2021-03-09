@@ -47,7 +47,7 @@ public  class Number implements Comparable<Number> {
     public static void main(String[] args) throws IOException {
 
 
-        long[] a = new Random().longs(10, -10, 10).toArray();
+        long[] a = new Random().longs(100, -100, 100).toArray();
         Arrays.sort(((long[]) a));
         System.out.println(Arrays.toString(((long[]) a)));
     }
