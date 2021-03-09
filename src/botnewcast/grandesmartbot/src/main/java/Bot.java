@@ -96,7 +96,7 @@ public class Bot extends TelegramLongPollingBot {
                     try {
                         execute(getThanks(message));
                     } catch (TelegramApiException e) {
-                        e.printStackTrace();
+                        sendMsg(message, "Ой, как приятно" + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_COLD_SWEAT);
                     }
                     break;
                 case "Тупой бот":
@@ -141,8 +141,7 @@ public class Bot extends TelegramLongPollingBot {
         switch (message.getText()) {
             case НУ_И_КАК_ПОГОДА:
                 return sendMsg(message, " Напиши город!");
-            /*case "Спасибо":
-                return getThanks(message);*/
+
             default:
                 return greetingMessage(message);
         }
@@ -199,14 +198,7 @@ public class Bot extends TelegramLongPollingBot {
         return responce;
     }
 
-    /* private SendMessage getCurrentWeaterResponce(Message message) throws IOException {
-         Pattern pattern = new Pattern ();
-         SendMessage responce = new SendMessage ();
-         sendMsg (message, Climat.getWeather (message.getText (), pattern));
-         responce.setChatId (message.getChatId ());
-         responce.setReplyMarkup (getMainMenu ());
-         return responce;
-     }*/
+
     private ReplyKeyboardMarkup creatChoisePizzaMenu() {
         ReplyKeyboardMarkup markup = new ReplyKeyboardMarkup();
 
