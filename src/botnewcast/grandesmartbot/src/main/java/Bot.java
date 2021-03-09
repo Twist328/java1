@@ -23,6 +23,7 @@ public class Bot extends TelegramLongPollingBot {
     private static final String WHAT_THE_TIME_REQUEST= "Который час?";
     public static final String START = "/start";
     public static final String HELP = "/help";
+    public static final String СПАСИБО = "Спасибо";
     private Update update;
 
     public static void main(String[] args) {
@@ -68,11 +69,38 @@ public class Bot extends TelegramLongPollingBot {
             }
             switch (message.getText ()) {
                 case "/start":
-                    sendMsg (message, "Привет! Мой друг, я умею показать дату-время, а также погоду!" +
+                    sendMsg (message, " Мой друг, я смогу показать дату-время, а также погоду!" +
                             "  Воспользуйся клавиатурой "+Emoji.GRINNING_FACE_WITH_SMILING_EYES);
                     break;
+                case WHAT_THE_TIME_REQUEST:
+                    try {
+                        execute(getCurrentTimeResponce (message));
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case WHAT_THE_DATE_REQUEST:
+                    try {
+                        execute(getCurrentDateResponce (message));
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case ПРИВЕТ:
+                     sendMsg (message, " Я Бот-У, показываю Погод-y! Напиши город!" );
+                     break;
                 case "/help":
                     sendMsg (message, " Что пошло не так?\nНапишите город и я пришлю погоду в нём! Либо нажмите на встроенную клавиатуру"+Emoji.FACE_WITH_TEARS_OF_JOY);
+                    break;
+                case СПАСИБО:
+                    try {
+                        execute(getThanks(message));
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case "Тупой бот":
+                    sendMsg(message," Не ошибаются те, кто ничего не делает");
                     break;
                 default:
                     try {
@@ -111,16 +139,10 @@ public class Bot extends TelegramLongPollingBot {
     private SendMessage getResponceMessage(Message message) throws IOException {
         Pattern pattern = new Pattern ();
         switch (message.getText ()) {
-            case WHAT_THE_TIME_REQUEST:
-                return getCurrentTimeResponce (message);
-            case ПРИВЕТ:
-                return sendMsg (message, "Я Бот-У, показываю Погод-y! Напиши город!" );
-            case WHAT_THE_DATE_REQUEST:
-                return getCurrentDateResponce (message);
             case НУ_И_КАК_ПОГОДА:
                 return sendMsg (message, " Напиши город!" );
-            case "Спасибо":
-                return getThanks(message);
+            /*case "Спасибо":
+                return getThanks(message);*/
             default:
                 return greetingMessage (message);
         }
@@ -130,7 +152,7 @@ public class Bot extends TelegramLongPollingBot {
     private SendMessage greetingMessage(Message message) {
         SendMessage responce = new SendMessage ();
         responce.setText ("Привет,   " + message.getFrom ().getFirstName ()
-                + "! Я Бот У, обрабатываю команд-у: " + message.getText () + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES);
+                + "! Получил команду: " + message.getText () + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES);
 
         responce.setChatId (message.getChatId ());
         responce.setReplyMarkup (getMainMenu ());
@@ -151,7 +173,7 @@ public class Bot extends TelegramLongPollingBot {
         KeyboardRow row2 = new KeyboardRow ();
 
         row2.add (ПРИВЕТ);
-        row2.add (НУ_И_КАК_ПОГОДА);
+        row2.add (СПАСИБО);
         row2.add (HELP);
 
         List<KeyboardRow> rows = new ArrayList<> ();
