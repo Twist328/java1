@@ -8,15 +8,25 @@ import org.telegram.telegrambots.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import org.telegram.telegrambots.exceptions.TelegramApiRequestException;
+import org.telegram.telegrambots.exceptions.TelegramApiValidationException;
 
+import javax.print.DocFlavor;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
 
 
 public class Bot extends TelegramLongPollingBot {
+
     public static final String МОСКВА = "Москва";
     private static final String WHAT_THE_DATE_REQUEST = "Какой сегодня \n день?";
     public static final String ПРИВЕТ = "Привет!!!";
@@ -36,7 +46,10 @@ public class Bot extends TelegramLongPollingBot {
     public static final String ТУПОЙ_БОТ = "Тупой бот";
     private Update update;
 
-    public static void main(String[] args) {
+    public Bot(String s) throws MalformedURLException {
+    }
+
+    public static void main(String[] args) throws IOException {
         System.out.println("Hello bot!");
 
         ApiContextInitializer.init();
@@ -46,7 +59,7 @@ public class Bot extends TelegramLongPollingBot {
         try {
             telegramBotsApi.registerBot(new Bot());
 
-        } catch (TelegramApiRequestException e) {
+        } catch (TelegramApiRequestException | MalformedURLException e) {
             e.printStackTrace();
         }
     }
@@ -62,12 +75,20 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     @Override
+    public String toString() {
+        return "Bot{" +
+                "update=" + update +
+                ", url=" + url +
+                '}';
+    }
+
+    @Override
     public void onUpdateReceived(Update update) {
         Pattern pattern = new Pattern();
         Message message = update.getMessage();
         SendMessage responce = new SendMessage();
         responce.setText("Привет,   " + message.getFrom().getFirstName()
-                + "! Обрабатываю ваш запрос: " + message.getText());
+                + " ! Обрабатываю ваш запрос: " + message.getText());
         responce.setChatId(message.getChatId());
         responce.setReplyMarkup(getMainMenu());
         if (message != null && message.hasText()) {
@@ -79,8 +100,8 @@ public class Bot extends TelegramLongPollingBot {
             }
             switch (message.getText()) {
                 case "/start":
-                    sendMsg(message, " Мой друг, я смогу показать дату-время, а также погоду!" +
-                            "  Воспользуйся клавиатурой " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
+                    sendMsg(message, " Я Бот - универсал, я смогу показать дату-время, а также погоду по всему миру!" +
+                            "  Воспользуйся встроенной клавиатурой " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
                     break;
                 case WHAT_THE_TIME_REQUEST:
                     try {
@@ -90,15 +111,12 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case WHAT_THE_DATE_REQUEST:
-                    try {
-                        execute(getCurrentDateResponce(message));
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
+                    sendMsg(message, "http://api.coingate.com/v2/rates/merchant/GBP/RUB");
+
                     break;
 
                 case "/help":
-                    sendMsg(message, " Что пошло не так?\nНапишите город и я пришлю погоду в нём! Либо нажмите на встроенную клавиатуру" + Emoji.FACE_WITH_TEARS_OF_JOY);
+                    sendMsg(message, " Что-то пошло не так?\n Обычно нужно просто выбрать меню на встроенной клавиатуре" + Emoji.FACE_WITH_TEARS_OF_JOY);
                     break;
                 case СПАСИБО:
                     try {
@@ -115,7 +133,8 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case "Тупой бот":
-                    sendMsg(message, " Дружище! Не ошибаются те, кто ничего не делает"+ Emoji.WINKING_FACE);
+                    sendMsg(message, " Дружище! Я Вас понимаю,но не ошибаются те, кто ничего не делает, " +
+                            "а также те которые тупее тупых Ботов (они просто ни чего не могут))) " + Emoji.WINKING_FACE);
                     break;
                 default:
                     try {
@@ -148,7 +167,7 @@ public class Bot extends TelegramLongPollingBot {
         return responce;
     }
 
-    public Bot() {
+    public Bot() throws IOException {
         super();
     }
 
@@ -207,12 +226,25 @@ public class Bot extends TelegramLongPollingBot {
         return responce;
     }
 
+    public URL getUrl() {
+        return url;
+    }
+
+    URL url = new URL("http://api.coingate.com/v2/rates/merchant/EUR/RUB");
+
+    /*Scanner in = new Scanner((InputStream) url.getContent());
+    String result = "";
+
+        /*result += in.nextLine();
+    }*/
+
     private SendMessage getCurrentDateResponce(Message message) {
         SendMessage responce = new SendMessage();
         responce.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("Сегодня   " + "dd-MM-YYYY ")) + Emoji.WINKING_FACE);
         responce.setChatId(message.getChatId());
         responce.setReplyMarkup(getMainMenu());
         return responce;
+
     }
 
 

@@ -36,7 +36,7 @@ public class Climat {
 
         return "City: " + pattern.getName() + "\n" +
                 "Temperature: " + pattern.getTemp() + "C" + "\n" +
-                "Humidity:" + pattern.getHumidity() + "%" + "\n" +
+                "Humidity: " + pattern.getHumidity() + "%" + "\n" +
                 "Main: " + pattern.getMain() + "\n" +
                 "http://openweathermap.org/img/w/" + pattern.getIcon() + ".png";
     }
