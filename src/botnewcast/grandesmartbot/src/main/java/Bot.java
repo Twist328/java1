@@ -17,13 +17,23 @@ import java.util.List;
 
 
 public class Bot extends TelegramLongPollingBot {
-    private static final String WHAT_THE_DATE_REQUEST = "Какой сегодня день?";
+    public static final String МОСКВА = "Москва";
+    private static final String WHAT_THE_DATE_REQUEST = "Какой сегодня \n день?";
     public static final String ПРИВЕТ = "Привет!!!";
     public static final String НУ_И_КАК_ПОГОДА = "Ну и как погода?";
     private static final String WHAT_THE_TIME_REQUEST = "Который час?";
     public static final String START = "/start";
     public static final String HELP = "/help";
     public static final String СПАСИБО = "Спасибо";
+    public static final String ПОГОДА_В_ГОРОДЕ = "ПОГОДА В ГОРОДЕ";
+    public static final String САНКТ_ПЕТЕРБУРГ = "Санкт-Петербург";
+    public static final String МОСКОВСКАЯ_ОБЛАСТЬ = "Московская область";
+    public static final String СОЧИ = "Сочи";
+    public static final String НЬЮ_ЙОРК = "Нью-Йорк";
+    public static final String ПАРИЖ = "Париж";
+    public static final String ЛОНДОН = "Лондон";
+    public static final String ПХУКЕТ = "Пхукет";
+    public static final String ТУПОЙ_БОТ = "Тупой бот";
     private Update update;
 
     public static void main(String[] args) {
@@ -86,9 +96,7 @@ public class Bot extends TelegramLongPollingBot {
                         e.printStackTrace();
                     }
                     break;
-                case ПРИВЕТ:
-                    sendMsg(message, " Я Бот-У, показываю Погод-y! Напиши город!");
-                    break;
+
                 case "/help":
                     sendMsg(message, " Что пошло не так?\nНапишите город и я пришлю погоду в нём! Либо нажмите на встроенную клавиатуру" + Emoji.FACE_WITH_TEARS_OF_JOY);
                     break;
@@ -96,17 +104,25 @@ public class Bot extends TelegramLongPollingBot {
                     try {
                         execute(getThanks(message));
                     } catch (TelegramApiException e) {
-                        sendMsg(message, "Ой, как приятно" + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_COLD_SWEAT);
+                        e.printStackTrace();
+                    }
+                    break;
+                case ПОГОДА_В_ГОРОДЕ:
+                    try {
+                        execute(getWeather(message));
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
                     }
                     break;
                 case "Тупой бот":
-                    sendMsg(message, " Не ошибаются те, кто ничего не делает");
+                    sendMsg(message, " Дружище! Не ошибаются те, кто ничего не делает"+ Emoji.WINKING_FACE);
                     break;
                 default:
                     try {
                         sendMsg(message, Climat.getWeather(message.getText(), pattern));
                     } catch (IOException e) {
-                        sendMsg(message, " К сожалению такой город я не нашёл" + Emoji.FACE_WITH_TEARS_OF_JOY+Emoji.FACE_WITH_TEARS_OF_JOY+Emoji.FACE_WITH_TEARS_OF_JOY);
+                        sendMsg(message, " К сожалению такой город я не нашёл" + Emoji.FACE_WITH_TEARS_OF_JOY +
+                                Emoji.FACE_WITH_TEARS_OF_JOY + Emoji.FACE_WITH_TEARS_OF_JOY + "\n Введите другой город");
                     }
             }
         }
@@ -171,9 +187,10 @@ public class Bot extends TelegramLongPollingBot {
 
         KeyboardRow row2 = new KeyboardRow();
 
-        row2.add(ПРИВЕТ);
+        row2.add(ПОГОДА_В_ГОРОДЕ);
         row2.add(СПАСИБО);
         row2.add(HELP);
+        row2.add(ТУПОЙ_БОТ);
 
         List<KeyboardRow> rows = new ArrayList<>();
         rows.add(row1);
@@ -199,22 +216,27 @@ public class Bot extends TelegramLongPollingBot {
     }
 
 
-    private ReplyKeyboardMarkup creatChoisePizzaMenu() {
+    private ReplyKeyboardMarkup creatChoiseSity() {
         ReplyKeyboardMarkup markup = new ReplyKeyboardMarkup();
 
         KeyboardRow row1 = new KeyboardRow();
 
-        //row1.add (KARBONARA_36_AS_USUAL);
-        //row1.add (TH_CHEESE_36_AS_USUAL);
+        row1.add(МОСКВА);
+        row1.add(САНКТ_ПЕТЕРБУРГ);
+        row1.add(НЬЮ_ЙОРК);
+        row1.add(ПХУКЕТ);
 
         KeyboardRow row2 = new KeyboardRow();
 
-        //row2.add (ROLLS_YAPOSH_SET_8);
-        //row2.add (COLA_DRINKS);
+        row2.add(МОСКОВСКАЯ_ОБЛАСТЬ);
+        row2.add(СОЧИ);
+        row2.add(ПАРИЖ);
+        row2.add(ЛОНДОН);
 
         List<KeyboardRow> rows = new ArrayList<>();
         rows.add(row1);
         rows.add(row2);
+
         markup.setKeyboard(rows);
         return markup;
     }
@@ -222,7 +244,15 @@ public class Bot extends TelegramLongPollingBot {
     private SendMessage getThanks(Message message) {
         SendMessage responce = new SendMessage();
         responce.setText("Всегда к вашим услугам)" + Emoji.WINKING_FACE);
-        responce.setReplyMarkup(creatChoisePizzaMenu());
+        // responce.setReplyMarkup(creatChoisePizzaMenu());
+        responce.setChatId(message.getChatId());
+        return responce;
+    }
+
+    private SendMessage getWeather(Message message) {
+        SendMessage responce = new SendMessage();
+        responce.setText("Выберите город, если такого нет- напишите его в строке -Сообщение:)" + Emoji.WINKING_FACE);
+        responce.setReplyMarkup(creatChoiseSity());
         responce.setChatId(message.getChatId());
         return responce;
     }
