@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/src/bot3/Telegram/Telegram.iml" filepath="$PROJECT_DIR$/src/bot3/Telegram/Telegram.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/apigratebot/apigrandebot/apigrandebot.iml" filepath="$PROJECT_DIR$/src/apigratebot/apigrandebot/apigrandebot.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/botnewcast/grandesmartbot/grandesmartbot.iml" filepath="$PROJECT_DIR$/src/botnewcast/grandesmartbot/grandesmartbot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/mmm/main/main.iml" filepath="$PROJECT_DIR$/src/mmm/main/main.iml" />
     </modules>
   </component>
 </project>

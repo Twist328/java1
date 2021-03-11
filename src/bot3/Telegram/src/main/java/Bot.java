@@ -10,6 +10,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import org.telegram.telegrambots.exceptions.TelegramApiRequestException;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,7 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     public void onUpdateReceived(Update update) {
+        ByteArrayOutputStream resultStream = new ByteArrayOutputStream();
         Pattern pattern = new Pattern ();
         Message message = update.getMessage ();
         if (message != null && message.hasText ()) {
@@ -60,8 +62,9 @@ public class Bot extends TelegramLongPollingBot {
                     try {
                         sendMsg (message, Climat.getWeather (message.getText (), pattern));
                     } catch (IOException e) {
-                        sendMsg (message, "Город не найден!");
+                        e.printStackTrace();
                     }
+                    // sendMsg(message,HttpUtil.sendRequest(message.getText(),null, null));
 
             }
         }

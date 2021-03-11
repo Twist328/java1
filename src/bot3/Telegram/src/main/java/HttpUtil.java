@@ -1,5 +1,3 @@
-package Mama;
-
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -78,21 +76,7 @@ public class HttpUtil {
         return resultStream.toString("UTF-8");
 
 
-
-   /* Gson gson = new Gson();
-    StructurePB currency = gson.fromJson(result, StructurePB.class);
-    if (currency.getExchangeRate().size() == 0) {
-        System.out.println("Upon this date information about the course of currencies is absent, check the correctness of the input.");
-    } else {
-        for (int i = 0; i < currency.getExchangeRate().size(); i++) {
-            if (currency.getExchangeRate().get(i).getCurrency().equals("USD")) {
-                System.out.println("The dollar exchange rate for this date is: " + String.valueOf(currency.getExchangeRate().get(i).getSaleRateNB()) + " grn");
-            }
-        }*/
     }
 
-    @Override
-    public String toString() {
-        return "HttpUtil{\"base\":\"USD\",\"EUR\":\",\"GBP\":\",\"JPY\":\"}";
-    }
 }
+

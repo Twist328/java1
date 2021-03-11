@@ -8,20 +8,15 @@ import org.telegram.telegrambots.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import org.telegram.telegrambots.exceptions.TelegramApiRequestException;
-import org.telegram.telegrambots.exceptions.TelegramApiValidationException;
 
-import javax.print.DocFlavor;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -74,13 +69,6 @@ public class Bot extends TelegramLongPollingBot {
         return "1646881099:AAFbUeLTpwokLtWjJk0xQlFuxhVdzEantPU";
     }
 
-    @Override
-    public String toString() {
-        return "Bot{" +
-                "update=" + update +
-                ", url=" + url +
-                '}';
-    }
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -100,8 +88,8 @@ public class Bot extends TelegramLongPollingBot {
             }
             switch (message.getText()) {
                 case "/start":
-                    sendMsg(message, " Я Бот - универсал, я смогу показать дату-время, а также погоду по всему миру!" +
-                            "  Воспользуйся встроенной клавиатурой " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
+                    sendMsg(message, " Я Бот - универсал, умею показать дату и время, а также погоду по всему миру!" +
+                            "Воспользуйся in-line клавиатурой " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
                     break;
                 case WHAT_THE_TIME_REQUEST:
                     try {
@@ -111,12 +99,16 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case WHAT_THE_DATE_REQUEST:
-                    sendMsg(message, "http://api.coingate.com/v2/rates/merchant/GBP/RUB");
 
+                    try {
+                        execute(getCurrentDateResponce(message));
+                    } catch ( TelegramApiException e) {
+                        e.printStackTrace();
+                    }
                     break;
 
                 case "/help":
-                    sendMsg(message, " Что-то пошло не так?\n Обычно нужно просто выбрать меню на встроенной клавиатуре" + Emoji.FACE_WITH_TEARS_OF_JOY);
+                    sendMsg(message, " Что-то пошло не так?\n Просто выберите пункт меню на на in-line клавиатуре" + Emoji.FACE_WITH_TEARS_OF_JOY);
                     break;
                 case СПАСИБО:
                     try {
@@ -186,7 +178,7 @@ public class Bot extends TelegramLongPollingBot {
     private SendMessage greetingMessage(Message message) {
         SendMessage responce = new SendMessage();
         responce.setText("Привет,   " + message.getFrom().getFirstName()
-                + "! Получил команду: " + message.getText() + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES);
+                + "! Исполняю : " + message.getText() + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES);
 
         responce.setChatId(message.getChatId());
         responce.setReplyMarkup(getMainMenu());
@@ -200,16 +192,17 @@ public class Bot extends TelegramLongPollingBot {
 
         KeyboardRow row1 = new KeyboardRow();
 
+        row1.add(START);
         row1.add(WHAT_THE_TIME_REQUEST);
         row1.add(WHAT_THE_DATE_REQUEST);
-        row1.add(START);
+
 
         KeyboardRow row2 = new KeyboardRow();
 
         row2.add(ПОГОДА_В_ГОРОДЕ);
         row2.add(СПАСИБО);
-        row2.add(HELP);
         row2.add(ТУПОЙ_БОТ);
+        row2.add(HELP);
 
         List<KeyboardRow> rows = new ArrayList<>();
         rows.add(row1);
@@ -226,17 +219,17 @@ public class Bot extends TelegramLongPollingBot {
         return responce;
     }
 
-    public URL getUrl() {
-        return url;
+    public Object getUrl(String message) throws IOException {
+        URL url = new URL("http://api.coingate.com/v2/rates/merchant/EUR/RUB");
+        Scanner in = new Scanner((InputStream) url.getContent());
+        String result = "";
+        while (in.hasNext()) {
+            result += in.nextLine();
+            return getUrl(message);
+        }
+        return null;
     }
 
-    URL url = new URL("http://api.coingate.com/v2/rates/merchant/EUR/RUB");
-
-    /*Scanner in = new Scanner((InputStream) url.getContent());
-    String result = "";
-
-        /*result += in.nextLine();
-    }*/
 
     private SendMessage getCurrentDateResponce(Message message) {
         SendMessage responce = new SendMessage();

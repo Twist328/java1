@@ -17,6 +17,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\Goon\Main.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\Mama\HttpUtil.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\Person.java">
           <value>
             <Attribute>
@@ -73,6 +87,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\bot3\Telegram\src\main\java\HttpUtil.java">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\bot3\Telegram\src\main\java\Model.java">
           <value>
             <Attribute>
@@ -116,6 +137,20 @@
           </value>
         </entry>
         <entry key="\src\botnewcast\grandesmartbot\src\main\java\Pattern.java">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\mmm\main\pom.xml">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\mmm\main\src\main\java\Main.java">
           <value>
             <Attribute>
               <option name="separator" value="," />
