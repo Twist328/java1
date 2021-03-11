@@ -108,7 +108,7 @@ public class Bot extends TelegramLongPollingBot {
                     break;
 
                 case "/help":
-                    sendMsg(message, " Что-то пошло не так?\n Просто выберите пункт меню на на in-line клавиатуре" + Emoji.FACE_WITH_TEARS_OF_JOY);
+                    sendMsg(message, " Что-то пошло не так?\n Выберите пункт меню на на in-line клавиатуре" + Emoji.FACE_WITH_TEARS_OF_JOY);
                     break;
                 case СПАСИБО:
                     try {
@@ -259,6 +259,7 @@ public class Bot extends TelegramLongPollingBot {
         row2.add(ЛОНДОН);
 
         List<KeyboardRow> rows = new ArrayList<>();
+
         rows.add(row1);
         rows.add(row2);
 
