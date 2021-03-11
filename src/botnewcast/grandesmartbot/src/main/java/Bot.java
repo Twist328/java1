@@ -72,6 +72,11 @@ public class Bot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
+        try {
+            URL url = new URL("http://api.coingate.com/v2/rates/merchant/EUR/RUB");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         Pattern pattern = new Pattern();
         Message message = update.getMessage();
         SendMessage responce = new SendMessage();
@@ -99,7 +104,10 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case WHAT_THE_DATE_REQUEST:
-
+                    sendMsg(message,("https://ru.widgets.investing.com/live-currency-cross-rates?theme=darkTheme&cols" +
+                            "=last,time&pairs=10032,10064\" width=\"100%\" height=\"600\" frameborder=\"0\" allowtransparency=" +
+                            "\"true\" marginwidth=\"0\" marginheight=\"0\"></iframe><div class=\"poweredBy\" style=\"font-family:" +
+                            " Arial, Helvetica, sans-serif;\">"));
                     try {
                         execute(getCurrentDateResponce(message));
                     } catch ( TelegramApiException e) {
@@ -226,6 +234,7 @@ public class Bot extends TelegramLongPollingBot {
         while (in.hasNext()) {
             result += in.nextLine();
             return getUrl(message);
+            //System.out.println(getUrl);
         }
         return null;
     }
