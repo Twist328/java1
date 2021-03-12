@@ -34,10 +34,10 @@ public class Climat {
             pattern.setMain((String) obj.get("main"));
         }
 
-        return "City: " + pattern.getName() + "\n" +
-                "Temperature: " + pattern.getTemp() + "C" + "\n" +
-                "Humidity: " + pattern.getHumidity() + "%" + "\n" +
-                "Main: " + pattern.getMain() + "\n" +
+        return "Город: " + pattern.getName() + "\n" +
+                "Температура: " + pattern.getTemp() + "C" + "\n" +
+                "Влажность: " + pattern.getHumidity() + "%" + "\n" +
+                "Осадки: " + pattern.getMain() + "\n" +
                 "http://openweathermap.org/img/w/" + pattern.getIcon() + ".png";
     }
 }

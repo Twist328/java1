@@ -19,10 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static java.lang.System.*;
+
 
 public class Bot extends TelegramLongPollingBot {
 
     public static final String МОСКВА = "Москва";
+    public static final String КУРСЫ_ВАЛЮТ = "Курсы валют";
     private static final String WHAT_THE_DATE_REQUEST = "Какой сегодня \n день?";
     public static final String ПРИВЕТ = "Привет!!!";
     public static final String НУ_И_КАК_ПОГОДА = "Ну и как погода?";
@@ -45,7 +48,7 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     public static void main(String[] args) throws IOException {
-        System.out.println("Hello bot!");
+        out.println("Hello bot!");
 
         ApiContextInitializer.init();
 
@@ -104,10 +107,7 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case WHAT_THE_DATE_REQUEST:
-                    sendMsg(message,("https://ru.widgets.investing.com/live-currency-cross-rates?theme=darkTheme&cols" +
-                            "=last,time&pairs=10032,10064\" width=\"100%\" height=\"600\" frameborder=\"0\" allowtransparency=" +
-                            "\"true\" marginwidth=\"0\" marginheight=\"0\"></iframe><div class=\"poweredBy\" style=\"font-family:" +
-                            " Arial, Helvetica, sans-serif;\">"));
+
                     try {
                         execute(getCurrentDateResponce(message));
                     } catch ( TelegramApiException e) {
@@ -125,8 +125,16 @@ public class Bot extends TelegramLongPollingBot {
                         e.printStackTrace();
                     }
                     break;
+                case КУРСЫ_ВАЛЮТ:
+                    try {
+                        execute(getMoney(message));
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                    break;
                 case ПОГОДА_В_ГОРОДЕ:
                     try {
+
                         execute(getWeather(message));
                     } catch (TelegramApiException e) {
                         e.printStackTrace();
@@ -186,7 +194,7 @@ public class Bot extends TelegramLongPollingBot {
     private SendMessage greetingMessage(Message message) {
         SendMessage responce = new SendMessage();
         responce.setText("Привет,   " + message.getFrom().getFirstName()
-                + "! Исполняю : " + message.getText() + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES);
+                + " ! Исполняю : " + message.getText() + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES);
 
         responce.setChatId(message.getChatId());
         responce.setReplyMarkup(getMainMenu());
@@ -207,10 +215,11 @@ public class Bot extends TelegramLongPollingBot {
 
         KeyboardRow row2 = new KeyboardRow();
 
+
         row2.add(ПОГОДА_В_ГОРОДЕ);
         row2.add(СПАСИБО);
         row2.add(ТУПОЙ_БОТ);
-        row2.add(HELP);
+        row2.add(КУРСЫ_ВАЛЮТ);
 
         List<KeyboardRow> rows = new ArrayList<>();
         rows.add(row1);
@@ -234,7 +243,7 @@ public class Bot extends TelegramLongPollingBot {
         while (in.hasNext()) {
             result += in.nextLine();
             return getUrl(message);
-            //System.out.println(getUrl);
+
         }
         return null;
     }
@@ -260,6 +269,7 @@ public class Bot extends TelegramLongPollingBot {
         row1.add(НЬЮ_ЙОРК);
         row1.add(ПХУКЕТ);
 
+
         KeyboardRow row2 = new KeyboardRow();
 
         row2.add(МОСКОВСКАЯ_ОБЛАСТЬ);
@@ -275,7 +285,32 @@ public class Bot extends TelegramLongPollingBot {
         markup.setKeyboard(rows);
         return markup;
     }
+    private ReplyKeyboardMarkup creatChoiseMoney() {
+        ReplyKeyboardMarkup markup = new ReplyKeyboardMarkup();
 
+        KeyboardRow row1 = new KeyboardRow();
+
+        row1.add("USD");
+        row1.add("JPY");
+        //row1.add(НЬЮ_ЙОРК);
+       // row1.add(ПХУКЕТ);
+
+
+        KeyboardRow row2 = new KeyboardRow();
+
+        row2.add("GBP");
+        row2.add("EUR");
+        //row2.add(ПАРИЖ);
+       // row2.add(ЛОНДОН);
+
+        List<KeyboardRow> rows = new ArrayList<>();
+
+        rows.add(row1);
+        rows.add(row2);
+
+        markup.setKeyboard(rows);
+        return markup;
+    }
     private SendMessage getThanks(Message message) {
         SendMessage responce = new SendMessage();
         responce.setText("Всегда к вашим услугам)" + Emoji.WINKING_FACE);
@@ -291,7 +326,15 @@ public class Bot extends TelegramLongPollingBot {
         responce.setChatId(message.getChatId());
         return responce;
     }
+    private SendMessage getMoney(Message message) {
+        SendMessage responce = new SendMessage();
+        responce.setText("Выберите Валюту:)" + Emoji.WINKING_FACE);
+        responce.setReplyMarkup(creatChoiseMoney());
+        responce.setChatId(message.getChatId());
+        return responce;
+    }
 }
+
 
 enum Emoji {
 
