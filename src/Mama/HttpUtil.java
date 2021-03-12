@@ -11,7 +11,8 @@ import java.util.Map;
 public class HttpUtil {
 
     public static void main(String[] args) {//http://data.fixer.io/api/ latest? access_key = 387e8f0d0aba82bb93e316ef9d889e86
-//https://api.fixer.io/latest?symbols  //"http://data.fixer.io/api/latest?access_key=387e8f0d0aba82bb93e316ef9d889e86&format=1"  //http : //data.fixer.io/api/ latest ? access_key = API_KEY
+//https://api.fixer.io/latest?symbols  //"http://data.fixer.io/api/latest?access_key=387e8f0d0aba82bb93e316ef9d889e86&format=1"
+// http : //data.fixer.io/api/ latest ? access_key = API_KEY
 //     & base = USD
 //     & symbols = GBP , JPY , EUR
         String url = "http://data.fixer.io/api/latest?access_key=387e8f0d0aba82bb93e316ef9d889e86";

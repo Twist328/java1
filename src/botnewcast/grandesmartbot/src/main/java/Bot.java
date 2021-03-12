@@ -9,8 +9,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import org.telegram.telegrambots.exceptions.TelegramApiRequestException;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -48,9 +47,6 @@ public class Bot extends TelegramLongPollingBot {
     public static final String EUR = "EUR";
     private Update update;
 
-    public Bot(String s) throws MalformedURLException {
-    }
-
     public static void main(String[] args) throws IOException {
         out.println("Hello bot!");
 
@@ -79,11 +75,7 @@ public class Bot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        try {
-            URL url = new URL("http://api.coingate.com/v2/rates/merchant/EUR/RUB");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+
         Pattern pattern = new Pattern();
         Message message = update.getMessage();
         SendMessage responce = new SendMessage();
@@ -238,17 +230,14 @@ public class Bot extends TelegramLongPollingBot {
         return responce;
     }
 
-    public Object getUrl(String message) throws IOException {
-        URL url = new URL("http://api.coingate.com/v2/rates/merchant/EUR/RUB");
-        Scanner in = new Scanner((InputStream) url.getContent());
-        String result = "";
-        while (in.hasNext()) {
-            result += in.nextLine();
-            return getUrl(message);
-
-        }
-        return null;
-    }
+    /*URL url = new URL("http://api.coingate.com/v2/rates/merchant/EUR/RUB");
+   BufferedReader reader = new BufferedReader(new InputStreamReader(url.openConnection().getInputStream(), "UTF-8")) {
+              while(true){
+        String line = reader.readLine();
+        if(line ==null)
+                break;
+            System.out.println(line);
+    }*/
 
 
     private SendMessage getCurrentDateResponce(Message message) {
@@ -346,42 +335,41 @@ public class Bot extends TelegramLongPollingBot {
         responce.setChatId(message.getChatId());
         return responce;
     }
+}
 
+enum Emoji {
 
-    enum Emoji {
+    GRINNING_FACE_WITH_SMILING_EYES('\uD83D', '\uDE01'),
+    FACE_WITH_TEARS_OF_JOY('\uD83D', '\uDE02'),
+    SMILING_FACE_WITH_OPEN_MOUTH('\uD83D', '\uDE03'),
+    SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES('\uD83D', '\uDE04'),
+    SMILING_FACE_WITH_OPEN_MOUTH_AND_COLD_SWEAT('\uD83D', '\uDE05'),
+    SMILING_FACE_WITH_OPEN_MOUTH_AND_TIGHTLY_CLOSED_EYES('\uD83D', '\uDE06'),
+    WINKING_FACE('\uD83D', '\uDE09');
 
-        GRINNING_FACE_WITH_SMILING_EYES('\uD83D', '\uDE01'),
-        FACE_WITH_TEARS_OF_JOY('\uD83D', '\uDE02'),
-        SMILING_FACE_WITH_OPEN_MOUTH('\uD83D', '\uDE03'),
-        SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES('\uD83D', '\uDE04'),
-        SMILING_FACE_WITH_OPEN_MOUTH_AND_COLD_SWEAT('\uD83D', '\uDE05'),
-        SMILING_FACE_WITH_OPEN_MOUTH_AND_TIGHTLY_CLOSED_EYES('\uD83D', '\uDE06'),
-        WINKING_FACE('\uD83D', '\uDE09');
+    Character firstChar;
+    Character secondChar;
 
-        Character firstChar;
-        Character secondChar;
+    Emoji(Character firstChar, Character secondChar) {
+        this.firstChar = firstChar;
+        this.secondChar = secondChar;
+    }
 
-        Emoji(Character firstChar, Character secondChar) {
-            this.firstChar = firstChar;
-            this.secondChar = secondChar;
+    Emoji() {
+
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        if (this.firstChar != null) {
+            sb.append(this.firstChar);
+        }
+        if (this.secondChar != null) {
+            sb.append(this.secondChar);
         }
 
-        Emoji() {
-
-        }
-
-        @Override
-        public String toString() {
-            StringBuilder sb = new StringBuilder();
-
-            if (this.firstChar != null) {
-                sb.append(this.firstChar);
-            }
-            if (this.secondChar != null) {
-                sb.append(this.secondChar);
-            }
-
-            return sb.toString();
-        }
+        return sb.toString();
     }
 }
