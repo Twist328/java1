@@ -3,7 +3,7 @@ package ru.progwards.java1.lessons.collections.wordpart;
 import java.util.Iterator;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) { //итерация частей слова по выбору корень, суффикс, приставка, окончание
         Root root = new Root("беж");
         Prefix prefix = new Prefix("пере");
         Suffix suffix = new Suffix("к");
