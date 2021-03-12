@@ -199,6 +199,41 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\ru\progwards\java1\lessons\collections\TTTest.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\ru\progwards\java1\lessons\collections\wordpart\Main.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\ru\progwards\java1\lessons\collections\wordpart\Word.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\ru\progwards\java1\lessons\collections\wordpart\WordIterator.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\ru\progwards\java1\lessons\collections\wordpart\WordPart.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\ru\progwards\java1\lessons\interfaces2\ArraySort.java">
           <value>
             <Attribute>
