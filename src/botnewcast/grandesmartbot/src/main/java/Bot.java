@@ -24,24 +24,28 @@ import static java.lang.System.*;
 
 public class Bot extends TelegramLongPollingBot {
 
-    public static final String МОСКВА = "Москва";
-    public static final String КУРСЫ_ВАЛЮТ = "Курсы валют";
+    public static final String MOSCOW = "Москва";
+    public static final String CURRENCY_RATES = "Курсы валют";
     private static final String WHAT_THE_DATE_REQUEST = "Какой сегодня \n день?";
-    public static final String ПРИВЕТ = "Привет!!!";
+    public static final String HELLO = "Привет!!!";
     public static final String НУ_И_КАК_ПОГОДА = "Ну и как погода?";
     private static final String WHAT_THE_TIME_REQUEST = "Который час?";
     public static final String START = "/start";
     public static final String HELP = "/help";
-    public static final String СПАСИБО = "Спасибо";
-    public static final String ПОГОДА_В_ГОРОДЕ = "ПОГОДА В ГОРОДЕ";
-    public static final String САНКТ_ПЕТЕРБУРГ = "Санкт-Петербург";
-    public static final String МОСКОВСКАЯ_ОБЛАСТЬ = "Московская область";
-    public static final String СОЧИ = "Сочи";
-    public static final String НЬЮ_ЙОРК = "Нью-Йорк";
-    public static final String ПАРИЖ = "Париж";
-    public static final String ЛОНДОН = "Лондон";
-    public static final String ПХУКЕТ = "Пхукет";
-    public static final String ТУПОЙ_БОТ = "Тупой бот";
+    public static final String THANKS = "Спасибо";
+    public static final String WEATHER_IN_TOWN = "ПОГОДА В ГОРОДЕ";
+    public static final String ST_PETERSBURG = "Санкт-Петербург";
+    public static final String MOSCOW_REGION = "Московская область";
+    public static final String SOCHI = "Сочи";
+    public static final String NEW_YORK = "Нью-Йорк";
+    public static final String PARIS = "Париж";
+    public static final String LONDON = "Лондон";
+    public static final String PHUKET = "Пхукет";
+    public static final String DULL_BOT = "Тупой бот";
+    public static final String USD = "USD";
+    public static final String JPY = "JPY";
+    public static final String GBP = "GBP";
+    public static final String EUR = "EUR";
     private Update update;
 
     public Bot(String s) throws MalformedURLException {
@@ -107,10 +111,9 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case WHAT_THE_DATE_REQUEST:
-
                     try {
                         execute(getCurrentDateResponce(message));
-                    } catch ( TelegramApiException e) {
+                    } catch (TelegramApiException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -118,21 +121,21 @@ public class Bot extends TelegramLongPollingBot {
                 case "/help":
                     sendMsg(message, " Что-то пошло не так?\n Выберите пункт меню на на in-line клавиатуре" + Emoji.FACE_WITH_TEARS_OF_JOY);
                     break;
-                case СПАСИБО:
+                case THANKS:
                     try {
                         execute(getThanks(message));
                     } catch (TelegramApiException e) {
                         e.printStackTrace();
                     }
                     break;
-                case КУРСЫ_ВАЛЮТ:
+                case CURRENCY_RATES:
                     try {
-                        execute(getMoney(message));
+                        execute(getMoneyRates(message));
                     } catch (TelegramApiException e) {
                         e.printStackTrace();
                     }
                     break;
-                case ПОГОДА_В_ГОРОДЕ:
+                case WEATHER_IN_TOWN:
                     try {
 
                         execute(getWeather(message));
@@ -180,7 +183,6 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     private SendMessage getResponceMessage(Message message) throws IOException {
-        Pattern pattern = new Pattern();
         switch (message.getText()) {
             case НУ_И_КАК_ПОГОДА:
                 return sendMsg(message, " Напиши город!");
@@ -216,10 +218,10 @@ public class Bot extends TelegramLongPollingBot {
         KeyboardRow row2 = new KeyboardRow();
 
 
-        row2.add(ПОГОДА_В_ГОРОДЕ);
-        row2.add(СПАСИБО);
-        row2.add(ТУПОЙ_БОТ);
-        row2.add(КУРСЫ_ВАЛЮТ);
+        row2.add(WEATHER_IN_TOWN);
+        row2.add(THANKS);
+        row2.add(DULL_BOT);
+        row2.add(CURRENCY_RATES);
 
         List<KeyboardRow> rows = new ArrayList<>();
         rows.add(row1);
@@ -264,18 +266,18 @@ public class Bot extends TelegramLongPollingBot {
 
         KeyboardRow row1 = new KeyboardRow();
 
-        row1.add(МОСКВА);
-        row1.add(САНКТ_ПЕТЕРБУРГ);
-        row1.add(НЬЮ_ЙОРК);
-        row1.add(ПХУКЕТ);
+        row1.add(MOSCOW);
+        row1.add(ST_PETERSBURG);
+        row1.add(NEW_YORK);
+        row1.add(PHUKET);
 
 
         KeyboardRow row2 = new KeyboardRow();
 
-        row2.add(МОСКОВСКАЯ_ОБЛАСТЬ);
-        row2.add(СОЧИ);
-        row2.add(ПАРИЖ);
-        row2.add(ЛОНДОН);
+        row2.add(MOSCOW_REGION);
+        row2.add(SOCHI);
+        row2.add(PARIS);
+        row2.add(LONDON);
 
         List<KeyboardRow> rows = new ArrayList<>();
 
@@ -285,23 +287,24 @@ public class Bot extends TelegramLongPollingBot {
         markup.setKeyboard(rows);
         return markup;
     }
+
     private ReplyKeyboardMarkup creatChoiseMoney() {
         ReplyKeyboardMarkup markup = new ReplyKeyboardMarkup();
 
         KeyboardRow row1 = new KeyboardRow();
 
-        row1.add("USD");
-        row1.add("JPY");
+        row1.add(USD);
+        row1.add(JPY);
         //row1.add(НЬЮ_ЙОРК);
-       // row1.add(ПХУКЕТ);
+        // row1.add(ПХУКЕТ);
 
 
         KeyboardRow row2 = new KeyboardRow();
 
-        row2.add("GBP");
-        row2.add("EUR");
+        row2.add(GBP);
+        row2.add(EUR);
         //row2.add(ПАРИЖ);
-       // row2.add(ЛОНДОН);
+        // row2.add(ЛОНДОН);
 
         List<KeyboardRow> rows = new ArrayList<>();
 
@@ -311,10 +314,11 @@ public class Bot extends TelegramLongPollingBot {
         markup.setKeyboard(rows);
         return markup;
     }
+
     private SendMessage getThanks(Message message) {
         SendMessage responce = new SendMessage();
         responce.setText("Всегда к вашим услугам)" + Emoji.WINKING_FACE);
-        // responce.setReplyMarkup(creatChoisePizzaMenu());
+
         responce.setChatId(message.getChatId());
         return responce;
     }
@@ -326,49 +330,58 @@ public class Bot extends TelegramLongPollingBot {
         responce.setChatId(message.getChatId());
         return responce;
     }
-    private SendMessage getMoney(Message message) {
+
+    private SendMessage getMoneyRates(Message message) {
         SendMessage responce = new SendMessage();
         responce.setText("Выберите Валюту:)" + Emoji.WINKING_FACE);
         responce.setReplyMarkup(creatChoiseMoney());
         responce.setChatId(message.getChatId());
         return responce;
     }
-}
 
+    private SendMessage setMoneyCurrentRates(Message message) {
+        SendMessage responce = new SendMessage();
 
-enum Emoji {
-
-    GRINNING_FACE_WITH_SMILING_EYES('\uD83D', '\uDE01'),
-    FACE_WITH_TEARS_OF_JOY('\uD83D', '\uDE02'),
-    SMILING_FACE_WITH_OPEN_MOUTH('\uD83D', '\uDE03'),
-    SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES('\uD83D', '\uDE04'),
-    SMILING_FACE_WITH_OPEN_MOUTH_AND_COLD_SWEAT('\uD83D', '\uDE05'),
-    SMILING_FACE_WITH_OPEN_MOUTH_AND_TIGHTLY_CLOSED_EYES('\uD83D', '\uDE06'),
-    WINKING_FACE('\uD83D', '\uDE09');
-
-    Character firstChar;
-    Character secondChar;
-
-    Emoji(Character firstChar, Character secondChar) {
-        this.firstChar = firstChar;
-        this.secondChar = secondChar;
+        responce.setReplyMarkup(creatChoiseMoney());
+        responce.setChatId(message.getChatId());
+        return responce;
     }
 
-    Emoji() {
 
-    }
+    enum Emoji {
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
+        GRINNING_FACE_WITH_SMILING_EYES('\uD83D', '\uDE01'),
+        FACE_WITH_TEARS_OF_JOY('\uD83D', '\uDE02'),
+        SMILING_FACE_WITH_OPEN_MOUTH('\uD83D', '\uDE03'),
+        SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES('\uD83D', '\uDE04'),
+        SMILING_FACE_WITH_OPEN_MOUTH_AND_COLD_SWEAT('\uD83D', '\uDE05'),
+        SMILING_FACE_WITH_OPEN_MOUTH_AND_TIGHTLY_CLOSED_EYES('\uD83D', '\uDE06'),
+        WINKING_FACE('\uD83D', '\uDE09');
 
-        if (this.firstChar != null) {
-            sb.append(this.firstChar);
+        Character firstChar;
+        Character secondChar;
+
+        Emoji(Character firstChar, Character secondChar) {
+            this.firstChar = firstChar;
+            this.secondChar = secondChar;
         }
-        if (this.secondChar != null) {
-            sb.append(this.secondChar);
+
+        Emoji() {
+
         }
 
-        return sb.toString();
+        @Override
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+
+            if (this.firstChar != null) {
+                sb.append(this.firstChar);
+            }
+            if (this.secondChar != null) {
+                sb.append(this.secondChar);
+            }
+
+            return sb.toString();
+        }
     }
 }
