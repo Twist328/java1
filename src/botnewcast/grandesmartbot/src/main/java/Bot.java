@@ -102,13 +102,13 @@ public class Bot extends TelegramLongPollingBot {
                         e.printStackTrace();
                     }
                     break;
-
                 case WHAT_THE_DATE_REQUEST:
                     try {
                         execute(getCurrentDateResponce(message));
                     } catch (TelegramApiException e) {
                         e.printStackTrace();
                     }
+                    break;
                 case GBP:
                     sendMsg(message, " Курс GBP (ЦБ РФ) 102,49 " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
                     break;
