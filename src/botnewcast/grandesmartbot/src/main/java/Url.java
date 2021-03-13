@@ -20,7 +20,7 @@ public class Url {
         try {
             // "http://data.fixer.io/api/latest?access_key=387e8f0d0aba82bb93e316ef9d889e86"
 
-            String a = "http://data.fixer.io/api/latest?access_key=387e8f0d0aba82bb93e316ef9d889e86&baseJPY&symbols=GBP,JPY,EUR,RUB,KZT";
+            String a = "http://data.fixer.io/api/latest?access_key=387e8f0d0aba82bb93e316ef9d889e86&baseUSD&symbols=GBP,JPY,EUR,RUB,AUD,CNY";
 
             URL url = new URL(a);
 
@@ -32,7 +32,7 @@ public class Url {
             String str;
 
             while ((str = br.readLine()) != null) {
-                System.out.println(str+ LocalDateTime.now().format(DateTimeFormatter.ofPattern(" Сейчас " + "HH"+" час."+":"+" mm"+" мин.")));
+                System.out.println("РЕСУРС: FIXER.IO"+str+ LocalDateTime.now().format(DateTimeFormatter.ofPattern(" Сейчас " + "HH"+" час."+":"+" mm"+" мин.")));
 
             }
             br.close();

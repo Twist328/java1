@@ -25,16 +25,16 @@ public class Bot extends TelegramLongPollingBot {
 
     public static final String MOSCOW = "Москва";
     public static final String CURRENCY_RATES = "Курсы валют";
-    private static final String WHAT_THE_DATE_REQUEST = "Какой сегодня \n день?";
+    private static final String WHAT_THE_DATE_REQUEST = "Дата";
     public static final String HELLO = "Привет!!!";
     public static final String НУ_И_КАК_ПОГОДА = "Ну и как погода?";
     private static final String WHAT_THE_TIME_REQUEST = "Который час?";
-    public static final String START = "/start";
-    public static final String HELP = "/help";
+    public static final String START = "/START";
+    public static final String HELP = "/HELP";
     public static final String THANKS = "Спасибо";
     public static final String WEATHER_IN_TOWN = "ПОГОДА В ГОРОДЕ";
     public static final String ST_PETERSBURG = "Санкт-Петербург";
-    public static final String MOSCOW_REGION = "Московская область";
+    public static final String СHINA = "Пекин";
     public static final String SOCHI = "Сочи";
     public static final String NEW_YORK = "Нью-Йорк";
     public static final String PARIS = "Париж";
@@ -91,9 +91,9 @@ public class Bot extends TelegramLongPollingBot {
                 e.printStackTrace();
             }
             switch (message.getText()) {
-                case "/start":
-                    sendMsg(message, " Я Бот - универсал, умею показать дату и время, а также погоду по всему миру!" +
-                            "Воспользуйся in-line клавиатурой " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
+                case START:
+                    sendMsg(message, " Я БОТ БЕЗ ХЛОПОТ, УМЕЮ ПОКАЗЫВАТЬ ДАТУ/ВРЕМЯ ,ПОГОДУ В ЛЮБОМ УГОЛКЕ МИРА, КУРСЫ ОСНОВНЫХ ВАЛЮТ,\n" +
+                            "ВЫБЕРИ МЕНЮ В IN-LINE КЛАВИАТУРЕ " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
                     break;
                 case WHAT_THE_TIME_REQUEST:
                     try {
@@ -102,14 +102,25 @@ public class Bot extends TelegramLongPollingBot {
                         e.printStackTrace();
                     }
                     break;
+
                 case WHAT_THE_DATE_REQUEST:
                     try {
                         execute(getCurrentDateResponce(message));
                     } catch (TelegramApiException e) {
                         e.printStackTrace();
                     }
+                case GBP:
+                    sendMsg(message, " Курс GBP (ЦБ РФ) 102,49 " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
                     break;
-
+                case JPY:
+                    sendMsg(message, " Курс JPY (ЦБ РФ) 67,35" + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
+                    break;
+                case EUR:
+                    sendMsg(message, " Курс EUR (ЦБ РФ) 87,80 " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
+                    break;
+                case USD:
+                    sendMsg(message, " Курс USD (ЦБ РФ) 73,51 " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
+                    break;
                 case "/help":
                     sendMsg(message, " Что-то пошло не так?\n Выберите пункт меню на на in-line клавиатуре" + Emoji.FACE_WITH_TEARS_OF_JOY);
                     break;
@@ -205,7 +216,7 @@ public class Bot extends TelegramLongPollingBot {
         row1.add(START);
         row1.add(WHAT_THE_TIME_REQUEST);
         row1.add(WHAT_THE_DATE_REQUEST);
-
+        row1.add(HELP);
 
         KeyboardRow row2 = new KeyboardRow();
 
@@ -216,8 +227,10 @@ public class Bot extends TelegramLongPollingBot {
         row2.add(CURRENCY_RATES);
 
         List<KeyboardRow> rows = new ArrayList<>();
+
         rows.add(row1);
         rows.add(row2);
+
         markup.setKeyboard(rows);
         return markup;
     }
@@ -263,7 +276,7 @@ public class Bot extends TelegramLongPollingBot {
 
         KeyboardRow row2 = new KeyboardRow();
 
-        row2.add(MOSCOW_REGION);
+        row2.add(СHINA);
         row2.add(SOCHI);
         row2.add(PARIS);
         row2.add(LONDON);
