@@ -23,24 +23,24 @@ import static java.lang.System.*;
 
 public class Bot extends TelegramLongPollingBot {
 
-    public static final String MOSCOW = "Москва";
-    public static final String CURRENCY_RATES = "Курсы валют";
-    private static final String WHAT_THE_DATE_REQUEST = "Дата";
+    public static final String MOSCOW = "МОСКВА";
+    public static final String CURRENCY_RATES = "КУРСЫ ВАЛЮТ";
+    private static final String WHAT_THE_DATE_REQUEST = "ДАТА";
     public static final String HELLO = "Привет!!!";
     public static final String НУ_И_КАК_ПОГОДА = "Ну и как погода?";
-    private static final String WHAT_THE_TIME_REQUEST = "Который час?";
+    private static final String WHAT_THE_TIME_REQUEST = "КОТОРЫЙ\n ЧАС?";
     public static final String START = "/START";
     public static final String HELP = "/HELP";
-    public static final String THANKS = "Спасибо";
+    public static final String THANKS = "СПАСИБО";
     public static final String WEATHER_IN_TOWN = "ПОГОДА В ГОРОДЕ";
-    public static final String ST_PETERSBURG = "Санкт-Петербург";
-    public static final String СHINA = "Пекин";
-    public static final String SOCHI = "Сочи";
-    public static final String NEW_YORK = "Нью-Йорк";
-    public static final String PARIS = "Париж";
-    public static final String LONDON = "Лондон";
-    public static final String PHUKET = "Пхукет";
-    public static final String DULL_BOT = "Тупой бот";
+    public static final String ST_PETERSBURG = "САНКТ-ПЕТЕРБУРГ";
+    public static final String СHINA = "ПЕКИН";
+    public static final String SOCHI = "СОЧИ";
+    public static final String NEW_YORK = "НЬЮ-ЙОРК";
+    public static final String PARIS = "ПАРИЖ";
+    public static final String LONDON = "ЛОНДОН";
+    public static final String PHUKET = "ПХУКЕТ";
+    public static final String DULL_BOT = "ТУПОЙ БОТ";
     public static final String USD = "USD";
     public static final String JPY = "JPY";
     public static final String GBP = "GBP";
@@ -79,8 +79,8 @@ public class Bot extends TelegramLongPollingBot {
         Pattern pattern = new Pattern();
         Message message = update.getMessage();
         SendMessage responce = new SendMessage();
-        responce.setText("Привет,   " + message.getFrom().getFirstName()
-                + " ! Обрабатываю ваш запрос: " + message.getText());
+        responce.setText("ПРИВЕТ,   " + message.getFrom().getFirstName()
+                + " ! ВЫПОЛНЯЮ ЗАПРОС: " + message.getText());
         responce.setChatId(message.getChatId());
         responce.setReplyMarkup(getMainMenu());
         if (message != null && message.hasText()) {
@@ -110,19 +110,19 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case GBP:
-                    sendMsg(message, " Курс GBP (ЦБ РФ) 102,49 " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
+                    sendMsg(message, " Курс GBP (ЦБ РФ) 102,49 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case JPY:
-                    sendMsg(message, " Курс JPY (ЦБ РФ) 67,35" + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
+                    sendMsg(message, " Курс JPY (ЦБ РФ) 67,35" +(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case EUR:
-                    sendMsg(message, " Курс EUR (ЦБ РФ) 87,80 " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
+                    sendMsg(message, " Курс EUR (ЦБ РФ) 87,80 " +(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case USD:
-                    sendMsg(message, " Курс USD (ЦБ РФ) 73,51 " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
+                    sendMsg(message, " Курс USD (ЦБ РФ) 73,51 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
-                case "/help":
-                    sendMsg(message, " Что-то пошло не так?\n Выберите пункт меню на на in-line клавиатуре" + Emoji.FACE_WITH_TEARS_OF_JOY);
+                case HELP:
+                    sendMsg(message, " ЧТО-ТО ПОШЛО НЕ ТАК?\n ВЫБЕРИТЕ ВАРИАНТ МЕНЮ НА IN-LINE КЛАВИАТУРЕ" + Emoji.FACE_WITH_TEARS_OF_JOY);
                     break;
                 case THANKS:
                     try {
@@ -146,16 +146,16 @@ public class Bot extends TelegramLongPollingBot {
                         e.printStackTrace();
                     }
                     break;
-                case "Тупой бот":
-                    sendMsg(message, " Дружище! Я Вас понимаю,но не ошибаются те, кто ничего не делает, " +
-                            "а также те которые тупее тупых Ботов (они просто ни чего не могут))) " + Emoji.WINKING_FACE);
+                case "ТУПОЙ БОТ":
+                    sendMsg(message, " ДРУЖИЩЕ! Я ВАС ПОНЯЛ,НО НЕ ОШИБАЮТСЯ ТЕ, КТО НИЧЕГО НЕ ДЕЛАЕТ, " +
+                            " И ТЕ КТО ЕЩЕ ТУПЕЕ ТУПЫХ БОТОВ" + Emoji.WINKING_FACE);
                     break;
                 default:
                     try {
                         sendMsg(message, Climat.getWeather(message.getText(), pattern));
                     } catch (IOException e) {
-                        sendMsg(message, " К сожалению такой город я не нашёл" + Emoji.FACE_WITH_TEARS_OF_JOY +
-                                Emoji.FACE_WITH_TEARS_OF_JOY + Emoji.FACE_WITH_TEARS_OF_JOY + "\n Введите другой город");
+                        sendMsg(message, " К СОЖАЛЕНИЮ ГОРОД НЕ НАЙДЕН" + Emoji.FACE_WITH_TEARS_OF_JOY +
+                                Emoji.FACE_WITH_TEARS_OF_JOY + Emoji.FACE_WITH_TEARS_OF_JOY + "\n ВВЕДИТЕ ДРУГОЕ ЗНАЧЕНИЕ");
                     }
             }
         }
@@ -198,8 +198,8 @@ public class Bot extends TelegramLongPollingBot {
 
     private SendMessage greetingMessage(Message message) {
         SendMessage responce = new SendMessage();
-        responce.setText("Привет,   " + message.getFrom().getFirstName()
-                + " ! Исполняю : " + message.getText() + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES);
+        responce.setText("ПРИВЕТ,   " + message.getFrom().getFirstName()
+                + " ! ИСПОЛНЯЮ : " + message.getText() + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES);
 
         responce.setChatId(message.getChatId());
         responce.setReplyMarkup(getMainMenu());
@@ -237,7 +237,7 @@ public class Bot extends TelegramLongPollingBot {
 
     private SendMessage getCurrentTimeResponce(Message message) {
         SendMessage responce = new SendMessage();
-        responce.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("Сейчас " + "HH:mm ")) + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_COLD_SWEAT);
+        responce.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕЙЧАС (МСК) " + "HH:mm ")) + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_COLD_SWEAT);
         responce.setChatId(message.getChatId());
         responce.setReplyMarkup(getMainMenu());
         return responce;
@@ -255,7 +255,7 @@ public class Bot extends TelegramLongPollingBot {
 
     private SendMessage getCurrentDateResponce(Message message) {
         SendMessage responce = new SendMessage();
-        responce.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("Сегодня   " + "dd-MM-YYYY ")) + Emoji.WINKING_FACE);
+        responce.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + Emoji.WINKING_FACE);
         responce.setChatId(message.getChatId());
         responce.setReplyMarkup(getMainMenu());
         return responce;
@@ -319,7 +319,7 @@ public class Bot extends TelegramLongPollingBot {
 
     private SendMessage getThanks(Message message) {
         SendMessage responce = new SendMessage();
-        responce.setText("Всегда к вашим услугам)" + Emoji.WINKING_FACE);
+        responce.setText("ВСЕГДА К ВАШИМ УСЛУГАМ)" + Emoji.WINKING_FACE);
 
         responce.setChatId(message.getChatId());
         return responce;
@@ -327,7 +327,7 @@ public class Bot extends TelegramLongPollingBot {
 
     private SendMessage getWeather(Message message) {
         SendMessage responce = new SendMessage();
-        responce.setText("Выберите город, если такого нет- напишите его в строке -Сообщение:)" + Emoji.WINKING_FACE);
+        responce.setText("ВЫБЕРИТЕ ГОРОД, ИЛИ НАПИШИТЕ НАЗВАНИЕ В СТРОКЕ СООБЩЕНИЯ)" + Emoji.WINKING_FACE);
         responce.setReplyMarkup(creatChoiseSity());
         responce.setChatId(message.getChatId());
         return responce;
