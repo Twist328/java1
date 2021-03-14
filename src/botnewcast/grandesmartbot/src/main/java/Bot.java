@@ -75,7 +75,7 @@ public class Bot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-
+        Model model = new Model();
         Pattern pattern = new Pattern();
         Message message = update.getMessage();
         SendMessage responce = new SendMessage();
@@ -113,7 +113,7 @@ public class Bot extends TelegramLongPollingBot {
                     sendMsg(message, " Курс GBP (ЦБ РФ) 102,49 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case JPY:
-                    sendMsg(message, " Курс JPY (ЦБ РФ) 67,35" +(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, "Курс JPY (ЦБ РФ) 67,35\n"+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case EUR:
                     sendMsg(message, " Курс EUR (ЦБ РФ) 87,80 " +(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
@@ -152,6 +152,7 @@ public class Bot extends TelegramLongPollingBot {
                     break;
                 default:
                     try {
+                       //sendMsg(message, Url.readLine(message.getText(), pattern));
                         sendMsg(message, Climat.getWeather(message.getText(), pattern));
                     } catch (IOException e) {
                         sendMsg(message, " К СОЖАЛЕНИЮ ГОРОД НЕ НАЙДЕН" + Emoji.FACE_WITH_TEARS_OF_JOY +
@@ -186,13 +187,20 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     private SendMessage getResponceMessage(Message message) throws IOException {
+        Model model = new Model();
         switch (message.getText()) {
             case НУ_И_КАК_ПОГОДА:
                 return sendMsg(message, " Напиши город!");
 
             default:
                 return greetingMessage(message);
+                /*try {
+                    sendMsg(message, Url.getRates(message.getText(), model));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }*/
         }
+
 
     }
 
@@ -243,16 +251,6 @@ public class Bot extends TelegramLongPollingBot {
         return responce;
     }
 
-    /*URL url = new URL("http://api.coingate.com/v2/rates/merchant/EUR/RUB");
-   BufferedReader reader = new BufferedReader(new InputStreamReader(url.openConnection().getInputStream(), "UTF-8")) {
-              while(true){
-        String line = reader.readLine();
-        if(line ==null)
-                break;
-            System.out.println(line);
-    }*/
-
-
     private SendMessage getCurrentDateResponce(Message message) {
         SendMessage responce = new SendMessage();
         responce.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + Emoji.WINKING_FACE);
@@ -261,7 +259,6 @@ public class Bot extends TelegramLongPollingBot {
         return responce;
 
     }
-
 
     private ReplyKeyboardMarkup creatChoiseSity() {
         ReplyKeyboardMarkup markup = new ReplyKeyboardMarkup();
@@ -350,39 +347,3 @@ public class Bot extends TelegramLongPollingBot {
     }
 }
 
-enum Emoji {
-
-    GRINNING_FACE_WITH_SMILING_EYES('\uD83D', '\uDE01'),
-    FACE_WITH_TEARS_OF_JOY('\uD83D', '\uDE02'),
-    SMILING_FACE_WITH_OPEN_MOUTH('\uD83D', '\uDE03'),
-    SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES('\uD83D', '\uDE04'),
-    SMILING_FACE_WITH_OPEN_MOUTH_AND_COLD_SWEAT('\uD83D', '\uDE05'),
-    SMILING_FACE_WITH_OPEN_MOUTH_AND_TIGHTLY_CLOSED_EYES('\uD83D', '\uDE06'),
-    WINKING_FACE('\uD83D', '\uDE09');
-
-    Character firstChar;
-    Character secondChar;
-
-    Emoji(Character firstChar, Character secondChar) {
-        this.firstChar = firstChar;
-        this.secondChar = secondChar;
-    }
-
-    Emoji() {
-
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        if (this.firstChar != null) {
-            sb.append(this.firstChar);
-        }
-        if (this.secondChar != null) {
-            sb.append(this.secondChar);
-        }
-
-        return sb.toString();
-    }
-}

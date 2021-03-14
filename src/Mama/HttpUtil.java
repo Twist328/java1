@@ -10,13 +10,9 @@ import java.util.Map;
 
 public class HttpUtil {
 
-    public static void main(String[] args) {//http://data.fixer.io/api/ latest? access_key = 387e8f0d0aba82bb93e316ef9d889e86
-//https://api.fixer.io/latest?symbols  //"http://data.fixer.io/api/latest?access_key=387e8f0d0aba82bb93e316ef9d889e86&format=1"
-// http : //data.fixer.io/api/ latest ? access_key = API_KEY
-//     & base = USD
-//     & symbols = GBP , JPY , EUR
-        String url = "http://data.fixer.io/api/latest?access_key=387e8f0d0aba82bb93e316ef9d889e86";
-//api.coingate.com/v2/rates/merchant/EUR/RUB
+    public static void main(String[] args) {
+
+        String url = "http://data.fixer.io/latest?access_key=387e8f0d0aba82bb93e316ef9d889e86&callback=MY_FUNCTION&symbols=GBP,JPY,EUR,RUB";
 
         String result = HttpUtil.sendRequest(url, null, null);
         System.out.println("Result: " + result);
@@ -79,21 +75,8 @@ public class HttpUtil {
         return resultStream.toString("UTF-8");
 
 
-
-   /* Gson gson = new Gson();
-    StructurePB currency = gson.fromJson(result, StructurePB.class);
-    if (currency.getExchangeRate().size() == 0) {
-        System.out.println("Upon this date information about the course of currencies is absent, check the correctness of the input.");
-    } else {
-        for (int i = 0; i < currency.getExchangeRate().size(); i++) {
-            if (currency.getExchangeRate().get(i).getCurrency().equals("USD")) {
-                System.out.println("The dollar exchange rate for this date is: " + String.valueOf(currency.getExchangeRate().get(i).getSaleRateNB()) + " grn");
-            }
-        }*/
     }
 
-    @Override
-    public String toString() {
-        return "HttpUtil{\"base\":\"USD\",\"EUR\":\",\"GBP\":\",\"JPY\":\"}";
+
     }
-}
+
