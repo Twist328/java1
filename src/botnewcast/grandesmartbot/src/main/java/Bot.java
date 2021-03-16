@@ -24,7 +24,7 @@ import static java.lang.System.*;
 public class Bot extends TelegramLongPollingBot {
 
     public static final String MOSCOW = "МОСКВА";
-    public static final String CURRENCY_RATES = "КУРСЫ ВАЛЮТ";
+    public static final String CURRENCY_RATES_RUB = "КУРС RUB";
     private static final String WHAT_THE_DATE_REQUEST = "ДАТА";
     public static final String HELLO = "Привет!!!";
     public static final String НУ_И_КАК_ПОГОДА = "Ну и как погода?";
@@ -45,6 +45,8 @@ public class Bot extends TelegramLongPollingBot {
     public static final String JPY = "JPY";
     public static final String GBP = "GBP";
     public static final String EUR = "EUR";
+    public static final String RUB = "RUB";
+    public static final String CURRENCY_RATES_USD = "КУРС USD";
     private Update update;
 
     public static void main(String[] args) throws IOException {
@@ -110,16 +112,19 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case GBP:
-                    sendMsg(message, " Курс GBP (ЦБ РФ) 102,49 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, " Курс GBP (ЦБ РФ) 102,03 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case JPY:
-                    sendMsg(message, "Курс JPY (ЦБ РФ) 67,35\n"+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, "Курс JPY (100 JPY) (ЦБ РФ) 67,11\n" + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case EUR:
-                    sendMsg(message, " Курс EUR (ЦБ РФ) 87,80 " +(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, " Курс EUR (ЦБ РФ) 87,35 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case USD:
-                    sendMsg(message, " Курс USD (ЦБ РФ) 73,51 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, " Курс USD (ЦБ РФ) 73,23 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    break;
+                case RUB:
+                    sendMsg(message, " Курс RUB (ЦБ РФ к USD) 73,23 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case HELP:
                     sendMsg(message, " ЧТО-ТО ПОШЛО НЕ ТАК?\n ВЫБЕРИТЕ ВАРИАНТ МЕНЮ НА IN-LINE КЛАВИАТУРЕ" + Emoji.FACE_WITH_TEARS_OF_JOY);
@@ -131,9 +136,16 @@ public class Bot extends TelegramLongPollingBot {
                         e.printStackTrace();
                     }
                     break;
-                case CURRENCY_RATES:
+                case CURRENCY_RATES_RUB:
                     try {
                         execute(getMoneyRates(message));
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case CURRENCY_RATES_USD:
+                    try {
+                        execute(setMoneyCurrentRatesUSD(message));
                     } catch (TelegramApiException e) {
                         e.printStackTrace();
                     }
@@ -152,7 +164,7 @@ public class Bot extends TelegramLongPollingBot {
                     break;
                 default:
                     try {
-                       //sendMsg(message, Url.readLine(message.getText(), pattern));
+                        //sendMsg(message, Url.readLine(message.getText(), pattern));
                         sendMsg(message, Climat.getWeather(message.getText(), pattern));
                     } catch (IOException e) {
                         sendMsg(message, " К СОЖАЛЕНИЮ ГОРОД НЕ НАЙДЕН" + Emoji.FACE_WITH_TEARS_OF_JOY +
@@ -224,7 +236,7 @@ public class Bot extends TelegramLongPollingBot {
         row1.add(START);
         row1.add(WHAT_THE_TIME_REQUEST);
         row1.add(WHAT_THE_DATE_REQUEST);
-        row1.add(HELP);
+        row1.add(CURRENCY_RATES_USD);
 
         KeyboardRow row2 = new KeyboardRow();
 
@@ -232,7 +244,7 @@ public class Bot extends TelegramLongPollingBot {
         row2.add(WEATHER_IN_TOWN);
         row2.add(THANKS);
         row2.add(DULL_BOT);
-        row2.add(CURRENCY_RATES);
+        row2.add(CURRENCY_RATES_RUB);
 
         List<KeyboardRow> rows = new ArrayList<>();
 
@@ -294,7 +306,7 @@ public class Bot extends TelegramLongPollingBot {
 
         row1.add(USD);
         row1.add(JPY);
-        //row1.add(НЬЮ_ЙОРК);
+
         // row1.add(ПХУКЕТ);
 
 
@@ -332,18 +344,48 @@ public class Bot extends TelegramLongPollingBot {
 
     private SendMessage getMoneyRates(Message message) {
         SendMessage responce = new SendMessage();
-        responce.setText("Выберите Валюту:)" + Emoji.WINKING_FACE);
+        responce.setText("ВЫБОР ВАЛЮТ:)" + Emoji.WINKING_FACE);
         responce.setReplyMarkup(creatChoiseMoney());
         responce.setChatId(message.getChatId());
         return responce;
     }
 
-    private SendMessage setMoneyCurrentRates(Message message) {
+    private SendMessage setMoneyCurrentRatesUSD(Message message) {
         SendMessage responce = new SendMessage();
-
-        responce.setReplyMarkup(creatChoiseMoney());
+        responce.setText("ВЫБОР ВАЛЮТ:)" + Emoji.WINKING_FACE);
+        responce.setReplyMarkup(creatChoiseMoneyUSD());
         responce.setChatId(message.getChatId());
         return responce;
     }
-}
+
+
+    private ReplyKeyboardMarkup creatChoiseMoneyUSD() {
+        ReplyKeyboardMarkup markup = new ReplyKeyboardMarkup();
+
+        KeyboardRow row1 = new KeyboardRow();
+
+        row1.add(EUR);
+        row1.add(JPY);
+
+        // row1.add(ПХУКЕТ);
+
+
+        KeyboardRow row2 = new KeyboardRow();
+
+        row2.add(GBP);
+        row2.add(RUB);
+        //row2.add(ПАРИЖ);
+        // row2.add(ЛОНДОН);
+
+        List<KeyboardRow> rows = new ArrayList<>();
+
+        rows.add(row1);
+        rows.add(row2);
+
+        markup.setKeyboard(rows);
+        return markup;
+    }
+
+    }
+
 
