@@ -1,11 +1,11 @@
 package Bot2;
 
-/*public class Check {
+public class Check {
 
-    Sets sets;
-    GreatSmartBot bot;
+    Portion sets;
+    PizKomBot bot;
 
-    Check(GreatSmartBot bot, Sets sets) {
+    Check(PizKomBot bot, Portion sets) {
         this.bot = bot;
         this.sets = sets;
         int maxGroup = 0;
@@ -54,4 +54,4 @@ package Bot2;
                 result += getUserData(userid, bot.groupKey + "[" + m.index + "]");
         return result;
     }
-}*/
+}

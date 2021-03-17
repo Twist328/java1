@@ -1,19 +1,20 @@
 package Bot2;
 
-/*import java.util.Scanner;
+import java.util.Scanner;
 
 
+import com.google.common.collect.Sets;
 import org.telegram.telegrambots.ApiContextInitializer;
 
 import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
 
-    public class GreatSmartBot extends ProgwardsTelegramBot {
+    public class PizKomBot extends ProgwardsTelegramBot {
 
-        static Sets sets;
+        static Portion sets;
         static Check check;
 
 
-        private final String setsStr = "У нас есть роллы, напитки и десерт, а еще для поднятия духа смешной анекдот...";
+        private final String setsStr = "У нас есть блины, напитки и десерт, а еще для поднятия духа смешной анекдот...";
 
         static final String groupKey = "group";
         static final String checkKey = "check";
@@ -66,7 +67,7 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
          * Метод, который возвращает ответ бота
          * @return ответ
          */
-       /* @Override
+        @Override
         public String processMessage(Integer userid, String text) {
             // проверяем, спрашивали ли адрес доставки
             if (getUserData(userid, addressKey) != null && getUserData(userid, addressKey).equals("*")) {
@@ -105,17 +106,17 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
         }
 
         public static void main(String[] args) throws NullPointerException {
-            /*System.getProperties().put("proxySet", "true"); // Tor Browser proxy params
+            System.getProperties().put("proxySet", "true"); // Tor Browser proxy params
             System.getProperties().put("socksProxyHost", "127.0.0.1");
-            System.getProperties().put("socksProxyPort", "9150");*/
+            System.getProperties().put("socksProxyPort", "9150");
 
-           /* System.out.println("Hello bot!");
+            System.out.println("Hello bot!");
             ApiContextInitializer.init();
 
             // инициализируем бота
-            GreatSmartBot bot = new GreatSmartBot();
-            bot.username = "SmartyKomBot";
-            bot.token = "1646881099:AAFbUeLTpwokLtWjJk0xQlFuxhVdzEantPU";
+            PizKomBot bot = new PizKomBot();
+            bot.username = "PizKomBot";
+            bot.token = "1156742283:AAFI-S2YFXccCEwKA7j5pKhup8QfuCr3KDg";
 
             // наполняем тэгами
             bot.addTags("привет", "привет, здасьте, здравствуйте, добр, день, вечер, утро, hi, hello");
@@ -126,14 +127,14 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
             bot.addTags("заказ", "заказ");
             bot.addTags("нет", "нет");
 
-            sets = new Sets(bot);
-            Food f1 = sets.add("Тянь шань 360р.", "ролл,еда, шань, еды,тянь, снежный краб, краб, огурец, сливочный сыр, угорь, лосось", 1, 360);
-            Food f2 = sets.add("Филадельфия Классик 360р.", "ролл,еда, еды,классик, филадельф, сливочный сыр, лосось", 1, 360);
-            Food f3 = sets.add("Спайси краб 280р.", "ролл, спайси, снежный краб,еда, еды,краб, икра лосося, спайси соус", 1, 280);
-            Food f4 = sets.add("Унаги филадельфия 360р.", "ролл, унаги, филадельф, еда,угорь, еды,сливочный сыр, лосось, соус унаги", 1, 360);
-            Food f5 = sets.add("Самурай 320р.", "ролл, самурай, креветка тигр,еды, лосос, еда,томат", 1, 320);
-            Food f6 = sets.add("Аляска 270р.", "ролл, аляск, сливочный сыр, креветк,еды, огурец,еда, укроп, икра", 1, 270);
-            Food f7 = sets.add("Горячая тортилья 270р.", "ролл, тортил, говяд, сливочный сыр,еды,мясо, помид, еда,огур, лук", 1, 270);
+            sets = new Portion(bot);
+            Food f1 = sets.add("Гречишные 360р.", "блины,еда, гречка, сметана,мясо, мед, варенье, сливочный сыр", 1, 360);
+            Food f2 = sets.add("Мясные 360р.", "блины,еда, еды,классик, филадельф, сливочный сыр, лосось", 1, 360);
+            Food f3 = sets.add("Панкейки 280р.", "блины, банан, варенье,еда, еды, икра лосося, сметана", 1, 280);
+            Food f4 = sets.add("Российские 360р.", "блины, мясо, рулет, еда,сливочный сыр, мед", 1, 360);
+            Food f5 = sets.add("Деревенские 320р.", "блины, сливки, масло,еды, сметана, еда,", 1, 320);
+            Food f6 = sets.add("Творожные", "блины, творог, сливочный сыр,сметана,еды, ", 1, 270);
+            Food f7 = sets.add("Грибные 270р.", "блины, грибы, мясо, сливочный сыр,еды,еда,огур, лук", 1, 270);
 
             Food f8 =sets.add("Тирамису, 110р.", "десерт, Тирамису, маскарпоне, торт тирамису", 3, 110);
             Food f9 =sets.add("Торт медовик, 80р.", "десерт, мед, бисквит, торт медовик", 3, 80);
@@ -149,12 +150,12 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
             sets.add("Кофе Американо, 160р.", "напит, пить, кофе,  Американо", 4, 160 );
 
             sets.add("Анекдот про Брежнева, 160оч.", "Брежнева, анекдот, смешно,  расскажи", 5, 2 );
-            sets.add("Анекдот про Охотника , 160оч.", "Охотник-добытчик, анекдот, смешно,  расскажи", 5, 1 );
+            //sets.add("Анекдот про Охотника , 160оч.", "Охотник-добытчик, анекдот, смешно,  расскажи", 5, 1 );
 
             sets.fillTags();
             check = new Check(bot, sets);
             bot.start();
-           // bot.test();
+            bot.test();
         }
         void test() {
             Scanner in = new Scanner(System.in);
@@ -174,4 +175,4 @@ import ru.progwards.java1.telegrambot.ProgwardsTelegramBot;
                     ", stop=" + stop +
                     '}';
         }
-    }*/
+    }

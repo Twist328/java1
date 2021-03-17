@@ -1,14 +1,14 @@
 package Bot2;
 
-/*public class Sets {
+class Portion {
 
     Food[] foods = {};
-    GreatSmartBot bot;
+    PizKomBot bot;
 
 
-    Sets(){}
+    Portion(){}
 
-    Sets(GreatSmartBot bot) {
+    Portion(PizKomBot bot) {
         this.bot = bot;
     }
 
@@ -75,9 +75,9 @@ package Bot2;
         for (Food m : foods) if (m.name.equals(name)) return m;
         return null;
     }
-    Food getFood(GreatSmartBot.FoundTags tags) {
+    Food getFood(PizKomBot.FoundTags tags) {
         for (Food m : foods) if (bot.checkLastFound(tags, m.name)) return m;
         return null;
     }
 
-}*/
+}

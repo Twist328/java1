@@ -1,6 +1,6 @@
 package Bots;
 
-import org.telegram.telegrambots.ApiContextInitializer;
+/*import org.telegram.telegrambots.ApiContextInitializer;
 import ru.progwards.java1.testlesson.ProgwardsTelegramBot;
 
 class PizzaBotKompot extends ProgwardsTelegramBot {
