@@ -294,16 +294,13 @@ public class Bot extends TelegramLongPollingBot {
 
         row1.add(USD);
         row1.add(JPY);
-        //row1.add(НЬЮ_ЙОРК);
-        // row1.add(ПХУКЕТ);
+
 
 
         KeyboardRow row2 = new KeyboardRow();
 
         row2.add(GBP);
         row2.add(EUR);
-        //row2.add(ПАРИЖ);
-        // row2.add(ЛОНДОН);
 
         List<KeyboardRow> rows = new ArrayList<>();
 
