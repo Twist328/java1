@@ -110,16 +110,16 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case GBP:
-                    sendMsg(message, " Курс GBP (ЦБ РФ) 102,49 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, " Курс GBP (ЦБ РФ) 100,96 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case JPY:
-                    sendMsg(message, "Курс JPY (ЦБ РФ) 67,35\n"+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, "Курс 100 JPY (ЦБ РФ) 66,8\n"+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case EUR:
-                    sendMsg(message, " Курс EUR (ЦБ РФ) 87,80 " +(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, " Курс EUR (ЦБ РФ) 88,25 " +(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case USD:
-                    sendMsg(message, " Курс USD (ЦБ РФ) 73,51 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, " Курс USD (ЦБ РФ) 72,96 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case HELP:
                     sendMsg(message, " ЧТО-ТО ПОШЛО НЕ ТАК?\n ВЫБЕРИТЕ ВАРИАНТ МЕНЮ НА IN-LINE КЛАВИАТУРЕ" + Emoji.FACE_WITH_TEARS_OF_JOY);
