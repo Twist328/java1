@@ -21,15 +21,15 @@ import java.util.Scanner;
 public class Bot extends TelegramLongPollingBot {
 
     public static final String MOSCOW = "МОСКВА";
-    public static final String CURRENCY_RATES = "КУРСЫ ВАЛЮТ";
+    public static final String CURRENCY_RATES = "КУРСЫ RUB";
     private static final String WHAT_THE_DATE_REQUEST = "ДАТА";
     public static final String HELLO = "Привет!!!";
     public static final String НУ_И_КАК_ПОГОДА = "Ну и как погода?";
-    private static final String WHAT_THE_TIME_REQUEST = "КОТОРЫЙ\n ЧАС?";
+    private static final String WHAT_THE_TIME_REQUEST = "ВРЕМЯ";
     public static final String START = "/START";
     public static final String HELP = "/HELP";
     public static final String THANKS = "СПАСИБО";
-    public static final String WEATHER_IN_TOWN = "ПОГОДА В ГОРОДЕ";
+    public static final String WEATHER_IN_TOWN = "ПОГОДА";
     public static final String ST_PETERSBURG = "САНКТ-ПЕТЕРБУРГ";
     public static final String СHINA = "ПЕКИН";
     public static final String SOCHI = "СОЧИ";
