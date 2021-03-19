@@ -221,10 +221,10 @@ public class SeaBattleAlg {
 
     public void battleAlgorithm(SeaBattle seaBattle) {
         init(seaBattle);
-        doPrint = true;
+        doPrint = false;
         //variant1();
-       //variant2();
-      variant3();
+       variant2();
+      //variant3();
 
     }
 
