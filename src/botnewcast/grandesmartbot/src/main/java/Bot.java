@@ -143,7 +143,7 @@ public class Bot extends TelegramLongPollingBot {
                         e.printStackTrace();
                     }
                     break;
-                case "ТУПОЙ БОТ":
+                case DULL_BOT:
                     sendMsg(message, " ДРУЖИЩЕ! Я ВАС ПОНЯЛ,НО НЕ ОШИБАЮТСЯ ТЕ, КТО НИЧЕГО НЕ ДЕЛАЕТ, " +
                             " И ТЕ КТО ЕЩЕ ТУПЕЕ ТУПЫХ БОТОВ" + Emoji.WINKING_FACE);
                     break;
