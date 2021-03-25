@@ -24,7 +24,7 @@ public class Url {
 
             URL url = new URL(a);
 
-            URLConnection uc = url.openConnection();
+            /*URLConnection uc = url.openConnection();
 
             // open the stream and put it into BufferedReader
             BufferedReader br = new BufferedReader(new InputStreamReader(uc.getInputStream()));
@@ -49,7 +49,7 @@ public class Url {
 
     @Override
     public String toString() {
-        return "Url{}";
+        return "Url{}";*/
     }
 }
 

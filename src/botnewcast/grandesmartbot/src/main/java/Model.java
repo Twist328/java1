@@ -1,5 +1,9 @@
 public class Model {
 
+    private static Object JPY = 0.0;
+    private static Object EUR = 0.0;
+    private static Double USD = 0.0;
+    private static Double GBP = 0.0;
     //private String name;
     private Double base;
     private Double rates;
@@ -18,7 +22,7 @@ public class Model {
     }
 
     public void setBase(Double base) {
-        this.base = base;
+        this.base = USD;
     }
 
     public Double getRates() {
@@ -27,6 +31,9 @@ public class Model {
 
     public void setRates(Double rates) {
         this.rates = rates;
+        this.GBP = GBP;
+        this.EUR = EUR;
+        this.JPY = JPY;
     }
 }
 
