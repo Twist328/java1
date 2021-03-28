@@ -107,16 +107,16 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case GBP:
-                    sendMsg(message, " Курс GBP (ЦБ РФ) 104,26 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, " Курс GBP (ЦБ РФ) 104,36 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case JPY:
-                    sendMsg(message, "Курс 100 JPY (ЦБ РФ) 70,08\n"+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, "Курс 100 JPY (ЦБ РФ) 69,23\n"+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case EUR:
-                    sendMsg(message, " Курс EUR (ЦБ РФ) 90,05 " +(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, " Курс EUR (ЦБ РФ) 89,26 " +(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case USD:
-                    sendMsg(message, " Курс USD (ЦБ РФ) 76,15 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, " Курс USD (ЦБ РФ) 75,76 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case HELP:
                     sendMsg(message, " ЧТО-ТО ПОШЛО НЕ ТАК?\n ВЫБЕРИТЕ ВАРИАНТ МЕНЮ НА IN-LINE КЛАВИАТУРЕ" + Emoji.FACE_WITH_TEARS_OF_JOY);
@@ -149,7 +149,7 @@ public class Bot extends TelegramLongPollingBot {
                     break;
                 default:
                     try {
-                       //sendMsg(message, Url.readLine(message.getText(), pattern));
+                      // sendMsg(message, Url.getRates(message.getText(), model));
                         sendMsg(message, Climat.getWeather(message.getText(), pattern));
                     } catch (IOException e) {
                         sendMsg(message, " К СОЖАЛЕНИЮ ГОРОД НЕ НАЙДЕН" + Emoji.FACE_WITH_TEARS_OF_JOY +
@@ -322,8 +322,8 @@ public class Bot extends TelegramLongPollingBot {
         responce.setReplyMarkup(creatChoiseSity());
         responce.setChatId(message.getChatId());
         return responce;
+    
     }
-
     private SendMessage getMoneyRates(Message message) {
         SendMessage responce = new SendMessage();
         responce.setText("Выберите Валюту:)" + Emoji.WINKING_FACE);

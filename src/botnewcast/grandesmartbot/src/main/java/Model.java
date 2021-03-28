@@ -6,7 +6,7 @@ public class Model {
     private static Double GBP = 0.0;
     //private String name;
     private Double base;
-    private Double rates;
+    private double rates;
 
 
    /* public String getName() {
@@ -25,11 +25,11 @@ public class Model {
         this.base = USD;
     }
 
-    public Double getRates() {
+    public double getRates() {
         return rates;
     }
 
-    public void setRates(Double rates) {
+    public void setRates(double rates) {
         this.rates = rates;
         this.GBP = GBP;
         this.EUR = EUR;
