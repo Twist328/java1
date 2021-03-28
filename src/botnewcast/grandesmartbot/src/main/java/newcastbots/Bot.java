@@ -1,3 +1,5 @@
+package newcastbots;
+
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
@@ -11,12 +13,10 @@ import org.telegram.telegrambots.exceptions.TelegramApiRequestException;
 
 import java.io.*;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Bot extends TelegramLongPollingBot {
 

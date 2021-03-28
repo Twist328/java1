@@ -1,3 +1,5 @@
+package newcastbots;
+
 public class Pattern {
     private String name;
     private Double temp;
@@ -45,4 +47,5 @@ public class Pattern {
         this.main = main;
     }
 }
+
 

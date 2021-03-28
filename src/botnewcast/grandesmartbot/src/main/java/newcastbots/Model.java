@@ -1,3 +1,5 @@
+package newcastbots;
+
 public class Model {
 
     private static Object JPY = 0.0;
