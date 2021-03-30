@@ -44,105 +44,6 @@ public class Bot extends TelegramLongPollingBot {
     public static final String EUR = "EUR";
     private Update update;
 
-    @Override
-    public String getBotUsername() {
-        return "SmartyKomBot";
-    }
-
-    @Override
-    public String getBotToken() {
-        return "1646881099:AAFbUeLTpwokLtWjJk0xQlFuxhVdzEantPU";
-    }
-
-
-    @Override
-    public void onUpdateReceived(Update update) {
-        Model model = new Model();
-        Pattern pattern = new Pattern();
-        Message message = update.getMessage();
-        SendMessage responce = new SendMessage()
-                .setText("ПРИВЕТ,   " + message.getFrom().getFirstName()
-                        + " ! ВЫПОЛНЯЮ ЗАПРОС: " + message.getText())
-                .setChatId(message.getChatId())
-                .setReplyMarkup(getMainMenu());
-        if (message != null && message.hasText()) {
-
-            try {
-                execute(getResponceMessage(message));
-            } catch (TelegramApiException | IOException e) {
-                e.printStackTrace();
-            }
-            switch (message.getText()) {
-                case START:
-                    sendMsg(message, " Я БОТ БЕЗ ХЛОПОТ, УМЕЮ ПОКАЗЫВАТЬ ДАТУ/ВРЕМЯ ,ПОГОДУ В ЛЮБОМ УГОЛКЕ МИРА, КУРСЫ ОСНОВНЫХ ВАЛЮТ,\n" +
-                            "ВЫБЕРИ МЕНЮ В IN-LINE КЛАВИАТУРЕ " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
-                    break;
-                case WHAT_THE_TIME_REQUEST:
-                    try {
-                        execute(getCurrentTimeResponce(message));
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case WHAT_THE_DATE_REQUEST:
-                    try {
-                        execute(getCurrentDateResponce(message));
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case GBP:
-                    sendMsg(message, " Курс GBP (ЦБ РФ) 104,15 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
-                    break;
-                case JPY:
-                    sendMsg(message, "Курс 100 JPY (ЦБ РФ) 68,63\n" + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
-                    break;
-                case EUR:
-                    sendMsg(message, " Курс EUR (ЦБ РФ) 88,88 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
-                    break;
-                case USD:
-                    sendMsg(message, " Курс USD (ЦБ РФ) 75,70 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
-                    break;
-                case HELP:
-                    sendMsg(message, " ЧТО-ТО ПОШЛО НЕ ТАК?\n ВЫБЕРИТЕ ВАРИАНТ МЕНЮ НА IN-LINE КЛАВИАТУРЕ" + Emoji.FACE_WITH_TEARS_OF_JOY);
-                    break;
-                case THANKS:
-                    try {
-                        execute(getThanks(message));
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case CURRENCY_RATES:
-                    try {
-                        execute(getMoneyRates(message));
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case WEATHER_IN_TOWN:
-                    try {
-
-                        execute(getWeather(message));
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case DULL_BOT:
-                    sendMsg(message, " ДРУЖИЩЕ! Я ВАС ПОНЯЛ,НО НЕ ОШИБАЮТСЯ ТЕ, КТО НИЧЕГО НЕ ДЕЛАЕТ, " +
-                            " И ТЕ КТО ЕЩЕ ТУПЕЕ ТУПЫХ БОТОВ" + Emoji.WINKING_FACE);
-                    break;
-                default:
-                    try {
-                        // sendMsg(message, Url.getRates(message.getText(), model));
-                        sendMsg(message, Climat.getWeather(message.getText(), pattern));
-                    } catch (IOException e) {
-                        sendMsg(message, " К СОЖАЛЕНИЮ ГОРОД НЕ НАЙДЕН" + Emoji.FACE_WITH_TEARS_OF_JOY +
-                                Emoji.FACE_WITH_TEARS_OF_JOY + Emoji.FACE_WITH_TEARS_OF_JOY + "\n ВВЕДИТЕ ДРУГОЕ ЗНАЧЕНИЕ");
-                    }
-            }
-        }
-    }
 
     public SendMessage sendMsg(Message message, String text) {
         SendMessage responce = new SendMessage()
@@ -308,6 +209,106 @@ public class Bot extends TelegramLongPollingBot {
                 .setChatId(message.getChatId());
         return responce;
     }
+    @Override
+    public String getBotUsername() {
+        return "SmartyKomBot";
+    }
+
+    @Override
+    public String getBotToken() {
+        return "1646881099:AAFbUeLTpwokLtWjJk0xQlFuxhVdzEantPU";
+    }
+
+
+    @Override
+    public void onUpdateReceived(Update update) {
+        Model model = new Model();
+        Pattern pattern = new Pattern();
+        Message message = update.getMessage();
+        SendMessage responce = new SendMessage()
+                .setText("ПРИВЕТ,   " + message.getFrom().getFirstName()
+                        + " ! ВЫПОЛНЯЮ ЗАПРОС: " + message.getText())
+                .setChatId(message.getChatId())
+                .setReplyMarkup(getMainMenu());
+        if (message != null && message.hasText()) {
+
+            try {
+                execute(getResponceMessage(message));
+            } catch (TelegramApiException | IOException e) {
+                e.printStackTrace();
+            }
+            switch (message.getText()) {
+                case START:
+                    sendMsg(message, " Я БОТ БЕЗ ХЛОПОТ, УМЕЮ ПОКАЗЫВАТЬ ДАТУ/ВРЕМЯ ,ПОГОДУ В ЛЮБОМ УГОЛКЕ МИРА, КУРСЫ ОСНОВНЫХ ВАЛЮТ,\n" +
+                            "ВЫБЕРИ МЕНЮ В IN-LINE КЛАВИАТУРЕ " + Emoji.GRINNING_FACE_WITH_SMILING_EYES);
+                    break;
+                case WHAT_THE_TIME_REQUEST:
+                    try {
+                        execute(getCurrentTimeResponce(message));
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case WHAT_THE_DATE_REQUEST:
+                    try {
+                        execute(getCurrentDateResponce(message));
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case GBP:
+                    sendMsg(message, " Курс GBP (ЦБ РФ) 104,15 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    break;
+                case JPY:
+                    sendMsg(message, "Курс 100 JPY (ЦБ РФ) 68,63\n" + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    break;
+                case EUR:
+                    sendMsg(message, " Курс EUR (ЦБ РФ) 88,88 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    break;
+                case USD:
+                    sendMsg(message, " Курс USD (ЦБ РФ) 75,70 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    break;
+                case HELP:
+                    sendMsg(message, " ЧТО-ТО ПОШЛО НЕ ТАК?\n ВЫБЕРИТЕ ВАРИАНТ МЕНЮ НА IN-LINE КЛАВИАТУРЕ" + Emoji.FACE_WITH_TEARS_OF_JOY);
+                    break;
+                case THANKS:
+                    try {
+                        execute(getThanks(message));
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case CURRENCY_RATES:
+                    try {
+                        execute(getMoneyRates(message));
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case WEATHER_IN_TOWN:
+                    try {
+
+                        execute(getWeather(message));
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case DULL_BOT:
+                    sendMsg(message, " ДРУЖИЩЕ! Я ВАС ПОНЯЛ,НО НЕ ОШИБАЮТСЯ ТЕ, КТО НИЧЕГО НЕ ДЕЛАЕТ, " +
+                            " И ТЕ КТО ЕЩЕ ТУПЕЕ ТУПЫХ БОТОВ" + Emoji.WINKING_FACE);
+                    break;
+                default:
+                    try {
+                        // sendMsg(message, Url.getRates(message.getText(), model));
+                        sendMsg(message, Climat.getWeather(message.getText(), pattern));
+                    } catch (IOException e) {
+                        sendMsg(message, " К СОЖАЛЕНИЮ ГОРОД НЕ НАЙДЕН" + Emoji.FACE_WITH_TEARS_OF_JOY +
+                                Emoji.FACE_WITH_TEARS_OF_JOY + Emoji.FACE_WITH_TEARS_OF_JOY + "\n ВВЕДИТЕ ДРУГОЕ ЗНАЧЕНИЕ");
+                    }
+            }
+        }
+    }
+
 
 }
 
