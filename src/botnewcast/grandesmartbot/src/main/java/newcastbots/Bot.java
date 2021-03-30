@@ -44,21 +44,6 @@ public class Bot extends TelegramLongPollingBot {
     public static final String EUR = "EUR";
     private Update update;
 
-    public static void main(String[] args) throws IOException {
-        System.out.println("Hello bot!");
-
-        ApiContextInitializer.init();
-
-        TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
-
-        try {
-            telegramBotsApi.registerBot(new Bot());
-
-        } catch (TelegramApiRequestException | MalformedURLException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public String getBotUsername() {
         return "SmartyKomBot";
@@ -107,16 +92,16 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case GBP:
-                    sendMsg(message, " Курс GBP (ЦБ РФ) 104,15 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, " Курс GBP (ЦБ РФ) 104,15 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case JPY:
-                    sendMsg(message, "Курс 100 JPY (ЦБ РФ) 68,63\n"+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, "Курс 100 JPY (ЦБ РФ) 68,63\n" + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case EUR:
-                    sendMsg(message, " Курс EUR (ЦБ РФ) 88,88 " +(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY "))+ (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, " Курс EUR (ЦБ РФ) 88,88 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case USD:
-                    sendMsg(message, " Курс USD (ЦБ РФ) 75,70 "+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern( "HH:mm "))+ Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
+                    sendMsg(message, " Курс USD (ЦБ РФ) 75,70 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case HELP:
                     sendMsg(message, " ЧТО-ТО ПОШЛО НЕ ТАК?\n ВЫБЕРИТЕ ВАРИАНТ МЕНЮ НА IN-LINE КЛАВИАТУРЕ" + Emoji.FACE_WITH_TEARS_OF_JOY);
@@ -149,7 +134,7 @@ public class Bot extends TelegramLongPollingBot {
                     break;
                 default:
                     try {
-                      // sendMsg(message, Url.getRates(message.getText(), model));
+                        // sendMsg(message, Url.getRates(message.getText(), model));
                         sendMsg(message, Climat.getWeather(message.getText(), pattern));
                     } catch (IOException e) {
                         sendMsg(message, " К СОЖАЛЕНИЮ ГОРОД НЕ НАЙДЕН" + Emoji.FACE_WITH_TEARS_OF_JOY +
@@ -241,18 +226,19 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     private SendMessage getCurrentTimeResponce(Message message) {
-        SendMessage responce = new SendMessage();
-        responce.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕЙЧАС (МСК) " + "HH:mm ")) + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_COLD_SWEAT);
-        responce.setChatId(message.getChatId());
-        responce.setReplyMarkup(getMainMenu());
+        SendMessage responce = new SendMessage()
+                .setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕЙЧАС (МСК) " + "HH:mm ")) +
+                        Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_COLD_SWEAT)
+                .setChatId(message.getChatId())
+                .setReplyMarkup(getMainMenu());
         return responce;
     }
 
     private SendMessage getCurrentDateResponce(Message message) {
-        SendMessage responce = new SendMessage();
-        responce.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + Emoji.WINKING_FACE);
-        responce.setChatId(message.getChatId());
-        responce.setReplyMarkup(getMainMenu());
+        SendMessage responce = new SendMessage()
+                .setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   " + "dd-MM-YYYY ")) + Emoji.WINKING_FACE)
+                .setChatId(message.getChatId())
+                .setReplyMarkup(getMainMenu());
         return responce;
 
     }
@@ -293,7 +279,6 @@ public class Bot extends TelegramLongPollingBot {
         row1.add(JPY);
 
 
-
         KeyboardRow row2 = new KeyboardRow();
 
         row2.add(GBP);
@@ -309,71 +294,34 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     private SendMessage getThanks(Message message) {
-        SendMessage responce = new SendMessage();
-        responce.setText("ВСЕГДА К ВАШИМ УСЛУГАМ)" + Emoji.WINKING_FACE);
-
-        responce.setChatId(message.getChatId());
+        SendMessage responce = new SendMessage()
+                .setText("ВСЕГДА К ВАШИМ УСЛУГАМ)" + Emoji.WINKING_FACE)
+                .setChatId(message.getChatId());
         return responce;
     }
 
     private SendMessage getWeather(Message message) {
-        SendMessage responce = new SendMessage();
-        responce.setText("ВЫБЕРИТЕ ГОРОД, ИЛИ НАПИШИТЕ НАЗВАНИЕ В СТРОКЕ СООБЩЕНИЯ)" + Emoji.WINKING_FACE);
-        responce.setReplyMarkup(creatChoiseSity());
-        responce.setChatId(message.getChatId());
+        SendMessage responce = new SendMessage()
+                .setText("ВЫБЕРИТЕ ГОРОД, ИЛИ НАПИШИТЕ НАЗВАНИЕ В СТРОКЕ СООБЩЕНИЯ)" + Emoji.WINKING_FACE)
+                .setReplyMarkup(creatChoiseSity())
+                .setChatId(message.getChatId());
         return responce;
-    
+
     }
+
     private SendMessage getMoneyRates(Message message) {
-        SendMessage responce = new SendMessage();
-        responce.setText("Выберите Валюту:)" + Emoji.WINKING_FACE);
-        responce.setReplyMarkup(creatChoiseMoney());
-        responce.setChatId(message.getChatId());
+        SendMessage responce = new SendMessage()
+                .setText("Выберите Валюту:)" + Emoji.WINKING_FACE)
+                .setReplyMarkup(creatChoiseMoney())
+                .setChatId(message.getChatId());
         return responce;
     }
 
     private SendMessage setMoneyCurrentRates(Message message) {
-        SendMessage responce = new SendMessage();
-
-        responce.setReplyMarkup(creatChoiseMoney());
-        responce.setChatId(message.getChatId());
+        SendMessage responce = new SendMessage()
+                .setReplyMarkup(creatChoiseMoney())
+                .setChatId(message.getChatId());
         return responce;
-    }
-    enum Emoji {
-
-        GRINNING_FACE_WITH_SMILING_EYES('\uD83D', '\uDE01'),
-        FACE_WITH_TEARS_OF_JOY('\uD83D', '\uDE02'),
-        SMILING_FACE_WITH_OPEN_MOUTH('\uD83D', '\uDE03'),
-        SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES('\uD83D', '\uDE04'),
-        SMILING_FACE_WITH_OPEN_MOUTH_AND_COLD_SWEAT('\uD83D', '\uDE05'),
-        SMILING_FACE_WITH_OPEN_MOUTH_AND_TIGHTLY_CLOSED_EYES('\uD83D', '\uDE06'),
-        WINKING_FACE('\uD83D', '\uDE09');
-
-        Character firstChar;
-        Character secondChar;
-
-        Emoji(Character firstChar, Character secondChar) {
-            this.firstChar = firstChar;
-            this.secondChar = secondChar;
-        }
-
-        Emoji() {
-
-        }
-
-        @Override
-        public String toString() {
-            StringBuilder sb = new StringBuilder();
-
-            if (this.firstChar != null) {
-                sb.append(this.firstChar);
-            }
-            if (this.secondChar != null) {
-                sb.append(this.secondChar);
-            }
-
-            return sb.toString();
-        }
     }
 
 }
