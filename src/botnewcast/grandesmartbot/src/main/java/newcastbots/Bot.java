@@ -60,11 +60,11 @@ public class Bot extends TelegramLongPollingBot {
         Model model = new Model();
         Pattern pattern = new Pattern();
         Message message = update.getMessage();
-        SendMessage responce = new SendMessage();
-        responce.setText("ПРИВЕТ,   " + message.getFrom().getFirstName()
-                + " ! ВЫПОЛНЯЮ ЗАПРОС: " + message.getText());
-        responce.setChatId(message.getChatId());
-        responce.setReplyMarkup(getMainMenu());
+        SendMessage responce = new SendMessage()
+                .setText("ПРИВЕТ,   " + message.getFrom().getFirstName()
+                        + " ! ВЫПОЛНЯЮ ЗАПРОС: " + message.getText())
+                .setChatId(message.getChatId())
+                .setReplyMarkup(getMainMenu());
         if (message != null && message.hasText()) {
 
             try {
@@ -145,14 +145,11 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     public SendMessage sendMsg(Message message, String text) {
-        SendMessage responce = new SendMessage();
-        responce.enableMarkdown(true);
-
-        responce.setChatId(message.getChatId().toString());
-
-        responce.setReplyToMessageId(message.getMessageId());
-
-        responce.setText(text);
+        SendMessage responce = new SendMessage()
+                .enableMarkdown(true)
+                .setChatId(message.getChatId().toString())
+                .setReplyToMessageId(message.getMessageId())
+                .setText(text);
         try {
             sendMessage(responce);
             responce.setChatId(String.valueOf(getMainMenu()));
@@ -182,17 +179,14 @@ public class Bot extends TelegramLongPollingBot {
                     e.printStackTrace();
                 }*/
         }
-
-
     }
 
     private SendMessage greetingMessage(Message message) {
-        SendMessage responce = new SendMessage();
-        responce.setText("ПРИВЕТ,   " + message.getFrom().getFirstName()
-                + " ! ИСПОЛНЯЮ : " + message.getText() + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES);
-
-        responce.setChatId(message.getChatId());
-        responce.setReplyMarkup(getMainMenu());
+        SendMessage responce = new SendMessage()
+                .setText("ПРИВЕТ,   " + message.getFrom().getFirstName()
+                        + " ! ИСПОЛНЯЮ : " + message.getText() + Emoji.SMILING_FACE_WITH_OPEN_MOUTH_AND_SMILING_EYES)
+                .setChatId(message.getChatId())
+                .setReplyMarkup(getMainMenu());
         return responce;
     }
 
@@ -253,7 +247,6 @@ public class Bot extends TelegramLongPollingBot {
         row1.add(NEW_YORK);
         row1.add(PHUKET);
 
-
         KeyboardRow row2 = new KeyboardRow();
 
         row2.add(СHINA);
@@ -277,7 +270,6 @@ public class Bot extends TelegramLongPollingBot {
 
         row1.add(USD);
         row1.add(JPY);
-
 
         KeyboardRow row2 = new KeyboardRow();
 
