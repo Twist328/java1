@@ -1,6 +1,8 @@
 package newcastbots;
 
 
+import org.telegram.telegrambots.api.objects.Update;
+
 enum Emoji {
 
     GRINNING_FACE_WITH_SMILING_EYES('\uD83D', '\uDE01'),
@@ -36,5 +38,6 @@ enum Emoji {
 
         return sb.toString();
     }
+
 }
 

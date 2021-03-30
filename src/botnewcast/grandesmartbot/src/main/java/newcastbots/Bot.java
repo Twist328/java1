@@ -44,7 +44,6 @@ public class Bot extends TelegramLongPollingBot {
     public static final String EUR = "EUR";
     private Update update;
 
-
     public SendMessage sendMsg(Message message, String text) {
         SendMessage responce = new SendMessage()
                 .enableMarkdown(true)
@@ -303,12 +302,9 @@ public class Bot extends TelegramLongPollingBot {
                         sendMsg(message, Climat.getWeather(message.getText(), pattern));
                     } catch (IOException e) {
                         sendMsg(message, " К СОЖАЛЕНИЮ ГОРОД НЕ НАЙДЕН" + Emoji.FACE_WITH_TEARS_OF_JOY +
-                                Emoji.FACE_WITH_TEARS_OF_JOY + Emoji.FACE_WITH_TEARS_OF_JOY + "\n ВВЕДИТЕ ДРУГОЕ ЗНАЧЕНИЕ");
-                    }
+                                Emoji.FACE_WITH_TEARS_OF_JOY + Emoji.FACE_WITH_TEARS_OF_JOY + "\n ВВЕДИТЕ ДРУГОЕ ЗНАЧЕНИЕ"); }
             }
         }
     }
-
-
 }
 
