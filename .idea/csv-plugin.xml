@@ -143,6 +143,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\botnewcast\grandesmartbot\src\main\java\newcastbots\Bot.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\mmm\main\pom.xml">
           <value>
             <Attribute>
