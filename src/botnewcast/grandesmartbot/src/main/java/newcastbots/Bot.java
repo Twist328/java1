@@ -170,14 +170,9 @@ public class Bot extends TelegramLongPollingBot {
         switch (message.getText()) {
             case НУ_И_КАК_ПОГОДА:
                 return sendMsg(message, " Напиши город!");
-
             default:
                 return greetingMessage(message);
-                /*try {
-                    sendMsg(message, Url.getRates(message.getText(), model));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }*/
+
         }
     }
 
@@ -189,7 +184,6 @@ public class Bot extends TelegramLongPollingBot {
                 .setReplyMarkup(getMainMenu());
         return responce;
     }
-
 
     private ReplyKeyboardMarkup getMainMenu() {
 
@@ -203,7 +197,6 @@ public class Bot extends TelegramLongPollingBot {
         row1.add(HELP);
 
         KeyboardRow row2 = new KeyboardRow();
-
 
         row2.add(WEATHER_IN_TOWN);
         row2.add(THANKS);
