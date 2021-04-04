@@ -6,12 +6,7 @@
       <module name="App" target="14" />
       <module name="App_main" target="14" />
       <module name="App_test" target="14" />
-      <module name="bot2" target="14" />
-      <module name="bot2_main" target="14" />
-      <module name="bot2_test" target="14" />
-      <module name="grandesmartbot" target="14" />
       <module name="main" target="14" />
-      <module name="Telegram" target="1.8" />
       <module name="TelegramBotApi" target="14" />
       <module name="WeatherBotApi" target="14" />
     </bytecodeTargetLevel>
