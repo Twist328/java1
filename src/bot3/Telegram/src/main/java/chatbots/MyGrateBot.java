@@ -47,7 +47,43 @@ public class MyGrateBot extends TelegramLongPollingBot {
 
                     sendMessage.setReplyMarkup(inlineKeyboardMarkup);
 
-                    /*ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+                    try {
+                        execute(sendMessage);
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            } else if (update.hasCallbackQuery()) {
+                Message message = update.getCallbackQuery().getMessage();
+                CallbackQuery callbackQuery = update.getCallbackQuery();
+                String data = callbackQuery.getData();
+                SendMessage sendMessage = new SendMessage().setParseMode(ParseMode.MARKDOWN).setChatId(message.getChatId());
+                if (data.equals("Привет")) {
+                    sendMessage.setText("Салам - пополам!!!");
+                } else if (data.equals("Как дела")) {
+                    sendMessage.setText("Да капец ваще!");
+                }
+                    try {
+                        execute(sendMessage);
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+
+        @Override
+        public String getBotUsername () {
+            return "PizKomBot";
+        }
+
+        @Override
+        public String getBotToken () {
+            return "1156742283:AAFI-S2YFXccCEwKA7j5pKhup8QfuCr3KDg";
+        }
+    }
+     /*ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
                     replyKeyboardMarkup.setResizeKeyboard(true).setSelective(true);
                     KeyboardRow keyboardRow1 = new KeyboardRow();
                     KeyboardButton keyboardButton1 = new KeyboardButton();
@@ -62,13 +98,7 @@ public class MyGrateBot extends TelegramLongPollingBot {
                     replyKeyboardMarkup.setKeyboard(keyboardRowList);
                     sendMessage.setReplyMarkup(replyKeyboardMarkup);*/
 
-                    try {
-                        execute(sendMessage);
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                }
-               /* }else if (text.equals("выберите язык")){
+     /* }else if (text.equals("выберите язык")){
                     SendMessage sendMessage= new SendMessage()
                     .setText("Добро пожаловать!")
                             .setParseMode(ParseMode.MARKDOWN)
@@ -103,33 +133,3 @@ public class MyGrateBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }*/
-
-            }
-            } else if (update.hasCallbackQuery()) {
-                Message message = update.getCallbackQuery().getMessage();
-                CallbackQuery callbackQuery = update.getCallbackQuery();
-                String data = callbackQuery.getData();
-                SendMessage sendMessage = new SendMessage().setParseMode(ParseMode.MARKDOWN).setChatId(message.getChatId());
-                if (data.equals("Привет")) {
-                    sendMessage.setText("Салам - пополам!!!");
-                } else if (data.equals("Как дела")) {
-                    sendMessage.setText("Да капец ваще!");
-                    try {
-                        execute(sendMessage);
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-
-        @Override
-        public String getBotUsername () {
-            return "PizKomBot";
-        }
-
-        @Override
-        public String getBotToken () {
-            return "1156742283:AAFI-S2YFXccCEwKA7j5pKhup8QfuCr3KDg";
-        }
-    }
