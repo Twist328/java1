@@ -3,6 +3,7 @@ package application;
 import com.pengrad.telegrambot.Callback;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
+import com.pengrad.telegrambot.model.Location;
 import com.pengrad.telegrambot.model.request.Keyboard;
 import com.pengrad.telegrambot.model.request.ReplyKeyboardMarkup;
 import com.pengrad.telegrambot.request.*;
@@ -41,6 +42,7 @@ public class App {
                         new File("audio/ac-dc-big-gun_241127.mp4")).replyMarkup(keyboard));
                 bot.execute(new SendDocument(update.message().chat().id(),
                         new File("audio/maxresdefault.jpg")).replyMarkup(keyboard));
+                //bot.execute(new SendLocation(update.message().chat().id(), (55.65552004494401),37.46994137959455)).replyMarkup(keyboard));
             });
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
         });
