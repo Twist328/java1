@@ -42,6 +42,9 @@ public class Bot extends TelegramLongPollingBot {
     public static final String JPY = "JPY";
     public static final String GBP = "GBP";
     public static final String EUR = "EUR";
+    public static final String LARNAKA = "ЛАРНАКА";
+    public static final String КЕМЕР = "КЕМЕР";
+    public static final String ALMA_ATA = "АЛМАТЫ";
     private Update update;
 
     public SendMessage sendMsg(Message message, String text) {
@@ -142,10 +145,10 @@ public class Bot extends TelegramLongPollingBot {
 
         KeyboardRow row2 = new KeyboardRow();
 
-        row2.add(СHINA);
+        row2.add(LARNAKA);
         row2.add(SOCHI);
-        row2.add(PARIS);
-        row2.add(LONDON);
+        row2.add(КЕМЕР);
+        row2.add(ALMA_ATA);
 
         List<KeyboardRow> rows = new ArrayList<>();
 

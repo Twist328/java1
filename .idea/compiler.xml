@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="grandesmartbot" />
+        <module name="Telegram" />
+      </profile>
+    </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="apigrandebot" target="14" />
       <module name="App" target="14" />
