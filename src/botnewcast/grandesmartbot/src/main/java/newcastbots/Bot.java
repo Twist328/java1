@@ -1,7 +1,5 @@
 package newcastbots;
 
-import org.telegram.telegrambots.ApiContextInitializer;
-import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
@@ -9,10 +7,8 @@ import org.telegram.telegrambots.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
-import org.telegram.telegrambots.exceptions.TelegramApiRequestException;
 
 import java.io.*;
-import java.net.MalformedURLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -45,6 +41,7 @@ public class Bot extends TelegramLongPollingBot {
     public static final String LARNAKA = "ЛАРНАКА";
     public static final String КЕМЕР = "КЕМЕР";
     public static final String ALMA_ATA = "АЛМАТЫ";
+    public static final String AUDIO_AC_DC_THUNDERSTRUCK_MP_3 = "audio/AC-DC - Thunderstruck.mp3";
     private Update update;
 
     public SendMessage sendMsg(Message message, String text) {
@@ -197,6 +194,12 @@ public class Bot extends TelegramLongPollingBot {
 
     }
 
+    private boolean sendAudio(Message message) throws TelegramApiException {
+        var responce = new SendMessage().equals(new File("audio/AC-DC - Thunderstruck.mp"));
+
+        return responce;
+    }
+
     private SendMessage getMoneyRates(Message message) {
         SendMessage responce = new SendMessage()
                 .setText("Выберите Валюту:)" + Emoji.WINKING_FACE)
@@ -211,6 +214,7 @@ public class Bot extends TelegramLongPollingBot {
                 .setChatId(message.getChatId());
         return responce;
     }
+
     @Override
     public String getBotUsername() {
         return "SmartyKomBot";
@@ -309,9 +313,12 @@ public class Bot extends TelegramLongPollingBot {
                         sendMsg(message, Climat.getWeather(message.getText(), pattern));
                     } catch (IOException e) {
                         sendMsg(message, " К СОЖАЛЕНИЮ ГОРОД НЕ НАЙДЕН" + Emoji.FACE_WITH_TEARS_OF_JOY +
-                                Emoji.FACE_WITH_TEARS_OF_JOY + Emoji.FACE_WITH_TEARS_OF_JOY + "\n ВВЕДИТЕ ДРУГОЕ ЗНАЧЕНИЕ"); }
+                                Emoji.FACE_WITH_TEARS_OF_JOY + Emoji.FACE_WITH_TEARS_OF_JOY + "\n ВВЕДИТЕ ДРУГОЕ ЗНАЧЕНИЕ");
+                    }
             }
         }
     }
+
 }
+
 
