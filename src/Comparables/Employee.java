@@ -53,10 +53,10 @@ public class Employee implements Comparable<Employee> {
         empArr[0] = new Employee(27, "Генулик", 21, 10000);//CompareTo если имена совпадают
         empArr[1] = new Employee(20, "Дмитрий", 49, 20000);//то сортирует по id
         empArr[2] = new Employee(5, "Виктор", 45, 5000);//если правильно переопределен метод
-        empArr[3] = new Employee(26, "Генулик", 22, 10000);
+        empArr[3] = new Employee(26, "Генулик", 21, 10000);
 // сортируем массив с использованием Comparable
         Arrays.sort(empArr);
-        System.out.println("Стандартная сортировка для массива объектов Employee:\n"+Arrays.toString(empArr));
+        System.out.print("Стандартная сортировка для массива объектов Employee:\n"+Arrays.toString(empArr));
 
     }
 
