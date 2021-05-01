@@ -263,19 +263,19 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case GBP:
-                    sendMsg(message, " Курс GBP (ЦБ РФ) 103,78 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   "
+                    sendMsg(message, " Курс GBP (ЦБ РФ) 104,17 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   "
                             + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case JPY:
-                    sendMsg(message, "Курс 100 JPY (ЦБ РФ) 68,29\n" + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  "
+                    sendMsg(message, "Курс 100 JPY (ЦБ РФ) 68,76\n" + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  "
                             + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case EUR:
-                    sendMsg(message, " Курс EUR (ЦБ РФ) 90,15 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   "
+                    sendMsg(message, " Курс EUR (ЦБ РФ) 90,58 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   "
                             + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case USD:
-                    sendMsg(message, " Курс USD (ЦБ РФ) 74,38 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   "
+                    sendMsg(message, " Курс USD (ЦБ РФ) 74,85 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   "
                             + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case HELP:
@@ -318,7 +318,6 @@ public class Bot extends TelegramLongPollingBot {
             }
         }
     }
-
 }
 
 
