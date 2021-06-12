@@ -33,7 +33,9 @@ public boolean isSimple(int n), который возвращает sieve[n], ч
 import java.util.Arrays;
 
 public class Eratosthenes {
+
     private boolean[] sieve; //решето: значение true, означает простое число, false - составное
+
     public Eratosthenes(int N) {
         sieve = new boolean[N + 1];
         if(N > 1) {
