@@ -263,19 +263,19 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case GBP:
-                    sendMsg(message, " Курс GBP (ЦБ РФ) 104,17 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   "
+                    sendMsg(message, " Курс GBP (ЦБ РФ) 101,45 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   "
                             + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case JPY:
-                    sendMsg(message, "Курс 100 JPY (ЦБ РФ) 68,76\n" + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  "
+                    sendMsg(message, "Курс 100 JPY (ЦБ РФ) 65,42\n" + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ  "
                             + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case EUR:
-                    sendMsg(message, " Курс EUR (ЦБ РФ) 90,58 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   "
+                    sendMsg(message, " Курс EUR (ЦБ РФ) 87,61 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   "
                             + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case USD:
-                    sendMsg(message, " Курс USD (ЦБ РФ) 74,85 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   "
+                    sendMsg(message, " Курс USD (ЦБ РФ) 72,31 " + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("СЕГОДНЯ   "
                             + "dd-MM-YYYY ")) + (LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm ")) + Emoji.GRINNING_FACE_WITH_SMILING_EYES)));
                     break;
                 case HELP:
